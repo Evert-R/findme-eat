@@ -2,13 +2,17 @@ function showResults(restaurants) {
     if (restaurants.length == 0) {
         return `<h2>Nothing to show</h2>`;
     }
-    var listItems = restaurants.map(function(restaurant) {
-      return `
+    //  restaurants.sort((a, b) => (a.name > b.name) ? 1 : -1);
+
+    var listItems = restaurants.map(function (restaurant) {
+
+        return `
         <li>
-            ${restaurant.name}
+            ${restaurant.name};
         </li>
-      `  
+      `
     });
+
     return `
         <div class="er-item-list">
             <ul>
@@ -20,11 +24,13 @@ function showResults(restaurants) {
 }
 
 
+
 function getData(event) {
-
+    // empty div
     $("#er-search-results").html("");
-
+    // read input
     var searchInput = $("#er-search-input").val();
+    // if empty display message
     if (!searchInput) {
         $("#er-search-input").attr("placeholder", `Wich city are you in ?`);
         return;
@@ -32,20 +38,23 @@ function getData(event) {
     // read dataSet
     $.when(
         $.get(`assets/data/Datafiniti_Vegetarian_and_Vegan_Restaurants.json`)
-
     ).then(
-        // make variable of data and push to div
+        // make variable of data
         function (response) {
             var dataSet = response;
+            // sort by name to filter easy, cause there are a lot of doubles in the dataset
+            dataSet.sort((a, b) => (a.name > b.name) ? 1 : -1);
+            // create array for the subset
             var searchResults = [];
-
-            for (i = 0; i < dataSet.length; i++) {
-                if (dataSet[i].city == searchInput) {
+            // check if input matches city, check for double names
+            // problem to fix : dataSet[0] is passed over, cause of tyhe i-1 check
+            for (i = 1; i < dataSet.length; i++) {
+                if (dataSet[i].city == searchInput && dataSet[i].name != dataSet[i - 1].name) {
+                    // push restaurant to searchResults
                     searchResults.push(dataSet[i]);
-                    console.log(`${dataSet[i]["name"]}`);
                 }
-                
             }
+            // push searchResults to div
             $("#er-search-results").html(showResults(searchResults));
         },
 
