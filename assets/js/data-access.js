@@ -53,7 +53,7 @@ function getData(event) {
             // check if input matches city, check for double names
             // problem to fix : dataSet[0] is passed over, cause of the i-1 check
             for (i = 1; i < dataSet.length; i++) {
-                if (dataSet[i].city == searchInput && dataSet[i].name != dataSet[i - 1].name) {
+                if (dataSet[i].city.toLowerCase() == searchInput.toLowerCase() && dataSet[i].name != dataSet[i - 1].name) {
                     // push restaurant to searchResults
                     searchResults.push(dataSet[i]);
                 }
