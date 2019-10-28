@@ -5,21 +5,25 @@ function showResults(restaurants) {
     //  restaurants.sort((a, b) => (a.name > b.name) ? 1 : -1);
 
     var listItems = restaurants.map(function (restaurant) {
-
-        return `
-        <li>
-            ${restaurant.name};
-        </li>
-      `
+        return `<tr>
+            <td>
+                ${restaurant.name}
+            </td>
+            <td>
+                ${restaurant.address}
+            </td>
+            <td>
+                ${restaurant.cuisines}
+            </td>           
+        </tr>`
     });
 
     return `
         <div class="er-item-list">
-            <ul>
-                ${listItems}
-            </ul>
+            <table>            
+                ${listItems.join("\n")}      
+            </table>
         </div>
-
     `
 }
 
@@ -45,9 +49,9 @@ function getData(event) {
             // sort by name to filter easy, cause there are a lot of doubles in the dataset
             dataSet.sort((a, b) => (a.name > b.name) ? 1 : -1);
             // create array for the subset
-            var searchResults = [];
+            var searchResults = new Array;
             // check if input matches city, check for double names
-            // problem to fix : dataSet[0] is passed over, cause of tyhe i-1 check
+            // problem to fix : dataSet[0] is passed over, cause of the i-1 check
             for (i = 1; i < dataSet.length; i++) {
                 if (dataSet[i].city == searchInput && dataSet[i].name != dataSet[i - 1].name) {
                     // push restaurant to searchResults
@@ -55,6 +59,7 @@ function getData(event) {
                 }
             }
             // push searchResults to div
+            console.log(searchResults[0]);
             $("#er-search-results").html(showResults(searchResults));
         },
 
