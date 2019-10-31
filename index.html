@@ -14,14 +14,23 @@
         type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/api-access.js"></script>
 </head>
 
 <body>
+
     <div>
-        <input type="text" id="er-search-input" placeholder="" value="" oninput="getData()" />
+        <form onsubmit="return false;" method="post" name="myForm">
+            <input type="text" name="er-search-input" id="er-search-input" placeholder="Wich city are you in ?"
+                value="" />
+            <button type="submit" name="GO" onclick="getData()">Go!</button>
+        </form>
     </div>
-    <div id="er-search-results"></div>
+
+    <div id="er-search-results">
+    </div>
+
 </body>
-<script src="assets/js/data-access.js"></script>
+
 
 </html>
