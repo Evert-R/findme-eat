@@ -10,7 +10,7 @@ function showResults(restaurants) {
                 ${restaurant.name}
             </td>
             <td>
-                ${restaurant.address1}
+                ${restaurant.id}
             </td>
             <td>
                 ${restaurant.cuisines}
@@ -28,32 +28,34 @@ function showResults(restaurants) {
     `
 }
 
-
-function getData(event) {
-    // empty div
-    $("#er-search-results").html("");
-    // read input
-    var searchInput = document.getElementById("er-search-input").value;
-    //   var searchInput = $("#er-search-input").val();
-    // if empty display message
+function getInput() {
     if (!searchInput) {
         $("#er-search-input").attr("placeholder", `Wich city are you in ?`);
         return;
-    }
+    };
+    var searchInput = document.getElementById("er-search-input").value;
+    getCity(searchInput);
+}
+
+function getCity(searchInput) {
+    //  var apiLink = 'https://developers.zomato.com/api/v2.1/cities?lat=40.662787&lon=-73.940520';
+    var searchInput = document.getElementById("er-search-input").value;
+    var apiLink = `https://developers.zomato.com/api/v2.1/cities?q=${searchInput}`;
+    getData(apiLink);
+}
+
+function getData(apiLink) {
+    // empty div
+    $("#er-search-results").html("");
+    // read input
+
+    //   var searchInput = $("#er-search-input").val();
+    // if empty display message
+
     // read dataSet
-
-    let uri = `https://www.vegguide.org/search/by-address/${searchInput}/`;
-
-    let h = new Headers();
-    h.append('Accept', 'application/json', 'User-Agent', 'CodeStudent');
-
-    let req = new Request(uri, {
-        method: 'GET',
-        headers: h,
-        mode: 'cors'
-    });
-
-    fetch(req)
+    fetch(apiLink,
+        { method: 'GET', headers: { 'Content-Type': 'application/json', 'user-key': 'a892fb6764d90fa8100b688ab57b2d2a' } }
+    )
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -62,12 +64,13 @@ function getData(event) {
             }
         })
         .then((jsonData) => {
-            $("#er-search-results").html(showResults(jsonData.entries));
-            console.log(jsonData.entries);
+            $("#er-search-results").html(showResults(jsonData.location_suggestions));
+            console.log(jsonData.location_suggestions);
         })
         .catch((err) => {
             console.log('ERROR:', err.message);
         });
 }
+
 
 
