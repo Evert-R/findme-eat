@@ -1,0 +1,1009 @@
+{
+  "html_attributions": [],
+  "next_page_token": "CpQCCgEAAK5d9bwYrw7rdRaojnFWi1x3SrBycq7JKxuI2R1W699aPbdZPSHjLMZZKcbi-XuZG_TGs-upgA8T39cmFbQ0vy3Iuo-AY2ePrI3AlqZ3ilTOk06Dh2ARhCLpy1RA0v6qr5WxeIyYQj5U-mSDKTIaxJGuEB7GgVMBZRVP9QEWxk1B8idtWKlVePSSX7Rihi0fUUV6GbJGbiHujdxKdFu6CmjNjNF_SUSSq86NyR5QubVJQyiQsQbyUmjPI7XsaG0NebjewfTbHAQc5jIQk5OCMHxgILWuKh03VwWLiKazcKjZ4io6Ld0JUS1TO6gNyYND24h-hRAMsE3ldNiesIE2LDq9K-oYIGJKHZrITujUVahrEhDh4TZPyxsAdsduiqREW986GhTKa_NZpd10KXM1RetDi9s79dzF1A",
+  "results": [
+    {
+      "formatted_address": "Rijksweg A13 202, 2629 HA Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 51.982008,
+          "lng": 4.39362
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 51.98334782989273,
+            "lng": 4.395003579892721
+          },
+          "southwest": {
+            "lat": 51.98064817010728,
+            "lng": 4.392303920107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "7fdcc9ffd35db2aae99ccc9539aaf9cd8064a407",
+      "name": "Atithi Indian Restaurant Delft",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2776,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102563698330020351471/photos\">Pramod Pandey</a>"
+          ],
+          "photo_reference": "CmRZAAAAr8CFKFU3CNl3mKvtUUAgileTR2kYoBVw8ED8WokYoHOR4M598h8kNStiAFZcKEr_mZopBJ-QkBJoCDfw0_LGEvcRWygABl6_FdIEIYZiH7LOlCDe08T4mHDpzhwv-adFEhCBV7yvPhMU01haC9gDfTf1GhR8MCrYbDdUFwF0WcAG1Woj7bn7XA",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJlyq-hYfKxUcRGKlT3PdioYs",
+      "plus_code": {
+        "compound_code": "X9JV+RC Delft, Netherlands",
+        "global_code": "9F36X9JV+RC"
+      },
+      "rating": 4.1,
+      "reference": "ChIJlyq-hYfKxUcRGKlT3PdioYs",
+      "types": [
+        "amusement_park",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 164
+    },
+    {
+      "formatted_address": "Nieuwe Langendijk 54, 2611 VL Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0132431,
+          "lng": 4.3634505
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01455897989273,
+            "lng": 4.364840529892722
+          },
+          "southwest": {
+            "lat": 52.01185932010728,
+            "lng": 4.362140870107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "b205040f43ccc70d51922974bdc30b664ff3cb07",
+      "name": "Restaurant Het Vermeertje Delft",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 544,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106420825032932565202/photos\">Café-Restaurant &#39;t Vermeertje</a>"
+          ],
+          "photo_reference": "CmRaAAAA2pCWJ6tfrgPHxLAUv11lDy2WxesVNhzhxeZmF52q_kaCpT80HhgWoq9EF6AL0x4CEU24PmZLQuWfvMIvu79T3H5Q5o3JJr-_tkULIVIHyRnAzMqAogg4jopztPzIrTgpEhAywXasWwv5up76U4YkXRxGGhQVWXy9T9Pj8yJ6duPq_Q8cV7exoQ",
+          "width": 819
+        }
+      ],
+      "place_id": "ChIJw3fZUMK1xUcR9BYkz1ST6GA",
+      "plus_code": {
+        "compound_code": "2977+79 Delft, Netherlands",
+        "global_code": "9F462977+79"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJw3fZUMK1xUcR9BYkz1ST6GA",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 150
+    },
+    {
+      "formatted_address": "Beestenmarkt 45a, 2611 GA Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0113347,
+          "lng": 4.3630563
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01266092989272,
+            "lng": 4.364556729892722
+          },
+          "southwest": {
+            "lat": 52.00996127010727,
+            "lng": 4.361857070107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "80354e997398fc6adcd709693e22fe3bb24b75a7",
+      "name": "La Cubanita Delft",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3648,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108549928439641167208/photos\">Johan Sterrenburg</a>"
+          ],
+          "photo_reference": "CmRaAAAA3j6l4p4aJKZuJ6Gsc16kjfm-Ii4qSSZQuJh7HoBsCASpNkpMHoU_PiAaR-FUm_tRa9Hw0DFt1LE-gL2mM6ShW6_gdpYvfav0JbHNJ-BOFkKOqFh2vo41-OwRYgscImWcEhC8oPGS6CtgludluZ-dyITbGhSiF0N7QQxRUoLj33IEb4yzS0ZNCQ",
+          "width": 5472
+        }
+      ],
+      "place_id": "ChIJ-90_w-m1xUcRQmK0LTPsnPY",
+      "plus_code": {
+        "compound_code": "2967+G6 Delft, Netherlands",
+        "global_code": "9F462967+G6"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJ-90_w-m1xUcRQmK0LTPsnPY",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 540
+    },
+    {
+      "formatted_address": "Voldersgracht 4, 2611 ET Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.011865,
+          "lng": 4.358004
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01269387989272,
+            "lng": 4.359474829892722
+          },
+          "southwest": {
+            "lat": 52.00999422010727,
+            "lng": 4.356775170107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "6696e6bb492e205df172e34a9087b981dd49dbea",
+      "name": "Happy Tosti Delft Voldersgracht",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104556678440666064568/photos\">Sebastian Willius</a>"
+          ],
+          "photo_reference": "CmRaAAAAYEDcNiDm9ty7waT-c-s07gHUJBALzN-F8jJS5yvrrWA2s0c_AjLoDYNAAHkqmZLi3XKYCFe8ybPo46XL-vU5pBCCI1_Qo6WnBpTOlfRJ1OfhW515GGwDYOPwyYvE159QEhA9NmvRw-pseEdRbRZtA1f8GhT-McV_Hd2ponHwD4T5LkH3Y1Cl9Q",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJGfPrusO1xUcR2WcKCbFDndY",
+      "plus_code": {
+        "compound_code": "2965+P6 Delft, Netherlands",
+        "global_code": "9F462965+P6"
+      },
+      "rating": 4.5,
+      "reference": "ChIJGfPrusO1xUcR2WcKCbFDndY",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 231
+    },
+    {
+      "formatted_address": "Binnenwatersloot 22, 2611 BK Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0098113,
+          "lng": 4.3562758
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01114642989272,
+            "lng": 4.357641029892722
+          },
+          "southwest": {
+            "lat": 52.00844677010728,
+            "lng": 4.354941370107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "360a0a9c816c55159c4544ebb6d302627c2a1338",
+      "name": "eazie Delft",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2160,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102916907193258964417/photos\">Joshua Roozendaal</a>"
+          ],
+          "photo_reference": "CmRaAAAAkkE1EtTJoCZcY-WFf4XunMff8O7GM10q20Tlg9EmJCnw0LQdya-ZLDUofl0thidz68Oh7uBXCSbSAuivofO6p-fzOGfAj5UrD0huWPNMBELIvJqkGEEdaFAubxmfBktEEhACFO4ofQQGxWq5xQ_55Y6pGhQSPD5ozXRbAXBF_l7DYI7j1wDMuw",
+          "width": 3840
+        }
+      ],
+      "place_id": "ChIJzWCYWcG1xUcR3fid-BRw4Hs",
+      "plus_code": {
+        "compound_code": "2954+WG Delft, Netherlands",
+        "global_code": "9F462954+WG"
+      },
+      "price_level": 1,
+      "rating": 4,
+      "reference": "ChIJzWCYWcG1xUcR3fid-BRw4Hs",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 347
+    },
+    {
+      "formatted_address": "Nieuwe Langendijk 1, 2611 VG Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0125973,
+          "lng": 4.3627288
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01397107989273,
+            "lng": 4.364048179892722
+          },
+          "southwest": {
+            "lat": 52.01127142010728,
+            "lng": 4.361348520107279
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "fc2d589511f28feee38c3ddc4e873c36da8b391e",
+      "name": "SushiPoint Delft",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103286762878924936336/photos\">Zo re</a>"
+          ],
+          "photo_reference": "CmRaAAAA5Wq1jEmhZoU5Y29oloTm__g7uccjZXenBer3RdbFgAmI-qK9PjTiZehZaL-Rzc4zAvYuX1iZALvxfUyySWQlAMXn53AdX4_wDj47wJRPgoJ8jCVpDw_wkXeX-86Ih6gIEhDpiTvsAbyq3iZJsezqom6YGhRImpM_0fi3_NOSYF-9KTtjjVhcwg",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJYeRoLOi1xUcR9jT5Su2I4og",
+      "plus_code": {
+        "compound_code": "2977+23 Delft, Netherlands",
+        "global_code": "9F462977+23"
+      },
+      "price_level": 2,
+      "rating": 3.9,
+      "reference": "ChIJYeRoLOi1xUcR9jT5Su2I4og",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 94
+    },
+    {
+      "formatted_address": "Hippolytusbuurt 3, 2611 HM Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.01169700000001,
+          "lng": 4.3571802
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01258427989271,
+            "lng": 4.358938729892722
+          },
+          "southwest": {
+            "lat": 52.00988462010727,
+            "lng": 4.356239070107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "a7a2e2da499b626fce8dd5f0e11ada72912a1287",
+      "name": "Van Maanen",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104682443244154494798/photos\">David Kinlan</a>"
+          ],
+          "photo_reference": "CmRaAAAAD3uk--_nIulhBGk4-YqtXh1GuRh77BL-hLy4XAqHbbea1tzLyG6FLQHywJIPgJPvBTDyQtRuXb_Pix7EPdrp4lBmoCP00Ut5yKqbprofS2ejlsuReo0vvcY-sVhVovgMEhDT_SQUyfLJSABac8DR7iAOGhTwgy66WE2wxTCKkkqXqoE9jymNRg",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJkRMAlsO1xUcRzElYImiEzIE",
+      "plus_code": {
+        "compound_code": "2964+MV Delft, Netherlands",
+        "global_code": "9F462964+MV"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJkRMAlsO1xUcRzElYImiEzIE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 535
+    },
+    {
+      "formatted_address": "Van Leeuwenhoeksingel 42A, 2611 AC Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0073851,
+          "lng": 4.3563427
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.00852242989272,
+            "lng": 4.357923579892722
+          },
+          "southwest": {
+            "lat": 52.00582277010727,
+            "lng": 4.355223920107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "8dd3ec12634a9428a69f567ab6a970f4f4f7604b",
+      "name": "Smullers",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1866,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116479170610537538946/photos\">Hamid Reza Heidarian</a>"
+          ],
+          "photo_reference": "CmRaAAAAaqzLPKOJ8L-zzkNp1LJXw88fguz_zAejbkXBOtzpOFnR1cNABXZanxYlHi1ga5HOu10dn12zq0jijM1ZmRS08Ywh5AIvRuKyAe67Zlq2zj9ow_u2Jws9WQdZsEaJAiSTEhBtpLQqfndmFgTXU_vlFKM0GhQJflNnkndpQJ96lf25JkhI2bOpdg",
+          "width": 2748
+        }
+      ],
+      "place_id": "ChIJzxWdIMG1xUcRzi6t8S2nDxE",
+      "plus_code": {
+        "compound_code": "2944+XG Delft, Netherlands",
+        "global_code": "9F462944+XG"
+      },
+      "rating": 3.4,
+      "reference": "ChIJzxWdIMG1xUcRzi6t8S2nDxE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 28
+    },
+    {
+      "formatted_address": "Bagijnhof 118, 2611 AS Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.014012,
+          "lng": 4.353562999999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01530142989272,
+            "lng": 4.354917479892722
+          },
+          "southwest": {
+            "lat": 52.01260177010728,
+            "lng": 4.352217820107279
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "60e7f553797c31b7ca25e9e024d9cce2930b12e3",
+      "name": "Van der Dussen",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113757799376298895459/photos\">Joyce Wong</a>"
+          ],
+          "photo_reference": "CmRaAAAAhiqQszEcnPPxFJAFBO4ed5zfG0Tjd0FP-ImjpcV3aVMh8DLQrhKCNingNavq8suJs_nKXKMsTulTu69iMqVw2On-uh0cMf4GDBnbNTcvuFyCSvYWLBHzXrOxrPDr3xC7EhBH9zlKRxPNK8I0WvloUVYEGhQcaIbXynKa8SXq9WRmBshw_LMhNQ",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJY1d_6MS1xUcREHG5yq-0WQw",
+      "plus_code": {
+        "compound_code": "2973+JC Delft, Netherlands",
+        "global_code": "9F462973+JC"
+      },
+      "price_level": 3,
+      "rating": 4.6,
+      "reference": "ChIJY1d_6MS1xUcREHG5yq-0WQw",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 217
+    },
+    {
+      "formatted_address": "Oude Delft 125, 2611 BE Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0107122,
+          "lng": 4.3565136
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01192807989272,
+            "lng": 4.358014379892722
+          },
+          "southwest": {
+            "lat": 52.00922842010728,
+            "lng": 4.355314720107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "28ed2f6c75d5ef4c82ec11d3744ebf92957c1f85",
+      "name": "Restaurant VOC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107668645314883714083/photos\">Raivo S</a>"
+          ],
+          "photo_reference": "CmRaAAAA5_kCkZxhoxnvJzNSi1Qw1xlvA__hrdk5qLQFtb1RCCxT16dTZagZeS0Ho6eLyTK7Fpe_rehj8g-uq9OQ6RbEdu_O09wiW8kyMI6O6Kx1Ix_Z77pNkZKAKNUoJt8RnBahEhBBMETjhnLEd6pgUxYMyxVHGhT_jNDHzWLcI99UrHWqLYpKHRbgTA",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJkXOB78O1xUcRVfnzUju-J7s",
+      "plus_code": {
+        "compound_code": "2964+7J Delft, Netherlands",
+        "global_code": "9F462964+7J"
+      },
+      "rating": 4.4,
+      "reference": "ChIJkXOB78O1xUcRVfnzUju-J7s",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 69
+    },
+    {
+      "formatted_address": "Voorstraat 9, 2611 JJ Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.013185,
+          "lng": 4.3561517
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01453547989272,
+            "lng": 4.357503929892722
+          },
+          "southwest": {
+            "lat": 52.01183582010728,
+            "lng": 4.354804270107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "26481ee337ccd7225c7e339f18e96a6a57a8c32b",
+      "name": "Café Restaurant de V",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 5248,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100020455547589499462/photos\">Claudia Kroon</a>"
+          ],
+          "photo_reference": "CmRaAAAAnHk3h3mrYeIumZhD2kuQRH4QRab24hFDU0v7HCgxyCoCHtcv7wI3Oy019yBqZJHULTMAsGzjZBUea9O_FxJbxqg0lyRxDFOb2-fsQoJIh9z60wzHOhJvszhKMmKcYVZNEhAdAiRbHF9jbZFb8V4GO4dwGhRObx1kYlb0A8tE8bA0vvhfnGpC6A",
+          "width": 3936
+        }
+      ],
+      "place_id": "ChIJH5iMfMO1xUcR9UjBVA4V8y8",
+      "plus_code": {
+        "compound_code": "2974+7F Delft, Netherlands",
+        "global_code": "9F462974+7F"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJH5iMfMO1xUcR9UjBVA4V8y8",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 397
+    },
+    {
+      "formatted_address": "Doelenplein 2, 2611 BP Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0140201,
+          "lng": 4.3586091
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01540392989272,
+            "lng": 4.359917679892721
+          },
+          "southwest": {
+            "lat": 52.01270427010728,
+            "lng": 4.357218020107277
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "4e218f359ee2f514234fb4062f4e350255b40def",
+      "name": "LEF Restaurant & Bar Delft",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3744,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116672686545780738662/photos\">LEF Restaurant &amp; Bar Delft</a>"
+          ],
+          "photo_reference": "CmRaAAAA8ymgY_PVp3mb7-FNRQ1xRxqBBm-xlM-ztZ0yV6UvfpFG4kYT3iOU3F4lh_aPDd18c6rYAYgKTYWcY2ta4eaLXnRvokIop2vZJFxPI2_j70pgA-ZB0IpTAGLDtcRn5kYWEhDXSgJV4Z3V4rZqYqLoHpP_GhQJve0JonKbYL7zzmmqGXCOW7ofyQ",
+          "width": 5616
+        }
+      ],
+      "place_id": "ChIJ0_CkIsO1xUcRWRM_rSreOJk",
+      "plus_code": {
+        "compound_code": "2975+JC Delft, Netherlands",
+        "global_code": "9F462975+JC"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJ0_CkIsO1xUcRWRM_rSreOJk",
+      "types": [
+        "restaurant",
+        "cafe",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 453
+    },
+    {
+      "formatted_address": "Beestenmarkt 16, 2611 GB Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.011712,
+          "lng": 4.362404
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01326087989272,
+            "lng": 4.364283329892723
+          },
+          "southwest": {
+            "lat": 52.01056122010728,
+            "lng": 4.361583670107279
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "bf43dd5ef23b96b9e611e89d8133b5e102141eb7",
+      "name": "Moeke Delft",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101742656701209373261/photos\">Peter van der Werve</a>"
+          ],
+          "photo_reference": "CmRaAAAAYdJHQY3MWZAC0SNK7BWiQyJ0zVyULlK2i_I_CdPbEdZPLk6blBPgz74qLGEAbxG4WB9SRVtIUFLT6g83IvkjZijsUFngxW8C-V_P8t3ezAFw0jN3Fau11WRrBpPahuj-EhCKQBnSI58yt8E6isLlQkf0GhRAIz23yyunmaQUn7kFPy1mYzutCw",
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJcUWt2em1xUcRtqtk-X-Kd-c",
+      "plus_code": {
+        "compound_code": "2966+MX Delft, Netherlands",
+        "global_code": "9F462966+MX"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJcUWt2em1xUcRtqtk-X-Kd-c",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 689
+    },
+    {
+      "formatted_address": "Oude Delft 133, 2611 BE Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0108441,
+          "lng": 4.3564175
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01199382989272,
+            "lng": 4.357963029892722
+          },
+          "southwest": {
+            "lat": 52.00929417010727,
+            "lng": 4.355263370107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "617a60c72adb8e699984bc5f0b805979e7307bfd",
+      "name": "Stads-Koffyhuis",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4608,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116134251527493819358/photos\">Stephanie Erwin</a>"
+          ],
+          "photo_reference": "CmRaAAAAoFzYdFFtmtNBOqjhtgI3E6S7PT579-0MpVk2b1j7TtrVKeNvsz38r81f_nBeF_KWUs1gbbPL9UiCOAl2NzeiRdetsfDELKNJwsSpLo-iGmixtAPPV7fFcwBCpvZms_zUEhDbDOutEvNfiV0oZhcua37FGhTvRRw0CHUvKuxvDqpoS2EQd-w0pg",
+          "width": 2240
+        }
+      ],
+      "place_id": "ChIJk-jj78O1xUcRU8EPwz1_sD4",
+      "plus_code": {
+        "compound_code": "2964+8H Delft, Netherlands",
+        "global_code": "9F462964+8H"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJk-jj78O1xUcRU8EPwz1_sD4",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 1418
+    },
+    {
+      "formatted_address": "Voldersgracht 2, 2611 ET Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0117871,
+          "lng": 4.3577556
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01265492989273,
+            "lng": 4.359350629892722
+          },
+          "southwest": {
+            "lat": 52.00995527010728,
+            "lng": 4.356650970107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "a78ad5d2e9a8c52165cfe14b85bc772b327e4027",
+      "name": "De Centrale",
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115739605266978572812/photos\">Sietske Helder</a>"
+          ],
+          "photo_reference": "CmRaAAAAcDJ2YC0kddFVKkZVM_7zV5jZdPYDbLvfeDDU80ubP9v2pA4B9kNinjHhd8uDHEiMAGyWE4L8uWIs5Ri3rthRIiExpnb5V9MncoES3_SA4l6OxG_ChwG5mKpOCra80oAmEhDMM019ECCEClomNVsJpvjWGhTMAzfBd8HaFu_tPTuZZbB5pIcA6A",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJn_dOusO1xUcR3157BxakdnI",
+      "plus_code": {
+        "compound_code": "2965+P4 Delft, Netherlands",
+        "global_code": "9F462965+P4"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJn_dOusO1xUcR3157BxakdnI",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 267
+    },
+    {
+      "formatted_address": "Rotterdamseweg 272, 2628 AT Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 51.9958269,
+          "lng": 4.3702481
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 51.99720817989272,
+            "lng": 4.371739179892722
+          },
+          "southwest": {
+            "lat": 51.99450852010728,
+            "lng": 4.369039520107278
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "8a106073d4e12b6caafbb84e333d2fe772f43c1d",
+      "name": "Experiment Delft",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2976,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107669223619001270352/photos\">Stephen Picken</a>"
+          ],
+          "photo_reference": "CmRaAAAAwnSaBFNqZG1HELBRJsK2jfmN8nrMwB62gWnbFBk5bV3Dc8AbuuR9k6O8x8_J_1xo_YtYpieToKZFThED0-zzycs2-gHIu87EY0E6yS8BRUybmCYb4HZvn9mQg0bKrNtnEhBgC6bC9P42V5meJ8Pd-LjUGhQjB9gWIsNh_agPNgzFIHY-X8PHrw",
+          "width": 3968
+        }
+      ],
+      "place_id": "ChIJVVUhTpC1xUcRuJB1hi1ePV4",
+      "plus_code": {
+        "compound_code": "X9WC+83 Delft, Netherlands",
+        "global_code": "9F36X9WC+83"
+      },
+      "rating": 4.8,
+      "reference": "ChIJVVUhTpC1xUcRuJB1hi1ePV4",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 6
+    },
+    {
+      "formatted_address": "Vrouwjuttenland 11, 2611 LB Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.01288599999999,
+          "lng": 4.3599299
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01424022989272,
+            "lng": 4.361636479892723
+          },
+          "southwest": {
+            "lat": 52.01154057010727,
+            "lng": 4.358936820107279
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "b5d97b2e55a8a47fcc09e74fa03458eb2b6b7adf",
+      "name": "Mekhong Thai-Lao restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109555170106181984282/photos\">Widita Budhysutanto</a>"
+          ],
+          "photo_reference": "CmRaAAAAX1WgtJ7pHMY-jTBbvQ65Ml9tRBa121OzpIrNhvV_nmN-UVaJEDSgZFxrtpFL7f1woIfm1u4yx1zZXvdojYilvz3_A5_9zITKh5kmqGgiZIUNA1QUnhpUAM3Na-YTKc2uEhCvN6I4I3fOhDeC9JlzT7NLGhSiclbi6bcMEYGR3eiLLcgBUT_lJw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJWVY298K1xUcRJskdk99M5Sg",
+      "plus_code": {
+        "compound_code": "2975+5X Delft, Netherlands",
+        "global_code": "9F462975+5X"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJWVY298K1xUcRJskdk99M5Sg",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 345
+    },
+    {
+      "formatted_address": "Oosteinde 123, 2611 VB Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0112873,
+          "lng": 4.3658078
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01267417989272,
+            "lng": 4.367194679892721
+          },
+          "southwest": {
+            "lat": 52.00997452010728,
+            "lng": 4.364495020107277
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "a1a4c076d1b30fbe52e53b33ed5f30a82b04ae18",
+      "name": "THUIS by Ladera",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 543,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112004260747803514542/photos\">Ladera</a>"
+          ],
+          "photo_reference": "CmRaAAAAIYiGLIEjRtSv70clMFInqnb5wEjwECdzt-5MXqDB1pIqq7s9qFx618KhPBbeQmEascAuTqEzS2xwJJOWh2P3i1FuMaIO6s-CLP_aT3rWGoSu84aRuVEQ29jzY1hsIy8wEhBe8QoIEUQxzYVGQUSAibwFGhSGKo0J4Ct7KGYufpA-hiXOruDnXQ",
+          "width": 1019
+        }
+      ],
+      "place_id": "ChIJeZEZDOm1xUcRm5SI4mTMt1I",
+      "plus_code": {
+        "compound_code": "2968+G8 Delft, Netherlands",
+        "global_code": "9F462968+G8"
+      },
+      "price_level": 1,
+      "rating": 4.7,
+      "reference": "ChIJeZEZDOm1xUcRm5SI4mTMt1I",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 342
+    },
+    {
+      "formatted_address": "Choorstraat 50-56, 2611 JH Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0133894,
+          "lng": 4.358597899999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01472317989272,
+            "lng": 4.360008179892721
+          },
+          "southwest": {
+            "lat": 52.01202352010728,
+            "lng": 4.357308520107277
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "bbfde4d79d07d651119ca9bc9c7a832989c1bb08",
+      "name": "Redjeki",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116928467412425795548/photos\">caithlyn Toding</a>"
+          ],
+          "photo_reference": "CmRaAAAAm-vJjS-asyXIjIESKLAd_FHoDom9YAInlOZU3BtarsyGbP_dkbTy03Qy8BZop8sMklm2LzzI73jr778P7_YeawCJbk5FKTmuo2-Ojus9OpCy7Yi-YHw6JHfEKdsRGnHtEhCzbzFPGrI3FcmQxFoW67tMGhTQrqPrtArFvHq_Y6qEMPPvZhB5uA",
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJWa3hGsO1xUcRXLLE0yTxZXY",
+      "plus_code": {
+        "compound_code": "2975+9C Delft, Netherlands",
+        "global_code": "9F462975+9C"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJWa3hGsO1xUcRXLLE0yTxZXY",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 155
+    },
+    {
+      "formatted_address": "Markt 15-17a, 2611 GP Delft, Netherlands",
+      "geometry": {
+        "location": {
+          "lat": 52.0111449,
+          "lng": 4.3581521
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.01234927989272,
+            "lng": 4.359553229892721
+          },
+          "southwest": {
+            "lat": 52.00964962010728,
+            "lng": 4.356853570107277
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c7a36618b5267485d641293659ee229dcabe4e58",
+      "name": "Grand-Cafe-Diner 't Boterhuis",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112580208573040958253/photos\">Erik Andringa</a>"
+          ],
+          "photo_reference": "CmRaAAAAuuiypOe-hCTeT6Rbg-Je3PPyTBhZIOriRYTDCA22ZTtCcyWGWvIa4T5mpzNmUMuimFPiKnNwfQ32JZlB5ht_MOVcmXo64IcC2BCHsotG_l9jAjkH8c__R6FTMO_3IlbMEhB1TDk0S1Xt5Oxm-gbZCyIGGhR7OJX0ARn_L5jsVqs0-A669zIffw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJoTdWyMO1xUcRn6KaqTjE7JQ",
+      "plus_code": {
+        "compound_code": "2965+F7 Delft, Netherlands",
+        "global_code": "9F462965+F7"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJoTdWyMO1xUcRn6KaqTjE7JQ",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 409
+    }
+  ],
+  "status": "OK"
+}

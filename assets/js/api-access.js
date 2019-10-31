@@ -2,18 +2,17 @@ function showResults(restaurants) {
     if (restaurants.length == 0) {
         return `<h2>Nothing to show</h2>`;
     }
-    //  restaurants.sort((a, b) => (a.name > b.name) ? 1 : -1);
 
-    var listItems = restaurants.map(function (restaurant) {
+    let listItems = restaurants.map(function (restaurant) {
         return `<tr>
             <td>
                 ${restaurant.name}
             </td>
             <td>
-                ${restaurant.id}
+                ${restaurant.formatted_address}
             </td>
             <td>
-                ${restaurant.cuisines}
+                ${restaurant.rating}
             </td>           
         </tr>`
     });
@@ -28,47 +27,47 @@ function showResults(restaurants) {
     `
 }
 
-function getInput() {
-    if (!searchInput) {
-        $("#er-search-input").attr("placeholder", `Wich city are you in ?`);
+function getInput() { // get the search argument from the input field
+    let searchInput = document.getElementById("er-search-input").value;
+
+    if (!searchInput) { // check if nothing was entered
+        $("#er-search-input").attr("placeholder", `You have to give me something!`);
         return;
     };
-    var searchInput = document.getElementById("er-search-input").value;
-    getCity(searchInput);
-}
-
-function getCity(searchInput) {
-    //  var apiLink = 'https://developers.zomato.com/api/v2.1/cities?lat=40.662787&lon=-73.940520';
-    var searchInput = document.getElementById("er-search-input").value;
-    var apiLink = `https://developers.zomato.com/api/v2.1/cities?q=${searchInput}`;
+    // make search argument safe for url use
+    let uri = encodeURI(searchInput);
+    // create the uri to query the
+    let apiLink = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant+vegetarian+${uri}&key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE`;
     getData(apiLink);
 }
 
-function getData(apiLink) {
+function getData(uri) {
     // empty div
     $("#er-search-results").html("");
-    // read input
+    $.when(
+    //         $.get(uri)
+        $.get('assets/data/newYork.json') // test without api access
+    ).then(
+        // make variable of data and push to div
+        function (response) {
+            let searchResults = response;
 
-    //   var searchInput = $("#er-search-input").val();
-    // if empty display message
-
-    // read dataSet
-    fetch(apiLink,
-        { method: 'GET', headers: { 'Content-Type': 'application/json', 'user-key': 'a892fb6764d90fa8100b688ab57b2d2a' } }
-    )
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
+            $("#er-search-results").html(showResults(searchResults.results));
+            console.log(searchResults);
+        },
+        // error handling
+        function (errorResponse) {
+            if (errorResponse.status === 404) {
+                $("#er-api-data").html(
+                    `<h2>No info found for leiden</h2>`);
+            } else if (errorResponse.status === 403) {
+                let resetTime = new Date(errorResponse.getResponseHeader('X-RateLimit-Reset') * 1000);
+                $("#er-api-data").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
             } else {
-                throw new Error('BAD HTTP stuff');
+                console.log(errorResponse);
+                $("#er-api-data").html(
+                    `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);
             }
-        })
-        .then((jsonData) => {
-            $("#er-search-results").html(showResults(jsonData.location_suggestions));
-            console.log(jsonData.location_suggestions);
-        })
-        .catch((err) => {
-            console.log('ERROR:', err.message);
         });
 }
 

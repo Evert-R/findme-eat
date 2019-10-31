@@ -1,0 +1,1015 @@
+{
+  "html_attributions": [],
+  "next_page_token": "CpQCDQEAAF2x_YkSTnGcSL3NsetakLLvLOiteiRKOgs7AFzpryvx8zatNBBFUtS7RxIgdxlinwAJ2BqEIh-yuu_VCGpBOIcUxL1R3xoIGyoRj_FZPnKerJrYdZZEVHgkLSj2YbsEDekGtEZfjoQuATEIEZz_8f-tgBiQBGN7IvdqFPkqiBrhQSIm8B0x6S4-ZDlOby8VQCktqnTSkF6Mj9EogO0ZGlJQRnjO5AatNEmKY4JcAhU6eHQ_7Sxn3LngaLz3MVjwxSLAQcNYNA7AJXgwVU0hLw57RIWiM5KhnO7Dl2QptJ43hMTb-pcAE57vZ_G8PxQ3iS_W_clGCKEbnV9MnqDMRSQxO6480v-vFyoruedMQZOtEhD3ABj5jHCMBKgI-HubHDsjGhQHZILyqbxio7a6ka7IDxGNLZzkAA",
+  "results": [
+    {
+      "formatted_address": "130 E 7th St, New York, NY 10009, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.726112,
+          "lng": -73.983963
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.72750652989271,
+            "lng": -73.98258127010727
+          },
+          "southwest": {
+            "lat": 40.72480687010727,
+            "lng": -73.98528092989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "527766bcfb7cfd791a2a8785b4adeca491fa124f",
+      "name": "Avant Garden East Village",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2992,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104744508404344853707/photos\">Peter Teoh</a>"
+          ],
+          "photo_reference": "CmRaAAAAnLdZT3xmuGeqRNlaKTo2qmuoe0SHEVsrfYG3_Yifon9jGE9BLOoMYvpoFawnDfyAlwY1912zUnFWS1TwcoGmXF9e-LjIyzGiywafcnF2PP6uP_-PKUdISO1BXGJjVROjEhBXVsfBTiN99E7u-cVXK6tLGhQtdRtr8DjjqyOJ5fqiiwHF5__oLQ",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJhesNT51ZwokRqIACbMxk2BQ",
+      "plus_code": {
+        "compound_code": "P2G8+CC New York",
+        "global_code": "87G8P2G8+CC"
+      },
+      "price_level": 3,
+      "rating": 4.6,
+      "reference": "ChIJhesNT51ZwokRqIACbMxk2BQ",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 310
+    },
+    {
+      "formatted_address": "187 9th Ave, New York, NY 10011, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7455247,
+          "lng": -74.0023575
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.74683057989272,
+            "lng": -74.00090357010727
+          },
+          "southwest": {
+            "lat": 40.74413092010728,
+            "lng": -74.00360322989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "d8a7bcdbeeb9028dda82e56f41fa16023113042b",
+      "name": "Blossom on Ninth",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3036,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104383940002031411233/photos\">Scott Giambastiani</a>"
+          ],
+          "photo_reference": "CmRaAAAAt3Z9Y-qv6ulAjyF861v2KJSNw-vkYrv3RcVp16zAcIT8DTgydnjXynLB0LOHfJ8ei1abrOG1BZqB0M1eCNE3ZgABlTSv-juE-tBS-KLKtLZ0bfhs09b_urGWPORhEdUDEhBfP1ofwBO76gLmVcwCaT7sGhQUPJZfSYAZktrH4SAms1eeMxmp_A",
+          "width": 4048
+        }
+      ],
+      "place_id": "ChIJxZaHoLlZwokR6cv5Gqz_-5s",
+      "plus_code": {
+        "compound_code": "PXWX+63 New York",
+        "global_code": "87G7PXWX+63"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJxZaHoLlZwokR6cv5Gqz_-5s",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 906
+    },
+    {
+      "formatted_address": "5 Mott St, New York, NY 10013, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7138721,
+          "lng": -73.9988482
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.71522887989272,
+            "lng": -73.99742502010727
+          },
+          "southwest": {
+            "lat": 40.71252922010728,
+            "lng": -74.00012467989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "db9d635d1983fbc314e262b44053ababac7ce4ea",
+      "name": "The Original Buddha Bodai Kosher Vegetarian Restaurant 佛菩提",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2448,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103962461332393508950/photos\">Carmen Sze</a>"
+          ],
+          "photo_reference": "CmRaAAAA2F0kNAttXiGiyShazaJ3TxDFGKwhnyGlzAwTA0u6Z8rV1qxD_ZtAHx5bf4KbsI_mzmplxqJmQl2UqBSsK8O6OWYKfjPAXkadfld9h1iXvgyWdswbj9obgF7Wpgk76556EhCqcqGGV1G-CiDT4Yo7h7NcGhQwRY3YDCBHr9yUpMOtSA74X1E-2w",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJw3YulCZawokRGh4ZyOycnic",
+      "plus_code": {
+        "compound_code": "P272+GF New York",
+        "global_code": "87G8P272+GF"
+      },
+      "price_level": 1,
+      "rating": 4.4,
+      "reference": "ChIJw3YulCZawokRGh4ZyOycnic",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 916
+    },
+    {
+      "formatted_address": "77 Mulberry St, New York, NY 10013, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7163863,
+          "lng": -73.9992785
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.71770122989272,
+            "lng": -73.99783122010727
+          },
+          "southwest": {
+            "lat": 40.71500157010728,
+            "lng": -74.00053087989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "ed4d527ba3af70a08a16babd204474e5b13f2228",
+      "name": "Bodhi Kosher Vegetarian Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112864378536927512326/photos\">A Google User</a>"
+          ],
+          "photo_reference": "CmRaAAAACVHEHLRhQTn_QqDVPSb8GkPNLNoySjceoTlbDbyCg8wjpy71vgguJWqZIw7z4CmyEcee4fvUmOvvYeIashFCIEhVgCe-KWc-ay58bYfxcmdn5dFNHXmuqPfZJydla7vAEhCEW_b0T3Tv4w_bNtkDZwmpGhRlnmIrAFL8CKzU7DBHE_n2UOU0TA",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ9zpnPidawokRdhxyso6KXKw",
+      "plus_code": {
+        "compound_code": "P282+H7 New York",
+        "global_code": "87G8P282+H7"
+      },
+      "price_level": 1,
+      "rating": 4.5,
+      "reference": "ChIJ9zpnPidawokRdhxyso6KXKw",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 758
+    },
+    {
+      "formatted_address": "38 E 19th St, New York, NY 10003, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7379803,
+          "lng": -73.98928409999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.73941762989273,
+            "lng": -73.98787042010728
+          },
+          "southwest": {
+            "lat": 40.73671797010728,
+            "lng": -73.99057007989273
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "7293d2a5c2d1605f14ea1b9ddb1b7d257dba0eed",
+      "name": "abcV",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3684,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113796009854537712226/photos\">Andy Ng</a>"
+          ],
+          "photo_reference": "CmRaAAAA-lUkxxIzYRNrSvcWQkNys6D2wEv1tN1tK0-B0GBNhDCdqZeJxaB1bo6-9GkDiBmkQO0ZaQfyVz-YnJeenvYxVKlJNV2jeV4c57-TlHGx74V5gwgNwZF_pK18c7u_Vm0DEhAFvxdwrQSFC5IRpMNu91qXGhRkwBTGZn6h-Cc-Wq6fs1dVMx-z1g",
+          "width": 2947
+        }
+      ],
+      "place_id": "ChIJxXrbJaJZwokRAAEnPk3AJh4",
+      "plus_code": {
+        "compound_code": "P2Q6+57 New York",
+        "global_code": "87G8P2Q6+57"
+      },
+      "price_level": 3,
+      "rating": 4.5,
+      "reference": "ChIJxXrbJaJZwokRAAEnPk3AJh4",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 692
+    },
+    {
+      "formatted_address": "833 Lexington Ave, New York, NY 10065, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7649689,
+          "lng": -73.9658839
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.76636977989272,
+            "lng": -73.96465097010727
+          },
+          "southwest": {
+            "lat": 40.76367012010728,
+            "lng": -73.96735062989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "5a9cd90633466eeae1d2f125376e4bc22fbd8945",
+      "name": "Le Botaniste",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109341781032927409823/photos\">Narcisa Codreanu</a>"
+          ],
+          "photo_reference": "CmRaAAAAuB53EawVzv0j_UAaqCeFZrehBF04q9oH66kG_U1m7pZwIJ4M2J2aA35Sdbks8wwiIODS2pR-2CPcJnsbCRt_1mAOt2tIe9WEKyXMN9m9ybJcl5FuPthf3ZDLpOgBxAwdEhCfVO3EAnszHp42--bo_kLlGhRE-zuhHeoD6lUicisSycDnVEcsbQ",
+          "width": 2268
+        }
+      ],
+      "place_id": "ChIJXbvPKe9YwokRroLArCwh2LY",
+      "plus_code": {
+        "compound_code": "Q27M+XJ New York",
+        "global_code": "87G8Q27M+XJ"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJXbvPKe9YwokRroLArCwh2LY",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 440
+    },
+    {
+      "formatted_address": "230 Park Ave, New York, NY 10169, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7545228,
+          "lng": -73.9766829
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.75580827989272,
+            "lng": -73.97532317010729
+          },
+          "southwest": {
+            "lat": 40.75310862010728,
+            "lng": -73.97802282989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "45888c2eceafd3ccb43f1381985b15bfe95b3bf6",
+      "name": "Two Tablespoons",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1321,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112420424273467829342/photos\">Victoria Ostrovsky</a>"
+          ],
+          "photo_reference": "CmRaAAAAjIznMSw768A79tJaLVmYWISdgqowNeEIJPd5VrV7pgw60aZdccC905x7jsBwq4mX32pDea3ug4_XPVFhFY-V5SowDXQGrMarobyXnZRzg8MRRgn8TGN-Am3hqZonAeEVEhDFB_Llq89ro2jgtg6ICCLfGhS7iHD7Mz36JjjumgvhcfmmONkDbQ",
+          "width": 2348
+        }
+      ],
+      "place_id": "ChIJBce3_v1YwokRVRaA5TpHitA",
+      "plus_code": {
+        "compound_code": "Q23F+R8 New York",
+        "global_code": "87G8Q23F+R8"
+      },
+      "rating": 3.8,
+      "reference": "ChIJBce3_v1YwokRVRaA5TpHitA",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 32
+    },
+    {
+      "formatted_address": "12 St Marks Pl, New York, NY 10003, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7291097,
+          "lng": -73.9892064
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.73051807989273,
+            "lng": -73.98781222010727
+          },
+          "southwest": {
+            "lat": 40.72781842010728,
+            "lng": -73.99051187989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "1b10fb8c616ce0c3abbac0c3c5f67e5093bf5879",
+      "name": "Vegan Food Court: VSPOT-Martys-Veggie Grub",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3692,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117551187918073574343/photos\">Amanda Cheng</a>"
+          ],
+          "photo_reference": "CmRaAAAA3t2VpieTH-CQFVvPirSbWu4mBwU6kVnKK-CbXUonPL9TeLacqqjwHi5PUhc5-qtcqhHqqmuAOmcjeTNpCr2YBUhbSkXJ-cC0e7AGoxMDMLWmhCcpl4IYeG8kyPK2VLqPEhCBoESmJCZxLCImTc8hihKCGhSWc1PsKckYVnpcvZpZop-DCbCobQ",
+          "width": 2769
+        }
+      ],
+      "place_id": "ChIJr7nag5tZwokRCcfHWjpZSOo",
+      "plus_code": {
+        "compound_code": "P2H6+J8 New York",
+        "global_code": "87G8P2H6+J8"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJr7nag5tZwokRCcfHWjpZSOo",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 558
+    },
+    {
+      "formatted_address": "507 Columbus Ave, New York, NY 10024, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.785307,
+          "lng": -73.97267200000002
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.78671367989271,
+            "lng": -73.97146327010726
+          },
+          "southwest": {
+            "lat": 40.78401402010727,
+            "lng": -73.97416292989271
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f270ab52001b18cfacee91fc75b782493ecadf93",
+      "name": "Blossom on Columbus",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104668330111702791118/photos\">Felipe Mujica</a>"
+          ],
+          "photo_reference": "CmRaAAAA2ht1MPI2-ZJqj4gxpK20pu7nVXox3mnfKA_dBOd2Z8_oMN2ejccRYvN0eiBLsMFlpcYNKmaEwyGxSy8CGfa4XMc6cbZwrWpx5QA88hO5mdLkwGFtF6vppmrK1g-HDeKEEhDQoyxRaBE2GO1yjgNwTFtjGhQYdzkIugVBPxdseN1GwgvBv2Qoxw",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJvUwtGYVYwokR93RGXJeZR7A",
+      "plus_code": {
+        "compound_code": "Q2PG+4W New York",
+        "global_code": "87G8Q2PG+4W"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJvUwtGYVYwokR93RGXJeZR7A",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 569
+    },
+    {
+      "formatted_address": "127 Grand St, New York, NY 10013, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7204931,
+          "lng": -74.0002294
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.72188977989273,
+            "lng": -73.99883797010727
+          },
+          "southwest": {
+            "lat": 40.71919012010729,
+            "lng": -74.00153762989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c6e84297d2a1939719079f89a38edaf190b9916f",
+      "name": "Le Botaniste",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4608,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106455240550450667281/photos\">Yeslek Arak</a>"
+          ],
+          "photo_reference": "CmRaAAAAPTOAHqqZQ8kXlabvgOMX7WuqJZnSIDI_lhie3kg2L9shRrrYVYqPvYF-nRSEqgSxmNe1BxV64u6DcilVEqKak6uogs95XlbbhD5IMffa2qNNrLdEG6SVGXgzJ5vYPTHfEhCRFcDdSyrm3CrGMxAsOI-7GhRVMAfi8ejiftry-8sOK7sRSWTM5g",
+          "width": 3456
+        }
+      ],
+      "place_id": "ChIJu-aoeIlZwokRmbjuHy4Jt98",
+      "plus_code": {
+        "compound_code": "PXCX+5W New York",
+        "global_code": "87G7PXCX+5W"
+      },
+      "rating": 4.7,
+      "reference": "ChIJu-aoeIlZwokRmbjuHy4Jt98",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 194
+    },
+    {
+      "formatted_address": "125 Canal St, New York, NY 10002, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7161006,
+          "lng": -73.9951758
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.71737722989272,
+            "lng": -73.99386742010728
+          },
+          "southwest": {
+            "lat": 40.71467757010728,
+            "lng": -73.99656707989273
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "74a95c4ba0e0bd35ac2381a3a4b2037c7be6056b",
+      "name": "Jisu Vegetarian Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108694879140507614660/photos\">A Google User</a>"
+          ],
+          "photo_reference": "CmRaAAAAKOGIjiKpry8YsjqCjQJ5AWpBtqu2el6sMM_bQY2WLUUveVZxneyFza-uFnCGNBIdci1V0M-kx4FDudBPzs0rgze-Rcm_S0lBtG-cZfQyh8R5vTIsFtuwVnr8KmjbHoX6EhDJ7KqUSpx-waPkMKscR9pOGhTUeHZxRsS3YzGkx-Lg1IFxAxvKag",
+          "width": 6000
+        }
+      ],
+      "place_id": "ChIJgWFTF_dbwokRhx7MmEZrUfc",
+      "plus_code": {
+        "compound_code": "P283+CW New York",
+        "global_code": "87G8P283+CW"
+      },
+      "rating": 4.9,
+      "reference": "ChIJgWFTF_dbwokRhx7MmEZrUfc",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 12
+    },
+    {
+      "formatted_address": "12 Park Ave, New York, NY 10016, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7475836,
+          "lng": -73.98130139999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.74890047989272,
+            "lng": -73.97987337010728
+          },
+          "southwest": {
+            "lat": 40.74620082010728,
+            "lng": -73.98257302989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "e86191a3bcfa61989205808da004bb1404856fe0",
+      "name": "Franchia Vegan Cafe",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103120612665212367333/photos\">Steve Sonderegger</a>"
+          ],
+          "photo_reference": "CmRZAAAARIoraxRt5VDqqcnXK5JX_d3eC9iO4NDci8fX4Of6b4cL4Flf4RTHvDia82budjD_0Eq05HNo0mQLnMXIzQZtcpcBGWVUZdo9SLRO1knB9H7Y-B0DgCdOkHl-7lrQfsvjEhDpcRkACCDwQbW0jo2y2jJEGhT-JF5pVGIrH0r5WvZCnGkt8-YoWw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJwwO-oAdZwokRQ4RYQeCkjF4",
+      "plus_code": {
+        "compound_code": "P2X9+2F New York",
+        "global_code": "87G8P2X9+2F"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJwwO-oAdZwokRQ4RYQeCkjF4",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 887
+    },
+    {
+      "formatted_address": "1307 3rd Ave, New York, NY 10021, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7714726,
+          "lng": -73.9591308
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.77286567989272,
+            "lng": -73.95785917010727
+          },
+          "southwest": {
+            "lat": 40.77016602010728,
+            "lng": -73.96055882989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "d3face1e5f1d1acde61f837b0a6daad32bdd424b",
+      "name": "Candle Cafe",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117138301455162061463/photos\">Rosa R</a>"
+          ],
+          "photo_reference": "CmRaAAAAvRdtnM-jvC45bkitwHqZkjiSbEH3Gj2iN2U-WYgqETULJj3UHMzxX9n94O9SqNOIAYyLnapFB0xirIozt4-wLz6tk5UJMUuYk8Dq5bQkjw193w2wxJ1jNcKyy2Xg-cAREhBfUIsljbnbtyHHJ9rguyCaGhQdEkoqtHqXjVi0RUWR7V13sKMVXQ",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ1RRX_79YwokRD0QHGf9YnXw",
+      "plus_code": {
+        "compound_code": "Q2CR+H8 New York",
+        "global_code": "87G8Q2CR+H8"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJ1RRX_79YwokRD0QHGf9YnXw",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 595
+    },
+    {
+      "formatted_address": "460 Amsterdam Ave, New York, NY 10024, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.785275,
+          "lng": -73.977012
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.78659257989272,
+            "lng": -73.97556912010728
+          },
+          "southwest": {
+            "lat": 40.78389292010728,
+            "lng": -73.97826877989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f46b85d5125b17f510f6cf71b16da97f440d0068",
+      "name": "Peacefood Cafe",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114764228619824541969/photos\">Chintan Shah</a>"
+          ],
+          "photo_reference": "CmRaAAAA9-4_w2JkjwtQ5Es9gJXYmqaCTCUfyv_X7FIw7n_3sNHHg3pHbpLCs7-YbtcM3XDr1g8HZdkXfobGi4JwE4EGj6mmRFiHNkrAl39GMBf05-FP7vU908PkzqQlUrb51Jc9EhDmuOqVthoNR-qjWKoyn-a0GhSDtJlG7nvPRyoQDgKc6tR9COYmAg",
+          "width": 4640
+        }
+      ],
+      "place_id": "ChIJ29UL34VYwokR1G92GClLcCE",
+      "plus_code": {
+        "compound_code": "Q2PF+45 New York",
+        "global_code": "87G8Q2PF+45"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJ29UL34VYwokR1G92GClLcCE",
+      "types": [
+        "bakery",
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 983
+    },
+    {
+      "formatted_address": "229 E 14th St, New York, NY 10003, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.73292,
+          "lng": -73.98588409999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.73420372989272,
+            "lng": -73.98458267010727
+          },
+          "southwest": {
+            "lat": 40.73150407010727,
+            "lng": -73.98728232989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "00c5975e418c6ccb52c26405ad3b6cb7161252f2",
+      "name": "Beyond Sushi",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3006,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117973810362058022924/photos\">Jer Del Nero</a>"
+          ],
+          "photo_reference": "CmRaAAAAY3-mwf_Wfxs-8qX4CssVR6qWmWjK1mnVNslnM1N2pyLgeMw1udgRpaPT6z4sUS1Q0FYDZnzTEZZDhrq9tU3zGLw1quLeU_HboP8anAhYbc5fGkibHn_QGco_sqRkZQbAEhDgpYO6ki5GHcPYBpd4zdeYGhS5noeJsxiats2Xx3TzoMADAspcpw",
+          "width": 5344
+        }
+      ],
+      "place_id": "ChIJM8a5-J5ZwokRZDE8G2tHuhg",
+      "plus_code": {
+        "compound_code": "P2M7+5J New York",
+        "global_code": "87G8P2M7+5J"
+      },
+      "price_level": 2,
+      "rating": 4.7,
+      "reference": "ChIJM8a5-J5ZwokRZDE8G2tHuhg",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 457
+    },
+    {
+      "formatted_address": "409 3rd Ave, New York, NY 10016, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7423608,
+          "lng": -73.98033699999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.74374982989273,
+            "lng": -73.97907752010727
+          },
+          "southwest": {
+            "lat": 40.74105017010728,
+            "lng": -73.98177717989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "a05bfe12aaf3a3622fc1c9865d459ea91f475898",
+      "name": "Vatan",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116191953982611799429/photos\">Ronak Shah</a>"
+          ],
+          "photo_reference": "CmRaAAAASAXonnOp0TmdAo8oMPsvqF3hWFeu3tPB2b-gZQ_IWD3VYVOEbu4Wc2OduGXiBDg8O5GKfIVjGB16HPOQsC__tsXmFgxitFa5Cx3SKZwGESIO6prWESQUK_pBqAbNSIx1EhCTAFoE4t9zojoHpi7dDg9vGhR9O0QN_mu4_kv9SGVNDjtlftzrJw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJpRvbqglZwokRSKzPisbuDcU",
+      "plus_code": {
+        "compound_code": "P2R9+WV New York",
+        "global_code": "87G8P2R9+WV"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJpRvbqglZwokRSKzPisbuDcU",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 748
+    },
+    {
+      "formatted_address": "41 Carmine St, New York, NY 10014, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.730201,
+          "lng": -74.003686
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.73144562989273,
+            "lng": -74.00227862010728
+          },
+          "southwest": {
+            "lat": 40.72874597010728,
+            "lng": -74.00497827989273
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "7ecb793d0177fa7b22c8fe08e37814b53ddf9d8e",
+      "name": "Urban Vegan Kitchen",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107130557819805720724/photos\">Matthew Oliver</a>"
+          ],
+          "photo_reference": "CmRaAAAAPVLwJwRXqdQxjmi59FdyeP-vCtXFHCwoZTyW1RkPNjVmUuMaMeerlTgVCY8rN54ghZD0lYYRM-xAEPRDm6xXwQDXlniFZ1AbDESU93-bT9jdrcvo1NCjlW35D3Eqf-IhEhDs45MQyr4DmwEnlGSj7IuFGhRzORF_dogqASWjeIRvluC-Zbjw3w",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ6QeO95JZwokRZXBnIGL5rEg",
+      "plus_code": {
+        "compound_code": "PXJW+3G New York",
+        "global_code": "87G7PXJW+3G"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJ6QeO95JZwokRZXBnIGL5rEg",
+      "types": [
+        "cafe",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 782
+    },
+    {
+      "formatted_address": "1 Rockefeller Plaza, New York, NY 10020, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7580629,
+          "lng": -73.9788542
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.75926957989272,
+            "lng": -73.97763047010727
+          },
+          "southwest": {
+            "lat": 40.75656992010727,
+            "lng": -73.98033012989272
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c1f885ffc88fc4b9e78006d45bfb4e411ca74f18",
+      "name": "by CHLOE. Rock Center",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106640187867976343504/photos\">Ana Garcia</a>"
+          ],
+          "photo_reference": "CmRaAAAAyB1X6iBdmPBp1Rs9MHCGzZvENwAhYzH64mJyMJjrowiypkdc08C4mVpwt5CUx4wwQWh36bZzlNt7Emfbnq55mNEHYNxPMzpzsbVDNOaZrpBzykIWK2NNgu49vjV1CM_cEhDKqTQRu4W3XS442DLg3JinGhTnNd0Vw8b66RXjVGDMQMlM6_CMHg",
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJIT9L6v5YwokRum3tWOoq5bg",
+      "plus_code": {
+        "compound_code": "Q25C+6F New York",
+        "global_code": "87G8Q25C+6F"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJIT9L6v5YwokRum3tWOoq5bg",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 898
+    },
+    {
+      "formatted_address": "134 W 37th St, New York, NY 10018, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7524772,
+          "lng": -73.9884826
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.75386587989272,
+            "lng": -73.98710397010727
+          },
+          "southwest": {
+            "lat": 40.75116622010728,
+            "lng": -73.9898036298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "ec61a2b153ed75f4547ce6ccd2270922c20b1619",
+      "name": "Beyond Sushi",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115907816916772438960/photos\">A Google User</a>"
+          ],
+          "photo_reference": "CmRaAAAAjyWBUPWdcSvNeU6xFPmTDEZYRlsq0focHJBC0YkmAmT90kA_2GgSh_NJ7dRs4bboau3Y2ucTciw2GQDsE0Uht_0iGcmzYKRYR15udQHgfvr6uvzmyBuaqZnpTeqJWo0SEhBFrdie9iqvPV0tCOvcZ_vTGhRmUIt6iUu0uyRmSHoiIoNqh08pwg",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJPy94jKtZwokRRODqoL09Acw",
+      "plus_code": {
+        "compound_code": "Q226+XJ New York",
+        "global_code": "87G8Q226+XJ"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJPy94jKtZwokRRODqoL09Acw",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1061
+    },
+    {
+      "formatted_address": "62 W 56th St, New York, NY 10019, United States",
+      "geometry": {
+        "location": {
+          "lat": 40.7632892,
+          "lng": -73.9771943
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 40.76470162989271,
+            "lng": -73.97580907010727
+          },
+          "southwest": {
+            "lat": 40.76200197010727,
+            "lng": -73.97850872989271
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "d0fece112ea18603c468d56955a5abe6cd9cd45a",
+      "name": "Beyond Sushi",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110110333106382344404/photos\">Luis B</a>"
+          ],
+          "photo_reference": "CmRaAAAARDpU1aaGQf1ocPEFk2uD0CUJQZ1mCaJ_JZMAbhkzY9ul85dBSL4GhcJv5PrXP03gzYfqM1Xlelp9WNc3_Wwn44DWPvCOMpVBcFzlnA88qVRxamSFE1JEBl52EVn0TbstEhDyDN9tVOi72Sm6c7EtwlyiGhS8YvGw6Wa-U7MInEhAgtlDhJAvAw",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJFy8n9PlYwokRVeEJbuCg2UE",
+      "plus_code": {
+        "compound_code": "Q27F+84 New York",
+        "global_code": "87G8Q27F+84"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJFy8n9PlYwokRVeEJbuCg2UE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 930
+    }
+  ],
+  "status": "OK"
+}
