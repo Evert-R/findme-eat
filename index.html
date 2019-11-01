@@ -13,24 +13,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
         type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/api-access.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 </head>
 
 <body>
 
-    <div>
+    <div class="er-search">
         <form onsubmit="return false;" method="post" name="myForm">
-            <input type="text" name="er-search-input" id="er-search-input" placeholder="Wich city are you in ?"
-                value="" />
-            <button type="submit" name="GO" onclick="getInput()">Go!</button>
+            <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
+            <button type="submit" name="GO" onclick="initMap()">Go!</button>
         </form>
     </div>
 
     <div id="er-search-results">
     </div>
+    <button id="more">More results</button>
+   <div id="map"></div>
+
+
+  
+   
+   
 
 </body>
-
+<script src="assets/js/api-access.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE&libraries=places" async defer></script>
 
 </html>

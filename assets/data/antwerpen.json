@@ -1,0 +1,927 @@
+[
+    {
+      "formatted_address": "Groenplaats 6, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.21923,
+          "lng": 4.401011799999992
+        },
+        "viewport": {
+          "south": 51.21758727010728,
+          "west": 4.399705970107334,
+          "north": 51.22028692989272,
+          "east": 4.402405629892655
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "aab372e32cc911a514cb786594f96aa1736c4577",
+      "name": "Greenway Antwerpen",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102941004339775688410/photos\">Wendy Beyaert</a>"
+          ],
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ0SK7Avf2w0cRAtI0vWYpcUY",
+      "plus_code": {
+        "compound_code": "6C92+MC Antwerp, Belgium",
+        "global_code": "9F366C92+MC"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJ0SK7Avf2w0cRAtI0vWYpcUY",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 379,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Grote Pieter Potstraat 21, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.219936,
+          "lng": 4.39699399999995
+        },
+        "viewport": {
+          "south": 51.21857047010727,
+          "west": 4.395604520107327,
+          "north": 51.22127012989272,
+          "east": 4.398304179892762
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "5c8f66041edd1ff41f7b2dc6ca58498732ea7f88",
+      "name": "Wild Project",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 758,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100527064119223824091/photos\">Wild Project</a>"
+          ],
+          "width": 1136
+        }
+      ],
+      "place_id": "ChIJPb_hMvT2w0cRssYbqF1PgSw",
+      "plus_code": {
+        "compound_code": "699W+XQ Antwerp, Belgium",
+        "global_code": "9F36699W+XQ"
+      },
+      "price_level": 2,
+      "rating": 4.7,
+      "reference": "ChIJPb_hMvT2w0cRssYbqF1PgSw",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 202,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Kasteelpleinstraat 45/47, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.21040259999999,
+          "lng": 4.4020424000000276
+        },
+        "viewport": {
+          "south": 51.20902482010727,
+          "west": 4.400569820107307,
+          "north": 51.21172447989272,
+          "east": 4.403269479892742
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "e47b2dcdd346617d7b0e11249b0f64ed8e07d4a3",
+      "name": "De Broers van Julienne",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3744,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110110661201867454193/photos\">De Broers van Julienne</a>"
+          ],
+          "width": 5616
+        }
+      ],
+      "place_id": "ChIJH4q9ke_2w0cRSRN0c_Nf4-Y",
+      "plus_code": {
+        "compound_code": "6C62+5R Antwerp, Belgium",
+        "global_code": "9F366C62+5R"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJH4q9ke_2w0cRSRN0c_Nf4-Y",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 267,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Blauwmoezelstraat 2, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.22067699999999,
+          "lng": 4.4006008000000065
+        },
+        "viewport": {
+          "south": 51.21950762010728,
+          "west": 4.3997798201072555,
+          "north": 51.22220727989272,
+          "east": 4.4024794798926905
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "e35c6be027c73301167b278f4d09b1c07730a870",
+      "name": "Rosenobel",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102767886895920426702/photos\">Patrick VanB</a>"
+          ],
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJFR5YRfb2w0cRB-8pkwDuURA",
+      "plus_code": {
+        "compound_code": "6CC2+76 Antwerp, Belgium",
+        "global_code": "9F366CC2+76"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJFR5YRfb2w0cRB-8pkwDuURA",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 232,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Breughelstraat 32, 2018 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2078944,
+          "lng": 4.415326499999992
+        },
+        "viewport": {
+          "south": 51.20655077010728,
+          "west": 4.4138744701073165,
+          "north": 51.20925042989272,
+          "east": 4.416574129892751
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "e2286bfb43833ab9115f7bafd3b4d5f63a3ec400",
+      "name": "Simone's Kitchen - Good Food Institute",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109976386726391763171/photos\">A Google User</a>"
+          ],
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJEVmHiR33w0cRQ08ms2HjDmY",
+      "plus_code": {
+        "compound_code": "6C58+54 Antwerp, Belgium",
+        "global_code": "9F366C58+54"
+      },
+      "rating": 4.8,
+      "reference": "ChIJEVmHiR33w0cRQ08ms2HjDmY",
+      "types": [
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 46,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Hoogstraat 32, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2199611,
+          "lng": 4.398293899999999
+        },
+        "viewport": {
+          "south": 51.21842222010728,
+          "west": 4.396908770107302,
+          "north": 51.22112187989272,
+          "east": 4.399608429892737
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "2d23ed8eb6e15db27a7ae6b6c0d165157cdad1b9",
+      "name": "Falafel Tof",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2268,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115053446657096378365/photos\">David Loos</a>"
+          ],
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJk0yNffb2w0cRI7HoyPujgBc",
+      "plus_code": {
+        "compound_code": "699X+X8 Antwerp, Belgium",
+        "global_code": "9F36699X+X8"
+      },
+      "price_level": 1,
+      "rating": 4.6,
+      "reference": "ChIJk0yNffb2w0cRI7HoyPujgBc",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 880,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Van Kerckhovenstraat 13, 2060 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.22566500000001,
+          "lng": 4.422586200000069
+        },
+        "viewport": {
+          "south": 51.22433422010728,
+          "west": 4.421228320107275,
+          "north": 51.22703387989272,
+          "east": 4.42392797989271
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "2d6f1e3dbdd49b2c6f3c1ed4608e38a8872ca293",
+      "name": "Lagash Antwerpen",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101261840840891587792/photos\">Glenn Goossens</a>"
+          ],
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJw9VElav3w0cR7F1p7C3FFKs",
+      "plus_code": {
+        "compound_code": "6CGF+72 Antwerp, Belgium",
+        "global_code": "9F366CGF+72"
+      },
+      "price_level": 1,
+      "rating": 4.3,
+      "reference": "ChIJw9VElav3w0cR7F1p7C3FFKs",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 45,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Oude Beurs 60, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.221524,
+          "lng": 4.402264999999943
+        },
+        "viewport": {
+          "south": 51.22015427010728,
+          "west": 4.400919470107283,
+          "north": 51.22285392989273,
+          "east": 4.403619129892718
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "bb21213d6280c87855885e1c64736bcc71b531ec",
+      "name": "Bites & Wines",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 607,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115140649127493358121/photos\">Bites &amp; Wines</a>"
+          ],
+          "width": 1080
+        }
+      ],
+      "place_id": "ChIJn4Huxff2w0cRxubEkb7mY94",
+      "plus_code": {
+        "compound_code": "6CC2+JW Antwerp, Belgium",
+        "global_code": "9F366CC2+JW"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJn4Huxff2w0cRxubEkb7mY94",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 65,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Lange Herentalsestraat 23, 2018 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2155719,
+          "lng": 4.417556099999956
+        },
+        "viewport": {
+          "south": 51.21421557010728,
+          "west": 4.416123320107317,
+          "north": 51.21691522989272,
+          "east": 4.418822979892752
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "5045472d62131a4992212b91ea600f31d1008e2d",
+      "name": "Aahaar Delux",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105729281108103321659/photos\">Tejas Nagchandi</a>"
+          ],
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJe6mZEwL3w0cRu0zSpMovMP8",
+      "plus_code": {
+        "compound_code": "6C89+62 Antwerp, Belgium",
+        "global_code": "9F366C89+62"
+      },
+      "price_level": 1,
+      "rating": 4.2,
+      "reference": "ChIJe6mZEwL3w0cRu0zSpMovMP8",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 818,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Oude Koornmarkt 64, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2190349,
+          "lng": 4.400291400000015
+        },
+        "viewport": {
+          "south": 51.21756142010728,
+          "west": 4.399006320107219,
+          "north": 51.22026107989272,
+          "east": 4.401705979892768
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "bdc8e8c3119a8af44f7c638b4d76d11bbca61744",
+      "name": "Plant B",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3264,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114725127693350820042/photos\">A Google User</a>"
+          ],
+          "width": 2448
+        }
+      ],
+      "place_id": "ChIJ4emW5fb2w0cRjJdYaniZIgQ",
+      "plus_code": {
+        "compound_code": "6C92+J4 Antwerp, Belgium",
+        "global_code": "9F366C92+J4"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJ4emW5fb2w0cRjJdYaniZIgQ",
+      "types": [
+        "cafe",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 68,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Melkmarkt 25, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.220112,
+          "lng": 4.4027039999999715
+        },
+        "viewport": {
+          "south": 51.21904962010728,
+          "west": 4.40129442010732,
+          "north": 51.22174927989273,
+          "east": 4.403994079892755
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "10bdba5a049828332e9759466b72bd282c1dbe6d",
+      "name": "ChickPea",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1152,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100163724337785462279/photos\">ChickPea</a>"
+          ],
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJ3Rz2lPD2w0cRjTC_26i9dns",
+      "plus_code": {
+        "compound_code": "6CC3+23 Antwerp, Belgium",
+        "global_code": "9F366CC3+23"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJ3Rz2lPD2w0cRjTC_26i9dns",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 275,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Sint-Paulusplaats 23, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2248437,
+          "lng": 4.4008960999999545
+        },
+        "viewport": {
+          "south": 51.22359702010728,
+          "west": 4.399492970107303,
+          "north": 51.22629667989272,
+          "east": 4.402192629892738
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "e893d68cdc21e4fa448da3ab3e97f2232cb5c83d",
+      "name": "De Krewelligen Bidet",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2448,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103500396227011152001/photos\">Sylvie Declercq</a>"
+          ],
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJmfdy_rflw0cRn75kFgPVapg",
+      "plus_code": {
+        "compound_code": "6CF2+W9 Antwerp, Belgium",
+        "global_code": "9F366CF2+W9"
+      },
+      "price_level": 1,
+      "rating": 4.6,
+      "reference": "ChIJmfdy_rflw0cRn75kFgPVapg",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 87,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Volkstraat 60, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2104458,
+          "lng": 4.394993900000031
+        },
+        "viewport": {
+          "south": 51.20906007010728,
+          "west": 4.39371887010725,
+          "north": 51.21175972989272,
+          "east": 4.396418529892685
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "6225372463e20afa6ad2a5771beedf797e5926ad",
+      "name": "Cypro Restaurant",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107250443994777046855/photos\">Chloé Kastoer</a>"
+          ],
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJTypPxu32w0cRAmZBzlf2yKk",
+      "plus_code": {
+        "compound_code": "696V+5X Antwerp, Belgium",
+        "global_code": "9F36696V+5X"
+      },
+      "price_level": 1,
+      "rating": 4.5,
+      "reference": "ChIJTypPxu32w0cRAmZBzlf2yKk",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 126,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "2000, Hendrik Conscienceplein 11, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2212066,
+          "lng": 4.404389199999969
+        },
+        "viewport": {
+          "south": 51.21990132010728,
+          "west": 4.403228670107296,
+          "north": 51.22260097989273,
+          "east": 4.405928329892731
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "481f5d3968fd15612006da4cd1a8e9819aa35843",
+      "name": "Simply Emily",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4608,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116327171073329487291/photos\">Michael Speck</a>"
+          ],
+          "width": 3456
+        }
+      ],
+      "place_id": "ChIJaagO9ff2w0cRaWrQsBwXo5M",
+      "plus_code": {
+        "compound_code": "6CC3+FQ Antwerp, Belgium",
+        "global_code": "9F366CC3+FQ"
+      },
+      "rating": 4.7,
+      "reference": "ChIJaagO9ff2w0cRaWrQsBwXo5M",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 101,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Hoogstraat 54, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2191987,
+          "lng": 4.397639900000058
+        },
+        "viewport": {
+          "south": 51.21774362010729,
+          "west": 4.396265570107289,
+          "north": 51.22044327989273,
+          "east": 4.398965229892724
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "47f143c039c679d93c3ac6e51237da4bad556920",
+      "name": "Ernest",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4160,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110151688764825742218/photos\">Koen van antwerpen</a>"
+          ],
+          "width": 3120
+        }
+      ],
+      "place_id": "ChIJm9NVJvT2w0cRaVAIrvm5f5w",
+      "plus_code": {
+        "compound_code": "699X+M3 Antwerp, Belgium",
+        "global_code": "9F36699X+M3"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJm9NVJvT2w0cRaVAIrvm5f5w",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 133,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Lange Kievitstraat 52, 2018 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.212798,
+          "lng": 4.420092999999952
+        },
+        "viewport": {
+          "south": 51.21149607010727,
+          "west": 4.418747320107286,
+          "north": 51.21419572989272,
+          "east": 4.421446979892721
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "0ef693cb300f50a46c281daa4f4963a634268301",
+      "name": "Hoffy's Restaurant & Take Away",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111485451738348267522/photos\">Hoffy&#39;s</a>"
+          ],
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJLdQHbAP3w0cR0mjyD8v6qwM",
+      "plus_code": {
+        "compound_code": "6C7C+42 Antwerp, Belgium",
+        "global_code": "9F366C7C+42"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJLdQHbAP3w0cR0mjyD8v6qwM",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 560,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Vlaamsekaai 10, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2115313,
+          "lng": 4.393281399999978
+        },
+        "viewport": {
+          "south": 51.21023792010728,
+          "west": 4.391814120107256,
+          "north": 51.21293757989272,
+          "east": 4.394513779892691
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "dcfc99a4ebabcf417b93ec9ddbb584b83ffa9b69",
+      "name": "Senzelle",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 960,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104778260515721593922/photos\">Senzelle</a>"
+          ],
+          "width": 960
+        }
+      ],
+      "place_id": "ChIJq3GpcO32w0cRvl3GCXRoCwY",
+      "plus_code": {
+        "compound_code": "696V+J8 Antwerp, Belgium",
+        "global_code": "9F36696V+J8"
+      },
+      "rating": 4.4,
+      "reference": "ChIJq3GpcO32w0cRvl3GCXRoCwY",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 92,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Vrijdagmarkt 5, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.2184673,
+          "lng": 4.398987099999999
+        },
+        "viewport": {
+          "south": 51.21707602010728,
+          "west": 4.397612370107254,
+          "north": 51.21977567989272,
+          "east": 4.400312029892689
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9a2bbe1d8cca55637113d08f5e439ad05b3dd4cb",
+      "name": "JUNO",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 600,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113661230193121231295/photos\">Juno</a>"
+          ],
+          "width": 800
+        }
+      ],
+      "place_id": "ChIJTbyIvvb2w0cRrQUVH_4tg1Q",
+      "plus_code": {
+        "compound_code": "699X+9H Antwerp, Belgium",
+        "global_code": "9F36699X+9H"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJTbyIvvb2w0cRrQUVH_4tg1Q",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 100,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Desguinlei 196, 2018 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.1956637,
+          "lng": 4.399269000000004
+        },
+        "viewport": {
+          "south": 51.19428657010727,
+          "west": 4.397861120107336,
+          "north": 51.19698622989272,
+          "east": 4.400560779892658
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "2d825eadda775cfac4d77d9318e0bd216d72fcce",
+      "name": "Sombat",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100413496090370797233/photos\">marc van loo</a>"
+          ],
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJRWCzVV_2w0cRyyFH3SIZf4Y",
+      "plus_code": {
+        "compound_code": "59WX+7P Antwerp, Belgium",
+        "global_code": "9F3659WX+7P"
+      },
+      "price_level": 2,
+      "rating": 4.7,
+      "reference": "ChIJRWCzVV_2w0cRyyFH3SIZf4Y",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 137,
+      "html_attributions": []
+    },
+    {
+      "formatted_address": "Oude Beurs 12, 2000 Antwerpen, Belgium",
+      "geometry": {
+        "location": {
+          "lat": 51.221979,
+          "lng": 4.400441999999998
+        },
+        "viewport": {
+          "south": 51.22065172010728,
+          "west": 4.399114870107269,
+          "north": 51.22335137989272,
+          "east": 4.401814529892704
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "8620c032f9eab7385c9b7a22ff4213d54366b53b",
+      "name": "Sjalot en Schanul",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 373,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101024863647369372599/photos\">Sjalot en Schanul</a>"
+          ],
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJmx_aMfb2w0cRZuR0LfDS3rI",
+      "plus_code": {
+        "compound_code": "6CC2+Q5 Antwerp, Belgium",
+        "global_code": "9F366CC2+Q5"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJmx_aMfb2w0cRZuR0LfDS3rI",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 88,
+      "html_attributions": []
+    }
+  ]
