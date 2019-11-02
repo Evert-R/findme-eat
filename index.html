@@ -13,30 +13,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
         type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
+        <header class="row">
+                <section class="er-header">
+                    <div class="er-title"><h1>Find me-eat</h1></div>
+                    
+                </section>
+            </header>
 
-    <div class="er-search">
-        <form onsubmit="return false;" method="post" name="myForm">
-            <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
-            <button type="submit" name="GO" onclick="initMap()">Go!</button>
-        </form>
-    </div>
+    <main class="container-fluid">
 
-    <div id="er-search-results">
-    </div>
-    <button id="more">More results</button>
-   <div id="map"></div>
+            
+        <div class="row">
+            <section class="col-12 colg-lg-6 col-md-3 er-content er-search-section" id="">
+                <div id="er-search-results">
+                </div>
+                <button id="more">More results</button>
+            </section>
 
 
-  
-   
-   
+            <section class="col-12 colg-lg-6 col-md-3 er-content er-map-section" id="">
+                <div id="map">hello</div>
+            </section>
 
+            <section class="col-12 colg-lg-6 col-md-3 er-content er-details-section" id="">
+                <div class="er-details"></div>
+            </section>
+
+            <section class="col-12 colg-lg-6 col-md-3 er-content er-contact-section" id="">
+                <div id="er-contact"></div>
+            </section>
+        </div>
+    </main>
+    <!-- footer searchbar -->
+    <footer class="row">
+        <section class="er-footer">
+            <div class="er-search">
+                <form onsubmit="return false;" method="post" name="myForm">
+                    <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?"
+                        value="" />
+                    <button type="submit" name="GO" id="er-search-button" onclick="initMap()">Go!</button>
+                </form>
+            </div>
+        </section>
+    </footer>
 </body>
 <script src="assets/js/api-access.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE&libraries=places" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE&libraries=places" async
+    defer></script>
 
 </html>

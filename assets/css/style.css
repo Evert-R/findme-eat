@@ -1,11 +1,103 @@
+/* ----------------------------------------Code Institute Milestone-2 - Evert Rot*/
+
+/* Classes and id's that start with 'er-' are my own */
+
+/* ----------------------------------------Main document */
+
 html, body {
-    height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    height: 100vh;
     margin: 0;
     padding: 0;
-  }
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 1920px;
+}
+
+.row {
+    margin: 0;
+}
+
+/* ----------------------------------------Sections */
+
+.er-content {
+    width: 100%;
+    padding-top: 10vh;
+}
+
+.er-search-section {
+    min-height: 100vh;
+}
+
+.er-map-section {
+    height: 100vh;
+    background-color: black;
+}
+
+.er-details-section {
+    height: 100vh;
+}
+
+.er-contact-section {
+    height: 100vh;
+}
 
 #map {
+    height: 100%;
+}
 
-height: 100%;
-    background-color: black;
-  }
+.er-header {
+    z-index: 23;
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    top: 0vh;
+    padding-bottom: 50px;
+    background-color: rgba(18, 185, 68, 0.815);
+    ;
+}
+
+.er-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ----------------------------------------Footer Searchbar */
+
+.er-footer {
+    z-index: 23;
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    top: 92vh;
+}
+
+.er-search {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+#er-search-input {
+    width: 80vw;
+    display: table-cell;
+    height: 8vh;
+}
+
+#er-search-button {
+    width: 15vw;
+    display: table-cell;
+    height: 8vh;
+}
