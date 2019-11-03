@@ -156,7 +156,7 @@
       "id": "0cd6ff46928d7dce215b51237164e4bf2bb567b7",
       "name": "Cafe Restaurant Logica",
       "opening_hours": {
-        "open_now": true
+        "open_now": false
       },
       "photos": [
         {

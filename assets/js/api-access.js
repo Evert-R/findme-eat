@@ -4,16 +4,42 @@ function showResults(restaurants) {
     }
 
     let listItems = restaurants.map(function (restaurant) {
+             let imageUri = restaurant.photos[0].getUrl({"maxWidth": 600, "maxHeight": 600});
+     //   let imageUri = "";
+        // generate open icon
+        if (restaurant.opening_hours.open_now == true) {
+            var openNow = `<i class="fa fa-check er-list-icon er-open"></i>`
+        } else {
+            var openNow = `<i class="fa fa-times-circle er-list-icon er-closed"></i>`
+        };
+        // generate extra detail click
+        var expandDetails = restaurant.place_id; 
+
+
         return `<tr>
             <td>
-                ${restaurant.name}
+            <img src="${imageUri}" class="er-list-image">
             </td>
             <td>
-                ${restaurant.formatted_address}
+                <div onclick="$(${expandDetails}).removeClass('d-none');">
+                    <h3>${restaurant.name}</h3>
+                    <div class="d-none" id="${expandDetails}">
+                    ${restaurant.formatted_address}
+                    </div>
+                </div>
             </td>
+            <td>
+            ${openNow}
+            </td> 
             <td>
                 ${restaurant.rating}
-            </td>           
+            </td>
+            <td>
+                <i class="fa fa-coins er-list-icon er-open"></i>
+            </td>
+            <td>
+                <div id="${restaurant.place_id}" class="er-list-money"></div>
+            </td>            
         </tr>`
     });
 
@@ -152,4 +178,4 @@ function createMarkers(places) {
     map.fitBounds(bounds);
 }
 
-jsonMap();
+// jsonMap();

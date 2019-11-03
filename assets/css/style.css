@@ -11,13 +11,19 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
+body {
+    font-size: 4vw;
+}
 h1 {
     font-size: 2em;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
 }
 
+h3 {
+    font-size: 1.3em;
+    text-align: center;
+}
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -37,6 +43,33 @@ h1 {
 
 .er-search-section {
     min-height: 100vh;
+    background-color: rgba(255, 245, 108, 0.22);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.7em;
+    font-weight: 530;
+}
+.er-item-list {
+    width: 100%;
+}
+.er-list-icon {
+    font-size: 2em;
+}
+.er-open {
+    color: rgba(0, 152, 46);
+}
+
+.er-closed {
+    color: red;
+}
+.er-list-image {
+    width: 12vw;
+    height: 12vw;
+}
+
+.er-list-money {
+    width: 8vw;
+    height: 8vw;
+
 }
 
 .er-map-section {
@@ -46,6 +79,7 @@ h1 {
 
 .er-details-section {
     height: 100vh;
+
 }
 
 .er-contact-section {
@@ -63,7 +97,7 @@ h1 {
     width: 100%;
     top: 0vh;
     padding-bottom: 50px;
-    background-color: rgba(18, 185, 68, 0.815);
+    background-color: rgba(0, 152, 46, 0.815);
     ;
 }
 
@@ -93,7 +127,7 @@ h1 {
 #er-search-input {
     width: 80vw;
     display: table-cell;
-    height: 8vh;
+    height: 6vh;
 }
 
 #er-search-button {
