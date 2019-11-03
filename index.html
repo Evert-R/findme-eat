@@ -16,16 +16,32 @@
 
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <header class="row">
         <section class="er-header">
-            <div class="er-title">
-                <h1>Find me-eat</h1>
-            </div>
 
+            <table id="er-header-table">
+                <tr>
+                    <td id="er-search-switch" class="er-header-icon">
+                        <i class="fa fa-list"></i>
+                    </td>
+                    <td id="er-details-switch" class="er-header-icon">
+                        <i class="fa fa-info"></i>
+                    <td class="er-title">
+                        Find me-eat . . .
+                    </td>
+
+                    <td id="er-map-switch" class="er-header-icon">
+                        <i class="fa fa-map"></i>
+                    </td>
+                    </td>
+                </tr>
+
+            </table>
         </section>
     </header>
 
@@ -33,22 +49,22 @@
 
 
         <div class="row">
-            <section class="col-12 colg-lg-6 col-md-3 er-content er-search-section" id="">
+            <section class="col-12 colg-lg-6 col-md-3 er-content" id="er-search-section">
                 <div id="er-search-results">
                 </div>
                 <button id="more">More results</button>
             </section>
 
 
-            <section class="col-12 colg-lg-6 col-md-3 er-content er-map-section" id="">
+            <section class="col-12 colg-lg-6 col-md-3 er-content d-none" id="er-map-section">
                 <div id="map">hello</div>
             </section>
 
-            <section class="col-12 colg-lg-6 col-md-3 er-content er-details-section" id="">
+            <section class="col-12 colg-lg-6 col-md-3 er-content d-none" id="er-details-section">
                 <div class="er-details"></div>
             </section>
 
-            <section class="col-12 colg-lg-6 col-md-3 er-content er-contact-section" id="">
+            <section class="col-12 colg-lg-6 col-md-3 er-content d-none" id="er-contact-section">
                 <div id="er-contact"></div>
             </section>
         </div>
@@ -69,11 +85,17 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
 <script src="assets/js/api-access.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE&libraries=places" async
     defer></script>
+
+<script src="assets/js/events.js"></script>
 
 </html>

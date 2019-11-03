@@ -1,3 +1,9 @@
+
+
+
+
+
+
 function showResults(restaurants) {
     if (restaurants.length == 0) {
         return `<h2>Nothing to show</h2>`;
@@ -177,5 +183,8 @@ function createMarkers(places) {
     }
     map.fitBounds(bounds);
 }
-
+function mapSwitch() {
+    $('er-search-switch').addClass('d-none');
+    $('er-map-switch').removeClass('d-none');
+};
 // jsonMap();

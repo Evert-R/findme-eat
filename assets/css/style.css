@@ -2,6 +2,7 @@
 
 /* Classes and id's that start with 'er-' are my own */
 
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 /* ----------------------------------------Main document */
 
 html, body {
@@ -11,12 +12,15 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-size: 4vw;
 }
+
 h1 {
+    font-family: 'Indie Flower', cursive;
     font-size: 2em;
-    text-align: center;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -24,6 +28,7 @@ h3 {
     font-size: 1.3em;
     text-align: center;
 }
+
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -34,6 +39,23 @@ h3 {
     margin: 0;
 }
 
+#er-header-table {
+    width: 100%;
+}
+
+#er-header-table td {
+    border: 1px;
+    text-align: center;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+.er-header-icon {
+    margin: 10px;
+    font-size: 8vw;
+    color: rgba(255, 255, 255, 0.7);
+}
+
 /* ----------------------------------------Sections */
 
 .er-content {
@@ -41,19 +63,22 @@ h3 {
     padding-top: 10vh;
 }
 
-.er-search-section {
+#er-search-section {
     min-height: 100vh;
     background-color: rgba(255, 245, 108, 0.22);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.7em;
     font-weight: 530;
 }
+
 .er-item-list {
     width: 100%;
 }
+
 .er-list-icon {
     font-size: 2em;
 }
+
 .er-open {
     color: rgba(0, 152, 46);
 }
@@ -61,6 +86,7 @@ h3 {
 .er-closed {
     color: red;
 }
+
 .er-list-image {
     width: 12vw;
     height: 12vw;
@@ -69,17 +95,15 @@ h3 {
 .er-list-money {
     width: 8vw;
     height: 8vw;
-
 }
 
-.er-map-section {
+#er-map-section {
     height: 100vh;
     background-color: black;
 }
 
 .er-details-section {
     height: 100vh;
-
 }
 
 .er-contact-section {
@@ -96,16 +120,14 @@ h3 {
     height: 8vh;
     width: 100%;
     top: 0vh;
-    padding-bottom: 50px;
     background-color: rgba(0, 152, 46, 0.815);
     ;
 }
 
 .er-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 /* ----------------------------------------Footer Searchbar */
