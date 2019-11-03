@@ -1,57 +1,65 @@
-
-
-
-
-
-
 function showResults(restaurants) {
     if (restaurants.length == 0) {
         return `<h2>Nothing to show</h2>`;
     }
 
     let listItems = restaurants.map(function (restaurant) {
-             let imageUri = restaurant.photos[0].getUrl({"maxWidth": 600, "maxHeight": 600});
-     //   let imageUri = "";
+        //    let imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+        let imageUri = "";
+
         // generate open icon
         if (restaurant.opening_hours.open_now == true) {
             var openNow = `<i class="fa fa-check er-list-icon er-open"></i>`
         } else {
             var openNow = `<i class="fa fa-times-circle er-list-icon er-closed"></i>`
         };
-        // generate extra detail click
-        var expandDetails = restaurant.place_id; 
+        // generate extra detail click from the place_id
 
+        var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unanted characters
+        if (restaurant.place_id) {
+            var expandDetails = `onclick="$(${expandId}).removeClass('d-none');"`;
+        } else {
+            var expandDetails = ``;
+        };
 
+        // generat html list items
         return `<tr>
-            <td>
-            <img src="${imageUri}" class="er-list-image">
+            <td class="er-cell-image">
+                <img src="${imageUri}" class="er-list-image">
             </td>
-            <td>
-                <div onclick="$(${expandDetails}).removeClass('d-none');">
+            <td class="er-cell-name">
+                <div class="er-list-name" ${expandDetails}>
                     <h3>${restaurant.name}</h3>
-                    <div class="d-none" id="${expandDetails}">
-                    ${restaurant.formatted_address}
-                    </div>
-                </div>
+                </div>                    
             </td>
-            <td>
-            ${openNow}
+            <td class="er-cell-open">
+                ${openNow}
             </td> 
-            <td>
+            <td class="er-cell-rating">
                 ${restaurant.rating}
             </td>
-            <td>
+            <td class="er-cell-details">
                 <i class="fa fa-coins er-list-icon er-open"></i>
             </td>
-            <td>
-                <div id="${restaurant.place_id}" class="er-list-money"></div>
+            <td  class="er-cell-price">
+                
             </td>            
+        </tr>
+        <tr>
+            <td>            
+            </td>
+            <td>
+                <div class="d-none" id="${expandId}">
+                    ${restaurant.formatted_address}                    
+                </div>
+            </td>            
+            
         </tr>`
     });
 
     return `
         <div class="er-item-list">
-            <table>            
+            <table class="er-list-table">            
                 ${listItems.join("\n")}      
             </table>
         </div>
@@ -107,6 +115,7 @@ function jsonMap() {
 
 
             // push searchResults to div
+
             $("#er-search-results").html(showResults(searchResults));
 
 
@@ -183,8 +192,5 @@ function createMarkers(places) {
     }
     map.fitBounds(bounds);
 }
-function mapSwitch() {
-    $('er-search-switch').addClass('d-none');
-    $('er-map-switch').removeClass('d-none');
-};
-// jsonMap();
+
+jsonMap();
