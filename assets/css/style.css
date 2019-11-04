@@ -66,6 +66,7 @@ h3 {
 
 #er-search-section {
     min-height: 100vh;
+    padding-bottom: 10vh;
     background-color: rgba(255, 245, 108, 0.22);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.7em;

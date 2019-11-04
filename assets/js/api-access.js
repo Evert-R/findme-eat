@@ -4,8 +4,8 @@ function showResults(restaurants) {
     }
 
     let listItems = restaurants.map(function (restaurant) {
-        let imageUri = "";
-        // imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+        // let imageUri = "";
+        imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
 
 
 
@@ -73,9 +73,19 @@ function showResults(restaurants) {
     `
 }
 
-var map;
+var map; // create map variable
 
-function initMap() {
+// get current location
+navigator.geolocation.getCurrentPosition(function (position) {
+    console.log(position);
+    var currentLat = position.coords.latitude;
+    var currentLong = position.coords.longitude;
+    var currentLoc = `{lat: ${currentLat}, lng: ${currentLong}}`;
+    initMap(currentLat, currentLong);
+});
+
+
+function initMap(currentLat, currentLong) {
     // Get input from input field
     let searchInput = document.getElementById("er-search-input").value;
     // Create the map.
@@ -175,20 +185,43 @@ function initMap() {
 
     // Perform a nearby search.
 
-    service.textSearch(
-        { query: searchInput + ' vegetarian', type: ['restaurant'] },
-        function (results, status, pagination) {
-            if (status !== 'OK') return;
-            $("#er-search-results").html(showResults(results));
-            collapse();
-            console.log(results);
-            createMarkers(results);
-            moreButton.disabled = !pagination.hasNextPage;
-            getNextPage = pagination.hasNextPage && function () {
-                pagination.nextPage();
-            };
-        });
-}
+    //   if ("geolocation" in navigator) {
+    if (typeof currentLat !== 'undefined') {
+        console.log(currentLat);
+        service.nearbySearch(
+            { location: { lat: currentLat, lng: currentLong }, radius: 500, type: ['restaurant'], keyword: ['vegetarian'] },
+            function (results, status, pagination) {
+                if (status !== 'OK') return;
+                // Do something with the results
+                $("#er-search-results").html(showResults(results)); // push details to screen
+                collapse(); // assign the collapse function to classes
+                console.log(results)
+                createMarkers(results);
+                moreButton.disabled = !pagination.hasNextPage;
+                getNextPage = pagination.hasNextPage && function () {
+                    pagination.nextPage();
+                };
+            });
+    } else {
+        console.log(currentLoc);
+        service.textSearch(
+            { query: searchInput + ' vegetarian', type: ['restaurant'] },
+            function (results, status, pagination) {
+                if (status !== 'OK') return;
+                // Do something with the results
+                $("#er-search-results").html(showResults(results)); // push details to screen
+                collapse(); // assign the collapse function to classes
+
+                console.log(results);
+                createMarkers(results); // create the markers on the map
+                moreButton.disabled = !pagination.hasNextPage;
+                getNextPage = pagination.hasNextPage && function () {
+                    pagination.nextPage();
+                };
+            });
+        /* geolocation IS NOT available */
+    }
+};
 
 
 function jsonMap() {
@@ -360,6 +393,6 @@ function createMarkers(places) {
         bounds.extend(place.geometry.location);
     }
     map.fitBounds(bounds);
-}
+};
 
-jsonMap();
+// jsonMap();
