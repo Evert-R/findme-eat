@@ -4,8 +4,10 @@ function showResults(restaurants) {
     }
 
     let listItems = restaurants.map(function (restaurant) {
-        //    let imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
         let imageUri = "";
+        // imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+
+
 
         // generate open icon
         if (restaurant.opening_hours.open_now == true) {
@@ -16,52 +18,57 @@ function showResults(restaurants) {
         // generate extra detail click from the place_id
 
         var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unanted characters
-        if (restaurant.place_id) {
-            var expandDetails = `onclick="$(${expandId}).removeClass('d-none');"`;
-        } else {
-            var expandDetails = ``;
-        };
+        // if (restaurant.place_id) {
+        //     var expandDetails = `onclick="$(${expandId}).removeClass('d-none');"`;
+        // } else {
+        //     var expandDetails = ``;
+        //  };
 
         // generat html list items
-        return `<tr>
-            <td class="er-cell-image">
+        return `<div class="collapsible"> 
+            <table class="er-list-table">
+            <tr>
+                <td class="er-cell-image">
+                    <img src="${imageUri}" class="er-list-image">
+                </td>
+                <td class="er-cell-name">
+                    <div class="er-list-name">
+                        <h3>${restaurant.name}</h3>
+                    </div>                    
+                </td>
+
+                <td class="er-cell-rating">
+                    ${restaurant.rating}
+                </td>
+                <td class="er-cell-price">
+                    <i class="fa fa-money er-list-icon"></i>
+                </td>
+                <td class="er-cell-open">
+                    ${openNow}
+                </td>          
+            </tr>
+        </table>
+        </div>     
+
+        <div class="er-list-details">
+           
                 <img src="${imageUri}" class="er-list-image">
-            </td>
-            <td class="er-cell-name">
-                <div class="er-list-name" ${expandDetails}>
-                    <h3>${restaurant.name}</h3>
-                </div>                    
-            </td>
-            <td class="er-cell-open">
-                ${openNow}
-            </td> 
-            <td class="er-cell-rating">
-                ${restaurant.rating}
-            </td>
-            <td class="er-cell-details">
-                <i class="fa fa-coins er-list-icon er-open"></i>
-            </td>
-            <td  class="er-cell-price">
-                
-            </td>            
-        </tr>
-        <tr>
-            <td>            
-            </td>
-            <td>
-                <div class="d-none" id="${expandId}">
+          
+                <div class="er-detail-name" id="${expandId}">
                     ${restaurant.formatted_address}                    
                 </div>
-            </td>            
+         
+                   
             
-        </tr>`
+        </div>`
     });
 
     return `
         <div class="er-item-list">
-            <table class="er-list-table">            
+                       
                 ${listItems.join("\n")}      
-            </table>
+            
+            
         </div>
     `
 }
@@ -74,7 +81,87 @@ function initMap() {
     // Create the map.
     map = new google.maps.Map(document.getElementById('map'), {
 
-        zoom: 17
+        zoom: 15,
+        styles: [
+            { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
+            { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
+            { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
+            {
+                featureType: 'administrative.locality',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#d59563' }]
+            },
+            {
+                featureType: 'poi',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#d59563' }]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [{ color: '#263c3f' }]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#6b9a76' }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{ color: '#38414e' }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [{ color: '#212a37' }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#9ca5b3' }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry',
+                stylers: [{ color: '#746855' }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry.stroke',
+                stylers: [{ color: '#1f2835' }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#f3d19c' }]
+            },
+            {
+                featureType: 'transit',
+                elementType: 'geometry',
+                stylers: [{ color: '#2f3948' }]
+            },
+            {
+                featureType: 'transit.station',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#d59563' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{ color: '#17263c' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#515c6d' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.stroke',
+                stylers: [{ color: '#17263c' }]
+            }
+        ]
     });
 
     // Create the places service.
@@ -93,6 +180,7 @@ function initMap() {
         function (results, status, pagination) {
             if (status !== 'OK') return;
             $("#er-search-results").html(showResults(results));
+            collapse();
             console.log(results);
             createMarkers(results);
             moreButton.disabled = !pagination.hasNextPage;
@@ -115,10 +203,11 @@ function jsonMap() {
 
 
             // push searchResults to div
-
-            $("#er-search-results").html(showResults(searchResults));
-
-
+            $.when(
+                $("#er-search-results").html(showResults(searchResults))
+            ).then(
+                collapse()
+            )
         },
         // error handling
         function (errorResponse) {
@@ -140,7 +229,87 @@ function jsonMap() {
     // Create the map.
     map = new google.maps.Map(document.getElementById('map'), {
 
-        zoom: 17
+        zoom: 12,
+        styles: [
+            { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
+            { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
+            { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
+            {
+                featureType: 'administrative.locality',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#d59563' }]
+            },
+            {
+                featureType: 'poi',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#d59563' }]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [{ color: '#263c3f' }]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#6b9a76' }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{ color: '#38414e' }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [{ color: '#212a37' }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#9ca5b3' }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry',
+                stylers: [{ color: '#746855' }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry.stroke',
+                stylers: [{ color: '#1f2835' }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#f3d19c' }]
+            },
+            {
+                featureType: 'transit',
+                elementType: 'geometry',
+                stylers: [{ color: '#2f3948' }]
+            },
+            {
+                featureType: 'transit.station',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#d59563' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{ color: '#17263c' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#515c6d' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.stroke',
+                stylers: [{ color: '#17263c' }]
+            }
+        ]
     });
 
     // Create the places service.

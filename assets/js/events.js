@@ -26,24 +26,45 @@ function showContact() {
     document.getElementById("er-map-section").classList.add("d-none");
 };
 
+// make list items collapsible, based on an example from
+// https://www.w3schools.com/howto/howto_js_collapsible.asp
+function collapse() {
+    var coll = document.getElementsByClassName("collapsible");
 
-window.onload = function() {
+    var i;
 
-document.getElementById("er-map-switch").addEventListener("click", function() {
-    showMap();
-});
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            console.log(this.nextElementSibling);
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+};
 
-document.getElementById("er-search-switch").addEventListener("click", function() {
-    showSearch();
-});
 
-document.getElementById("er-details-switch").addEventListener("click", function() {
-    showDetails();
-});
+window.onload = function () {
 
-//document.getElementById("er-map-switch").addEventListener("click", function() {
-//    showMap();
-//});
+    document.getElementById("er-map-switch").addEventListener("click", function () {
+        showMap();
+    });
+
+    document.getElementById("er-search-switch").addEventListener("click", function () {
+        showSearch();
+    });
+
+    document.getElementById("er-details-switch").addEventListener("click", function () {
+        showDetails();
+    });
+
+    //document.getElementById("er-map-switch").addEventListener("click", function() {
+    //    showMap();
+    //});
 
 
 }

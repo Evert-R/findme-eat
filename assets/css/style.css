@@ -74,28 +74,53 @@ h3 {
 
 /* ----------------------------------------Item-list */
 
-
 .er-item-list {
     width: 100%;
     border: 1px;
-    
 }
 
 .er-list-table {
     width: 100%;
-
 }
+
 .er-list-table td {
     border: 0.1px dotted lightgrey;
 }
 
+er-collapse-button {
+    width: 100%;
+    text-align: right;
+}
+
+/*
+.collapsible:after {
+    content: '\02795';
+
+    font-size: 0.5em;
+}
+
+
+.active:after {
+    content: "\2796";
+
+
+}
+*/
+
+.er-list-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
 
 .er-list-icon {
     font-size: 2em;
 }
+
 .er-list-name {
     cursor: pointer!important;
 }
+
 .er-open {
     color: rgba(0, 152, 46);
 }
@@ -110,11 +135,12 @@ h3 {
 }
 
 .er-cell-image {
-   width: 12vw;
+    width: 18vw;
 }
 
 .er-cell-name {
     width: 60vw;
+    text-align: center;
 }
 
 .er-cell-open {
@@ -128,6 +154,7 @@ h3 {
 .er-cell-details {
     width: 8vw;
 }
+
 .er-cell-price {
     width: 8vw;
 }
