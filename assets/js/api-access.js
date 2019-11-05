@@ -1,11 +1,41 @@
+function restaurantDetails(place_id) {
+    var requestDetails = {
+        placeId: place_id,
+        fields: ['name', 'rating', 'formatted_phone_number', 'geometry']
+    };
+
+    service = new google.maps.places.PlacesService(map);
+    service.getDetails(requestDetails, callback);
+
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            console.log(place.formatted_phone_number);
+            return place.formatted_phone_number;
+        };
+
+    }
+}
+
 function showResults(restaurants) {
+
+
+
+
+
     if (restaurants.length == 0) {
         return `<h2>Nothing to show</h2>`;
     }
 
     let listItems = restaurants.map(function (restaurant) {
-        // let imageUri = "";
+        var phoneNumber = restaurantDetails(restaurant.place_id);
+        console.log(phoneNumber);
+
+        //let imageUri = "";
         imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+
+        var phoneNumber = restaurantDetails(restaurant.place_id);
+        console.log(phoneNumber);
+
 
 
 
@@ -17,14 +47,9 @@ function showResults(restaurants) {
         };
         // generate extra detail click from the place_id
 
-        var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unanted characters
-        // if (restaurant.place_id) {
-        //     var expandDetails = `onclick="$(${expandId}).removeClass('d-none');"`;
-        // } else {
-        //     var expandDetails = ``;
-        //  };
+        var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unwanted characters
 
-        // generat html list items
+        // generate html list items
         return `<div class="collapsible"> 
             <table class="er-list-table">
             <tr>
@@ -244,7 +269,15 @@ function initMap(currentLat, currentLong) {
 
 
 function jsonMap() {
-
+    // Create the places service.
+    // Create the places service.
+    var service = new google.maps.places.PlacesService(map);
+    var getNextPage = null;
+    var moreButton = document.getElementById('more');
+    moreButton.onclick = function () {
+        moreButton.disabled = true;
+        if (getNextPage) getNextPage();
+    };
     $.when(
         $.get(`assets/data/leiden.json`)
     ).then(
@@ -407,7 +440,6 @@ function createMarkers(places) {
 
     map.fitBounds(bounds);
 };
-
 
 
 // jsonMap();

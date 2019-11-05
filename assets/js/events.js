@@ -1,30 +1,32 @@
 function showMap() {
-    document.getElementById("er-search-section").classList.add("d-none");
+    document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     //    document.getElementById("er-map-section").classList.remove("d-none");
 };
 
-function showSearch() {
-    document.getElementById("er-search-section").classList.remove("d-none");
+function showList() {
+    document.getElementById("er-list-section").classList.remove("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     //    document.getElementById("er-map-section").classList.add("d-none");
 };
 
 function showDetails() {
-    document.getElementById("er-search-section").classList.add("d-none");
+    document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.remove("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     //   document.getElementById("er-map-section").classList.add("d-none");
 };
 
 function showContact() {
-    document.getElementById("er-search-section").classList.add("d-none");
+    document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.remove("d-none");
     //   document.getElementById("er-map-section").classList.add("d-none");
 };
+
+
 
 // make list items collapsible, based on an example from
 // https://www.w3schools.com/howto/howto_js_collapsible.asp
@@ -55,7 +57,7 @@ window.onload = function () {
     });
 
     document.getElementById("er-search-switch").addEventListener("click", function () {
-        showSearch();
+        showList();
     });
 
     document.getElementById("er-details-switch").addEventListener("click", function () {

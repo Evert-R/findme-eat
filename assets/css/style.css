@@ -65,13 +65,50 @@ h3 {
     padding-top: 8vh;
 }
 
-#er-search-section {
+/* ----------------------------------------Sections */
+
+#er-list-section {
     min-height: 100vh;
     padding-bottom: 10vh;
     background-color: rgba(255, 245, 108, 0.22);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.7em;
     font-weight: 530;
+}
+
+#er-map-section {
+    height: 100vh;
+    width: 100vw;
+    background-color: #242f3e;
+}
+
+.er-details-section {
+    height: 100vh;
+}
+
+.er-contact-section {
+    height: 100vh;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.er-header {
+    z-index: 23;
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    top: 0vh;
+    background-color: rgba(0, 152, 46, 0.815);
+    ;
+}
+
+.er-title {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 /* ----------------------------------------Item-list */
@@ -159,41 +196,6 @@ er-collapse-button {
 
 .er-cell-price {
     width: 8vw;
-}
-
-#er-map-section {
-    height: 100vh;
-    width: 100vw;
-    background-color: #242f3e;
-}
-
-.er-details-section {
-    height: 100vh;
-}
-
-.er-contact-section {
-    height: 100vh;
-}
-
-#map {
-    height: 100%;
-    width: 100%;
-}
-
-.er-header {
-    z-index: 23;
-    position: fixed;
-    height: 8vh;
-    width: 100%;
-    top: 0vh;
-    background-color: rgba(0, 152, 46, 0.815);
-    ;
-}
-
-.er-title {
-    font-family: 'Indie Flower', cursive;
-    font-size: 1.5em;
-    color: rgba(0, 0, 0, 0.7);
 }
 
 /* ----------------------------------------Footer Searchbar */
