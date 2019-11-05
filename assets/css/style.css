@@ -37,7 +37,8 @@ h3 {
 }
 
 .row {
-    margin: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 #er-header-table {
@@ -61,7 +62,7 @@ h3 {
 
 .er-content {
     width: 100%;
-    padding-top: 10vh;
+    padding-top: 8vh;
 }
 
 #er-search-section {
@@ -162,7 +163,8 @@ er-collapse-button {
 
 #er-map-section {
     height: 100vh;
-    background-color: black;
+    width: 100vw;
+    background-color: #242f3e;
 }
 
 .er-details-section {
@@ -175,6 +177,7 @@ er-collapse-button {
 
 #map {
     height: 100%;
+    width: 100%;
 }
 
 .er-header {
