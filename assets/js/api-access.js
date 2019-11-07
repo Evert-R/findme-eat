@@ -1,5 +1,6 @@
 function restaurantDetails(place_id) {
     showDetails();
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
     var requestDetails = {
         placeId: place_id,
         fields: ['address_components', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
@@ -163,7 +164,7 @@ function showResults(restaurants) {
     `
 }
 
-var map; // create map variable
+
 
 // get current location
 function checkGeo() {
@@ -195,7 +196,10 @@ function manualSearch() {
             collapse(); // assign the collapse function to classes
 
             console.log(results);
-            createMarkers(results); // create the markers on the map
+            createMarkers(results) // Plot markers on the map
+            setTimeout(function () { // wait a bit to show the mapresults
+                showList(); // then show list
+            }, 2500);
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
                 pagination.nextPage();
@@ -226,7 +230,11 @@ function GeoSearch(currentLat, currentLong) {
             $("#er-search-results").html(showResults(results)); // push details to screen
             collapse(); // assign the collapse function to classes
             console.log(results)
-            createMarkers(results);
+            createMarkers(results) // Plot markers on the map
+            setTimeout(function () { // wait a bit to show the mapresults
+                showList(); // then show list
+            }, 2500);
+            // show the list with results
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
                 pagination.nextPage();
@@ -235,12 +243,12 @@ function GeoSearch(currentLat, currentLong) {
 }
 
 
-checkGeo();
+
 // jsonMap();
 
 function initMap(currentLat, currentLong) {
     // Get input from input field
-
+    showMap(); //show map so the markers can fit the bounds
     // Create the map.
     map = new google.maps.Map(document.getElementById('map'), {
         styles: [
@@ -498,5 +506,6 @@ function createMarkers(places) {
     map.fitBounds(bounds);
 };
 
+var map; // create map variable
+checkGeo(); // check location, if present do geo search
 
-// jsonMap();
