@@ -51,6 +51,16 @@ h3 {
 
 /* ----------------------------------------Header */
 
+.er-header {
+    z-index: 23;
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    top: 0vh;
+    background-color: rgba(0, 152, 46, 0.815);
+    ;
+}
+
 #er-header-table {
     width: 100%;
 }
@@ -72,6 +82,35 @@ h3 {
     margin: 10px;
     font-size: 8vw;
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----------------------------------------Footer Searchbar */
+
+.er-footer {
+    z-index: 23;
+    position: fixed;
+    height: 8vh;
+    width: 100vw;
+    top: 92vh;
+    background-color: rgba(0, 152, 46, 0.815);
+}
+
+.er-search {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+#er-search-input {
+    width: 80vw;
+    display: table-cell;
+    height: 6vh;
+}
+
+#er-search-button {
+    width: 15vw;
+    display: table-cell;
+    height: 8vh;
 }
 
 /* ----------------------------------------Sections */
@@ -113,16 +152,6 @@ h3 {
     width: 100%;
 }
 
-.er-header {
-    z-index: 23;
-    position: fixed;
-    height: 8vh;
-    width: 100%;
-    top: 0vh;
-    background-color: rgba(0, 152, 46, 0.815);
-    ;
-}
-
 /* ----------------------------------------Item-list */
 
 .er-item-list {
@@ -140,6 +169,12 @@ h3 {
 
 .er-list-icon {
     font-size: 2em;
+}
+
+.er-details-icon {
+    margin: 1em 0.5em 1em 0.5em;
+    font-size: 2.5em;
+    color: rgba(0, 152, 46, 0.815);
 }
 
 /* ----------------------------------------Item-list-cells */
@@ -191,6 +226,8 @@ h3 {
 }
 
 .er-collapse-details {
+    text-align: center;
+    background-color: rgba(223, 255, 232, 0.815);
     width: 15%;
 }
 
@@ -228,32 +265,4 @@ h3 {
 
 .er-details-adress {
     width: 34%;
-}
-
-/* ----------------------------------------Footer Searchbar */
-
-.er-footer {
-    z-index: 23;
-    position: fixed;
-    height: 8vh;
-    width: 100vw;
-    top: 92vh;
-}
-
-.er-search {
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-
-#er-search-input {
-    width: 80vw;
-    display: table-cell;
-    height: 6vh;
-}
-
-#er-search-button {
-    width: 15vw;
-    display: table-cell;
-    height: 8vh;
 }

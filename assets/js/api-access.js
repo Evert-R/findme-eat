@@ -134,10 +134,10 @@ function showResults(restaurants) {
                 <tr>
                     <td class="er-collapse-details" >
                     <div onclick="restaurantDetails('${restaurant.place_id}')">
-                        <i class="fa fa-info er-list-icon"></i>
+                        <i class="fa fa-eye er-details-icon"></i>
                     </div>
                     <div>    
-                        <i class="fa fa-map er-list-icon"></i>
+                        <i class="fa fa-map er-details-icon"></i>
                     </div>
                         </td>
                     <td class="er-collapse-image">
