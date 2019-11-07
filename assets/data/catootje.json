@@ -1,0 +1,161 @@
+{
+    "address_components": [
+        {
+            "long_name": "10",
+            "short_name": "10",
+            "types": [
+                "street_number"
+            ]
+        },
+        {
+            "long_name": "Kaasmarkt",
+            "short_name": "Kaasmarkt",
+            "types": [
+                "route"
+            ]
+        },
+        {
+            "long_name": "Leiden",
+            "short_name": "Leiden",
+            "types": [
+                "locality",
+                "political"
+            ]
+        },
+        {
+            "long_name": "Leiden",
+            "short_name": "Leiden",
+            "types": [
+                "administrative_area_level_2",
+                "political"
+            ]
+        },
+        {
+            "long_name": "Zuid-Holland",
+            "short_name": "ZH",
+            "types": [
+                "administrative_area_level_1",
+                "political"
+            ]
+        },
+        {
+            "long_name": "Netherlands",
+            "short_name": "NL",
+            "types": [
+                "country",
+                "political"
+            ]
+        },
+        {
+            "long_name": "2312 HZ",
+            "short_name": "2312 HZ",
+            "types": [
+                "postal_code"
+            ]
+        }
+    ],
+    "adr_address": "<span class=\"street-address\">Kaasmarkt 10</span>, <span class=\"postal-code\">2312 HZ</span> <span class=\"locality\">Leiden</span>, <span class=\"country-name\">Netherlands</span>",
+    "formatted_address": "Kaasmarkt 10, 2312 HZ Leiden, Netherlands",
+    "geometry": {
+        "location": {
+            "lat": 52.1599266,
+            "lng": 4.496671399999968
+        },
+        "viewport": {
+            "south": 52.1585965197085,
+            "west": 4.495313819708485,
+            "north": 52.1612944802915,
+            "east": 4.498011780291563
+        }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+    "name": "Catootje aan de Markt",
+    "photos": [
+        {
+            "height": 480,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/111416739441140986774/photos\">Catootje aan de Markt</a>"
+            ],
+            "width": 720
+        },
+        {
+            "height": 344,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/106755984762141516153/photos\">Piet van Zoen</a>"
+            ],
+            "width": 612
+        },
+        {
+            "height": 344,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/106755984762141516153/photos\">Piet van Zoen</a>"
+            ],
+            "width": 612
+        },
+        {
+            "height": 4128,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/114755486940153986018/photos\">marieke de bruin</a>"
+            ],
+            "width": 3096
+        },
+        {
+            "height": 1080,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/111416739441140986774/photos\">Catootje aan de Markt</a>"
+            ],
+            "width": 1618
+        },
+        {
+            "height": 2056,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/111416739441140986774/photos\">Catootje aan de Markt</a>"
+            ],
+            "width": 3088
+        },
+        {
+            "height": 1080,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/111416739441140986774/photos\">Catootje aan de Markt</a>"
+            ],
+            "width": 1618
+        },
+        {
+            "height": 4032,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/100187488339482571946/photos\">Ronald de Haas</a>"
+            ],
+            "width": 3024
+        },
+        {
+            "height": 344,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/106755984762141516153/photos\">Piet van Zoen</a>"
+            ],
+            "width": 612
+        },
+        {
+            "height": 1080,
+            "html_attributions": [
+                "<a href=\"https://maps.google.com/maps/contrib/111416739441140986774/photos\">Catootje aan de Markt</a>"
+            ],
+            "width": 1618
+        }
+    ],
+    "place_id": "ChIJm-mtH5LGxUcRGZSGD9ak7xg",
+    "plus_code": {
+        "compound_code": "5F5W+XM Leiden, Netherlands",
+        "global_code": "9F465F5W+XM"
+    },
+    "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+    ],
+    "url": "https://maps.google.com/?cid=1796836015634551833",
+    "utc_offset": 60,
+    "vicinity": "Kaasmarkt 10, Leiden",
+    "html_attributions": [],
+    "utc_offset_minutes": 60
+}

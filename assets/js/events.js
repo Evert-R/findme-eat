@@ -2,28 +2,28 @@ function showMap() {
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
-    //    document.getElementById("er-map-section").classList.remove("d-none");
+    document.getElementById("er-map-section").classList.remove("d-none");
 };
 
 function showList() {
     document.getElementById("er-list-section").classList.remove("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
-    //    document.getElementById("er-map-section").classList.add("d-none");
+    document.getElementById("er-map-section").classList.add("d-none");
 };
 
 function showDetails() {
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.remove("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
-    //   document.getElementById("er-map-section").classList.add("d-none");
+    document.getElementById("er-map-section").classList.add("d-none");
 };
 
 function showContact() {
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.remove("d-none");
-    //   document.getElementById("er-map-section").classList.add("d-none");
+    document.getElementById("er-map-section").classList.add("d-none");
 };
 
 

@@ -1,7 +1,8 @@
 function restaurantDetails(place_id) {
+    showDetails();
     var requestDetails = {
         placeId: place_id,
-        fields: ['name', 'rating', 'formatted_phone_number', 'geometry']
+        fields: ['address_components', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
     };
 
     service = new google.maps.places.PlacesService(map);
@@ -9,35 +10,81 @@ function restaurantDetails(place_id) {
 
     function callback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            console.log(place.formatted_phone_number);
-            return place.formatted_phone_number;
-        };
 
+            console.log(place);
+            let photoItems = place.photos.map(function (photo) {
+                imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
+                return `<div><img src="${imageUri}"></div>`
+            });
+
+            let placeTypes = place.types.map(function (placeType) {
+
+                return `<div>${placeType}</div>`
+            });
+
+            $("#er-details-section").html(`
+            <table class="er-list-table">
+                <tr>
+                    <td class="er-details-name">
+                    <h2>${place.name}</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="er-details-adress">
+                    ${place.address_components[1].long_name}
+                    ${place.address_components[0].long_name}<br>
+                    ${place.address_components[6].long_name}
+                    ${place.address_components[3].long_name}<br>
+                    ${place.address_components[5].long_name}<br>
+                    </td>
+                    <td class="er-details-photo">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="er-details-photos">
+                        ${placeTypes.join("\n")} 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="er-details-photos">
+                        ${photoItems.join("\n")} 
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="er-details-photos">${photoItems.join("\n")}</div>   
+            <div>${place.address_components.long_name}</div>
+            <div>${place.adr_address}</div>
+            <div>${place.formatted_address}</div>
+            <div>${place.geometry.location}</div>
+            <div>${place.icon}</div>
+            <div>${place.name}</div>
+            <div>${place.permanently_closed}</div>
+            <div>${place.photos}</div>
+            <div>${place.place_id}</div>
+            <div>${place.plus_code}</div>
+            <div>${place.type}</div>
+            <div>${place.url}</div>
+            <div>${place.utc_offset}</div>
+            <div>${place.vicinity}</div>
+            <div>${photoItems}</div>        
+            `);
+        };
     }
 }
 
 function showResults(restaurants) {
-
-
-
-
-
     if (restaurants.length == 0) {
         return `<h2>Nothing to show</h2>`;
     }
 
     let listItems = restaurants.map(function (restaurant) {
-        var phoneNumber = restaurantDetails(restaurant.place_id);
-        console.log(phoneNumber);
+
 
         //let imageUri = "";
         imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
-
-        var phoneNumber = restaurantDetails(restaurant.place_id);
-        console.log(phoneNumber);
-
-
-
+        // generate detail link
 
         // generate open icon
         if (restaurant.opening_hours.open_now == true) {
@@ -50,7 +97,7 @@ function showResults(restaurants) {
         var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unwanted characters
 
         // generate html list items
-        return `<div class="collapsible"> 
+        return `<div class="er-list collapsible"> 
             <table class="er-list-table">
             <tr>
                 <td class="er-cell-image">
@@ -66,22 +113,40 @@ function showResults(restaurants) {
                     ${restaurant.rating}
                 </td>
                 <td class="er-cell-price">
-                    <i class="fa fa-money er-list-icon"></i>
+ 
+                    <div>
+                        <i class="fa fa-money er-list-icon"></i>
+                    </div>
+                    <div>
+                        ${restaurant.rating}
+                    </div>
                 </td>
                 <td class="er-cell-open">
+
                     ${openNow}
                 </td>          
             </tr>
         </table>
         </div>     
 
-        <div class="er-list-details">
-           
-                <img src="${imageUri}" class="er-list-image">
-          
-                <div class="er-detail-name" id="${expandId}">
-                    ${restaurant.formatted_address}                    
-                </div>
+        <div class="er-list-collapse">
+            <table class="er-list-table">
+                <tr>
+                    <td class="er-collapse-details" >
+                    <div onclick="restaurantDetails('${restaurant.place_id}')">
+                        <i class="fa fa-info er-list-icon"></i>
+                    </div>
+                    <div>    
+                        <i class="fa fa-map er-list-icon"></i>
+                    </div>
+                        </td>
+                    <td class="er-collapse-image">
+                        <img src="${imageUri}">
+                    </td>
+                </tr>
+            </table>
+                   
+        </div>
          
                    
             
@@ -171,7 +236,7 @@ function GeoSearch(currentLat, currentLong) {
 
 
 checkGeo();
-
+// jsonMap();
 
 function initMap(currentLat, currentLong) {
     // Get input from input field
@@ -269,15 +334,7 @@ function initMap(currentLat, currentLong) {
 
 
 function jsonMap() {
-    // Create the places service.
-    // Create the places service.
-    var service = new google.maps.places.PlacesService(map);
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
+
     $.when(
         $.get(`assets/data/leiden.json`)
     ).then(
