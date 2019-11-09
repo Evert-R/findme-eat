@@ -40,6 +40,25 @@ h3 {
     cursor: cell!important;
 }
 
+button {
+    margin: 0;
+    padding: 3px;
+    line-height: 1em;
+    overflow: hidden;
+    background-color: rgba(0, 152, 46, 0.815);
+    border-color: rgba(0, 152, 46, 0.2);
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+svg {
+    width: 70px;
+    height: 1em;
+}
+
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -56,11 +75,35 @@ h3 {
 .er-header {
     z-index: 23;
     position: fixed;
-    height: 8vh;
     width: 100%;
     top: 0vh;
-    background-color: rgba(0, 152, 46, 0.815);
     ;
+}
+
+.er-header-main {
+    height: 7vh;
+    background-color: rgba(0, 152, 46, 0.815);
+}
+
+.er-header-icon {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.er-header-expand {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 152, 46, 0.815);
+}
+
+.er-header-text {
+    float: left;
+    color: rgba(0, 36, 11, 0.815);
+}
+
+.er-header-switch {
+    float: right;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 #er-header-table {
@@ -80,10 +123,14 @@ h3 {
     color: rgba(0, 0, 0, 0.7);
 }
 
-.er-header-icon {
-    margin: 10px;
-    font-size: 8vw;
-    color: rgba(255, 255, 255, 0.7);
+.er-header-collapse {
+    position: absolute;
+    right: 0;
+    width: 20vw;
+    background-color: rgba(0, 152, 46, 0.815);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
 }
 
 /* ----------------------------------------Footer Searchbar */
@@ -122,25 +169,23 @@ h3 {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-    padding-top: 8vh;
     font-size: 0.8em;
 }
 
 /* ----------------------------------------Sections */
 
 #er-list-section {
-    background-color: rgba(239, 238, 229, 0.82);
+    background-color: rgba(255, 255, 255, 0.7);
     min-height: 100vh;
+    padding-top: 15vh;
     padding-bottom: 10vh;
 }
 
 #er-map-section {
     height: 100vh;
     width: 100%;
-    background-color: #242f3e;
+    background-color: rgba(239, 238, 229, 0.82);
 }
-
-.er-details {}
 
 #er-details-section {
     background-color: rgba(239, 238, 229, 0.82);
@@ -148,7 +193,7 @@ h3 {
     width: 100%
 }
 
-.er-contact-section {
+#er-contact-section {
     height: 100vh;
 }
 
@@ -169,7 +214,7 @@ h3 {
 }
 
 .er-list-table td {
-    border: 0px dotted lightgrey;
+    border: 1px dotted white;
 }
 
 .er-list-icon {
@@ -180,6 +225,10 @@ h3 {
     margin: 1em 0.5em 1em 0.5em;
     font-size: 2.5em;
     color: rgba(0, 152, 46, 0.815);
+}
+
+.er-list {
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 /* ----------------------------------------Item-list-cells */
@@ -204,20 +253,31 @@ h3 {
     width: 100%;
 }
 
-.er-cell-name {
+.er-cell-name {}
+
+.er-cell-topname {
     width: 50%;
     text-align: center;
 }
 
+.er-table-top {
+    font-size: .9em;
+    font-weight: 100;
+}
+
 .er-cell-open {
+    font-size: .9em;
+    text-align: center;
     width: 10%;
 }
 
-.er-cell-rating {
-    width: 10%;
+.er-cell-svg {
+    font-size: .9em;
+    width: 20%;
 }
 
 .er-cell-price {
+    text-align: center;
     width: 10%;
 }
 
@@ -226,15 +286,26 @@ h3 {
 .er-list-collapse {
     padding-left: 1em;
     padding-right: 1em;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
 }
 
+.er-list-collapse button {
+    color: black;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0;
+    padding: 6px;
+    line-height: 1em;
+    overflow: hidden;
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
 .er-collapse-details {
     text-align: center;
-    background-color: rgba(223, 255, 232, 0.815);
     width: 15%;
 }
 

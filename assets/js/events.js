@@ -5,11 +5,12 @@ function showMap() {
     document.getElementById("er-map-section").classList.remove("d-none");
 };
 
-function showList() {
+function showList(callback) {
     document.getElementById("er-list-section").classList.remove("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     document.getElementById("er-map-section").classList.add("d-none");
+
 };
 
 function showDetails() {
@@ -51,7 +52,7 @@ function collapse() {
 
 
 window.onload = function () {
-
+    collapse();
     document.getElementById("er-map-switch").addEventListener("click", function () {
         showMap();
     });

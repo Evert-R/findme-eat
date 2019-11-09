@@ -9,39 +9,48 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        type="text/css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
         type="text/css" />
 
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
+    <script src="https://kit.fontawesome.com/0a931c8290.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
     <header class="row">
         <section class="er-header">
+            <div class="er-header-main">
+                <table id="er-header-table">
+                    <tr>
+                        <td id="er-search-switch" class="er-header-icon">
+                            <button><i class="fa fa-list er-header-icon"></i></button>
+                        </td>
+                        <td id="er-details-switch" class="er-header-icon">
+                            <button><i class="fa fa-eye er-header-icon"></i></button>
+                        <td class="er-title">
+                            Find me-eat . . .
+                        </td>
 
-            <table id="er-header-table">
-                <tr>
-                    <td id="er-search-switch" class="er-header-icon">
-                        <i class="fa fa-list"></i>
-                    </td>
-                    <td id="er-details-switch" class="er-header-icon">
-                        <i class="fa fa-eye"></i>
-                    <td class="er-title">
-                        Find me-eat . . .
-                    </td>
+                        <td id="er-map-switch" class="er-header-icon">
+                            <button><i class="fa fa-map er-header-icon"></i></button>
+                        </td>
+                        </td>
+                    </tr>
 
-                    <td id="er-map-switch" class="er-header-icon">
-                        <i class="fa fa-map"></i>
-                    </td>
-                    </td>
-                </tr>
-
-            </table>
+                </table>
+            </div>
+            <div class="collapsible">
+                <div class="er-header-expand">
+                    <div class="er-header-text">Find vegetarian restaurants</div>
+                    <div class="er-header-switch">settings</div>
+                </div>
+            </div>
+            <div class="er-header-collapse">
+                hallo
+            </div>
         </section>
     </header>
 
