@@ -187,6 +187,12 @@ svg {
     background-color: rgba(239, 238, 229, 0.82);
 }
 
+#er-directionmap-section {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(239, 238, 229, 0.82);
+}
+
 #er-details-section {
     background-color: rgba(239, 238, 229, 0.82);
     height: 100vh;
@@ -197,7 +203,7 @@ svg {
     height: 100vh;
 }
 
-#map {
+#map, #direction-map {
     height: 100%;
     width: 100%;
 }
