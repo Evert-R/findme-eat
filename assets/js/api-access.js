@@ -220,7 +220,7 @@ function manualSearch() {
             console.log(results);
             createMarkers(results) // Plot markers on the map
             setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse); // then show list
+                showList(collapse('collapsible')); // then show list
 
             }, 2500);
 
@@ -257,8 +257,10 @@ function GeoSearch(currentLat, currentLong) {
 
 
             setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse); // then show list and call the collapse function
+                showList(collapse('collapsible')); // then show list
+
             }, 2500);
+
 
 
 
@@ -798,7 +800,8 @@ function calcRoute(placeId, currentLat, currentLong) {
 
 
 var map; // create map variable
-checkGeo(initMap); // check location, if present do geo search
+
+// checkGeo(initMap); // check location, if present do geo search
 // jsonMap();
 
 

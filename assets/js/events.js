@@ -21,6 +21,8 @@ function showList(callback) {
     document.getElementById("er-map-section").classList.add("d-none");
     document.getElementById("er-direction-section").classList.add("d-none");
 
+
+
 };
 
 function showDetails() {
@@ -43,12 +45,14 @@ function showContact() {
 
 // make list items collapsible, based on an example from
 // https://www.w3schools.com/howto/howto_js_collapsible.asp
-function collapse() {
-    var coll = document.getElementsByClassName("collapsible");
+function collapse(collapsGroup) {
+
+    var coll = document.getElementsByClassName(collapsGroup);
 
     var i;
 
     for (i = 0; i < coll.length; i++) {
+
         coll[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
@@ -77,9 +81,9 @@ window.onload = function () {
         showDetails();
     });
 
-    //document.getElementById("er-map-switch").addEventListener("click", function() {
-    //    showMap();
-    //});
-
-
+    document.getElementById("er-location-icon").addEventListener("click", function () {
+        checkGeo(initMap);
+    });
 }
+
+collapse('header-collapsible');
