@@ -186,6 +186,37 @@ function showResults(restaurants) {
 
 
 
+function getSorting() { // get sort method from options
+    return $("input[name='er-sort']:checked").val()
+}
+
+function getCuisine() { // get cuisine type from options
+    var cuisine = $("#er-cuisine").children("option:selected").val()
+    return ` AND (${cuisine})`;
+}
+
+function getVeg() { // get veg options from options
+    var vegOptions;
+    var vegan = '';
+
+    var gluten = '';
+    if ($("#vegan").is(":checked")) {
+        vegan = ` AND (vegan)`;
+    }
+    if ($("#gluten").is(":checked")) {
+        gluten = ` AND (gluten-free)`;
+    }
+    vegOptions = vegan + gluten;
+    return vegOptions;
+}
+
+function getOpen() {
+    if ($("#open-now").is(":checked")) {
+        return true;
+    }
+}
+
+
 // get current location
 function checkGeo(callback) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -200,8 +231,8 @@ function checkGeo(callback) {
 };
 
 function manualSearch() {
-    var searchInput = document.getElementById("er-search-input").value;
-    // Create the places service.
+    var searchInput = document.getElementById("er-search-input").value; //get search input
+    // Create the places service :
     var service = new google.maps.places.PlacesService(map);
     var getNextPage = null;
     var moreButton = document.getElementById('more');
@@ -209,22 +240,22 @@ function manualSearch() {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
+    // Perform the search :
     service.textSearch(
-        { query: searchInput + ' vegetarian', type: ['restaurant'] },
+        {
+            query: searchInput + ' AND (vegetarian)' + getCuisine() + getVeg(),
+            type: ['restaurant'],
+            openNow: getOpen()
+        },
         function (results, status, pagination) {
             if (status !== 'OK') return;
             // Do something with the results
             $("#er-search-results").html(showResults(results)); // push details to screen
-
-
             console.log(results);
             createMarkers(results) // Plot markers on the map
             setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse('collapsible')); // then show list
-
+                showList(collapse('collapsible')); // then show the resultslist
             }, 2500);
-
-
 
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
@@ -245,9 +276,22 @@ function GeoSearch(currentLat, currentLong) {
     };
     // Perform a nearby search.
     console.log(currentLat);
+    console.log(getSorting());
+    console.log(getCuisine());
+    console.log(getVeg());
+    var keyWord = '(vegetarian)' + getCuisine() + getVeg();
+
     service.nearbySearch(
-        { location: { lat: currentLat, lng: currentLong }, radius: 500, type: ['restaurant'], keyword: ['vegetarian'] },
+        {
+            location: { lat: currentLat, lng: currentLong },
+            //         radius: 500,
+            type: ['restaurant'],
+            keyword: [keyWord],
+            openNow: getOpen(),
+            rankBy: google.maps.places.RankBy.DISTANCE
+        },
         function (results, status, pagination) {
+            console.log(status);
             if (status !== 'OK') return;
             // Do something with the results
             $("#er-search-results").html(showResults(results)); // push details to screen

@@ -84,6 +84,13 @@ window.onload = function () {
     document.getElementById("er-location-icon").addEventListener("click", function () {
         checkGeo(initMap);
     });
+    document.getElementById("er-menu-location").addEventListener("click", function () {
+        checkGeo(initMap);
+    });
+    document.getElementById("vegetarian").addEventListener("click", function () {
+        alert("Sorry, we don't find meat ;-)");
+        $('#vegetarian').prop('checked', true);
+    });
 }
 
 collapse('header-collapsible');

@@ -51,7 +51,8 @@
             <div class="er-header-collapse er-background">
                 <div class="er-dropdown">
                     <label for="er-cuisine">Cuisine:</label>
-                    <select id="er-cuisine">Roti</option>
+                    <select id="er-cuisine">
+                        <option value="">-</option>
                         <option value="indian">Indian</option>
                         <option value="thai">Thai</option>
                         <option value="greek">Greek</option>
@@ -65,16 +66,20 @@
                         <option value="sushi">Sushi</option>
                     </select>
                     <br><br>
-                    <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian">Vegetarian<br>
-                    <input id="vegan" type="checkbox" name="vegan" value="vegan">Vegan<br>
-                    <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian">Vegetarian<br>
-                    <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian">Vegetarian<br>
-                    <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian">Vegetarian<br><br>
-                    <div>Sort by:</div><br>
-                    <input type="radio" name="er-sort" id="er-sort" value="sortrating">Rating<br>
-                    <input type="radio" name="er-sort" id="er-sort" value="sortdistance">Distance<br>
-                    <input type="radio" name="er-sort" id="er-sort" value="sortprice">Price<br>
 
+                    <div><input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian" checked><label
+                            for="vegetarian">Vegetarian</label></div>
+                    <div><input id="vegan" type="checkbox" name="vegan" value="vegan"><label for="vegan">Vegan</label>
+                    </div>
+                    <div><input id="gluten" type="checkbox" name="gluten" value="gluten"><label for="gluten">Gluten
+                            Free</label></div><br>
+                    <div><input id="open-now" type="checkbox" name="open" value=""><label for="open-now">Open
+                            Now</label></div>
+                    <div>Sort by:</div>
+                    <input type="radio" name="er-sort" class="er-sort" value="PROMINANCE">Rating<br>
+                    <input type="radio" name="er-sort" class="er-sort" value="DISTANCE">Distance<br>
+                    <input type="radio" name="er-sort" class="er-sort" value="sortprice"><label>Price</label><br>
+                    <div class="er-menu-search" id="er-menu-location"><i class="fab fa-sith"></i></div>
                 </div>
             </div>
         </section>
@@ -129,7 +134,11 @@
                 <form onsubmit="return false;" method="post" name="myForm">
                     <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?"
                         value="" />
-                    <button type="submit" name="GO" id="er-search-button" onclick="initMap()">Go!</button>
+                    <button type="submit" name="GO" id="er-search-button" class="er-background er-location-icon"
+                        onclick="initMap()">
+                        <i class="fab fa-sith er-footer-search"></i>
+                    </button>
+
                 </form>
             </div>
         </section>
