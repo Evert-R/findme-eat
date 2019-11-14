@@ -79,7 +79,7 @@
                     <input type="radio" name="er-sort" class="er-sort" value="PROMINANCE">Rating<br>
                     <input type="radio" name="er-sort" class="er-sort" value="DISTANCE">Distance<br>
                     <input type="radio" name="er-sort" class="er-sort" value="sortprice"><label>Price</label><br>
-                    <div class="er-menu-search" id="er-menu-location"><i class="fab fa-sith"></i></div>
+                    <div class="er-menu-search" id="er-menu-location"><i class="fab fa-sith er-location-icon"></i></div>
                 </div>
             </div>
         </section>
@@ -93,9 +93,9 @@
                     <div class="er-location-search">
                         <div class="er-front-text">Give a tap here . . .</div><br>
                         <div class="er-front-text">↓</div>
-                        <div id="er-location-icon">
+                        <div id="er-location-front">
 
-                            <i class="fab fa-sith"></i>
+                            <i class="fab fa-sith er-location-icon"></i>
                         </div>
 
                         <div class="er-front-text">to search 4 a restaurant</div>
@@ -128,20 +128,21 @@
         </div>
     </main>
     <!-- footer searchbar -->
-    <footer class="row">
-        <section class="er-footer er-background">
-            <div class="er-search">
-                <form onsubmit="return false;" method="post" name="myForm">
-                    <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?"
-                        value="" />
-                    <button type="submit" name="GO" id="er-search-button" class="er-background er-location-icon"
-                        onclick="initMap()">
-                        <i class="fab fa-sith er-footer-search"></i>
-                    </button>
+    <footer class="row er-background er-footer">
 
-                </form>
-            </div>
-        </section>
+
+
+        <form onsubmit="return false;" method="post" name="myForm">
+
+            <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
+
+            <button type="submit" name="GO" id="er-search-button" class=" er-background" onclick="initMap()">
+                <i class="fab fa-sith er-footer-search er-location-icon"></i>
+            </button>
+
+        </form>
+
+
     </footer>
 </body>
 

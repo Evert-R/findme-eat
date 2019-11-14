@@ -81,7 +81,7 @@ window.onload = function () {
         showDetails();
     });
 
-    document.getElementById("er-location-icon").addEventListener("click", function () {
+    document.getElementById("er-location-front").addEventListener("click", function () {
         checkGeo(initMap);
     });
     document.getElementById("er-menu-location").addEventListener("click", function () {

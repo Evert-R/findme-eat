@@ -192,7 +192,9 @@ function getSorting() { // get sort method from options
 
 function getCuisine() { // get cuisine type from options
     var cuisine = $("#er-cuisine").children("option:selected").val()
-    return ` AND (${cuisine})`;
+    if (cuisine != '') {
+        return ` AND (${cuisine})`;
+    }
 }
 
 function getVeg() { // get veg options from options
@@ -230,97 +232,11 @@ function checkGeo(callback) {
     });
 };
 
-function manualSearch() {
-    var searchInput = document.getElementById("er-search-input").value; //get search input
-    // Create the places service :
-    var service = new google.maps.places.PlacesService(map);
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
-    // Perform the search :
-    service.textSearch(
-        {
-            query: searchInput + ' AND (vegetarian)' + getCuisine() + getVeg(),
-            type: ['restaurant'],
-            openNow: getOpen()
-        },
-        function (results, status, pagination) {
-            if (status !== 'OK') return;
-            // Do something with the results
-            $("#er-search-results").html(showResults(results)); // push details to screen
-            console.log(results);
-            createMarkers(results) // Plot markers on the map
-            setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse('collapsible')); // then show the resultslist
-            }, 2500);
-
-            moreButton.disabled = !pagination.hasNextPage;
-            getNextPage = pagination.hasNextPage && function () {
-                pagination.nextPage();
-            };
-        }
-    );
-};
-
-function GeoSearch(currentLat, currentLong) {
-    // Create the places service.
-    var service = new google.maps.places.PlacesService(map);
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
-    // Perform a nearby search.
-    console.log(currentLat);
-    console.log(getSorting());
-    console.log(getCuisine());
-    console.log(getVeg());
-    var keyWord = '(vegetarian)' + getCuisine() + getVeg();
-
-    service.nearbySearch(
-        {
-            location: { lat: currentLat, lng: currentLong },
-            //         radius: 500,
-            type: ['restaurant'],
-            keyword: [keyWord],
-            openNow: getOpen(),
-            rankBy: google.maps.places.RankBy.DISTANCE
-        },
-        function (results, status, pagination) {
-            console.log(status);
-            if (status !== 'OK') return;
-            // Do something with the results
-            $("#er-search-results").html(showResults(results)); // push details to screen
-
-            console.log(results)
-            createMarkers(results) // Plot markers on the map
-
-
-            setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse('collapsible')); // then show list
-
-            }, 2500);
-
-
-
-
-            // show the list with results
-            moreButton.disabled = !pagination.hasNextPage;
-            getNextPage = pagination.hasNextPage && function () {
-                pagination.nextPage();
-            };
-
-        });
+function mapStyle() {
+    return `
+    
+    `
 }
-
-
-
-
-// jsonMap();
 
 function initMap(currentLat, currentLong) {
     // Get input from input field
@@ -407,6 +323,39 @@ function initMap(currentLat, currentLong) {
                 ]
             },
             {
+                "featureType": "poi.attraction",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.business",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.business",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.government",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
                 "featureType": "poi.park",
                 "elementType": "geometry.fill",
                 "stylers": [
@@ -421,6 +370,30 @@ function initMap(currentLat, currentLong) {
                 "stylers": [
                     {
                         "color": "#447530"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.place_of_worship",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.school",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.sports_complex",
+                "stylers": [
+                    {
+                        "visibility": "off"
                     }
                 ]
             },
@@ -551,9 +524,99 @@ function initMap(currentLat, currentLong) {
     }
 };
 
+function GeoSearch(currentLat, currentLong) {
+    // Create the places service.
+    var service = new google.maps.places.PlacesService(map);
+    var getNextPage = null;
+    var moreButton = document.getElementById('more');
+    moreButton.onclick = function () {
+        moreButton.disabled = true;
+        if (getNextPage) getNextPage();
+    };
+    // Perform a nearby search.
+    console.log(currentLat);
+    console.log(getSorting());
+    console.log(getCuisine());
+    console.log(getVeg());
+    var keyWord = '(vegetarian)' + getCuisine() + getVeg();
+
+    service.nearbySearch(
+        {
+            location: { lat: currentLat, lng: currentLong },
+            //         radius: 500,
+            type: ['restaurant'],
+            keyword: [keyWord],
+            openNow: getOpen(),
+            rankBy: google.maps.places.RankBy.DISTANCE
+        },
+        function (results, status, pagination) {
+            console.log(status);
+            if (status !== 'OK') return;
+            // Do something with the results
+            $("#er-search-results").html(showResults(results)); // push details to screen
+
+            console.log(results)
+            createMarkers(results) // Plot markers on the map
+
+            setTimeout(function () { // wait a bit to show the mapresults
+                showList(collapse('collapsible')); // then show list
+
+            }, 2500);
+
+
+
+
+            // show the list with results
+            moreButton.disabled = !pagination.hasNextPage;
+            getNextPage = pagination.hasNextPage && function () {
+                pagination.nextPage();
+            };
+
+        });
+}
+
+
+
+function manualSearch() {
+    var searchInput = document.getElementById("er-search-input").value; //get search input
+    // Create the places service :
+    var service = new google.maps.places.PlacesService(map);
+    var getNextPage = null;
+    var moreButton = document.getElementById('more');
+    moreButton.onclick = function () {
+        moreButton.disabled = true;
+        if (getNextPage) getNextPage();
+    };
+    // Perform the search :
+    service.textSearch(
+        {
+            query: searchInput + ' AND (vegetarian)' + getCuisine() + getVeg(),
+            type: ['restaurant'],
+            openNow: getOpen()
+        },
+        function (results, status, pagination) {
+            if (status !== 'OK') return;
+            // Do something with the results
+            $("#er-search-results").html(showResults(results)); // push details to screen
+            console.log(results);
+            createMarkers(results) // Plot markers on the map
+            setTimeout(function () { // wait a bit to show the mapresults
+                showList(collapse('collapsible')); // then show the resultslist
+            }, 2500);
+
+            moreButton.disabled = !pagination.hasNextPage;
+            getNextPage = pagination.hasNextPage && function () {
+                pagination.nextPage();
+            };
+        }
+    );
+};
+
 function createMarkers(places) {
     var bounds = new google.maps.LatLngBounds();
-
+    var infowindow = new google.maps.InfoWindow({
+        content: ''
+    });
 
     for (var i = 0, place; place = places[i]; i++) {
         var image = {
@@ -566,15 +629,27 @@ function createMarkers(places) {
 
         var marker = new google.maps.Marker({
             map: map,
-            icon: image,
-            title: place.name,
+            //  label: place.name,
             position: place.geometry.location
+
         });
+
+        infoContent = place.name;        //   infowindow.open(map, marker);
+        google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
+            return function () {
+                infowindow.close()
+                infowindow.setContent(infoContent);
+                infowindow.open(map, marker);
+            };
+        })(marker, infoContent, infowindow));
+
         bounds.extend(place.geometry.location);
     };
 
     map.fitBounds(bounds);
 };
+
+
 
 function initDirectionMap(placeId) {
     checkGeo(function (currentLat, currentLong) {
@@ -593,10 +668,7 @@ function initDirectionMap(placeId) {
 }
 
 function calcRoute(placeId, currentLat, currentLong) {
-
-
-
-    showDirections();
+    showDirections(); // show directions section
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
     var chicago = new google.maps.LatLng(currentLat, currentLong);

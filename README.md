@@ -1,7 +1,7 @@
 # Milestone-two
 
 ### Deployed version 
-[https://evert-r.github.io/milestone-one](https://evert-r.github.io/milestone-one)
+[https://evert-r.github.io/milestone-two](https://evert-r.github.io/milestone-two)
 
 ## UX
 ### For who this website is created 

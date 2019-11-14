@@ -43,18 +43,23 @@ h3 {
 
 header button {
     border: 1px;
-    ;
     margin: 0;
-    padding: 3px;
+    padding: 6px;
     line-height: 1em;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(87, 93, 65);
     box-shadow: 1px 1px .4em 3px rgba(255, 255, 255, 0.4);
     border-radius: 5px;
 }
 
 header button:hover {
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    outline: none;
+    border: none;
 }
 
 header button:active {
@@ -98,7 +103,6 @@ svg {
 
 .er-header-icon {
     font-size: 1.2em;
-    color: rgba(55, 92, 125);
 }
 
 .er-header-expand {
@@ -166,29 +170,30 @@ svg {
 
 .er-footer {
     z-index: 23;
-    position: fixed;
     height: 8vh;
-    width: 100vw;
+    position: fixed;
+    padding-bottom: 2vh;
     bottom: 0;
 }
 
-.er-search {
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
+.er-footer form {
+    width: 100vw;
 }
 
-#er-search-input {
-    align-self: center;
+.er-footer input {
+    vertical-align: text-bottom;
     width: 80vw;
-    display: table-cell;
+}
+
+er-footer button {
+    text-align: center;
+}
+
+.er-search-bar {
     height: 6vh;
 }
 
 #er-search-button {
-    width: 15vw;
-    display: table-cell;
-    height: 8vh;
     border: 0;
 }
 
@@ -197,20 +202,24 @@ svg {
     font-size: 3.5em;
 }
 
-.fa-sith {
+.er-location-icon {
+    border: none;
+    border-radius: 100px;
     color: rgba(87, 93, 65);
     transition: color .2s;
+    box-shadow: 0px 0px 1px 1px rgba(165, 176, 118);
 }
 
-.fa-sith:hover {
+.er-location-icon:hover {
     color: rgba(87, 93, 65, 0.4);
     transition: color 1s ease-in-out;
 }
 
-.fa-sith:active {
+.er-location-icon:active {
     color: rgba(163, 0, 0, 0.7);
     transition: color .4s;
     text-decoration: none;
+    box-shadow: 0px 0px 18px 12px rgba(165, 176, 118);
 }
 
 /* ----------------------------------------Sections */
@@ -246,6 +255,7 @@ svg {
 
 #er-details-section {
     background-color: rgba(239, 238, 229, 0.82);
+    padding-top: 15vh;
     height: 100vh;
     width: 100%
 }
@@ -278,9 +288,9 @@ svg {
     top: 18vh;
 }
 
-#er-location-icon {
+#er-location-front {
     text-align: center;
-    font-size: 8em;
+    font-size: 24vw;
     color: rgba(87, 93, 65);
 }
 
@@ -326,11 +336,14 @@ svg {
 }
 
 .er-cell-image {
-    width: 20%;
+    overflow: hidden;
+    width: 20vw;
+    border-radius: 20vw;
 }
 
 .er-cell-image img {
     width: 100%;
+    height: 20vw;
 }
 
 .er-cell-name {}
@@ -386,11 +399,11 @@ svg {
 
 .er-collapse-details {
     text-align: center;
-    width: 15%;
+    width: 20%;
 }
 
 .er-collapse-image {
-    width: 85%;
+    width: 80%;
 }
 
 .er-collapse-image img {
