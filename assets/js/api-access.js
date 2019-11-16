@@ -15,44 +15,45 @@ function restaurantDetails(place_id) {
             console.log(place);
             let photoItems = place.photos.map(function (photo) {
                 imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-                return `<div><img src="${imageUri}"></div>`
+                return `<div class="er-details-photo"><img src="${imageUri}"></div>`
             });
 
             let placeTypes = place.types.map(function (placeType) {
 
                 return `<div>${placeType}</div>`
             });
+            let fullAddress = place.adr_address.split(",");
 
+            console.log(fullAddress);
             $("#er-details-section").html(`
+            <h2>${place.name}</h2>
             <table class="er-list-table">
                 <tr>
-                    <td class="er-details-name">
-                    <h2>${place.name}</h2>
+                    <td class="er-details-address">
+                        ${fullAddress.join("<br>")}
+                    </td>
+                    <td class="er-details-icons">
+                        <div onclick="initDirectionMap('${place.place_id}')">    
+                            <button><i class="fas fa-directions"></i></button>
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="er-details-adress">
-                    ${place.address_components[1].long_name}
-                    ${place.address_components[0].long_name}<br>
-                    ${place.address_components[6].long_name}
-                    ${place.address_components[3].long_name}<br>
-                    ${place.address_components[5].long_name}<br>
-                    </td>
-                    <td class="er-details-photo">
-                        
+                    <td class="">
+            
+                            ${placeTypes.join("\n")}
+                     
                     </td>
                 </tr>
                 <tr>
-                    <td class="er-details-photos">
-                        ${placeTypes.join("\n")} 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="er-details-photos">
-                        ${photoItems.join("\n")} 
+                    <td class="">
+
                     </td>
                 </tr>
             </table>
+            <div class="er-details-photos">
+                ${photoItems.join("\n")} 
+            </div>
             
             <div class="er-details-photos">${photoItems.join("\n")}</div>   
             <div>${place.address_components.long_name}</div>
@@ -96,8 +97,15 @@ function showResults(restaurants) {
             var openNow = `<i class="fa fa-times-circle er-list-icon er-closed"></i>`
         };
         // generate extra detail click from the place_id
-        let svgRating = ((restaurant.rating - 3) * 35);
-        let svgPrice = ((restaurant.price_level) * 14);
+        let starRating = (restaurant.rating * 15).toFixed();
+        if (restaurant.price_level != NaN) {
+            var priceLevel = (restaurant.price_level * 15).toFixed();
+        } else {
+            var priceLevel = '0';
+        }
+
+
+        console.log(priceLevel);
         var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unwanted characters
 
         // generate html list items
@@ -114,18 +122,14 @@ function showResults(restaurants) {
                 </td>
 
 
-                <td class="er-cell-svg">
-                    Rating:
-                    <svg>
-                        <rect width="150" height="8"  style="fill:grey"/>
-                        <rect width="${svgRating}" height="8"  style="fill:green"/>
-                                                                 
-                    </svg>
-                    Price:
-                    <svg>
-                        <rect width="150" height="8"  style="fill:grey"/>
-                        <rect width="${svgPrice}" height="8" style="fill:red"/>
-                    </svg>  
+                <td class="er-cell-rating">
+                    <div class="er-rating-container" style="width:${starRating}%">
+                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
+                    </div>
+                    <div class="er-rating-container" style="width:${priceLevel}%">
+                        <img src="assets/images/price.png">
+                    </div>
+                    
                 </td>
                 <td class="er-cell-open">
                     ${openNow}

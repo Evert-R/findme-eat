@@ -139,6 +139,8 @@ To cut ties with this repository:
 - [Evert Rot](https://evertrot.nl)
     - Webdesign/coding
     - Text in the about section
+
+    http://www.pngmart.com/image/tag/star-rating
 ### Dataset
 
 

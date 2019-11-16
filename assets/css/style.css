@@ -30,6 +30,7 @@ h1 {
 }
 
 h2 {
+    text-align: center;
     font-family: 'Indie Flower', cursive;
     font-size: 2.5em;
     font-weight: 900;
@@ -308,6 +309,7 @@ er-footer button {
 }
 
 .er-list-table {
+    table-layout: fixed;
     width: 100%;
 }
 
@@ -354,7 +356,9 @@ er-footer button {
     height: 20vw;
 }
 
-.er-cell-name {}
+.er-cell-name {
+    width: 45vw;
+}
 
 .er-cell-topname {
     width: 50%;
@@ -369,12 +373,22 @@ er-footer button {
 .er-cell-open {
     font-size: .9em;
     text-align: center;
-    width: 10%;
+    width: 10vw;
 }
 
-.er-cell-svg {
-    font-size: .9em;
-    width: 20%;
+.er-rating-container {
+    overflow: hidden;
+    padding: 0;
+}
+
+.er-rating-container img {
+    width: 50px;
+}
+
+.er-cell-rating {
+    box-sizing: unset;
+    width: 15vw;
+    background-color: rgba(87, 93, 65, 0.05);
 }
 
 .er-cell-price {
@@ -435,15 +449,23 @@ er-footer button {
 }
 
 .er-details-photo {
-    width: 66%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    overflow: hidden;
 }
 
 .er-details-photo img {
     width: 100%;
 }
 
-.er-details-adress {
-    width: 34%;
+.er-details-address {
+    width: 34vw;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.er-details-icons {
+    width: 65vw;
+    font-size: 2em;
 }
 
 .active {
