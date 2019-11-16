@@ -1,44 +1,70 @@
 function showMap() {
+    document.getElementById("er-front-section").classList.add("d-none");
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     document.getElementById("er-map-section").classList.remove("d-none");
     document.getElementById("er-direction-section").classList.add("d-none");
+    document.getElementById("er-error-section").classList.add("d-none");
 };
 
 function showDirections() {
+    document.getElementById("er-front-section").classList.add("d-none");
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     document.getElementById("er-map-section").classList.add("d-none");
     document.getElementById("er-direction-section").classList.remove("d-none");
+    document.getElementById("er-error-section").classList.add("d-none");
 };
 
 function showList(callback) {
+    document.getElementById("er-front-section").classList.add("d-none");
     document.getElementById("er-list-section").classList.remove("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     document.getElementById("er-map-section").classList.add("d-none");
     document.getElementById("er-direction-section").classList.add("d-none");
+    document.getElementById("er-error-section").classList.add("d-none");
+};
 
-
-
+function showFront() {
+    document.getElementById("er-front-section").classList.remove("d-none");
+    document.getElementById("er-list-section").classList.add("d-none");
+    document.getElementById("er-details-section").classList.add("d-none");
+    document.getElementById("er-contact-section").classList.add("d-none");
+    document.getElementById("er-map-section").classList.add("d-none");
+    document.getElementById("er-direction-section").classList.add("d-none");
+    document.getElementById("er-error-section").classList.add("d-none");
 };
 
 function showDetails() {
+    document.getElementById("er-front-section").classList.add("d-none");
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.remove("d-none");
     document.getElementById("er-contact-section").classList.add("d-none");
     document.getElementById("er-map-section").classList.add("d-none");
     document.getElementById("er-direction-section").classList.add("d-none");
+    document.getElementById("er-error-section").classList.add("d-none");
 };
 
 function showContact() {
+    document.getElementById("er-front-section").classList.add("d-none");
     document.getElementById("er-list-section").classList.add("d-none");
     document.getElementById("er-details-section").classList.add("d-none");
     document.getElementById("er-contact-section").classList.remove("d-none");
     document.getElementById("er-map-section").classList.add("d-none");
     document.getElementById("er-direction-section").classList.add("d-none");
+    document.getElementById("er-error-section").classList.add("d-none");
+};
+function showError() {
+    document.getElementById("er-front-section").classList.add("d-none");
+    document.getElementById("er-list-section").classList.add("d-none");
+    document.getElementById("er-details-section").classList.add("d-none");
+    document.getElementById("er-contact-section").classList.add("d-none");
+    document.getElementById("er-map-section").classList.add("d-none");
+    document.getElementById("er-direction-section").classList.add("d-none");
+    document.getElementById("er-error-section").classList.remove("d-none");
 };
 
 
@@ -82,10 +108,10 @@ window.onload = function () {
     });
 
     document.getElementById("er-location-front").addEventListener("click", function () {
-        checkGeo(initMap);
+        checkGeo(geoSearch);
     });
     document.getElementById("er-menu-location").addEventListener("click", function () {
-        checkGeo(initMap);
+        checkGeo(geoSearch);
     });
     document.getElementById("vegetarian").addEventListener("click", function () {
         alert("Sorry, we don't find meat ;-)");

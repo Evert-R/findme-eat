@@ -84,7 +84,9 @@ function showResults(restaurants) {
 
 
         //let imageUri = "";
-        imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+        if (restaurant.photos[0] != undefined) {
+            var imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+        }
         // generate detail link
 
         // generate open icon
@@ -194,11 +196,13 @@ function getCuisine() { // get cuisine type from options
     var cuisine = $("#er-cuisine").children("option:selected").val()
     if (cuisine != '') {
         return ` AND (${cuisine})`;
+    } else {
+        return '';
     }
 }
 
-function getVeg() { // get veg options from options
-    var vegOptions;
+function getVeg() { // get veg options from settings
+    var vegOptions = '';
     var vegan = '';
 
     var gluten = '';
@@ -212,7 +216,7 @@ function getVeg() { // get veg options from options
     return vegOptions;
 }
 
-function getOpen() {
+function getOpen() { // get only open option from settings
     if ($("#open-now").is(":checked")) {
         return true;
     }
@@ -225,24 +229,18 @@ function checkGeo(callback) {
         console.log(position);
         var currentLat = position.coords.latitude;
         var currentLong = position.coords.longitude;
-
-
-        callback(position.coords.latitude, position.coords.longitude);
-
+        if (typeof currentLat !== 'undefined' && typeof currentLong !== 'undefined') {
+            callback(position.coords.latitude, position.coords.longitude);
+        } else {
+            logErrors('NOGEO')
+        }
     });
 };
 
-function mapStyle() {
-    return `
-    
-    `
-}
-
-function initMap(currentLat, currentLong) {
-    // Get input from input field
-    showMap(); //show map so the markers can fit the bounds
-    // Create the map.
-    map = new google.maps.Map(document.getElementById('map'), {
+// style options for all maps
+function mapOptions() {
+    return {
+        disableDefaultUI: true,
         styles: [
             {
                 "elementType": "geometry",
@@ -515,16 +513,44 @@ function initMap(currentLat, currentLong) {
                 ]
             }
         ]
-    });
+    }
+}
 
-    if (typeof currentLat !== 'undefined' && typeof currentLong !== 'undefined') {
-        GeoSearch(currentLat, currentLong)
-    } else {
-        manualSearch();
+function initMap(currentLat, currentLong) {
+    showMap(); //show map so the markers can fit the bounds    
+    map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
+
+};
+
+function logErrors(status) {
+    showError();
+    console.log(status);
+    if (status == 'ZERO_RESULTS') {
+        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.`)
+    } else if (status == 'INVALID_REQUEST') {
+        $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`)
+    } else if (status == 'OVER_QUERY_LIMIT') {
+        $("#er-error").html(`Sorry, too many queries.<br><br>Please, come back a bit later.`)
+    } else if (status == 'REQUEST_DENIED') {
+        $("#er-error").html(`Sorry, The server denied the request.<br><br>Please, come back a bit later.`)
+    } else if (status == 'UNKNOWN_ERROR') {
+        $("#er-error").html(`Sorry, We don't know what happened here.<br><br>Please, come back a bit later.`)
+    } else if (status == 'MAX_ROUTE_LENGTH_EXCEEDED') {
+        $("#er-error").html(`Sorry, but that's way too far<br><br>to get something to eat.`)
+    } else if (status == 'NOT_FOUND') {
+        $("#er-error").html(`Sorry, we can't<br><br>calculate your route.`)
+    } else if (status == 'INVALID_REQUEST') {
+        $("#er-error").html(`Sorry, we can't<br><br>calculate your route.`)
+    } else if (status == 'NOINPUT') {
+        $("#er-error").html(`Where do you<br>want to eat ?`)
+    } else if (status == 'NOGEO') {
+        $("#er-error").html(`We can't see<br>where you are<br>Please do a<br>manual search`)
     }
 };
 
-function GeoSearch(currentLat, currentLong) {
+
+function geoSearch(currentLat, currentLong) {
+    initMap();
     // Create the places service.
     var service = new google.maps.places.PlacesService(map);
     var getNextPage = null;
@@ -533,25 +559,23 @@ function GeoSearch(currentLat, currentLong) {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
-    // Perform a nearby search.
-    console.log(currentLat);
-    console.log(getSorting());
-    console.log(getCuisine());
-    console.log(getVeg());
-    var keyWord = '(vegetarian)' + getCuisine() + getVeg();
 
+    // Perform a nearby search.
     service.nearbySearch(
         {
             location: { lat: currentLat, lng: currentLong },
-            //         radius: 500,
+            radius: 5000,
             type: ['restaurant'],
-            keyword: [keyWord],
+            keyword: ['vegetarian' + getVeg() + getCuisine()],
             openNow: getOpen(),
-            rankBy: google.maps.places.RankBy.DISTANCE
+            //          rankBy: google.maps.places.RankBy.DISTANCE
         },
         function (results, status, pagination) {
             console.log(status);
-            if (status !== 'OK') return;
+            if (status !== 'OK') {
+                logErrors(status);
+                return;
+            }
             // Do something with the results
             $("#er-search-results").html(showResults(results)); // push details to screen
 
@@ -578,7 +602,12 @@ function GeoSearch(currentLat, currentLong) {
 
 
 function manualSearch() {
+    initMap();
     var searchInput = document.getElementById("er-search-input").value; //get search input
+    if (searchInput == '') {
+        logErrors('NOINPUT');
+        return;
+    }
     // Create the places service :
     var service = new google.maps.places.PlacesService(map);
     var getNextPage = null;
@@ -587,15 +616,19 @@ function manualSearch() {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
+
     // Perform the search :
     service.textSearch(
         {
-            query: searchInput + ' AND (vegetarian)' + getCuisine() + getVeg(),
+            query: searchInput + ' AND vegetarian' + getCuisine() + getVeg(),
             type: ['restaurant'],
             openNow: getOpen()
         },
         function (results, status, pagination) {
-            if (status !== 'OK') return;
+            if (status !== 'OK') {
+                logErrors(status);
+                return;
+            }
             // Do something with the results
             $("#er-search-results").html(showResults(results)); // push details to screen
             console.log(results);
@@ -658,13 +691,8 @@ function initDirectionMap(placeId) {
         } else {
             showList();
         }
-
     });
-
-
-
     console.log(placeId);
-
 }
 
 function calcRoute(placeId, currentLat, currentLong) {
@@ -672,226 +700,8 @@ function calcRoute(placeId, currentLat, currentLong) {
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
     var chicago = new google.maps.LatLng(currentLat, currentLong);
-    var mapOptions = {
-        zoom: 7,
-        center: chicago,
-        styles: [
-            {
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#ebe3cd"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#523735"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#f5f1e6"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#c9b2a6"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#dcd2be"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#ae9e90"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape.natural",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#93817c"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#a5b076"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#447530"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f5f1e6"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#fdfcf8"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f8c967"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#e9bc62"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway.controlled_access",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#e98d58"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway.controlled_access",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#db8555"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#806b63"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#8f7d77"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#ebe3cd"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#b9d3c2"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#92998d"
-                    }
-                ]
-            }
-        ]
-    }
-    var directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions);
+
+    var directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions());
     directionsRenderer.setMap(directionMap);
     console.log(placeId);
 
@@ -904,11 +714,12 @@ function calcRoute(placeId, currentLat, currentLong) {
     };
     console.log(request);
     directionsService.route(request, function (result, status) {
-        if (status == 'OK') {
-            directionsRenderer.setDirections(result);
-        } else {
-            console.log(status)
+        if (status !== 'OK') {
+            logErrors(status);
+            return;
         }
+        directionsRenderer.setDirections(result);
+
     });
 }
 
