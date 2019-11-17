@@ -3,7 +3,7 @@ function restaurantDetails(place_id) {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
     var requestDetails = {
         placeId: place_id,
-        fields: ['address_components', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
+        fields: ['reviews', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
     };
 
     service = new google.maps.places.PlacesService(map);
@@ -13,65 +13,60 @@ function restaurantDetails(place_id) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
 
             console.log(place);
+            // create list of photos
             let photoItems = place.photos.map(function (photo) {
                 imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
                 return `<div class="er-details-photo"><img src="${imageUri}"></div>`
             });
-
+            // create place type list
             let placeTypes = place.types.map(function (placeType) {
-
                 return `<div>${placeType}</div>`
             });
+            // create adress array
             let fullAddress = place.adr_address.split(",");
 
+            let reviewList = place.reviews.map(function (review) {
+                return `<p>${review.author_name}</p>
+                        <p>${review.rating}</p>
+                        <p>${review.text}</p>
+                        <p>${review.relative_time_description}</p>
+                        <img src="${review.profile_photo_url}">
+                        <p>${review.author_url}</p>
+                        <p>${review.author_name}</p>
+                        <p>${review.rating}</p>
+                `
+
+            });
             console.log(fullAddress);
             $("#er-details-section").html(`
             <h2>${place.name}</h2>
             <table class="er-list-table">
                 <tr>
-                    <td class="er-details-address">
+                    <td class="er-sell-2third er-details-address">
                         ${fullAddress.join("<br>")}
                     </td>
-                    <td class="er-details-icons">
+                    <td class="er-cell-third er-details-icons">
                         <div onclick="initDirectionMap('${place.place_id}')">    
                             <button><i class="fas fa-directions"></i></button>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td class="">
-            
-                            ${placeTypes.join("\n")}
-                     
-                    </td>
-                </tr>
-                <tr>
-                    <td class="">
-
-                    </td>
-                </tr>
             </table>
-            <div class="er-details-photos">
-                ${photoItems.join("\n")} 
+
+            <div class="details-collapsible er-reviews-button">                    
+                <button><i class="fas fa-directions"></i></button>
             </div>
-            
-            <div class="er-details-photos">${photoItems.join("\n")}</div>   
-            <div>${place.address_components.long_name}</div>
-            <div>${place.adr_address}</div>
-            <div>${place.formatted_address}</div>
-            <div>${place.geometry.location}</div>
-            <div>${place.icon}</div>
-            <div>${place.name}</div>
-            <div>${place.permanently_closed}</div>
-            <div>${place.photos}</div>
-            <div>${place.place_id}</div>
-            <div>${place.plus_code}</div>
-            <div>${place.type}</div>
-            <div>${place.url}</div>
-            <div>${place.utc_offset}</div>
-            <div>${place.vicinity}</div>
-            <div>${photoItems}</div>        
+            <div class="er-list-collapse">
+                ${reviewList.join("\n")}  
+            </div> 
+            <div class="details-collapsible er-photos-button">                    
+                <button><i class="fas fa-directions"></i></button>
+            </div>
+            <div class="er-list-collapse er-details-photos">
+                ${photoItems.join("\n")} 
+            </div>     
             `);
+            collapse('details-collapsible');
         };
     }
 }
@@ -168,3 +163,29 @@ function showResults(restaurants) {
         </div>
     `
 }
+
+function logErrors(status) {
+    showError();
+    console.log(status);
+    if (status == 'ZERO_RESULTS') {
+        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.`)
+    } else if (status == 'INVALID_REQUEST') {
+        $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`)
+    } else if (status == 'OVER_QUERY_LIMIT') {
+        $("#er-error").html(`Sorry, too many queries.<br><br>Please, come back a bit later.`)
+    } else if (status == 'REQUEST_DENIED') {
+        $("#er-error").html(`Sorry, The server denied the request.<br><br>Please, come back a bit later.`)
+    } else if (status == 'UNKNOWN_ERROR') {
+        $("#er-error").html(`Sorry, We don't know what happened here.<br><br>Please, come back a bit later.`)
+    } else if (status == 'MAX_ROUTE_LENGTH_EXCEEDED') {
+        $("#er-error").html(`Sorry, but that's way too far<br><br>to get something to eat.`)
+    } else if (status == 'NOT_FOUND') {
+        $("#er-error").html(`Sorry, we can't<br><br>calculate your route.`)
+    } else if (status == 'INVALID_REQUEST') {
+        $("#er-error").html(`Sorry, we can't<br><br>calculate your route.`)
+    } else if (status == 'NOINPUT') {
+        $("#er-error").html(`Where do you<br>want to eat ?`)
+    } else if (status == 'NOGEO') {
+        $("#er-error").html(`We can't see<br>where you are<br>Please do a<br>manual search`)
+    }
+};

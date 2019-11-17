@@ -336,31 +336,7 @@ function initMap(currentLat, currentLong) {
 
 };
 
-function logErrors(status) {
-    showError();
-    console.log(status);
-    if (status == 'ZERO_RESULTS') {
-        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.`)
-    } else if (status == 'INVALID_REQUEST') {
-        $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`)
-    } else if (status == 'OVER_QUERY_LIMIT') {
-        $("#er-error").html(`Sorry, too many queries.<br><br>Please, come back a bit later.`)
-    } else if (status == 'REQUEST_DENIED') {
-        $("#er-error").html(`Sorry, The server denied the request.<br><br>Please, come back a bit later.`)
-    } else if (status == 'UNKNOWN_ERROR') {
-        $("#er-error").html(`Sorry, We don't know what happened here.<br><br>Please, come back a bit later.`)
-    } else if (status == 'MAX_ROUTE_LENGTH_EXCEEDED') {
-        $("#er-error").html(`Sorry, but that's way too far<br><br>to get something to eat.`)
-    } else if (status == 'NOT_FOUND') {
-        $("#er-error").html(`Sorry, we can't<br><br>calculate your route.`)
-    } else if (status == 'INVALID_REQUEST') {
-        $("#er-error").html(`Sorry, we can't<br><br>calculate your route.`)
-    } else if (status == 'NOINPUT') {
-        $("#er-error").html(`Where do you<br>want to eat ?`)
-    } else if (status == 'NOGEO') {
-        $("#er-error").html(`We can't see<br>where you are<br>Please do a<br>manual search`)
-    }
-};
+
 
 
 function geoSearch(currentLat, currentLong) {

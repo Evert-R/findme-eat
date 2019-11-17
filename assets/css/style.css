@@ -34,7 +34,6 @@ h2 {
     font-family: 'Indie Flower', cursive;
     font-size: 2.5em;
     font-weight: 900;
-    background-color: rgba(255, 255, 255, 0.7);
 }
 
 h3 {
@@ -333,7 +332,7 @@ er-footer button {
 
 .er-list-table {
     table-layout: fixed;
-    margin-top: 2em;
+    margin-top: 0.5em;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.65);
 }
@@ -425,8 +424,7 @@ er-footer button {
 .er-list-collapse {
     padding-left: 1em;
     padding-right: 1em;
-    padding-bottom: 2em;
-    background-color: rgba(87, 93, 65, 0.3);
+    background-color: rgba(87, 93, 65, 0.5);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
@@ -479,18 +477,42 @@ er-footer button {
     overflow: hidden;
 }
 
+.er-reviews-button {
+    font-size: 2.5em;
+    position: absolute;
+    left: 0;
+    top: 12vh;
+}
+
+.er-photos-button {
+    font-size: 2.5em;
+    position: absolute;
+    right: 0vw;
+    top: 12vh;
+}
+
 .er-details-photo img {
     width: 100%;
 }
 
 .er-details-address {
-    width: 34vw;
-    background-color: rgba(255, 255, 255, 0.7);
+    padding-left: 1.5em;
+}
+
+.er-cell-third {
+    width: 35%;
+}
+
+.er-cell-2third {
+    width: 65%;
 }
 
 .er-details-icons {
-    width: 65vw;
     font-size: 2em;
+}
+
+.er-details-icons button {
+    margin: 1em;
 }
 
 .active {
