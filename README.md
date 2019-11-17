@@ -141,6 +141,7 @@ To cut ties with this repository:
     - Text in the about section
 
     http://www.pngmart.com/image/tag/star-rating
+    https://www.pngfly.com/png-1ukbp8/download.html
 ### Dataset
 
 

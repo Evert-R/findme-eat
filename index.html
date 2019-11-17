@@ -87,18 +87,8 @@
 
     <main class="container-fluid">
         <div class="row">
-
-            <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-front-section">
-                <div class="er-svg-container">
-                    <svg class="er-rating">
-
-                        <rect width="100" height="8" style="fill:green" />
-
-                    </svg>
-                </div>
-
-                <div id="">
-
+            <section class="er-front-background">
+                <div class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-front-section">
                     <div class="er-location-search">
                         <div class="er-front-text">Give a tap here . . .</div><br>
                         <div class="er-front-text">↓</div>
@@ -115,15 +105,17 @@
                         <div class="er-front-text">down here . . .</div>
                         <div class="er-front-text">↓</div>
                     </div>
+                    <button id="more">More results</button>
                 </div>
-                <button id="more">More results</button>
             </section>
 
-            <section class="col-12 col-md-6 col-lg-3 er-content d-none d-md-block" id="er-list-section">
-                <div id="er-search-results">
+            <section class="er-list-background">
+                <div class="col-12 col-md-6 col-lg-3 er-content d-none d-md-block" id="er-list-section">
+                    <div id="er-search-results">
 
+                    </div>
+                    <button id="more">More results</button>
                 </div>
-                <button id="more">More results</button>
             </section>
 
             <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-map-section">
@@ -134,10 +126,10 @@
                 <div id="direction-map"></div>
             </section>
 
-            <section class="col-12 col-md-6 col-lg-3 er-content d-none  d-md-block" id="er-details-section">
-                <div id="er-details">
-
-
+            <section class="er-details-background">
+                <div class="col-12 col-md-6 col-lg-3 er-content d-none  d-md-block" id="er-details-section">
+                    <div id="er-details">
+                    </div>
                 </div>
             </section>
 
@@ -183,5 +175,6 @@
 &libraries=places" async defer></script>
 
 <script src="assets/js/events.js"></script>
+<script src="assets/js/to-screen.js"></script>
 
 </html>
