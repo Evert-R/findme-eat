@@ -1,70 +1,77 @@
 function showMap() {
-    document.getElementById("er-front-section").classList.add("d-none");
-    document.getElementById("er-list-section").classList.add("d-none");
-    document.getElementById("er-details-section").classList.add("d-none");
-    document.getElementById("er-contact-section").classList.add("d-none");
-    document.getElementById("er-map-section").classList.remove("d-none");
-    document.getElementById("er-direction-section").classList.add("d-none");
-    document.getElementById("er-error-section").classList.add("d-none");
+    let content = document.getElementById("er-map-section");
+    document.getElementById("er-front-section").style.maxHeight = "0";
+    document.getElementById("er-list-section").style.maxHeight = "0";
+    document.getElementById("er-details-section").style.maxHeight = "0";
+    document.getElementById("er-contact-section").style.maxHeight = "0";
+    content.style.maxHeight = content.scrollHeight + "px";
+    document.getElementById("er-direction-section").style.maxHeight = "0";
+    document.getElementById("er-error-section").style.maxHeight = "0";
 };
 
 function showDirections() {
-    document.getElementById("er-front-section").classList.add("d-none");
-    document.getElementById("er-list-section").classList.add("d-none");
-    document.getElementById("er-details-section").classList.add("d-none");
-    document.getElementById("er-contact-section").classList.add("d-none");
-    document.getElementById("er-map-section").classList.add("d-none");
-    document.getElementById("er-direction-section").classList.remove("d-none");
-    document.getElementById("er-error-section").classList.add("d-none");
+    let content = document.getElementById("er-direction-section");
+    document.getElementById("er-front-section").style.maxHeight = "0";
+    document.getElementById("er-list-section").style.maxHeight = "0";
+    document.getElementById("er-details-section").style.maxHeight = "0";
+    document.getElementById("er-contact-section").style.maxHeight = "0";
+    document.getElementById("er-map-section").style.maxHeight = "0";
+    content.style.maxHeight = content.scrollHeight + "px";
+    document.getElementById("er-error-section").style.maxHeight = "0";
 };
 
 function showList(callback) {
-    document.getElementById("er-front-section").classList.add("d-none");
-    document.getElementById("er-list-section").classList.remove("d-none");
-    document.getElementById("er-details-section").classList.add("d-none");
-    document.getElementById("er-contact-section").classList.add("d-none");
-    document.getElementById("er-map-section").classList.add("d-none");
-    document.getElementById("er-direction-section").classList.add("d-none");
-    document.getElementById("er-error-section").classList.add("d-none");
+    let content = document.getElementById("er-list-section");
+    document.getElementById("er-front-section").style.maxHeight = "0";
+    content.style.maxHeight = content.scrollHeight + "px";
+    document.getElementById("er-details-section").style.maxHeight = "0";
+    document.getElementById("er-contact-section").style.maxHeight = "0";
+    document.getElementById("er-map-section").style.maxHeight = "0";
+    document.getElementById("er-direction-section").style.maxHeight = "0";
+    document.getElementById("er-error-section").style.maxHeight = "0";
 };
 
 function showFront() {
-    document.getElementById("er-front-section").classList.remove("d-none");
-    document.getElementById("er-list-section").classList.add("d-none");
-    document.getElementById("er-details-section").classList.add("d-none");
-    document.getElementById("er-contact-section").classList.add("d-none");
-    document.getElementById("er-map-section").classList.add("d-none");
-    document.getElementById("er-direction-section").classList.add("d-none");
-    document.getElementById("er-error-section").classList.add("d-none");
+    let content = document.getElementById("er-front-section");
+    content.style.maxHeight = content.scrollHeight + "px";
+    document.getElementById("er-list-section").style.maxHeight = "0";
+    document.getElementById("er-details-section").style.maxHeight = "0";
+    document.getElementById("er-contact-section").style.maxHeight = "0";
+    document.getElementById("er-map-section").style.maxHeight = "0";
+    document.getElementById("er-direction-section").style.maxHeight = "0";
+    document.getElementById("er-error-section").style.maxHeight = "0";
 };
 
 function showDetails() {
-    document.getElementById("er-front-section").classList.add("d-none");
-    document.getElementById("er-list-section").classList.add("d-none");
-    document.getElementById("er-details-section").classList.remove("d-none");
-    document.getElementById("er-contact-section").classList.add("d-none");
-    document.getElementById("er-map-section").classList.add("d-none");
-    document.getElementById("er-direction-section").classList.add("d-none");
-    document.getElementById("er-error-section").classList.add("d-none");
+    let content = document.getElementById("er-details-section");
+    document.getElementById("er-front-section").style.maxHeight = "0";
+    document.getElementById("er-list-section").style.maxHeight = "0";
+    content.style.maxHeight = "unset";
+    document.getElementById("er-contact-section").style.maxHeight = "0";
+    document.getElementById("er-map-section").style.maxHeight = "0";
+    document.getElementById("er-direction-section").style.maxHeight = "0";
+    document.getElementById("er-error-section").style.maxHeight = "0";
 };
 
 function showContact() {
-    document.getElementById("er-front-section").classList.add("d-none");
-    document.getElementById("er-list-section").classList.add("d-none");
-    document.getElementById("er-details-section").classList.add("d-none");
-    document.getElementById("er-contact-section").classList.remove("d-none");
-    document.getElementById("er-map-section").classList.add("d-none");
-    document.getElementById("er-direction-section").classList.add("d-none");
-    document.getElementById("er-error-section").classList.add("d-none");
+    let content = document.getElementById("er-contact-section");
+    document.getElementById("er-front-section").style.maxHeight = "0";
+    document.getElementById("er-list-section").style.maxHeight = "0";
+    document.getElementById("er-details-section").style.maxHeight = "0";
+    content.style.maxHeight = content.scrollHeight + "px";
+    document.getElementById("er-map-section").style.maxHeight = "0";
+    document.getElementById("er-direction-section").style.maxHeight = "0";
+    document.getElementById("er-error-section").style.maxHeight = "0";
 };
 function showError() {
-    document.getElementById("er-front-section").classList.add("d-none");
-    document.getElementById("er-list-section").classList.add("d-none");
-    document.getElementById("er-details-section").classList.add("d-none");
-    document.getElementById("er-contact-section").classList.add("d-none");
-    document.getElementById("er-map-section").classList.add("d-none");
-    document.getElementById("er-direction-section").classList.add("d-none");
-    document.getElementById("er-error-section").classList.remove("d-none");
+    let content = document.getElementById("er-error-section");
+    document.getElementById("er-front-section").style.maxHeight = "0";
+    document.getElementById("er-list-section").style.maxHeight = "0";
+    document.getElementById("er-details-section").style.maxHeight = "0";
+    document.getElementById("er-contact-section").style.maxHeight = "0";
+    document.getElementById("er-map-section").style.maxHeight = "0";
+    document.getElementById("er-direction-section").style.maxHeight = "0";
+    content.style.maxHeight = content.scrollHeight + "px";
 };
 
 
@@ -116,3 +123,4 @@ window.onload = function () {
 }
 
 collapse('header-collapsible');
+showFront();

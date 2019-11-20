@@ -16,8 +16,9 @@ function restaurantDetails(place_id) {
             // create list of photos
             let photoItems = place.photos.map(function (photo) {
                 imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-                return `<div class="er-details-photo"><img src="${imageUri}"></div>`
+                return `<div class="col-12 er-details-photo"><img src="${imageUri}"></div>`
             });
+
             // create place type list
             let placeTypes = place.types.map(function (placeType) {
                 return `<div>${placeType}</div>`
@@ -38,7 +39,7 @@ function restaurantDetails(place_id) {
 
             });
             console.log(fullAddress);
-            $("#er-details-section").html(`
+            $("#er-details").html(`
             <h2>${place.name}</h2>
             <table class="er-list-table">
                 <tr>
@@ -56,13 +57,13 @@ function restaurantDetails(place_id) {
             <div class="details-collapsible er-reviews-button">                    
                 <button><i class="fas fa-directions"></i></button>
             </div>
-            <div class="er-list-collapse">
+            <div class="er-details-collapse">
                 ${reviewList.join("\n")}  
             </div> 
             <div class="details-collapsible er-photos-button">                    
                 <button><i class="fas fa-directions"></i></button>
             </div>
-            <div class="er-list-collapse er-details-photos">
+            <div class="row er-details-collapse er-details-photos">
                 ${photoItems.join("\n")} 
             </div>     
             `);

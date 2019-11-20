@@ -340,16 +340,18 @@ function initMap(currentLat, currentLong) {
 
 
 function geoSearch(currentLat, currentLong) {
-    initMap();
+
     // Create the places service.
-    var service = new google.maps.places.PlacesService(map);
+
     var getNextPage = null;
     var moreButton = document.getElementById('more');
     moreButton.onclick = function () {
+        console.log()
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
-
+    initMap();
+    var service = new google.maps.places.PlacesService(map);
     // Perform a nearby search.
     service.nearbySearch(
         {
@@ -377,10 +379,6 @@ function geoSearch(currentLat, currentLong) {
 
             }, 2500);
 
-
-
-
-            // show the list with results
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
                 pagination.nextPage();
@@ -392,6 +390,13 @@ function geoSearch(currentLat, currentLong) {
 
 
 function manualSearch() {
+    var getNextPage = null;
+    var moreButton = document.getElementById('more');
+    moreButton.onclick = function () {
+        moreButton.disabled = true;
+        if (getNextPage) getNextPage();
+    };
+
     initMap();
     var searchInput = document.getElementById("er-search-input").value; //get search input
     if (searchInput == '') {
@@ -400,12 +405,7 @@ function manualSearch() {
     }
     // Create the places service :
     var service = new google.maps.places.PlacesService(map);
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
+
 
     // Perform the search :
     service.textSearch(

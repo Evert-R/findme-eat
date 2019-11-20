@@ -50,36 +50,67 @@
             </div>
             <div class="er-header-collapse er-background">
                 <div class="er-dropdown">
-                    <label for="er-cuisine">Cuisine:</label>
-                    <select id="er-cuisine">
-                        <option value="">-</option>
-                        <option value="indian">Indian</option>
-                        <option value="thai">Thai</option>
-                        <option value="greek">Greek</option>
-                        <option value="italian">Italian</option>
-                        <option value="hamburger">Hamburger</option>
-                        <option value="greek">Greek</option>
-                        <option value="chinese">Chinese</option>
-                        <option value="surinamese">Surinamese</option>
-                        <option value="mexican">Mexican</option>
-                        <option value="japanese">Japanese</option>
-                        <option value="sushi">Sushi</option>
-                    </select>
-                    <br><br>
-
-                    <div><input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian" checked><label
-                            for="vegetarian">Vegetarian</label></div>
-                    <div><input id="vegan" type="checkbox" name="vegan" value="vegan"><label for="vegan">Vegan</label>
+                    <div>
+                        <label for="er-cuisine">
+                            <h4>Cuisine:</h4>
+                        </label>
+                        <select id="er-cuisine">
+                            <option value="">-</option>
+                            <option value="indian">Indian</option>
+                            <option value="thai">Thai</option>
+                            <option value="greek">Greek</option>
+                            <option value="italian">Italian</option>
+                            <option value="hamburger">Hamburger</option>
+                            <option value="greek">Greek</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="surinamese">Surinamese</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="sushi">Sushi</option>
+                        </select>
                     </div>
-                    <div><input id="gluten" type="checkbox" name="gluten" value="gluten"><label for="gluten">Gluten
-                            Free</label></div><br>
-                    <div><input id="open-now" type="checkbox" name="open" value=""><label for="open-now">Open
-                            Now</label></div>
-                    <div>Sort by:</div>
-                    <input type="radio" name="er-sort" class="er-sort" value="PROMINANCE">Rating<br>
-                    <input type="radio" name="er-sort" class="er-sort" value="DISTANCE">Distance<br>
-                    <input type="radio" name="er-sort" class="er-sort" value="sortprice"><label>Price</label><br>
-                    <div class="er-menu-search" id="er-menu-location"><i class="fab fa-sith er-location-icon"></i></div>
+                    <div>
+                        <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian" checked>
+                        <label for="vegetarian">
+                            Vegetarian<br>
+                        </label><br>
+
+                        <input id="vegan" type="checkbox" name="vegan" value="vegan">
+                        <label for="vegan">
+                            Vegan
+                        </label><br>
+
+                        <input id="open-now" type="checkbox" name="open" value="">
+                        <label for="open-now">
+                            Open Now
+                        </label><br>
+                    </div>
+
+                    <div>
+                        <h4>Directions:</h5>
+                            <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
+                            <label for="walking">
+                                By foot
+                            </label><br>
+                            <input type="radio" name="er-travel" id="bicycling" class="er-sort" value="BICYCLING">
+                            <label for="bicycling">
+                                By bike
+                            </label><br>
+                            <input type="radio" name="er-travel" id="driving" class="er-sort" value="DRIVING">
+                            <label for="driving">
+                                By Car
+                            </label><br>
+                    </div>
+                    <div>
+                        <h4>GeoSearch:</h5>
+                            <label for="er-radius">Radius:</label>
+                            <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
+                    </div>
+                    <h4>New Search:</h4>
+                    <div class="er-menu-search" id="er-menu-location">
+
+                        <button><i class="fab fa-sith"></i></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -87,72 +118,66 @@
 
     <main class="container-fluid">
         <div class="row">
-            <section class="er-front-background">
-                <div class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-front-section">
-                    <div class="er-location-search">
-                        <div class="er-front-text">Give a tap here . . .</div><br>
-                        <div class="er-front-text">↓</div>
-                        <div id="er-location-front">
 
-                            <i class="fab fa-sith er-location-icon"></i>
-                        </div>
-
-                        <div class="er-front-text">to search 4 a restaurant</div>
-
-                        <div class="er-front-text">out there . . . </div>↑
-                        <br><br><br>
-                        <div class="er-front-text">or search in another city</div>
-                        <div class="er-front-text">down here . . .</div>
-                        <div class="er-front-text">↓</div>
+            <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-front-section">
+                <div class="er-content-inner">
+                    <div class="er-front-text">Give a tap here . . .</div><br>
+                    <div class="er-front-text">↓</div>
+                    <div id="er-location-front">
+                        <button><i class="fab fa-sith"></i></button>
                     </div>
-                    <button id="more">More results</button>
+
+                    <div class="er-front-text">to search 4 a restaurant</div>
+
+                    <div class="er-front-text">out there . . . </div>↑
+                    <br><br><br>
+                    <div class="er-front-text">or search in another city</div>
+                    <div class="er-front-text">down here . . .</div>
+                    <div class="er-front-text">↓</div>
                 </div>
             </section>
 
-            <section class="er-list-background">
-                <div class="col-12 col-md-6 col-lg-3 er-content d-none d-md-block" id="er-list-section">
-                    <div id="er-search-results">
+            <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-list-section">
 
-                    </div>
+                <div class="er-content-inner" id="er-search-results">
+
+                </div>
+                <div class="er-more">
                     <button id="more">More results</button>
                 </div>
+
             </section>
 
             <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-map-section">
                 <div id="map"></div>
             </section>
 
-            <section class="col-12 col-md-6 col-lg-3 er-content d-none d-md-block" id="er-direction-section">
+            <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-direction-section">
                 <div id="direction-map"></div>
             </section>
 
             <section class="er-details-background">
-                <div class="col-12 col-md-6 col-lg-3 er-content d-none  d-md-block" id="er-details-section">
-                    <div id="er-details">
+                <div class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-details-section">
+                    <div class="er-content-inner" id="er-details">
                     </div>
                 </div>
             </section>
 
-            <section class="col-12 col-md-6 col-lg-3 er-content d-none  d-md-block" id="er-contact-section">
-                <div id="er-contact"></div>
+            <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-contact-section">
+                <div class="er-content-inner" id="er-contact"></div>
             </section>
 
-            <section class="col-12 col-md-6 col-lg-3 er-content d-none  d-md-block" id="er-error-section">
-                <div id="er-error" class="er-front-text"></div>
+            <section class="col-12 col-md-6 col-lg-3 er-content d-md-block" id="er-error-section">
+                <div class="er-content-inner" id="er-error" class="er-front-text"></div>
             </section>
         </div>
     </main>
     <!-- footer searchbar -->
     <footer class="row er-background er-footer">
-
-
-
         <form onsubmit="return false;" method="post" name="myForm">
-
             <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
-
-            <button type="submit" name="GO" id="er-search-button" class=" er-background" onclick="manualSearch()">
-                <i class="fab fa-sith er-footer-search er-location-icon"></i>
+            <button type="submit" name="GO" id="er-search-button" onclick="manualSearch()">
+                <i class="fab fa-sith"></i>
             </button>
 
         </form>

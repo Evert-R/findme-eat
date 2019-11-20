@@ -16,7 +16,12 @@ html, body {
 }
 
 body {
-    font-size: 4vw;
+    font-size: 0.9em;
+}
+
+main {
+    background-image: url('../images/background.jpg');
+    background-attachment: scroll;
 }
 
 h1 {
@@ -43,7 +48,17 @@ h3 {
     cursor: cell!important;
 }
 
-header button {
+h4 {
+    font-size: 1.2em;
+    ;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+}
+
+.er-header-main button, .er-more button {
     border: 1px;
     margin: 0;
     padding: 6px;
@@ -55,11 +70,11 @@ header button {
     border-radius: 5px;
 }
 
-header button:hover {
+.er-header-main button:hover, .er-more button:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-button:active {
+.er-header-main button:active {
     outline: none;
     border: none;
 }
@@ -82,6 +97,10 @@ svg {
 
 .row {
     margin: 0px;
+    padding: 0px;
+}
+
+.col-12 {
     padding: 0px;
 }
 
@@ -161,6 +180,10 @@ svg {
     font-size: 0.7em;
 }
 
+.er-dropdown div {
+    margin-bottom: 1.5em;
+}
+
 .er-menu-search {
     padding-right: 0.3em;
     width: 100%;
@@ -168,14 +191,23 @@ svg {
     font-size: 3em;
 }
 
+#er-cuisine {
+    width: 100%;
+}
+
+.er-radius-slider {
+    width: 100%;
+}
+
 /* ----------------------------------------Footer Searchbar */
 
 .er-footer {
+    padding-left: 2vw;
+    padding-right: 2vw;
     z-index: 23;
-    height: 8vh;
     position: fixed;
-    padding-bottom: 2vh;
     bottom: 0;
+    box-shadow: 0px -7px 15px -3px rgba(87, 93, 65, 0.9);
 }
 
 .er-footer form {
@@ -187,37 +219,39 @@ svg {
     width: 80vw;
 }
 
-er-footer button {
+.er-footer button {
     text-align: center;
 }
 
-.er-search-bar {
-    height: 6vh;
+.er-location-search button {
+    font-size: 1em;
+    line-height: 1em;
 }
 
-#er-search-button {
-    border: 0;
+.er-dropdown button {
+    font-size: 1em;
+    line-height: 1em;
 }
 
-.er-footer-search {
-    color: rgba(87, 93, 65);
+.er-footer button {
     font-size: 3.5em;
+    line-height: 1.2em;
 }
 
-.er-location-icon {
+.er-dropdown button, .er-footer button, #er-front-section button {
+    background-color: unset;
+    overflow: hidden;
     border: none;
-    border-radius: 100px;
     color: rgba(87, 93, 65);
     transition: color .2s;
-    box-shadow: 0px 0px 1px 1px rgba(165, 176, 118);
 }
 
-.er-location-icon:hover {
+.er-header button:hover, .er-footer button:hover, #er-front-section button:hover {
     color: rgba(87, 93, 65, 0.4);
     transition: color 1s ease-in-out;
 }
 
-.er-location-icon:active {
+.er-header button:active, .er-footer button:active, #er-front-section button:active {
     color: rgba(163, 0, 0, 0.7);
     transition: color .4s;
     text-decoration: none;
@@ -227,80 +261,61 @@ er-footer button {
 /* ----------------------------------------Sections */
 
 .er-content {
-    min-height: 100vh;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
     font-size: 0.8em;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
 }
 
-/* ----------------------------------------Sections */
-
-.er-list-background {
+.er-content-inner {
     width: 100%;
-    height: 100%;
-    background-image: url('../images/background.jpg');
-    background-attachment: scroll;
+    margin-top: 13vh;
+    padding-bottom: 15vh;
+    min-height: 87vh;
 }
 
-.er-front-background {
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/background.jpg');
-    background-attachment: scroll;
-}
-
-.er-details-background {
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/background.jpg');
-    background-attachment: scroll;
+#er-front-section {
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 #er-list-section {
-    min-height: 100vh;
-    width: 100%;
-    padding-top: 15vh;
-    padding-bottom: 10vh;
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+#er-details-section {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
 #er-error-section {
-    background-color: rgba(255, 255, 255, 0.6);
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 25vh;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-#er-map-section {
-    height: 100vh;
-    width: 100%;
-    padding-top: 8vh;
-    padding-bottom: 6vh;
-}
+#er-map-section {}
 
-#er-directionmap-section {
-    height: 100vh;
-    width: 100%;
-    padding-top: 8vh;
-    padding-bottom: 6vh;
-}
-
-#er-details-section {
-    min-height: 100vh;
-    width: 100%;
-    padding-top: 15vh;
-    padding-bottom: 10vh;
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-#er-contact-section {
-    height: 100vh;
-}
+#er-direction-section {}
 
 #map, #direction-map {
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
 
-/* ----------------------------------------Item-list */
+#er-contact-section {}
+
+/* ----------------------------------------Sections */
+
+.er-more {
+    position: fixed;
+    top: 86vh;
+    right: 5vw;
+}
+
+/* ---------------------------------------- Front Section */
 
 .er-front-text {
     font-family: 'Indie Flower', cursive;
@@ -312,18 +327,13 @@ er-footer button {
     ;
 }
 
-.er-location-search {
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    top: 18vh;
-}
-
 #er-location-front {
     text-align: center;
     font-size: 24vw;
     color: rgba(87, 93, 65);
 }
+
+/* ---------------------------------------- Result list Section */
 
 .er-item-list {
     width: 100%;
@@ -442,6 +452,15 @@ er-footer button {
     border-color: rgba(0, 0, 0, 0.5);
 }
 
+.er-details-collapse {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: rgba(87, 93, 65, 0.5);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
 .er-collapse-details {
     text-align: center;
     width: 20%;
@@ -472,8 +491,6 @@ er-footer button {
 }
 
 .er-details-photo {
-    padding-top: 2vh;
-    padding-bottom: 2vh;
     overflow: hidden;
 }
 
@@ -487,7 +504,7 @@ er-footer button {
 .er-photos-button {
     font-size: 2.5em;
     position: absolute;
-    right: 0vw;
+    left: 20vw;
     top: 12vh;
 }
 
@@ -520,10 +537,3 @@ er-footer button {
 }
 
 /* ----------------------------------------Error section */
-
-#er-error {
-    position: absolute;
-    top: 37vh;
-    left: 50vw;
-    transform: translatex(-50%);
-}
