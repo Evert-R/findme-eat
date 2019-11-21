@@ -281,8 +281,9 @@ function initMap(currentLat, currentLong) {
     map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
 };
 
-function getSorting() { // get sort method from options
-    return $("input[name='er-sort']:checked").val()
+function getRadius() { // get sort method from options
+    console.log($("#er-radius").val())
+    return $("#er-radius").val()
 }
 
 function getCuisine() { // get cuisine type from options
@@ -292,6 +293,10 @@ function getCuisine() { // get cuisine type from options
     } else {
         return '';
     }
+}
+
+function getVehicle() {
+    return $("input[name='er-travel']:checked").val()
 }
 
 function getVeg() { // get veg options from settings
@@ -344,7 +349,7 @@ function geoSearch(currentLat, currentLong) {
     service.nearbySearch(
         {
             location: { lat: currentLat, lng: currentLong },
-            radius: 5000,
+            radius: getRadius(),
             type: ['restaurant'],
             keyword: ['vegetarian' + getVeg() + getCuisine()],
             openNow: getOpen(),
@@ -482,7 +487,7 @@ function calcRoute(placeId, currentLat, currentLong) {
     var request = {
         origin: { lat: currentLat, lng: currentLong },
         destination: { 'placeId': placeId },
-        travelMode: 'DRIVING'
+        travelMode: getVehicle()
     };
     console.log(request);
     directionsService.route(request, function (result, status) {

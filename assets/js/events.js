@@ -97,7 +97,7 @@ function collapse(collapsGroup) {
 
 
 window.onload = function () {
-    collapse();
+    collapse('header-collapsible');
     document.getElementById("er-map-switch").addEventListener("click", function () {
         showMap();
     });
@@ -120,7 +120,10 @@ window.onload = function () {
         alert("Sorry, we don't find meat ;-)");
         $('#vegetarian').prop('checked', true);
     });
+
 }
 
-collapse('header-collapsible');
+
+
+
 showFront();
