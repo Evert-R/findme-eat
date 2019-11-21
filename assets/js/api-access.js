@@ -1,58 +1,4 @@
-
-
-
-
-function getSorting() { // get sort method from options
-    return $("input[name='er-sort']:checked").val()
-}
-
-function getCuisine() { // get cuisine type from options
-    var cuisine = $("#er-cuisine").children("option:selected").val()
-    if (cuisine != '') {
-        return ` AND (${cuisine})`;
-    } else {
-        return '';
-    }
-}
-
-function getVeg() { // get veg options from settings
-    var vegOptions = '';
-    var vegan = '';
-
-    var gluten = '';
-    if ($("#vegan").is(":checked")) {
-        vegan = ` AND (vegan)`;
-    }
-    if ($("#gluten").is(":checked")) {
-        gluten = ` AND (gluten-free)`;
-    }
-    vegOptions = vegan + gluten;
-    return vegOptions;
-}
-
-function getOpen() { // get only open option from settings
-    if ($("#open-now").is(":checked")) {
-        return true;
-    }
-}
-
-
-// get current location
-function checkGeo(callback) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        console.log(position);
-        var currentLat = position.coords.latitude;
-        var currentLong = position.coords.longitude;
-        if (typeof currentLat !== 'undefined' && typeof currentLong !== 'undefined') {
-            callback(position.coords.latitude, position.coords.longitude);
-        } else {
-            logErrors('NOGEO')
-        }
-    });
-};
-
-// style options for all maps
-function mapOptions() {
+function mapOptions() { // style options for all maps
     return {
         disableDefaultUI: true,
         styles: [
@@ -333,16 +279,56 @@ function mapOptions() {
 function initMap(currentLat, currentLong) {
     showMap(); //show map so the markers can fit the bounds    
     map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
-
 };
 
+function getSorting() { // get sort method from options
+    return $("input[name='er-sort']:checked").val()
+}
 
+function getCuisine() { // get cuisine type from options
+    var cuisine = $("#er-cuisine").children("option:selected").val()
+    if (cuisine != '') {
+        return ` AND (${cuisine})`;
+    } else {
+        return '';
+    }
+}
 
+function getVeg() { // get veg options from settings
+    var vegOptions = '';
+    var vegan = '';
+    var gluten = '';
+    if ($("#vegan").is(":checked")) {
+        vegan = ` AND (vegan)`;
+    }
+    if ($("#gluten").is(":checked")) {
+        gluten = ` AND (gluten-free)`;
+    }
+    vegOptions = vegan + gluten;
+    return vegOptions;
+}
+
+function getOpen() { // get only open option from settings
+    if ($("#open-now").is(":checked")) {
+        return true;
+    }
+}
+
+function checkGeo(callback) { // get current location
+    navigator.geolocation.getCurrentPosition(function (position) {
+        console.log(position);
+        var currentLat = position.coords.latitude;
+        var currentLong = position.coords.longitude;
+        if (typeof currentLat !== 'undefined' && typeof currentLong !== 'undefined') {
+            callback(position.coords.latitude, position.coords.longitude);
+        } else {
+            logErrors('NOGEO')
+        }
+    });
+};
 
 function geoSearch(currentLat, currentLong) {
-
-    // Create the places service.
-
+    // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
     moreButton.onclick = function () {
@@ -350,7 +336,9 @@ function geoSearch(currentLat, currentLong) {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
+
     initMap();
+    // Create the places service
     var service = new google.maps.places.PlacesService(map);
     // Perform a nearby search.
     service.nearbySearch(
@@ -368,17 +356,14 @@ function geoSearch(currentLat, currentLong) {
                 logErrors(status);
                 return;
             }
-            // Do something with the results
-            $("#er-search-results").html(showResults(results)); // push details to screen
-
+            // push results to screen
+            $("#er-search-results").html(showResults(results));
             console.log(results)
             createMarkers(results) // Plot markers on the map
-
             setTimeout(function () { // wait a bit to show the mapresults
                 showList(collapse('collapsible')); // then show list
-
             }, 2500);
-
+            // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
                 pagination.nextPage();
@@ -390,6 +375,7 @@ function geoSearch(currentLat, currentLong) {
 
 
 function manualSearch() {
+    // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
     moreButton.onclick = function () {
@@ -398,16 +384,16 @@ function manualSearch() {
     };
 
     initMap();
-    var searchInput = document.getElementById("er-search-input").value; //get search input
-    if (searchInput == '') {
-        logErrors('NOINPUT');
-        return;
-    }
     // Create the places service :
     var service = new google.maps.places.PlacesService(map);
+    //get search input
+    var searchInput = document.getElementById("er-search-input").value;
 
-
-    // Perform the search :
+    if (searchInput == '') { // Nothing entered? error
+        logErrors('NOINPUT');
+        return;
+    };
+    // Perform the manual search :
     service.textSearch(
         {
             query: searchInput + ' AND vegetarian' + getCuisine() + getVeg(),
@@ -419,14 +405,14 @@ function manualSearch() {
                 logErrors(status);
                 return;
             }
-            // Do something with the results
+            // push results to screen
             $("#er-search-results").html(showResults(results)); // push details to screen
             console.log(results);
             createMarkers(results) // Plot markers on the map
             setTimeout(function () { // wait a bit to show the mapresults
                 showList(collapse('collapsible')); // then show the resultslist
             }, 2500);
-
+            // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
                 pagination.nextPage();
@@ -435,29 +421,27 @@ function manualSearch() {
     );
 };
 
-function createMarkers(places) {
+function createMarkers(places) { // plot markers to the map
     var bounds = new google.maps.LatLngBounds();
     var infowindow = new google.maps.InfoWindow({
         content: ''
     });
 
-    for (var i = 0, place; place = places[i]; i++) {
-        var image = {
+    for (let index = 0, place; place = places[index]; index++) {
+        let image = {
             url: place.icon,
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
         };
-
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             map: map,
             //  label: place.name,
             position: place.geometry.location
 
         });
-
-        infoContent = place.name;        //   infowindow.open(map, marker);
+        infoContent = place.name; //   create infowwindow content
         google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
             return function () {
                 infowindow.close()
@@ -465,10 +449,8 @@ function createMarkers(places) {
                 infowindow.open(map, marker);
             };
         })(marker, infoContent, infowindow));
-
         bounds.extend(place.geometry.location);
     };
-
     map.fitBounds(bounds);
 };
 

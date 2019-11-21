@@ -266,34 +266,34 @@ svg {
     padding-right: 0;
     font-size: 0.8em;
     overflow: hidden;
-    transition: max-height 0.4s ease-out;
+    transition: max-height 0s;
+    background-image: url('../images/background.jpg');
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
 }
 
 .er-content-inner {
+    padding-top: 13vh;
     width: 100%;
-    margin-top: 13vh;
     padding-bottom: 15vh;
-    min-height: 87vh;
-}
-
-#er-front-section {
+    min-height: 100vh;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-#er-list-section {
-    background-color: rgba(255, 255, 255, 0.45);
-}
+#er-front-section {}
+
+#er-list-section {}
 
 #er-details-section {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #er-error-section {
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     text-align: center;
-    padding-top: 25vh;
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
 #er-map-section {}
@@ -359,10 +359,7 @@ svg {
 .er-details-icon {
     margin: 1em 0.5em 1em 0.5em;
     font-size: 2.5em;
-    color: rgba(0, 152, 46, 0.815);
 }
-
-.er-list {}
 
 /* ----------------------------------------Item-list-cells */
 
@@ -485,7 +482,6 @@ svg {
 }
 
 .er-details-name {
-    text-align: center;
     font-weight: 500;
     width: 100%;
 }
@@ -496,16 +492,10 @@ svg {
 
 .er-reviews-button {
     font-size: 2.5em;
-    position: absolute;
-    left: 0;
-    top: 12vh;
 }
 
 .er-photos-button {
     font-size: 2.5em;
-    position: absolute;
-    left: 20vw;
-    top: 12vh;
 }
 
 .er-details-photo img {
@@ -533,7 +523,7 @@ svg {
 }
 
 .active {
-    background-color: rgba(165, 176, 118, 0.50);
+    background-color: rgba(165, 176, 118, 0.50)!important;
 }
 
 /* ----------------------------------------Error section */

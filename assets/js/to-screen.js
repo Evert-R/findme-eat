@@ -1,6 +1,6 @@
-function restaurantDetails(place_id) {
+function restaurantDetails(place_id) { // get restaurant details and plot to screen
     showDetails();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
+    $('html, body').animate({ scrollTop: 0 }, 'slow'); // scoll to top of the page
     var requestDetails = {
         placeId: place_id,
         fields: ['reviews', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
@@ -11,21 +11,21 @@ function restaurantDetails(place_id) {
 
     function callback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-
             console.log(place);
             // create list of photos
             let photoItems = place.photos.map(function (photo) {
                 imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
                 return `<div class="col-12 er-details-photo"><img src="${imageUri}"></div>`
             });
-
+            let backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
+            $("#er-details-section").css("background-image", backGround);
             // create place type list
             let placeTypes = place.types.map(function (placeType) {
                 return `<div>${placeType}</div>`
             });
             // create adress array
             let fullAddress = place.adr_address.split(",");
-
+            // create review section
             let reviewList = place.reviews.map(function (review) {
                 return `<p>${review.author_name}</p>
                         <p>${review.rating}</p>
@@ -36,14 +36,13 @@ function restaurantDetails(place_id) {
                         <p>${review.author_name}</p>
                         <p>${review.rating}</p>
                 `
-
             });
-            console.log(fullAddress);
+            // push details to screen
             $("#er-details").html(`
             <h2>${place.name}</h2>
             <table class="er-list-table">
                 <tr>
-                    <td class="er-sell-2third er-details-address">
+                    <td class="er-cell-2third er-details-address">
                         ${fullAddress.join("<br>")}
                     </td>
                     <td class="er-cell-third er-details-icons">
@@ -54,13 +53,13 @@ function restaurantDetails(place_id) {
                 </tr>
             </table>
 
-            <div class="details-collapsible er-reviews-button">                    
+            <div class="details-collapsible er-details-icons">                    
                 <button><i class="fas fa-directions"></i></button>
             </div>
             <div class="er-details-collapse">
                 ${reviewList.join("\n")}  
             </div> 
-            <div class="details-collapsible er-photos-button">                    
+            <div class="details-collapsible er-details-icons">                    
                 <button><i class="fas fa-directions"></i></button>
             </div>
             <div class="row er-details-collapse er-details-photos">
@@ -68,6 +67,8 @@ function restaurantDetails(place_id) {
             </div>     
             `);
             collapse('details-collapsible');
+        } else {
+            showErrors(status);
         };
     }
 }
