@@ -1,77 +1,47 @@
+function hideAll() {
+    $("#er-front-section").slideUp();
+    $("#er-list-section").slideUp();
+    $("#er-details-section").slideUp();
+    $("#er-contact-section").slideUp();
+    $("#er-map-section").slideUp();
+    $("#er-direction-section").slideUp();
+    $("#er-error-section").slideUp();
+}
+
+
 function showMap() {
-    let content = document.getElementById("er-map-section");
-    document.getElementById("er-front-section").style.maxHeight = "0";
-    document.getElementById("er-list-section").style.maxHeight = "0";
-    document.getElementById("er-details-section").style.maxHeight = "0";
-    document.getElementById("er-contact-section").style.maxHeight = "0";
-    content.style.maxHeight = content.scrollHeight + "px";
-    document.getElementById("er-direction-section").style.maxHeight = "0";
-    document.getElementById("er-error-section").style.maxHeight = "0";
+    hideAll();
+    $("#er-map-section").slideDown();
 };
 
 function showDirections() {
-    let content = document.getElementById("er-direction-section");
-    document.getElementById("er-front-section").style.maxHeight = "0";
-    document.getElementById("er-list-section").style.maxHeight = "0";
-    document.getElementById("er-details-section").style.maxHeight = "0";
-    document.getElementById("er-contact-section").style.maxHeight = "0";
-    document.getElementById("er-map-section").style.maxHeight = "0";
-    content.style.maxHeight = content.scrollHeight + "px";
-    document.getElementById("er-error-section").style.maxHeight = "0";
+    hideAll();
+    $("#er-direction-section").slideDown();
 };
 
 function showList(callback) {
-    let content = document.getElementById("er-list-section");
-    document.getElementById("er-front-section").style.maxHeight = "0";
-    content.style.maxHeight = content.scrollHeight + "px";
-    document.getElementById("er-details-section").style.maxHeight = "0";
-    document.getElementById("er-contact-section").style.maxHeight = "0";
-    document.getElementById("er-map-section").style.maxHeight = "0";
-    document.getElementById("er-direction-section").style.maxHeight = "0";
-    document.getElementById("er-error-section").style.maxHeight = "0";
+    hideAll();
+    $("#er-list-section").slideDown();
 };
 
 function showFront() {
-    let content = document.getElementById("er-front-section");
-    content.style.maxHeight = content.scrollHeight + "px";
-    document.getElementById("er-list-section").style.maxHeight = "0";
-    document.getElementById("er-details-section").style.maxHeight = "0";
-    document.getElementById("er-contact-section").style.maxHeight = "0";
-    document.getElementById("er-map-section").style.maxHeight = "0";
-    document.getElementById("er-direction-section").style.maxHeight = "0";
-    document.getElementById("er-error-section").style.maxHeight = "0";
+    hideAll();
+    $("#er-front-section").slideDown();
 };
 
 function showDetails() {
-    let content = document.getElementById("er-details-section");
-    document.getElementById("er-front-section").style.maxHeight = "0";
-    document.getElementById("er-list-section").style.maxHeight = "0";
-    content.style.maxHeight = "unset";
-    document.getElementById("er-contact-section").style.maxHeight = "0";
-    document.getElementById("er-map-section").style.maxHeight = "0";
-    document.getElementById("er-direction-section").style.maxHeight = "0";
-    document.getElementById("er-error-section").style.maxHeight = "0";
+    hideAll();
+    $("#er-details-section").slideDown();
 };
 
 function showContact() {
-    let content = document.getElementById("er-contact-section");
-    document.getElementById("er-front-section").style.maxHeight = "0";
-    document.getElementById("er-list-section").style.maxHeight = "0";
-    document.getElementById("er-details-section").style.maxHeight = "0";
-    content.style.maxHeight = content.scrollHeight + "px";
-    document.getElementById("er-map-section").style.maxHeight = "0";
-    document.getElementById("er-direction-section").style.maxHeight = "0";
-    document.getElementById("er-error-section").style.maxHeight = "0";
+    hideAll();
+    $("#er-contact-section").slideDown();
+
 };
 function showError() {
-    let content = document.getElementById("er-error-section");
-    document.getElementById("er-front-section").style.maxHeight = "0";
-    document.getElementById("er-list-section").style.maxHeight = "0";
-    document.getElementById("er-details-section").style.maxHeight = "0";
-    document.getElementById("er-contact-section").style.maxHeight = "0";
-    document.getElementById("er-map-section").style.maxHeight = "0";
-    document.getElementById("er-direction-section").style.maxHeight = "0";
-    content.style.maxHeight = content.scrollHeight + "px";
+    hideAll();
+    $("#er-error-section").slideDown();
 };
 
 
@@ -98,18 +68,20 @@ function collapse(collapsGroup) {
 
 window.onload = function () {
     collapse('header-collapsible');
-    document.getElementById("er-map-switch").addEventListener("click", function () {
-        showMap();
-    });
+    console.log(window.innerWidth);
+    if (window.innerWidth > 0) {
+        document.getElementById("er-map-switch").addEventListener("click", function () {
+            showMap();
+        });
 
-    document.getElementById("er-search-switch").addEventListener("click", function () {
-        showList();
-    });
+        document.getElementById("er-search-switch").addEventListener("click", function () {
+            showList();
+        });
 
-    document.getElementById("er-details-switch").addEventListener("click", function () {
-        showDetails();
-    });
-
+        document.getElementById("er-details-switch").addEventListener("click", function () {
+            showDetails();
+        });
+    };
     document.getElementById("er-location-front").addEventListener("click", function () {
         checkGeo(geoSearch);
     });

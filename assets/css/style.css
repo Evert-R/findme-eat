@@ -278,7 +278,7 @@ svg {
     width: 100%;
     padding-bottom: 15vh;
     min-height: 100vh;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 #er-front-section {}
@@ -322,14 +322,12 @@ svg {
     font-size: 2em;
     text-align: center;
     color: rgba(0, 0, 0, 0.9);
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0px 0px 8px 4em rgba(255, 255, 255, 0.2);
     ;
 }
 
 #er-location-front {
     text-align: center;
-    font-size: 24vw;
+    font-size: 10em;
     color: rgba(87, 93, 65);
 }
 
