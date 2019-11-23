@@ -368,16 +368,16 @@ svg {
 .er-cell-image {
     overflow: hidden;
     width: 20vw;
-    border-radius: 20vw;
+    border-radius: 100%;
 }
 
 .er-cell-image img {
-    width: 100%;
+    width: 20vw;
     height: 20vw;
 }
 
 .er-cell-name {
-    width: 45vw;
+    width: 55%;
 }
 
 .er-cell-topname {
@@ -393,7 +393,7 @@ svg {
 .er-cell-open {
     font-size: .9em;
     text-align: center;
-    width: 10vw;
+    width: 10%;
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -415,7 +415,7 @@ svg {
 }
 
 .er-cell-rating {
-    width: 15vw;
+    width: 15%;
     background-color: rgba(165, 176, 118, 0.4);
 }
 
@@ -472,7 +472,7 @@ svg {
 /* ----------------------------------------Details section */
 
 .er-details-photos {
-    width: 100vw;
+    width: 100%;
 }
 
 .er-details-photos img {
@@ -525,3 +525,34 @@ svg {
 }
 
 /* ----------------------------------------Error section */
+
+/* ----------------------------------------Responsive breakpoints */
+
+/* --------------------------576 - SM */
+
+@media(min-width: 576px) {
+    .er-cell-image {
+        width: 10vw;
+    }
+    .er-cell-image img {
+        width: 10vw;
+        height: 10vw;
+    }
+    #er-map-section {
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+}
+
+/* --------------------------768 - MD */
+
+@media(min-width: 768px) {}
+
+/* --------------------------992 - LG */
+
+@media(min-width: 992px) {}
+
+/* --------------------------1200 - XL */
+
+@media(min-width: 1200px) {}

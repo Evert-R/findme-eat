@@ -319,17 +319,18 @@ function getOpen() { // get only open option from settings
     }
 }
 
-function checkGeo(callback) { // get current location
+function checkGeo(callback, directions) { // get current location
     navigator.geolocation.getCurrentPosition(function (position) {
-        console.log(position);
-        var currentLat = position.coords.latitude;
-        var currentLong = position.coords.longitude;
-        if (typeof currentLat !== 'undefined' && typeof currentLong !== 'undefined') {
-            callback(position.coords.latitude, position.coords.longitude);
-        } else {
-            logErrors('NOGEO')
+        callback(position.coords.latitude, position.coords.longitude);
+    },
+        function (error) { // if location denied show error
+            if (error.code == error.PERMISSION_DENIED && directions != undefined) {
+                logErrors('NOGEO')
+            } else { // if we wanted directions do a browser search in new tab
+                console.log('directions via browser')
+            }
         }
-    });
+    )
 };
 
 function geoSearch(currentLat, currentLong) {

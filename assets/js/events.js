@@ -10,8 +10,14 @@ function hideAll() {
 
 
 function showMap() {
-    hideAll();
-    $("#er-map-section").slideDown();
+    if (window.innerWidth < 576) {
+        hideAll();
+        $("#er-map-section").slideDown();
+    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        hideAll();
+        $("#er-map-section").slideDown();
+        $("#er-list-section").slideDown();
+    }
 };
 
 function showDirections() {
@@ -20,8 +26,14 @@ function showDirections() {
 };
 
 function showList(callback) {
-    hideAll();
-    $("#er-list-section").slideDown();
+    if (window.innerWidth < 576) {
+        hideAll();
+        $("#er-list-section").slideDown();
+    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        hideAll();
+        $("#er-map-section").slideDown();
+        $("#er-list-section").slideDown();
+    }
 };
 
 function showFront() {
@@ -66,34 +78,34 @@ function collapse(collapsGroup) {
 };
 
 
-window.onload = function () {
-    collapse('header-collapsible');
-    console.log(window.innerWidth);
-    if (window.innerWidth > 0) {
-        document.getElementById("er-map-switch").addEventListener("click", function () {
-            showMap();
-        });
-
-        document.getElementById("er-search-switch").addEventListener("click", function () {
-            showList();
-        });
-
-        document.getElementById("er-details-switch").addEventListener("click", function () {
-            showDetails();
-        });
-    };
-    document.getElementById("er-location-front").addEventListener("click", function () {
-        checkGeo(geoSearch);
-    });
-    document.getElementById("er-menu-location").addEventListener("click", function () {
-        checkGeo(geoSearch);
-    });
-    document.getElementById("vegetarian").addEventListener("click", function () {
-        alert("Sorry, we don't find meat ;-)");
-        $('#vegetarian').prop('checked', true);
+//window.onload = function () {
+collapse('header-collapsible');
+console.log(window.innerWidth);
+if (window.innerWidth > 0) {
+    document.getElementById("er-map-switch").addEventListener("click", function () {
+        showMap();
     });
 
-}
+    document.getElementById("er-search-switch").addEventListener("click", function () {
+        showList();
+    });
+
+    document.getElementById("er-details-switch").addEventListener("click", function () {
+        showDetails();
+    });
+};
+document.getElementById("er-location-front").addEventListener("click", function () {
+    checkGeo(geoSearch);
+});
+document.getElementById("er-menu-location").addEventListener("click", function () {
+    checkGeo(geoSearch);
+});
+document.getElementById("vegetarian").addEventListener("click", function () {
+    alert("Sorry, we don't find meat ;-)");
+    $('#vegetarian').prop('checked', true);
+});
+
+//}
 
 
 
