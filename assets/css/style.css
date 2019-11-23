@@ -115,6 +115,7 @@ svg {
     position: fixed;
     width: 100%;
     top: 0vh;
+    box-shadow: 0px 7px 15px -3px rgba(87, 93, 65, 0.9);
     ;
 }
 
@@ -129,7 +130,6 @@ svg {
 .er-header-expand {
     width: 100%;
     overflow: hidden;
-    box-shadow: 0px 7px 15px -3px rgba(87, 93, 65, 0.9);
 }
 
 .er-header-text {
@@ -163,24 +163,18 @@ svg {
     color: rgba(0, 0, 0, 0.7);
 }
 
-.er-header-collapse {
+.er-header-settings {
     position: absolute;
     right: 0;
-    width: 25vw;
-    max-height: 0;
-    border-bottom-left-radius: 1em;
+    width: 25%;
     overflow: hidden;
-    transition: max-height 0.4s ease-out;
+    padding: 1em 0.5em 1em 0.5em;
+    font-size: 0.6em;
+    border-bottom-left-radius: 1em;
     box-shadow: -10px 10px 15px -3px rgba(87, 93, 65, 0.9);
 }
 
-.er-dropdown {
-    overflow: hidden;
-    padding: 1em 0.5em 1em 0.5em;
-    font-size: 0.7em;
-}
-
-.er-dropdown div {
+.er-header-settings div {
     margin-bottom: 1.5em;
 }
 
@@ -430,9 +424,6 @@ svg {
     padding-left: 1em;
     padding-right: 1em;
     background-color: rgba(87, 93, 65, 0.5);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
 }
 
 .er-list-collapse button {

@@ -106,7 +106,7 @@ function showResults(restaurants) {
         var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unwanted characters
 
         // generate html list items
-        return `<div class="er-list collapsible"> 
+        return `<div class="er-list er-slide-item"> 
             <table class="er-list-table">
             <tr>
                 <td class="er-cell-image">

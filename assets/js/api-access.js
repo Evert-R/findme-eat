@@ -367,7 +367,7 @@ function geoSearch(currentLat, currentLong) {
             console.log(results)
             createMarkers(results) // Plot markers on the map
             setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse('collapsible')); // then show list
+                showList(slideList()); // then show list
             }, 2500);
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
@@ -477,8 +477,8 @@ function calcRoute(placeId, currentLat, currentLong) {
     showDirections(); // show directions section
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
-    var chicago = new google.maps.LatLng(currentLat, currentLong);
-
+    var mapCenter = new google.maps.LatLng(currentLat, currentLong);
+    // var mapCenter = `{center: {lat:${currentLat}, lng:${currentLong}}}`
     var directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions());
     directionsRenderer.setMap(directionMap);
     console.log(placeId);

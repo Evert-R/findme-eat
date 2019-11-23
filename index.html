@@ -42,77 +42,78 @@
 
                 </table>
             </div>
-            <div class="header-collapsible">
-                <div class="er-header-expand">
-                    <div class="er-header-text">Find vegetarian / vegan restaurants</div>
-                    <div class="er-header-switch"><i class="fa fa-cogs"></i></div>
+
+            <div class="er-header-expand">
+                <div class="er-header-text">Find vegetarian / vegan restaurants</div>
+                <div class="er-header-switch"><i class="fa fa-cogs"></i></div>
+            </div>
+
+            <div class="er-header-settings er-background">
+
+                <div>
+                    <label for="er-cuisine">
+                        <h4>Cuisine:</h4>
+                    </label>
+                    <select id="er-cuisine">
+                        <option value="">-</option>
+                        <option value="indian">Indian</option>
+                        <option value="thai">Thai</option>
+                        <option value="greek">Greek</option>
+                        <option value="italian">Italian</option>
+                        <option value="hamburger">Hamburger</option>
+                        <option value="greek">Greek</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="surinamese">Surinamese</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="sushi">Sushi</option>
+                    </select>
+                </div>
+                <div>
+                    <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian" checked>
+                    <label for="vegetarian">
+                        Vegetarian<br>
+                    </label><br>
+
+                    <input id="vegan" type="checkbox" name="vegan" value="vegan">
+                    <label for="vegan">
+                        Vegan
+                    </label><br>
+
+                    <input id="open-now" type="checkbox" name="open" value="">
+                    <label for="open-now">
+                        Open Now
+                    </label><br>
+                </div>
+
+                <div>
+                    <h4>Directions:</h5>
+                        <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
+                        <label for="walking">
+                            By foot
+                        </label><br>
+                        <input type="radio" name="er-travel" id="bicycling" class="er-sort" value="BICYCLING">
+                        <label for="bicycling">
+                            By bike
+                        </label><br>
+                        <input type="radio" name="er-travel" id="driving" class="er-sort" value="DRIVING">
+                        <label for="driving">
+                            By Car
+                        </label><br>
+                </div>
+                <div>
+                    <h4>GeoSearch:</h5>
+                        <label for="er-radius">Radius:</label>
+                        <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
+                </div>
+                <h4>New Search:</h4>
+                <div class="er-menu-search" id="er-menu-location">
+
+                    <button><i class="fab fa-sith"></i></button>
                 </div>
             </div>
-            <div class="er-header-collapse er-background">
-                <div class="er-dropdown">
-                    <div>
-                        <label for="er-cuisine">
-                            <h4>Cuisine:</h4>
-                        </label>
-                        <select id="er-cuisine">
-                            <option value="">-</option>
-                            <option value="indian">Indian</option>
-                            <option value="thai">Thai</option>
-                            <option value="greek">Greek</option>
-                            <option value="italian">Italian</option>
-                            <option value="hamburger">Hamburger</option>
-                            <option value="greek">Greek</option>
-                            <option value="chinese">Chinese</option>
-                            <option value="surinamese">Surinamese</option>
-                            <option value="mexican">Mexican</option>
-                            <option value="japanese">Japanese</option>
-                            <option value="sushi">Sushi</option>
-                        </select>
-                    </div>
-                    <div>
-                        <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian" checked>
-                        <label for="vegetarian">
-                            Vegetarian<br>
-                        </label><br>
 
-                        <input id="vegan" type="checkbox" name="vegan" value="vegan">
-                        <label for="vegan">
-                            Vegan
-                        </label><br>
 
-                        <input id="open-now" type="checkbox" name="open" value="">
-                        <label for="open-now">
-                            Open Now
-                        </label><br>
-                    </div>
-
-                    <div>
-                        <h4>Directions:</h5>
-                            <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
-                            <label for="walking">
-                                By foot
-                            </label><br>
-                            <input type="radio" name="er-travel" id="bicycling" class="er-sort" value="BICYCLING">
-                            <label for="bicycling">
-                                By bike
-                            </label><br>
-                            <input type="radio" name="er-travel" id="driving" class="er-sort" value="DRIVING">
-                            <label for="driving">
-                                By Car
-                            </label><br>
-                    </div>
-                    <div>
-                        <h4>GeoSearch:</h5>
-                            <label for="er-radius">Radius:</label>
-                            <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
-                    </div>
-                    <h4>New Search:</h4>
-                    <div class="er-menu-search" id="er-menu-location">
-
-                        <button><i class="fab fa-sith"></i></button>
-                    </div>
-                </div>
-            </div>
         </section>
     </header>
 

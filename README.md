@@ -142,6 +142,7 @@ To cut ties with this repository:
 
     http://www.pngmart.com/image/tag/star-rating
     https://www.pngfly.com/png-1ukbp8/download.html
+    https://www.w3schools.com/howto/howto_js_collapsible.asp
 ### Dataset
 
 
