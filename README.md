@@ -5,15 +5,13 @@
 
 ## UX
 ### For who this website is created 
-- This website is created for a non-profit organisation wich wants to promote a vegetarian lifestyle
+- This website is created for the non-profit organisation 'Geen eieren voor je geld'. Wich in dutch literally means 'No eggs for your money', wich is an old saying and means that you get good value for your money. This organisation wants to promote a vegetarian/vegan lifestyle by providing vegan-cooking workshops, and now via the development of this new web-app.
 
 ### At who this website is targeted
-- Vegatarians and vegans living or travelling in the U.S
+- Vegatarians, vegans and other interested people from all over the world.
 
-### What does the group want to achieve with this website
-
-
-### What does the record label wish to achieve with this website
+### What does the organisation wants to achieve with this website
+- They want to make it easy to find vegetarian/vegan restaurants wherever you are in the world.
 
 
 ### User stories
@@ -21,20 +19,28 @@
 
 ### Mock-ups
 The mock-ups for this project are in the UXD folder wich you will find in the root of this project.
-- [Wireframe1](UXD/wareboembep-mockup-1.jpg)
-- [Wireframe2](UXD/wareboembep-mockup-2.jpg)
+- [Wireframe1](UXD/.jpg)
+- [Wireframe2](UXD/.jpg)
 
 ### Concept
-This webpage is designed to provide a simple and intuitive search for vegan and vegetarian restaurants in the U.S.
-It's designed for mobile use, but will also work on bigger screens.
+This webpage will let you make a search for restaurants in a specified radius around you, or in a specific destination. It presents you the rating, pricelevel, adress, wether the place is open or not, some reviews and pictures and finally calculates your route to the selected restaurant.
+The main focus will be on mobile devices as its main purpose is to be used on the road, but it will also work on all desktop devices.
 
  
 ### Basic features
-- Search function per city
+- Geographical search
+- Manual search
+- Select radius for geo-search
+- Select vehicle for directions
+- Select only open restaurants
+- View adress details
+- view revies
+- view all available photos
+- Get direction from you location 
 
 ### Optional Features to be implemented later
-- Dropdown list in the search input to give all available options after typing a letter
-- Search results based on the city you are in
+- select price level
+- Get direction without the app knowing your location
 
 ### Technologies Used
 - [VSCode](https://code.visualstudio.com)
@@ -46,11 +52,9 @@ It's designed for mobile use, but will also work on bigger screens.
 - [Font-Awesome](https://fontawesome.com)
     - Icons
 - [Bootstrap](https://getbootstrap.com)
-    - Responsive grid / Navigation bar / Image carousel
+    - Responsive grid
 - [Google Fonts](https://fonts.google.com)
     - Fonts (Source code pro/Allerta Stencil)
-- [CSV to Json Converter](https://www.csvjson.com/csv2json)
-    - Convert CSV dataset to Json
 - [Autoprefixer](https://autoprefixer.github.io)
     - CSS prefixes for different browsers 
 - [Online-convert](https://image.online-convert.com/convert-to-ico)

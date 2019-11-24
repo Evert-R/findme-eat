@@ -529,7 +529,7 @@ svg {
         width: 10vw;
         height: 10vw;
     }
-    #er-map-section {
+    #er-map-section, #er-direction-section {
         position: fixed;
         top: 0;
         right: 0;

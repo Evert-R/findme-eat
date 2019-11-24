@@ -1,3 +1,6 @@
+var map; // create map variable
+var directionMap; // create directions map variable
+
 function mapOptions() { // style options for all maps
     return {
         disableDefaultUI: true,
@@ -478,28 +481,30 @@ function createMarkers(places) { // plot markers to the map
 };
 
 
-
+var id;
 function initDirectionMap(placeId) {
-    checkGeo(function (currentLat, currentLong) {
-        if (typeof currentLat !== 'undefined' && typeof currentLong !== 'undefined') {
-            calcRoute(placeId, currentLat, currentLong);
-        } else {
-            showList();
-        }
+    $("#er-direction-section").slideDown(0);
+    if (window.innerWidth < 576) {
+        $("#er-map-section").slideUp(0);
+        $("#er-list-section").slideUp(0);
+    }
+    navigator.geolocation.clearWatch(id);
+    checkGeo(function (currentLat, currentLong) { // get current location
+
+        calcRoute(placeId, currentLat, currentLong); // on succes plot route
     });
-    console.log(placeId);
 }
 
+
+
 function calcRoute(placeId, currentLat, currentLong) {
-    showDirections(); // show directions section
+    console.log('bey');
+    var directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions());
+
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
     var mapCenter = new google.maps.LatLng(currentLat, currentLong);
-    // var mapCenter = `{center: {lat:${currentLat}, lng:${currentLong}}}`
-    var directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions());
     directionsRenderer.setMap(directionMap);
-    console.log(placeId);
-
     var start = `{location: {lat:${currentLat}, lng:${currentLong}}}`;
     var end = `{place_id: "${placeId}"}`;
     var request = {
@@ -507,62 +512,30 @@ function calcRoute(placeId, currentLat, currentLong) {
         destination: { 'placeId': placeId },
         travelMode: getVehicle()
     };
-    console.log(request);
+    function moveMarker(currentLat, currentLong) {
+        marker.setPosition(currentLat, currentLong);
+    }
     directionsService.route(request, function (result, status) {
         if (status !== 'OK') {
             logErrors(status);
             return;
         }
         directionsRenderer.setDirections(result);
-
     });
+    var marker = new google.maps.Marker({ // place blue marker on current position
+        map: directionMap,
+        icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
+        position: { lat: currentLat, lng: currentLong }
+    });
+    // change blue marker everytime the users moves
+    //   navigator.geolocation.watchPosition((function (position) {
+    //       id = marker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
+    //   }));
 }
 
 
 
 
-var map; // create map variable
-
-
-// checkGeo(initMap); // check location, if present do geo search
-// jsonMap();
-
-
-function jsonMap() {
-
-    $.when(
-        $.get(`assets/data/leiden.json`)
-    ).then(
-        // make variable of data
-        function (response) {
-            var searchResults = response;
 
 
 
-            // push searchResults to div
-
-            $("#er-search-results").html(showResults(searchResults))
-
-
-            collapse()
-
-        },
-        // error handling
-        function (errorResponse) {
-            if (errorResponse.status === 404) {
-                $("#er-api-data").html(
-                    `<h2>No info found for leiden</h2>`);
-
-
-            } else if (errorResponse.status === 403) {
-                var resetTime = new Date(errorResponse.getResponseHeader('X-RateLimit-Reset') * 1000);
-                $("#er-api-data").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
-            } else {
-                console.log(errorResponse);
-                $("#er-api-data").html(
-                    `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);
-            };
-
-        });
-
-};

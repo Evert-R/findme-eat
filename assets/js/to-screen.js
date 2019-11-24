@@ -66,7 +66,6 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                 ${photoItems.join("\n")} 
             </div>     
             `);
-            collapse('details-collapsible');
         } else {
             showErrors(status);
         };

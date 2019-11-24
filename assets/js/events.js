@@ -1,49 +1,61 @@
 function hideAll() {
-    $("#er-front-section").slideUp();
-    $("#er-list-section").slideUp();
-    $("#er-details-section").slideUp();
-    $("#er-contact-section").slideUp();
-    $("#er-map-section").slideUp();
-    $("#er-direction-section").slideUp();
-    $("#er-error-section").slideUp();
+    $("#er-front-section").slideUp(0);
+    $("#er-list-section").slideUp(0);
+    $("#er-details-section").slideUp(0);
+    $("#er-contact-section").slideUp(0);
+    $("#er-map-section").slideUp(0);
+    $("#er-direction-section").slideUp(0);
+    $("#er-error-section").slideUp(0);
 }
-
-
-function showMap() {
-    if (window.innerWidth < 576) {
-        hideAll();
-        $("#er-map-section").slideDown();
-    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
-        hideAll();
-        $("#er-map-section").slideDown();
-        $("#er-list-section").slideDown();
-    }
-};
-
-function showDirections() {
-    hideAll();
-    $("#er-direction-section").slideDown();
-};
 
 function showList(callback) {
     if (window.innerWidth < 576) {
         hideAll();
-        $("#er-list-section").slideDown();
+        $("#er-list-section").slideDown(0);
     } else if (window.innerWidth > 576 && window.innerWidth < 768) {
         hideAll();
-        $("#er-map-section").slideDown();
-        $("#er-list-section").slideDown();
+        $("#er-map-section").slideDown(0);
+        $("#er-list-section").slideDown(0);
+    }
+};
+
+function showMap() {
+    if (window.innerWidth < 576) {
+        hideAll();
+        $("#er-map-section").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        hideAll();
+        $("#er-map-section").slideDown(0);
+        $("#er-list-section").slideDown(0);
+    }
+};
+
+function showDetails() {
+    if (window.innerWidth < 576) {
+        hideAll();
+        $("#er-details-section").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        hideAll();
+        $("#er-details-section").slideDown(0);
+        $("#er-direction-section").slideDown(0);
+    }
+};
+
+function showDirections() {
+    if (window.innerWidth < 576) {
+        hideAll();
+        $("#er-direction-section").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        hideAll();
+        $("#er-details-section").slideDown(0);
+        $("#er-direction-section").slideDown(0);
     }
 };
 
 function showFront() {
+
     hideAll();
     $("#er-front-section").slideDown();
-};
-
-function showDetails() {
-    hideAll();
-    $("#er-details-section").slideDown();
 };
 
 function showContact() {
