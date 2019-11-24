@@ -1,6 +1,6 @@
 function restaurantDetails(place_id) { // get restaurant details and plot to screen
-    showDetails();
-    $('html, body').animate({ scrollTop: 0 }, 'slow'); // scoll to top of the page
+
+    //    $('html, body').animate({ scrollTop: 0 }, 'slow'); // scoll to top of the page
     var requestDetails = {
         placeId: place_id,
         fields: ['reviews', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
@@ -39,36 +39,40 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
             });
             // push details to screen
             $("#er-details").html(`
-            <h2>${place.name}</h2>
-            <table class="er-list-table">
-                <tr>
-                    <td class="er-cell-2third er-details-address">
-                        ${fullAddress.join("<br>")}
-                    </td>
-                    <td class="er-cell-third er-details-icons">
-                        <div onclick="initDirectionMap('${place.place_id}')">    
-                            <button><i class="fas fa-directions"></i></button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div id="er-details-main"> 
+                <h2>${place.name}</h2>
+                <table class="er-list-table">
+                    <tr>
+                        <td class="er-cell-2third er-details-address">
+                            ${fullAddress.join("<br>")}
+                        </td>
+                        <td class="er-cell-third er-details-icons">
+                            <div onclick="initDirectionMap('${place.place_id}')">    
+                                <button><i class="fas fa-directions"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
-            <div class="details-collapsible er-details-icons">                    
-                <button><i class="fas fa-directions"></i></button>
+                <div class="details-er-details-icons" onclick="showReviews()">                    
+                    <button><i class="fas fa-directions"></i></button>
+                </div>
+
+                <div class="er-details-icons" onclick="showPhotos()">                    
+                    <button><i class="fas fa-directions"></i></button>
+                </div>
             </div>
-            <div class="er-details-collapse">
-                ${reviewList.join("\n")}  
-            </div> 
-            <div class="details-collapsible er-details-icons">                    
-                <button><i class="fas fa-directions"></i></button>
-            </div>
-            <div class="row er-details-collapse er-details-photos">
-                ${photoItems.join("\n")} 
-            </div>     
+            <div id="er-details-reviews">
+                    ${reviewList.join("\n")}
+                </div>
+                <div id="er-details-photos">
+                    ${photoItems.join("\n")} 
+                </div>
             `);
         } else {
             showErrors(status);
         };
+        showDetails();
     }
 }
 

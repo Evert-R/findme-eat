@@ -119,9 +119,7 @@ svg {
     ;
 }
 
-.er-header-main {
-    height: 7vh;
-}
+.er-header-main {}
 
 .er-header-icon {
     font-size: 1.2em;

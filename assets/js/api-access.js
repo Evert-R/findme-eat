@@ -419,7 +419,7 @@ function manualSearch() {
             console.log(results);
             createMarkers(results) // Plot markers on the map
             setTimeout(function () { // wait a bit to show the mapresults
-                showList(collapse('collapsible')); // then show the resultslist
+                showList(slideList()); // then show the resultslist
             }, 2500);
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
@@ -483,11 +483,7 @@ function createMarkers(places) { // plot markers to the map
 
 var id;
 function initDirectionMap(placeId) {
-    $("#er-direction-section").slideDown(0);
-    if (window.innerWidth < 576) {
-        $("#er-map-section").slideUp(0);
-        $("#er-list-section").slideUp(0);
-    }
+    showDirections();
     navigator.geolocation.clearWatch(id);
     checkGeo(function (currentLat, currentLong) { // get current location
 
