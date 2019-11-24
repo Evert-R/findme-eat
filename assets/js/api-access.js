@@ -427,9 +427,11 @@ function manualSearch() {
     );
 };
 
+var infowindow;
+
 function createMarkers(places) { // plot markers to the map
     var bounds = new google.maps.LatLngBounds();
-    var infowindow = new google.maps.InfoWindow({
+    infowindow = new google.maps.InfoWindow({
         content: ''
     });
 
@@ -447,14 +449,29 @@ function createMarkers(places) { // plot markers to the map
             position: place.geometry.location
 
         });
-        infoContent = place.name; //   create infowwindow content
+
+        var infoContent = place.name; //   create infowwindow content
+
         google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
             return function () {
                 infowindow.close()
                 infowindow.setContent(infoContent);
                 infowindow.open(map, marker);
+
             };
         })(marker, infoContent, infowindow));
+
+        $("#" + place.place_id).click(function () {
+            $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
+            $("#" + place.place_id).toggleClass("active"); // highlight list item
+            infowindow.close();
+            infowindow.setContent(place.name);
+            infowindow.open(map, marker);
+
+        })
+
+
+
         bounds.extend(place.geometry.location);
     };
     map.fitBounds(bounds);
@@ -505,6 +522,7 @@ function calcRoute(placeId, currentLat, currentLong) {
 
 
 var map; // create map variable
+
 
 // checkGeo(initMap); // check location, if present do geo search
 // jsonMap();

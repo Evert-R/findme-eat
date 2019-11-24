@@ -57,15 +57,13 @@ function showError() {
 };
 
 
+
 function slideList() { // make listitems collapsible
-    $(".er-slide-item").each(function () { // loop through list
-        $(this).next().slideUp(); // slide to startposition
-        $(this).click(function () { // make click event
-            $(this).toggleClass("active"); // highlight list item
-            $(this).next().slideToggle(); // slide the info div
-        })
-    });
+    $(".er-list-collapse").each(function () { // loop through list
+        $(this).slideUp(); // slide to startposition 
+    })
 };
+
 
 window.onload = function () {
     $(".er-header-settings").slideUp(); // headersettings to startposition

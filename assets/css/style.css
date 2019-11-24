@@ -20,7 +20,7 @@ body {
 }
 
 main {
-    background-image: url('../images/background.jpg');
+    background-color: rgba(165, 176, 118);
     background-attachment: scroll;
 }
 

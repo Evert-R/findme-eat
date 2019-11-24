@@ -100,13 +100,13 @@ function showResults(restaurants) {
         } else {
             var priceLevel = '0';
         }
-
+        let infoWindow = restaurant.geometry.location;
 
         console.log(priceLevel);
         var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unwanted characters
 
         // generate html list items
-        return `<div class="er-list er-slide-item"> 
+        return `<div class="er-list"  id="${restaurant.place_id}"> 
             <table class="er-list-table">
             <tr>
                 <td class="er-cell-image">
