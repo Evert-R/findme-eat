@@ -37,10 +37,10 @@ function showDetails() {
     } else if (window.innerWidth > 576 && window.innerWidth < 768) {
         $("#er-list-section").slideUp(0);
     }
-    $('#er-details-reviews').slideUp(0);
-    $('#er-details-photos').slideUp(0);
+    $('#er-details-reviews').slideUp(1000);
+    $('#er-details-photos').slideUp(1000);
     $("#er-details-section").slideDown(0);
-    $('#er-details-main').slideDown(150);
+    $('#er-details-main').slideDown(1000);
 };
 
 function showDirections() {
@@ -100,7 +100,7 @@ function showError() {
 
 function slideList() { // make listitems collapsible
     $(".er-list-collapse").each(function () { // loop through list
-        $(this).slideUp(); // slide to startposition 
+        $(this).slideUp(500); // slide to startposition 
     })
 };
 

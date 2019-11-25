@@ -369,9 +369,13 @@ function geoSearch(currentLat, currentLong) {
             $("#er-search-results").html(showResults(results));
             console.log(results)
             createMarkers(results) // Plot markers on the map
-            setTimeout(function () { // wait a bit to show the mapresults
-                showList(slideList()); // then show list
-            }, 2500);
+            if (window.innerWidth < 576) {
+                setTimeout(function () { // wait a bit to show the mapresults
+                    showList(slideList()); // then show list
+                }, 2000);
+            } else {
+                showList(slideList());
+            }
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
@@ -418,9 +422,13 @@ function manualSearch() {
             $("#er-search-results").html(showResults(results)); // push details to screen
             console.log(results);
             createMarkers(results) // Plot markers on the map
-            setTimeout(function () { // wait a bit to show the mapresults
-                showList(slideList()); // then show the resultslist
-            }, 2500);
+            if (window.innerWidth < 576) {
+                setTimeout(function () { // wait a bit to show the mapresults
+                    showList(slideList()); // then show list
+                }, 2000);
+            } else {
+                showList(slideList());
+            }
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
@@ -464,7 +472,7 @@ function createMarkers(places) { // plot markers to the map
             };
         })(marker, infoContent, infowindow));
 
-        $("#" + place.place_id).click(function () {
+        $("#" + place.place_id).click(function () { // click-event for list-item
             $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
             $("#" + place.place_id).toggleClass("active"); // highlight list item
             infowindow.close();

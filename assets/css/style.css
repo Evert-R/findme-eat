@@ -335,11 +335,7 @@ svg {
     margin-top: 0.5em;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.65);
-}
-
-.er-list-table {
     border: 0.02px solid rgba(87, 93, 65, 0.8);
-    ;
 }
 
 .er-list-icon {
@@ -358,6 +354,8 @@ svg {
 }
 
 .er-cell-image {
+    padding-top: 0;
+    padding-bottom: 0;
     overflow: hidden;
     width: 20vw;
     border-radius: 100%;
@@ -385,7 +383,6 @@ svg {
 .er-cell-open {
     font-size: .9em;
     text-align: center;
-    width: 10%;
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -406,8 +403,17 @@ svg {
     width: 50px;
 }
 
+.er-review-rating {
+    overflow: hidden;
+    padding: 0;
+}
+
+.er-review-rating img {
+    width: 100px;
+}
+
 .er-cell-rating {
-    width: 15%;
+    width: 60px;
     background-color: rgba(165, 176, 118, 0.4);
 }
 
@@ -460,6 +466,17 @@ svg {
 
 /* ----------------------------------------Details section */
 
+.er-details-table {
+    padding-bottom: 20em;
+    table-layout: fixed;
+    width: 100%;
+    border: 0.02px solid rgba(87, 93, 65, 0.8);
+}
+
+.er-details-title:hover {
+    cursor: pointer;
+}
+
 .er-details-photos {
     width: 100%;
 }
@@ -468,13 +485,59 @@ svg {
     width: 100%;
 }
 
-.er-details-name {
-    font-weight: 500;
-    width: 100%;
+.er-details-photo {
+    border-radius: 8vw;
+    overflow: hidden;
+    padding: 2vw;
 }
 
-.er-details-photo {
+.er-reviews-table {
+    table-layout: fixed;
+    width: 100%;
+    background-color: rgba(165, 176, 118, 0.2);
+}
+
+.er-reviews-name {
+    letter-spacing: 0.1em;
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: indie flower;
+}
+
+.er-reviews-mainwrap {
+    padding-bottom: 1em;
+    padding-top: 1.5em;
+}
+
+.er-reviews-wrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    border-radius: 30px;
     overflow: hidden;
+}
+
+.er-review-text {
+    font-size: 0.8em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    border-radius: 15px;
+    padding: 0.5em;
+    text-align: justify;
+    overflow: hidden;
+    display: flex;
+    float: right;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.er-read-more {
+    text-align: right;
+    font-family: indie flower;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0;
 }
 
 .er-reviews-button {
@@ -491,10 +554,17 @@ svg {
 
 .er-details-address {
     padding-left: 1.5em;
+    background-color: rgba(255, 255, 255, 0.65);
 }
 
 .er-cell-third {
     width: 35%;
+    align-content: center;
+}
+
+.er-review-photo img {
+    margin-left: 2em;
+    width: 50%;
 }
 
 .er-cell-2third {
@@ -502,12 +572,13 @@ svg {
 }
 
 .er-details-icons {
+    text-align: right;
+    padding-right: 1em;
     font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.65);
 }
 
-.er-details-icons button {
-    margin: 1em;
-}
+.er-details-icons button {}
 
 .active {
     background-color: rgba(165, 176, 118, 0.50)!important;
