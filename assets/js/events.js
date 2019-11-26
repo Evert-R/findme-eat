@@ -146,6 +146,10 @@ window.onload = function () {
         $(".er-header-settings").slideToggle();
     });
 
+    $("#er-radius").change(function () {
+        console.log(this.value);
+        $("#er-radius-value").html(this.value);
+    })
 
     console.log(window.innerWidth);
     if (window.innerWidth > 0) {

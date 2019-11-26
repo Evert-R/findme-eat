@@ -90,31 +90,33 @@
                 </div>
 
                 <div>
-                    <h4>Directions:</h5>
-                        <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
-                        <label for="walking">
-                            By foot
-                        </label><br>
-                        <input type="radio" name="er-travel" id="bicycling" class="er-sort" value="BICYCLING">
-                        <label for="bicycling">
-                            By bike
-                        </label><br>
-                        <input type="radio" name="er-travel" id="driving" class="er-sort" value="DRIVING">
-                        <label for="driving">
-                            By Car
-                        </label><br>
+                    <h4>Directions:</h4>
+                    <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
+                    <label for="walking">
+                        By foot
+                    </label><br>
+                    <input type="radio" name="er-travel" id="bicycling" class="er-sort" value="BICYCLING">
+                    <label for="bicycling">
+                        By bike
+                    </label><br>
+                    <input type="radio" name="er-travel" id="driving" class="er-sort" value="DRIVING">
+                    <label for="driving">
+                        By Car
+                    </label><br><br>
                 </div>
                 <div>
-                    <h4>GeoSearch:</h5>
-                        <label for="er-radius">Radius:</label>
-                        <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
-                </div>
-                <h4>New Search:</h4>
-                <div class="er-menu-search" id="er-menu-location">
+                    <h4>Search around you :
 
-                    <button><i class="fab fa-sith"></i></button>
+                    </h4>
+                    <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
+                    <span class="er-menu-search" id="er-menu-location">
+                        <button><i class="fab fa-sith"></i></button>
+                    </span>
+                    <p>Radius = <span id="er-radius-value">500</span> meters</p>
+                    <br>
+
+
                 </div>
-            </div>
 
 
         </section>

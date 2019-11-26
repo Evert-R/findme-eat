@@ -72,6 +72,8 @@ The main focus will be on mobile devices as its main purpose is to be used on th
     - CSS validation: No errors
 - [Chrome development tools](https://developers.google.com/web/tools/chrome-devtools)
     - Css / responsive behaviour
+    range slider
+    http://danielstern.ca/range.css/#/
 
 ### Users
 
