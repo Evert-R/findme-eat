@@ -280,6 +280,9 @@ function mapOptions() { // style options for all maps
 }
 
 function initMap(currentLat, currentLong) {
+    hideAll();
+    $(".er-header-settings").slideUp();
+    showList();
     showMap(); //show map so the markers can fit the bounds    
     map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
 };
@@ -487,7 +490,7 @@ function createMarkers(places) { // plot markers to the map
                 infowindow.close()
                 infowindow.setContent(infoContent);
                 infowindow.open(map, marker);
-                map.center(place.geometry.location);
+                map.setCenter(place.geometry.location);
             };
         })(marker, infoContent, infowindow));
 
@@ -495,9 +498,9 @@ function createMarkers(places) { // plot markers to the map
             $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
             $("#" + place.place_id).toggleClass("active"); // highlight list item
             infowindow.close();
-            infowindow.setContent(infoContent);
+            infowindow.setContent(place.name);
             infowindow.open(map, marker);
-            map.center(place.geometry.location);
+            map.setCenter(place.geometry.location);
         })
 
 

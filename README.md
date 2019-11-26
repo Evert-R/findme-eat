@@ -38,6 +38,8 @@ The main focus will be on mobile devices as its main purpose is to be used on th
 - view all available photos
 - Get direction from you location 
 
+- Created for 360 x 640 most common mobile
+
 ### Optional Features to be implemented later
 - select price level
 - Get direction without the app knowing your location

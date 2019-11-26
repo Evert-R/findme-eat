@@ -1,4 +1,5 @@
 function hideAll() {
+    $(".er-header-settings").slideUp();
     $("#er-front-section").slideUp(0);
     $("#er-list-section").slideUp(0);
     $("#er-details-section").slideUp(0);
@@ -8,55 +9,88 @@ function hideAll() {
     $("#er-error-section").slideUp(0);
 }
 
+function showAll() {
+    $(".er-header-settings").slideUp();
+    $("#er-front-section").slideUp(0);
+    $("#er-list-section").slideDown(0);
+
+    $("#er-various-section").slideUp(0);
+    $("#er-map-section").slideDown(0);
+    $("#er-direction-section").slideUp(0);
+    $("#er-error-section").slideUp(0);
+}
+
 function showList(callback) {
+    $(".er-header-settings").slideUp();
     if (window.innerWidth < 576) {
         hideAll();
-
-    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        $("#er-list-section").slideDown(0);
+        $("#er-search-switch").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 1200) {
         $("#er-details-section").slideUp(0);
+        $("#er-list-section").slideDown(0);
+        $("#er-search-switch").slideDown(0);
+    } else if (window.innerWidth > 1200) {
+        showAll();
     }
-    $("#er-list-section").slideDown(0);
-    $("#er-search-switch").slideDown(0);
+
 };
 
 function showMap() {
+    $(".er-header-settings").slideUp();
     if (window.innerWidth < 576) {
         hideAll();
-    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
-        hideAll();
-        $("#er-list-section").slideDown(0);
+        $("#er-map-section").slideDown(0);
+        $("#er-map-switch").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 1200) {
+        $("#er-direction-section").slideUp(0);
+        $("#er-map-section").slideDown(0);
+        $("#er-map-switch").slideDown(0);
+    } else if (window.innerWidth > 1200) {
+        showAll();
+        $("#er-direction-section").slideUp(0);
+        $("#er-map-switch").slideDown(0);
     }
-    $("#er-map-section").slideDown(0);
-    $("#er-map-switch").slideDown(0);
 };
 
 function showDetails() {
-    $("#er-details-switch").slideDown(0);
+    $(".er-header-settings").slideUp();
     if (window.innerWidth < 576) {
         hideAll();
-    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        $("#er-details-section").slideDown(0);
+        $("#er-details-switch").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 1200) {
         $("#er-list-section").slideUp(0);
+        $("#er-details-section").slideDown(0);
+        $("#er-details-switch").slideDown(0);
+    } else if (window.innerWidth > 1200) {
+        showAll();
+        $("#er-details-section").slideDown(0);
     }
     $('#er-details-reviews').slideUp(1000);
     $('#er-details-photos').slideUp(1000);
-    $("#er-details-section").slideDown(0);
     $('#er-details-main').slideDown(1000);
 };
 
 function showDirections() {
-
+    $(".er-header-settings").slideUp();
     $("#er-direction-switch").slideDown(0);
     if (window.innerWidth < 576) {
         hideAll();
-    } else if (window.innerWidth > 576 && window.innerWidth < 768) {
+        $("#er-direction-section").slideDown(0);
+    } else if (window.innerWidth > 576 && window.innerWidth < 1200) {
         $("#er-map-section").slideUp(0);
+        $("#er-direction-section").slideDown(0);
+    } else if (window.innerWidth > 1200) {
+        showAll();
+        $("#er-map-section").slideUp(0);
+        $("#er-direction-section").slideDown(0);
     }
-    $("#er-direction-section").slideDown(0);
 };
 
 function showFront() {
+    $(".er-header-settings").slideUp();
     hideAll();
-
     $("#er-front-section").slideDown();
     $("#er-search-switch").slideUp(0);
     $("#er-map-switch").slideUp(0);
@@ -65,6 +99,7 @@ function showFront() {
 };
 
 function showVarious() {
+    $(".er-header-settings").slideUp();
     $("#er-various-section").slideDown(0);
     if (window.innerWidth < 576) {
         hideAll();

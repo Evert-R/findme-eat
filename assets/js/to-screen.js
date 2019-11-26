@@ -35,7 +35,9 @@ function showResults(restaurants) {
             <table class="er-list-table">
             <tr>
                 <td class="er-cell-image">
-                    <img src="${imageUri}" class="er-list-image">
+                    <div class="er-round-image">
+                        <img src="${imageUri}" class="er-list-image">
+                    </div>    
                 </td>
                 <td class="er-cell-name">
                     <div class="er-list-name">

@@ -173,9 +173,8 @@ svg {
 .er-header-settings {
     position: absolute;
     right: 0;
-    width: 25%;
     overflow: hidden;
-    padding: 1em 0.5em 1em 0.5em;
+    padding: 2em 1em 1em 1em;
     font-size: 0.6em;
     border-bottom-left-radius: 1em;
     box-shadow: -10px 10px 15px -3px rgba(87, 93, 65, 0.9);
@@ -252,7 +251,7 @@ input[type=text] {
     line-height: 1.2em;
 }
 
-.er-dropdown button, .er-footer button, #er-front-section button {
+.er-header-settings button, .er-footer button, #er-front-section button {
     background-color: unset;
     border: none;
     color: rgba(87, 93, 65);
@@ -296,31 +295,7 @@ input[type=text] {
 
 /* ----------------------------------------Front Section */
 
-#er-front-section {}
-
-#er-list-section {}
-
-#er-details-section {
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-#er-error-section {
-    font-family: 'Indie Flower', cursive;
-    font-size: 2em;
-    text-align: center;
-}
-
-#er-error {
-    width: 100%;
-    position: absolute;
-    top: 50vh;
-    transform: translateY(-50%);
-}
-
-#er-map-section {}
-
-#er-direction-section {}
+/* ----------------------------------------Map Section */
 
 #map, #direction-map {
     height: 100vh;
@@ -341,10 +316,6 @@ input[type=text] {
 .er-infowindow-details {
     cursor: pointer;
 }
-
-#er-contact-section {}
-
-/* ----------------------------------------Sections */
 
 /* ---------------------------------------- Front Section */
 
@@ -372,9 +343,18 @@ input[type=text] {
 
 /* ---------------------------------------- list Section */
 
+#er-list-section {
+    width: 100%;
+    overflow: scroll;
+}
+
 .er-item-list {
     width: 100%;
     border: 1px;
+}
+
+.active {
+    background-color: rgba(165, 176, 118, 0.50)!important;
 }
 
 .er-list-table {
@@ -401,30 +381,22 @@ input[type=text] {
 }
 
 .er-cell-image {
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
-    width: 20vw;
-    border-radius: 100%;
+    width: 20%;
 }
 
-.er-cell-image img {
-    width: 20vw;
-    height: 20vw;
+.er-round-image {
+    overflow: hidden;
+    width: 60px;
+    border-radius: 75px;
+}
+
+.er-round-image img {
+    width: 60px;
+    height: 60px;
 }
 
 .er-cell-name {
     width: 55%;
-}
-
-.er-cell-topname {
-    width: 50%;
-    text-align: center;
-}
-
-.er-table-top {
-    font-size: .9em;
-    font-weight: 100;
 }
 
 .er-cell-open {
@@ -503,6 +475,12 @@ input[type=text] {
 }
 
 /* ----------------------------------------Details section */
+
+#er-details-section {
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: scroll;
+}
 
 .er-details-table {
     padding-bottom: 20em;
@@ -616,26 +594,26 @@ input[type=text] {
     background-color: rgba(255, 255, 255, 0.65);
 }
 
-.er-details-icons button {}
+/* ----------------------------------------Error section */
 
-.active {
-    background-color: rgba(165, 176, 118, 0.50)!important;
+#er-error-section {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
 }
 
-/* ----------------------------------------Error section */
+#er-error {
+    width: 100%;
+    position: absolute;
+    top: 50vh;
+    transform: translateY(-50%);
+}
 
 /* ----------------------------------------Responsive breakpoints */
 
 /* --------------------------576 - SM */
 
 @media(min-width: 576px) {
-    .er-cell-image {
-        width: 10vw;
-    }
-    .er-cell-image img {
-        width: 10vw;
-        height: 10vw;
-    }
     #er-map-section, #er-direction-section {
         position: fixed;
         top: 0;
@@ -645,12 +623,38 @@ input[type=text] {
 
 /* --------------------------768 - MD */
 
-@media(min-width: 768px) {}
+@media(min-width: 768px) {
+    body {
+        font-size: 1em;
+    }
+}
 
 /* --------------------------992 - LG */
 
-@media(min-width: 992px) {}
+@media(min-width: 992px) {
+    body {
+        font-size: 1.1em;
+    }
+}
 
 /* --------------------------1200 - XL */
 
-@media(min-width: 1200px) {}
+@media(min-width: 1200px) {
+    body {
+        font-size: 1.2em;
+    }
+    #er-list-section {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        overflow-y: scroll;
+    }
+    #er-details-section {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 33.3333vw;
+        overflow-y: scroll;
+    }
+}
