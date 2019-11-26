@@ -157,7 +157,7 @@ svg {
 
 .er-title {
     font-family: 'Indie Flower', cursive;
-    font-size: 2em;
+    font-size: 1.7em;
     color: rgba(0, 0, 0, 0.7);
 }
 
@@ -194,8 +194,6 @@ svg {
 /* ----------------------------------------Footer Searchbar */
 
 .er-footer {
-    padding-left: 2vw;
-    padding-right: 2vw;
     z-index: 23;
     position: fixed;
     bottom: 0;
@@ -204,15 +202,28 @@ svg {
 
 .er-footer form {
     width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 .er-footer input {
     vertical-align: text-bottom;
+    height: 3em;
     width: 80vw;
 }
 
+input[type=text] {
+    color: rgba(87, 93, 65);
+    box-sizing: border-box;
+    padding-left: 2em;
+    border-radius: 0.6em;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(87, 93, 65, 0.4);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
 .er-footer button {
-    text-align: center;
+    width: 10vw;
 }
 
 .er-location-search button {
@@ -226,13 +237,14 @@ svg {
 }
 
 .er-footer button {
+    margin-left: 1vw;
+    margin-right: auto;
     font-size: 3.5em;
     line-height: 1.2em;
 }
 
 .er-dropdown button, .er-footer button, #er-front-section button {
     background-color: unset;
-    overflow: hidden;
     border: none;
     color: rgba(87, 93, 65);
     transition: color .2s;
@@ -288,6 +300,13 @@ svg {
     text-align: center;
 }
 
+#er-error {
+    width: 100%;
+    position: absolute;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
 #er-map-section {}
 
 #er-direction-section {}
@@ -310,6 +329,7 @@ svg {
 /* ---------------------------------------- Front Section */
 
 .er-front-text {
+    height: 6vh;
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     text-align: center;
@@ -318,6 +338,7 @@ svg {
 }
 
 #er-location-front {
+    height: 30vh;
     text-align: center;
     font-size: 10em;
     color: rgba(87, 93, 65);

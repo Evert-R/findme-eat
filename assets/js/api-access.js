@@ -524,6 +524,7 @@ function calcRoute(placeId, currentLat, currentLong) {
             logErrors(status);
             return;
         }
+        console.log(result.routes[0].legs[0]); // direction instructions 
         directionsRenderer.setDirections(result);
     });
     var marker = new google.maps.Marker({ // place blue marker on current position
