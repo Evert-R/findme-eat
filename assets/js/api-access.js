@@ -460,15 +460,34 @@ function createMarkers(places) { // plot markers to the map
             position: place.geometry.location
 
         });
+        if (place.photos[0] != undefined) {
+            var imageUri = place.photos[0].getUrl({ "maxWidth": 100 });
+        }
 
-        var infoContent = place.name; //   create infowwindow content
+        let starRating = (place.rating * 15).toFixed();
+        if (place.price_level != NaN) {
+            var priceLevel = (place.price_level * 15).toFixed();
+        } else {
+            var priceLevel = '0';
+        }
+
+        var infoContent = `<div class="er-infowindow-details" onclick="restaurantDetails('${place.place_id}')">
+        <h5>${place.name}</h5>
+            
+                <img src="${imageUri}">
+                <div class="er-review-rating" style="width:${starRating}px">
+                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
+                           
+            </div>`
+        console.log(infoContent);
+        //   create infowwindow content
 
         google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
             return function () {
                 infowindow.close()
                 infowindow.setContent(infoContent);
                 infowindow.open(map, marker);
-
+                map.center(place.geometry.location);
             };
         })(marker, infoContent, infowindow));
 
@@ -476,9 +495,9 @@ function createMarkers(places) { // plot markers to the map
             $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
             $("#" + place.place_id).toggleClass("active"); // highlight list item
             infowindow.close();
-            infowindow.setContent(place.name);
+            infowindow.setContent(infoContent);
             infowindow.open(map, marker);
-
+            map.center(place.geometry.location);
         })
 
 
@@ -509,8 +528,10 @@ function calcRoute(placeId, currentLat, currentLong) {
     var directionsRenderer = new google.maps.DirectionsRenderer();
     var mapCenter = new google.maps.LatLng(currentLat, currentLong);
     directionsRenderer.setMap(directionMap);
-    var start = `{location: {lat:${currentLat}, lng:${currentLong}}}`;
-    var end = `{place_id: "${placeId}"}`;
+    var start = `{ location: { lat: ${currentLat}, lng: ${currentLong}
+    }
+} `;
+    var end = `{ place_id: "${placeId}" } `;
     var request = {
         origin: { lat: currentLat, lng: currentLong },
         destination: { 'placeId': placeId },

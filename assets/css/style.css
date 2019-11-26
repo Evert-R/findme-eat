@@ -53,6 +53,15 @@ h4 {
     ;
 }
 
+h5 {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
 label {
     margin: 0;
     padding: 0;
@@ -285,6 +294,8 @@ input[type=text] {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+/* ----------------------------------------Front Section */
+
 #er-front-section {}
 
 #er-list-section {}
@@ -316,15 +327,24 @@ input[type=text] {
     width: 100%;
 }
 
+.er-infowindow-details {
+    width: 120px;
+    padding-left: 13px;
+    padding-right: 7px;
+}
+
+.er-infowindow-details img {
+    width: 100px;
+    margin-bottom: 1em;
+}
+
+.er-infowindow-details {
+    cursor: pointer;
+}
+
 #er-contact-section {}
 
 /* ----------------------------------------Sections */
-
-.er-more {
-    position: fixed;
-    top: 86vh;
-    right: 5vw;
-}
 
 /* ---------------------------------------- Front Section */
 
@@ -337,6 +357,12 @@ input[type=text] {
     ;
 }
 
+.er-more {
+    position: fixed;
+    top: 86vh;
+    right: 5vw;
+}
+
 #er-location-front {
     height: 30vh;
     text-align: center;
@@ -344,7 +370,7 @@ input[type=text] {
     color: rgba(87, 93, 65);
 }
 
-/* ---------------------------------------- Result list Section */
+/* ---------------------------------------- list Section */
 
 .er-item-list {
     width: 100%;
@@ -461,15 +487,6 @@ input[type=text] {
     overflow: hidden;
     background-color: white;
     border-color: rgba(0, 0, 0, 0.5);
-}
-
-.er-details-collapse {
-    padding-left: 0px;
-    padding-right: 0px;
-    background-color: rgba(87, 93, 65, 0.5);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
 }
 
 .er-collapse-details {
