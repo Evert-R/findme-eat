@@ -327,7 +327,7 @@ function checkGeo(callback, directions) { // get current location
         callback(position.coords.latitude, position.coords.longitude);
     },
         function (error) { // if location denied show error
-            if (error.code == error.PERMISSION_DENIED && directions != undefined) {
+            if (error.code == error.PERMISSION_DENIED && directions == undefined) {
                 logErrors('NOGEO')
             } else { // if we wanted directions do a browser search in new tab
                 console.log('directions via browser')
