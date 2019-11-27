@@ -1,6 +1,6 @@
 function showResults(restaurants) {
-    if (restaurants.length == 0) {
-        return `<h2>Nothing to show</h2>`;
+    if (restaurants == undefined) {
+        logErrors('UNKNOWN_ERROR');
     }
 
     let listItems = restaurants.map(function (restaurant) {
@@ -14,9 +14,9 @@ function showResults(restaurants) {
 
         // generate open icon
         if (restaurant.opening_hours.open_now == true) {
-            var openNow = `<i class="fa fa-check er-list-icon er-open"></i>`
+            var openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`
         } else {
-            var openNow = `<i class="fa fa-times-circle er-list-icon er-closed"></i>`
+            var openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`
         };
         // generate extra detail click from the place_id
         let starRating = (restaurant.rating * 15).toFixed();
@@ -36,7 +36,7 @@ function showResults(restaurants) {
             <tr>
                 <td class="er-cell-image">
                     <div class="er-round-image">
-                        <img src="${imageUri}" class="er-list-image">
+                        <img src="${imageUri}" alt="Restaurant photo" class="er-list-image">
                     </div>    
                 </td>
                 <td class="er-cell-name">
@@ -48,10 +48,10 @@ function showResults(restaurants) {
 
                 <td class="er-cell-rating">
                     <div class="er-rating-container" style="width:${starRating}%">
-                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
+                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="rating = ${restaurant.rating} stars out of 5">
                     </div>
                     <div class="er-rating-container" style="width:${priceLevel}%">
-                        <img src="assets/images/price.png">
+                        <img src="assets/images/price.png"  alt="price = ${restaurant.price_level} out of 5">
                     </div>
                     
                 </td>
@@ -67,14 +67,20 @@ function showResults(restaurants) {
                 <tr>
                     <td class="er-collapse-details" >
                     <div onclick="restaurantDetails('${restaurant.place_id}')">
-                        <button><i class="fa fa-info"></i></button>
+                        <button>
+                            <i aria-hidden="true" class="fa fa-info"></i>
+                            <span class="sr-only">View restaurant details</span>
+                        </button>
                     </div>
                     <div onclick="initDirectionMap('${restaurant.place_id}')">    
-                        <button><i class="fas fa-directions"></i></button>
+                        <button>
+                            <i aria-hidden="true" class="fas fa-directions"></i>
+                            <span class="sr-only">Get directions</span>
+                        </button>
                     </div>
                         </td>
                     <td class="er-collapse-image">
-                        <img src="${imageUri}">
+                        <img src="${imageUri}" alt="Restaurant photo">
                     </td>
                 </tr>
             </table>
@@ -112,7 +118,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
             // create list of photos
             let photoItems = place.photos.map(function (photo) {
                 imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-                return `<div class="col-12 er-details-photo"><img src="${imageUri}"></div>`
+                return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`
             });
             let backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
             $("#er-details-section").css("background-image", backGround);
@@ -140,7 +146,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                                     <p class="er-reviews-name">${review.author_name}</p>
                                 </td>
                                 <td class="er-cell-third er-review-photo">
-                                    <img src="${review.profile_photo_url}">
+                                    <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
                                 </td>
 
                             </tr>
@@ -154,7 +160,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                                 </td>
                                 <td class="er-cell-third">
                                     <div class="er-review-rating" style="width:${starRating}px">
-                                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
+                                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="review-rating = ${review.rating} stars out of 5">
                                     </div>
 
                                     <p>${review.relative_time_description}</p>   
@@ -171,7 +177,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                                        <p class="er-reviews-name">${review.author_name}</p>
                                     </td>
                                     <td class="er-cell-third er-review-photo">
-                                            <img src="${review.profile_photo_url}">
+                                            <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
                                     </td>
 
                                 </tr>
@@ -180,7 +186,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                                     <tr>                                        
                                         <td class="er-cell-third">
                                             <div class="er-review-rating" style="width:${starRating}px">
-                                                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
+                                                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="review-rating = ${review.rating} stars out of 5">
                                             </div>
                                             <p>${review.relative_time_description}</p>   
                                         </td>
@@ -210,9 +216,9 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                 <table class="er-reviews-table">
                     <tr>
                         <td class="er-cell-third er-review-photo">
-                            <img src="${place.reviews[0].profile_photo_url}">
+                            <img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">
                             <div class="er-review-rating" style="width:${latestRating}px">
-                                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
+                                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="review-rating = ${place.reviews[0].rating} stars out of 5">
                             </div>
  
                         </td>
@@ -230,12 +236,19 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                         <td class="er-cell-third er-details-address">
                             ${fullAddress.join("<br>")}
                         </td>
-                        <td class="er-cell-2third er-details-icons">
-                               
-                                <button onclick="showPhotos()"><i class="fas fa-camera-retro"></i></button>
-                                <button onclick="showReviews()"><i class="fas fa-comment"></i></button> 
-                                <button onclick="initDirectionMap('${place.place_id}')"><i class="fas fa-directions"></i></button>
-                            
+                        <td class="er-cell-2third er-details-icons">                               
+                                <button onclick="showPhotos()">
+                                    <i aria-hidden="true" class="fas fa-camera-retro"></i>
+                                    <span class="sr-only">Show restaurant photos</span>
+                                </button>
+                                <button onclick="showReviews()">
+                                    <i aria-hidden="true" class="fas fa-comment"></i>
+                                    <span class="sr-only">Show restaurant reviews</span>
+                                </button> 
+                                <button onclick="initDirectionMap('${place.place_id}')">
+                                    <i aria-hidden="true" class="fas fa-directions"></i>
+                                    <span class="sr-only">Get directions</span>
+                                </button>                            
                         </td>
                     </tr>
                 </table>
@@ -271,7 +284,7 @@ function logErrors(status) {
     showError();
     console.log(status);
     if (status == 'ZERO_RESULTS') {
-        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.<br>Then Try again<br>↓<br><button onclick="checkGeo(geoSearch)"><i class="fab fa-sith"></i></button><br>or search in another city<br><br>↓`)
+        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.<br>Then Try again<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`)
     } else if (status == 'INVALID_REQUEST') {
         $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`)
     } else if (status == 'OVER_QUERY_LIMIT') {

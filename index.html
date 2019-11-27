@@ -26,19 +26,31 @@
                 <table id="er-header-table">
                     <tr>
                         <td id="er-search-switch" class="er-header-icon">
-                            <button><i class="fa fa-list er-header-icon"></i></button>
+                            <button>
+                                <i aria-hidden="true" class="fa fa-list er-header-icon"></i>
+                                <span class="sr-only">Show the search results</span>
+                            </button>
                         </td>
                         <td id="er-details-switch" class="er-header-icon">
-                            <button><i class="fa fa-info er-header-icon"></i></button>
+                            <button>
+                                <i aria-hidden="true" class="fa fa-info er-header-icon"></i>
+                                <span class="sr-only">Show the restaurant details</span>
+                            </button>
                         <td class="er-title">
-                            <a href="index.html">Find me-eat . . .</a>
+                            <a href="index.html" title="Reload and reset the page">Find me-eat . . .</a>
                         </td>
 
                         <td id="er-direction-switch" class="er-header-icon">
-                            <button><i class="fa fa-directions er-header-icon"></i></button>
+                            <button>
+                                <i aria-hidden="true" class="fa fa-directions er-header-icon"></i>
+                                <span class="sr-only">Show the direction map</span>
+                            </button>
                         </td>
                         <td id="er-map-switch" class="er-header-icon">
-                            <button><i class="fa fa-map er-header-icon"></i></button>
+                            <button>
+                                <i aria-hidden="true" class="fa fa-map er-header-icon"></i>
+                                <span class="sr-only">Show the search results map</span>
+                            </button>
                         </td>
                         </td>
                     </tr>
@@ -47,8 +59,13 @@
             </div>
 
             <div class="er-header-expand">
-                <div class="er-header-text">Find vegetarian / vegan restaurants</div>
-                <div class="er-header-switch"><i class="fa fa-cogs"></i></div>
+                <div class="er-header-text">
+                    Find vegetarian / vegan restaurants
+                </div>
+                <div class="er-header-switch">
+                    <i aria-hidden="true" class="fa fa-cogs"></i>
+                    <span class="sr-only">Open settings panel</span>
+                </div>
             </div>
 
             <div class="er-header-settings er-background">
@@ -110,7 +127,10 @@
                     </h4>
                     <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
                     <span class="er-menu-search" id="er-menu-location">
-                        <button><i class="fab fa-sith"></i></button>
+                        <button>
+                            <i aria-hidden="true" class="fab fa-sith"></i>
+                            <span class="sr-only">Do a search around you</span>
+                        </button>
                     </span>
                     <p>Radius = <span id="er-radius-value">500</span> meters</p>
                     <br>
@@ -130,7 +150,10 @@
                     <div class="er-front-text">Give a tap here . . .</div>
                     <div class="er-front-text">↓</div>
                     <div id="er-location-front">
-                        <button><i class="fab fa-sith"></i></button>
+                        <button>
+                            <i aria-hidden="true" class="fab fa-sith"></i>
+                            <span class="sr-only">Do a search around you</span>
+                        </button>
                     </div>
 
                     <div class="er-front-text">to search 4 a restaurant</div>
@@ -193,7 +216,8 @@
         <form onsubmit="return false;" method="post" name="myForm">
             <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
             <button type="submit" name="GO" id="er-search-button" onclick="manualSearch()">
-                <i class="fab fa-sith"></i>
+                <i aria-hidden="true" class="fab fa-sith"></i>
+                <span class="sr-only">Do a manual search</span>
             </button>
 
         </form>
@@ -212,7 +236,7 @@
     crossorigin="anonymous"></script>
 
 <script src="assets/js/api-access.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOAEDy6UoCrwa5ehMrhSjVaWksbGBsfbg
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE
 &libraries=places" async defer></script>
 
 <script src="assets/js/events.js"></script>

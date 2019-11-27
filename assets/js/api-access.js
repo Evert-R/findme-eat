@@ -327,6 +327,7 @@ function getOpen() { // get only open option from settings
 
 function checkGeo(callback, directions) { // get current location
     navigator.geolocation.getCurrentPosition(function (position) {
+        console.log(position.coords.latitude, position.coords.longitude)
         callback(position.coords.latitude, position.coords.longitude);
     },
         function (error) { // if location denied show error
