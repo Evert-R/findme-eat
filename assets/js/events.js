@@ -22,7 +22,7 @@ function showAll() {
 
 function showList(callback) {
     $(".er-header-settings").slideUp();
-    if ((window.innerWidth < 768) || ((window.innerWidth < 1024) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
         hideAll();
         $("#er-list-section").slideDown(0);
         $("#er-search-switch").slideDown(0);
@@ -39,7 +39,7 @@ function showList(callback) {
 
 function showMap() {
     $(".er-header-settings").slideUp();
-    if ((window.innerWidth < 768) || ((window.innerWidth < 1024) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
         hideAll();
         $("#er-map-section").slideDown(0);
         $("#er-map-switch").slideDown(0);
@@ -57,7 +57,7 @@ function showMap() {
 
 function showDetails() {
     $(".er-header-settings").slideUp();
-    if ((window.innerWidth < 768) || (window.innerWidth < 1024 && window.innerWidth < innerHeight)) {
+    if ((window.innerWidth < 768) || (window.innerWidth < 992 && window.innerWidth < innerHeight)) {
         hideAll();
         $("#er-details-section").slideDown(0);
         $("#er-details-switch").slideDown(0);
@@ -78,7 +78,7 @@ function showDetails() {
 function showDirections() {
     $(".er-header-settings").slideUp();
     $("#er-direction-switch").slideDown(0);
-    if ((window.innerWidth < 768) || ((window.innerWidth < 1024) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
         hideAll();
         $("#er-direction-section").slideDown(0);
         $("#er-direction-section").removeClass('col-md-6');
@@ -105,7 +105,7 @@ function showFront() {
 function showVarious() {
     $(".er-header-settings").slideUp();
     $("#er-various-section").slideDown(0);
-    if ((window.innerWidth < 768) || ((window.innerWidth < 1024) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
         hideAll();
         $("#er-various-section").slideDown(0);
         $("#er-various-section").removeClass('col-md-6');

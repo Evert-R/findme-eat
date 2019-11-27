@@ -242,7 +242,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
             </div>
             <div class="er-reviews-mainwrap">
                 <div class="col-12 er-details-photo">
-                    <img src="${mainPhoto}"></div>
+                    </div>
                 </div>
             </div>
             <div id="er-details-reviews">
