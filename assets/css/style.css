@@ -45,7 +45,7 @@ h3 {
     font-size: 1.3em;
     text-align: center;
     padding: 4px;
-    cursor: cell!important;
+    cursor: pointer;
 }
 
 h4 {
@@ -106,14 +106,19 @@ input, select, textarea {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.er-header-main button:active {
-    outline: none;
-    border: none;
+button:focus {
+    outline: 0;
 }
 
-header button:active {
-    background-color: rgba(255, 255, 255, 0.75);
-    box-shadow: 0px 0px .4em 3px rgba(255, 255, 255, 0.75);
+.er-header button:hover, .er-footer button:hover, #er-front-section button:hover, #er-error-section button:hover {
+    color: rgba(87, 93, 65, 0.4);
+    transition: color 1s ease-in-out;
+}
+
+.er-header button:active, .er-footer button:active, #er-front-section button:active, #er-error-section button:active {
+    color: rgba(163, 0, 0, 0.7);
+    transition: color .4s;
+    text-decoration: none;
 }
 
 .er-background {
@@ -126,7 +131,6 @@ header button:active {
     width: 100%;
     top: 0vh;
     box-shadow: 0px 7px 15px -3px rgba(87, 93, 65, 0.9);
-    ;
 }
 
 .er-header-main {}
@@ -173,6 +177,12 @@ header button:active {
     font-family: 'Indie Flower', cursive;
     font-size: 1.7em;
     color: rgba(0, 0, 0, 0.7);
+}
+
+.er-title a, .er-title a:hover, .er-title a:active {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .er-header-settings {
@@ -352,23 +362,11 @@ input[type=range]:focus::-ms-fill-upper {
     line-height: 1.2em;
 }
 
-.er-header-settings button, .er-footer button, #er-front-section button {
+.er-header-settings button, .er-footer button, #er-front-section button, #er-error-section button {
     background-color: unset;
     border: none;
     color: rgba(87, 93, 65);
     transition: color .2s;
-}
-
-.er-header button:hover, .er-footer button:hover, #er-front-section button:hover {
-    color: rgba(87, 93, 65, 0.4);
-    transition: color 1s ease-in-out;
-}
-
-.er-header button:active, .er-footer button:active, #er-front-section button:active {
-    color: rgba(163, 0, 0, 0.7);
-    transition: color .4s;
-    text-decoration: none;
-    box-shadow: 0px 0px 18px 12px rgba(165, 176, 118);
 }
 
 /* ----------------------------------------Sections */
@@ -708,6 +706,10 @@ input[type=range]:focus::-ms-fill-upper {
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     text-align: center;
+}
+
+#er-error-section button {
+    font-size: 3em;
 }
 
 #er-error {

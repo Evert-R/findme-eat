@@ -271,7 +271,7 @@ function logErrors(status) {
     showError();
     console.log(status);
     if (status == 'ZERO_RESULTS') {
-        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.`)
+        $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.<br>Then Try again<br>↓<br><button onclick="checkGeo(geoSearch)"><i class="fab fa-sith"></i></button><br>or search in another city<br><br>↓`)
     } else if (status == 'INVALID_REQUEST') {
         $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`)
     } else if (status == 'OVER_QUERY_LIMIT') {
