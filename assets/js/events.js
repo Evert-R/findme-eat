@@ -1,4 +1,4 @@
-function hideAll() {
+function hideAll() { // hide all sections
     $(".er-header-settings").slideUp();
     $("#er-front-section").slideUp(0);
     $("#er-list-section").slideUp(0);
@@ -9,7 +9,7 @@ function hideAll() {
     $("#er-error-section").slideUp(0);
 }
 
-function showAll() {
+function showAll() { // show all sections
     $(".er-header-settings").slideUp();
     $("#er-front-section").slideUp(0);
     $("#er-list-section").slideDown(0);
@@ -20,9 +20,9 @@ function showAll() {
     $("#er-error-section").slideUp(0);
 }
 
-function showList(callback) {
+function showList(callback) { // show search results
     $(".er-header-settings").slideUp();
-    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target single page devices
         hideAll();
         $("#er-list-section").slideDown(0);
         $("#er-search-switch").slideDown(0);
@@ -39,7 +39,7 @@ function showList(callback) {
 
 function showMap() {
     $(".er-header-settings").slideUp();
-    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target single page devices
         hideAll();
         $("#er-map-section").slideDown(0);
         $("#er-map-switch").slideDown(0);
@@ -57,7 +57,7 @@ function showMap() {
 
 function showDetails() {
     $(".er-header-settings").slideUp();
-    if ((window.innerWidth < 768) || (window.innerWidth < 992 && window.innerWidth < innerHeight)) {
+    if ((window.innerWidth < 768) || (window.innerWidth < 992 && window.innerWidth < innerHeight)) { // target single page devices
         hideAll();
         $("#er-details-section").slideDown(0);
         $("#er-details-switch").slideDown(0);
@@ -78,7 +78,7 @@ function showDetails() {
 function showDirections() {
     $(".er-header-settings").slideUp();
     $("#er-direction-switch").slideDown(0);
-    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target single page devices
         hideAll();
         $("#er-direction-section").slideDown(0);
         $("#er-direction-section").removeClass('col-md-6');
@@ -105,7 +105,7 @@ function showFront() {
 function showVarious() {
     $(".er-header-settings").slideUp();
     $("#er-various-section").slideDown(0);
-    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) {
+    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target single page devices
         hideAll();
         $("#er-various-section").slideDown(0);
         $("#er-various-section").removeClass('col-md-6');
@@ -117,28 +117,24 @@ function showVarious() {
     $("#er-various-section").slideDown(0);
 };
 
-function showPhotos() {
+function showPhotos() { // show photos on details section
     $('#er-details-main').slideUp(1000);
     $('#er-details-photos').slideDown(1000);
     $('#er-details-reviews').slideUp(1000);
 }
 
-function showReviews() {
-
+function showReviews() { // show reviews on details page
     $('#er-details-main').slideUp(1000);
     $('#er-details-photos').slideUp(1000);
     $('#er-details-reviews').slideDown(1000);
 }
 
-
-function showError() {
+function showError() { // show the error section
     hideAll();
     $("#er-error-section").slideDown();
 };
 
-
-
-function slideList() { // make listitems collapsible
+function slideList() { // slide all searchresults to startposition
     $(".er-list-collapse").each(function () { // loop through list
         $(this).slideUp(500); // slide to startposition 
     })
@@ -151,31 +147,27 @@ window.onload = function () {
         $(".er-header-settings").slideToggle();
     });
 
-    $("#er-radius").change(function () {
+    $("#er-radius").change(function () { // watch the radius slider and update value
         console.log(this.value);
         $("#er-radius-value").html(this.value);
     })
 
-    console.log(window.innerWidth);
-    if (window.innerWidth > 0) {
+    // add click events to header items
+    document.getElementById("er-search-switch").addEventListener("click", function () {
+        showList();
+    });
 
+    document.getElementById("er-details-switch").addEventListener("click", function () {
+        showDetails();
+    });
+    document.getElementById("er-map-switch").addEventListener("click", function () {
+        showMap();
+    });
 
-        document.getElementById("er-search-switch").addEventListener("click", function () {
-            showList();
-        });
+    document.getElementById("er-direction-switch").addEventListener("click", function () {
+        showDirections();
+    });
 
-        document.getElementById("er-details-switch").addEventListener("click", function () {
-            showDetails();
-        });
-        document.getElementById("er-map-switch").addEventListener("click", function () {
-            showMap();
-        });
-
-        document.getElementById("er-direction-switch").addEventListener("click", function () {
-            showDirections();
-        });
-
-    };
     document.getElementById("er-location-front").addEventListener("click", function () {
         checkGeo(geoSearch);
     });
@@ -186,7 +178,6 @@ window.onload = function () {
         alert("Sorry, we don't find meat ;-)");
         $('#vegetarian').prop('checked', true);
     });
-
 }
 
 

@@ -1,17 +1,14 @@
-function showResults(restaurants) {
+function showResults(restaurants) { // push searchresults to the screen
     if (restaurants == undefined) {
         logErrors('UNKNOWN_ERROR');
     }
-    console.log(restaurants);
-    let listItems = restaurants.map(function (restaurant) {
-        console.log(restaurant);
 
-        //let imageUri = "";
-        if (restaurant.photos[0] != undefined) {
+    let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant
+
+        // Prepare variables
+        if (restaurant.photos[0] != undefined) { // if photo exists get url
             var imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
         }
-        // generate detail link
-
         // generate open icon
         if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present
             if (restaurant.opening_hours.open_now == true) { // set open now
@@ -19,131 +16,110 @@ function showResults(restaurants) {
             } else { // set closed now
                 var openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`
             }
-        } else {
+        } else { // leave blank
             var openNow = ``;
         }
-
-        // generate extra detail click from the place_id
+        // Generate rating width 
         let starRating = (restaurant.rating * 15).toFixed();
+        // generate price level width
         if (restaurant.price_level != NaN) {
             var priceLevel = (restaurant.price_level * 15).toFixed();
         } else {
             var priceLevel = '0';
         }
-        let infoWindow = restaurant.geometry.location;
 
-        console.log(priceLevel);
-        var expandId = restaurant.place_id.replace(/[^0-9a-z]/gi, ''); //remove unwanted characters
 
         // generate html list items
-        return `<div class="er-list"  id="${restaurant.place_id}"> 
-            <table class="er-list-table">
-            <tr>
-                <td class="er-cell-image">
-                    <div class="er-round-image">
-                        <img src="${imageUri}" alt="Restaurant photo" class="er-list-image">
-                    </div>    
-                </td>
-                <td class="er-cell-name">
-                    <div class="er-list-name">
-                        <h3>${restaurant.name}</h3>
-                    </div>                    
-                </td>
-
-
-                <td class="er-cell-rating">
-                    <div class="er-rating-container" style="width:${starRating}%">
-                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="rating = ${restaurant.rating} stars out of 5">
-                    </div>
-                    <div class="er-rating-container" style="width:${priceLevel}%">
-                        <img src="assets/images/price.png"  alt="price = ${restaurant.price_level} out of 5">
-                    </div>
-                    
-                </td>
-                <td class="er-cell-open">
-                    ${openNow}
-                </td>          
-            </tr>
-        </table>
-        </div>     
-
-        <div class="er-list-collapse">
-            <table class="er-list-table">
-                <tr>
-                    <td class="er-collapse-details" >
-                    <div onclick="restaurantDetails('${restaurant.place_id}')">
-                        <button>
-                            <i aria-hidden="true" class="fa fa-info"></i>
-                            <span class="sr-only">View restaurant details</span>
-                        </button>
-                    </div>
-                    <div onclick="initDirectionMap('${restaurant.place_id}')">    
-                        <button>
-                            <i aria-hidden="true" class="fas fa-directions"></i>
-                            <span class="sr-only">Get directions</span>
-                        </button>
-                    </div>
-                        </td>
-                    <td class="er-collapse-image">
-                        <img src="${imageUri}" alt="Restaurant photo">
-                    </td>
-                </tr>
-            </table>
-                   
-        </div>
-         
-                   
-            
-        </div>`
-    });
-
+        return `
+                <div class="er-list"  id="${restaurant.place_id}"> 
+                    <table class="er-list-table">
+                        <tr>
+                            <td class="er-cell-image">
+                                <div class="er-round-image">
+                                    <img src="${imageUri}" alt="Restaurant photo" class="er-list-image">
+                                </div>    
+                            </td>
+                            <td class="er-cell-name">
+                                <div class="er-list-name">
+                                    <h3>${restaurant.name}</h3>
+                                </div>                    
+                            </td>
+                            <td class="er-cell-rating">
+                                <div class="er-rating-container" style="width:${starRating}%">
+                                    <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="rating = ${restaurant.rating} stars out of 5">
+                                </div>
+                                <div class="er-rating-container" style="width:${priceLevel}%">
+                                    <img src="assets/images/price.png"  alt="price = ${restaurant.price_level} out of 5">
+                                </div>                    
+                            </td>
+                            <td class="er-cell-open">
+                                ${openNow}
+                            </td>          
+                        </tr>
+                    </table>
+                </div>  
+                <div class="er-list-collapse">
+                    <table class="er-list-table">
+                        <tr>
+                            <td class="er-collapse-details" >
+                            <div onclick="restaurantDetails('${restaurant.place_id}')">
+                                <button>
+                                    <i aria-hidden="true" class="fa fa-info"></i>
+                                    <span class="sr-only">View restaurant details</span>
+                                </button>
+                            </div>
+                            <div onclick="initDirectionMap('${restaurant.place_id}')">    
+                                <button>
+                                    <i aria-hidden="true" class="fas fa-directions"></i>
+                                    <span class="sr-only">Get directions</span>
+                                </button>
+                            </div>
+                                </td>
+                            <td class="er-collapse-image">
+                                <img src="${imageUri}" alt="Restaurant photo">
+                            </td>
+                        </tr>
+                    </table>                        
+                </div>
+            </div>
+            `});
+    // Put items together
     return `
-        <div class="er-item-list">
-            ${listItems.join("\n")}           
-        </div>
-    `
+            <div class="er-item-list">
+                ${listItems.join("\n")}           
+            </div>
+            `
 }
 
+function showRestaurantDetails(place, status) { // push restaurant details to the screen
 
-function restaurantDetails(place_id) { // get restaurant details and plot to screen
+    if (status == google.maps.places.PlacesServiceStatus.OK) { // check if error
+        // Prepare variables
+        let photoItems = place.photos.map(function (photo) { // create list of photos
+            imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
+            return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`
+        });
+        // use first photo for the details page background
+        let backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
+        $("#er-details-section").css("background-image", backGround);
 
-    //    $('html, body').animate({ scrollTop: 0 }, 'slow'); // scoll to top of the page
-    var requestDetails = {
-        placeId: place_id,
-        fields: ['reviews', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
-    };
+        // create place type list
+        let placeTypes = place.types.map(function (placeType) {
+            return `<div>${placeType}</div>`
+        });
 
-    service = new google.maps.places.PlacesService(map);
-    service.getDetails(requestDetails, callback);
+        let fullAddress = place.adr_address.split(","); // create adress array
+        let latestRating = (place.reviews[0].rating * 20).toFixed(); // generate latest rating width
+        // prepare latest review excerpt
+        let latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
+        //  let mainPhoto = place.photos[1].getUrl({ "maxWidth": 600, "maxHeight": 600 });
 
-    function callback(place, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            console.log(place);
-
-            // create list of photos
-            let photoItems = place.photos.map(function (photo) {
-                imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-                return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`
-            });
-            let backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
-            $("#er-details-section").css("background-image", backGround);
-
-
-            // create place type list
-            let placeTypes = place.types.map(function (placeType) {
-                return `<div>${placeType}</div>`
-            });
-
-            // create adress array
-            let fullAddress = place.adr_address.split(",");
-
-
-
-            // create review section
-            let reviewList = place.reviews.map(function (review, index) {
-                let starRating = (review.rating * 20).toFixed();
-                if (index % 2 == 0) { // mirror reviews based on even/uneven
-                    return `
+        // create review section
+        let reviewList = place.reviews.map(function (review, index) { // cycle through reviews
+            let starRating = (review.rating * 20).toFixed(); // prepare star rating width
+            if (index % 2 == 0) { // mirror reviews based on even/uneven
+                // return the reviews
+                return `
                     <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
                             <tr>
@@ -174,7 +150,7 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                         </table>
                     </div>
                         `} else {
-                    return `
+                return `
                      <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
                                 <tr>
@@ -204,14 +180,10 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                                 </table>
                         </div>    
                                 `}
+        });
 
-            });
-
-            let latestRating = (place.reviews[0].rating * 20).toFixed();
-            let latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
-            let mainPhoto = place.photos[1].getUrl({ "maxWidth": 600, "maxHeight": 600 });
-            // push details to screen
-            $("#er-details").html(`
+        // push details to screen
+        $("#er-details").html(`
             <div class="er-details-title" onclick="showDetails()">
                 <h2>${place.name}</h2>
             </div>
@@ -276,12 +248,13 @@ function restaurantDetails(place_id) { // get restaurant details and plot to scr
                     ${photoItems.join("\n")} 
                 </div>
             `);
-        } else {
-            showErrors(status);
-        };
-        showDetails();
-    }
+    } else {
+        showErrors(status); // if there was a api error goto error section
+    };
+    showDetails(); // show the details page
 }
+
+
 
 
 

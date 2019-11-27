@@ -1,5 +1,8 @@
 var map; // create map variable
 var directionMap; // create directions map variable
+var infowindow; // create infowindow variable for the map
+var blueMarker;
+var userLocation;
 
 function mapOptions() { // style options for all maps
     return {
@@ -279,13 +282,7 @@ function mapOptions() { // style options for all maps
     }
 }
 
-function initMap(currentLat, currentLong) {
-    hideAll();
-    $(".er-header-settings").slideUp();
-    showList();
-    showMap(); //show map so the markers can fit the bounds    
-    map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
-};
+
 
 function getRadius() { // get sort method from options
     console.log($("#er-radius").val())
@@ -340,6 +337,12 @@ function checkGeo(callback, directions) { // get current location
     )
 };
 
+function initMap(currentLat, currentLong) {
+    $(".er-header-settings").slideUp(); // close settings panel
+    showMap(); //show map so the markers can fit the bounds    
+    map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
+};
+
 function geoSearch(currentLat, currentLong) {
     // assign the more button
     var getNextPage = null;
@@ -349,43 +352,38 @@ function geoSearch(currentLat, currentLong) {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
-
-    initMap();
-    // Create the places service
-    var service = new google.maps.places.PlacesService(map);
-    // Perform a nearby search.
-    service.nearbySearch(
+    initMap(); // create the map 
+    var service = new google.maps.places.PlacesService(map); // Connect to the places api
+    service.nearbySearch( // Perform a nearby search
         {
             location: { lat: currentLat, lng: currentLong },
             radius: getRadius(),
             type: ['restaurant'],
             keyword: ['vegetarian' + getVeg() + getCuisine()],
             openNow: getOpen(),
-            //          rankBy: google.maps.places.RankBy.DISTANCE
         },
         function (results, status, pagination) {
             console.log(status);
             if (status !== 'OK') {
-                logErrors(status);
+                logErrors(status); // push error to page
                 return;
             }
-            // push results to screen
+            // get the generated resultslist and push to screen
             $("#er-search-results").html(showResults(results));
-            console.log(results)
-            createMarkers(results) // Plot markers on the map
-            if (window.innerWidth < 576) {
+
+            createMarkers(results) // Plot the markers on the map
+            if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
                 setTimeout(function () { // wait a bit to show the mapresults
                     showList(slideList()); // then show list
                 }, 2000);
-            } else {
-                showList(slideList());
+            } else { // on other devices
+                showList(slideList()); // push directly
             }
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
                 pagination.nextPage();
             };
-
         });
 }
 
@@ -400,18 +398,14 @@ function manualSearch() {
         if (getNextPage) getNextPage();
     };
 
-    initMap();
-    // Create the places service :
-    var service = new google.maps.places.PlacesService(map);
-    //get search input
-    var searchInput = document.getElementById("er-search-input").value;
-
+    var searchInput = document.getElementById("er-search-input").value; //get search input
     if (searchInput == '') { // Nothing entered? error
         logErrors('NOINPUT');
         return;
     };
-    // Perform the manual search :
-    service.textSearch(
+    initMap(); // create the map
+    var service = new google.maps.places.PlacesService(map); // connect to the places api
+    service.textSearch( // Perform the manual search
         {
             query: searchInput + ' AND vegetarian' + getCuisine() + getVeg(),
             type: ['restaurant'],
@@ -422,16 +416,16 @@ function manualSearch() {
                 logErrors(status);
                 return;
             }
-            // push results to screen
+            // get the generated resultslist and push to screen
             $("#er-search-results").html(showResults(results)); // push details to screen
-            console.log(results);
-            createMarkers(results) // Plot markers on the map
-            if (window.innerWidth < 576) {
+
+            createMarkers(results) // Plot the markers on the map
+            if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
                 setTimeout(function () { // wait a bit to show the mapresults
                     showList(slideList()); // then show list
                 }, 2000);
-            } else {
-                showList(slideList());
+            } else { // on other devices
+                showList(slideList()); // push directly
             }
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
@@ -442,50 +436,49 @@ function manualSearch() {
     );
 };
 
-var infowindow;
+function restaurantDetails(place_id) { // get restaurant details
+    // scoll to top of the page
+    $('#er-details-section').animate({ scrollTop: 0 }, 'slow');
+    var requestDetails = { // generate search argument
+        placeId: place_id,
+        fields: ['reviews', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
+    };
+    service = new google.maps.places.PlacesService(map); // connect to the api
+    service.getDetails(requestDetails, showRestaurantDetails); // get details an push to callback
+}
 
 function createMarkers(places) { // plot markers to the map
     var bounds = new google.maps.LatLngBounds();
-    infowindow = new google.maps.InfoWindow({
+    infowindow = new google.maps.InfoWindow({ // create empty infowindow
         content: ''
     });
 
-    for (let index = 0, place; place = places[index]; index++) {
-        let image = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-        };
-        let marker = new google.maps.Marker({
+    for (let index = 0, place; place = places[index]; index++) { // cycle through places
+        let marker = new google.maps.Marker({ // create marker
             map: map,
-            //  label: place.name,
             position: place.geometry.location
 
         });
-        if (place.photos[0] != undefined) {
-            var imageUri = place.photos[0].getUrl({ "maxWidth": 100 });
+
+        if (place.photos[0] != undefined) { // check if a photo is available
+            var imageUri = place.photos[0].getUrl({ "maxWidth": 100 }); // get url for infowindow photo
         }
 
-        let starRating = (place.rating * 15).toFixed();
-        if (place.price_level != NaN) {
-            var priceLevel = (place.price_level * 15).toFixed();
+        let starRating = (place.rating * 15).toFixed(); // generate starrating width
+        if (place.price_level != NaN) { // check if there is a pricelevel available
+            var priceLevel = (place.price_level * 15).toFixed(); // generate pricelevel width
         } else {
-            var priceLevel = '0';
+            var priceLevel = '0'; // if no price is available the food is free ;-)
         }
-
+        // generate the content of the infowindow
         var infoContent = `<div class="er-infowindow-details" onclick="restaurantDetails('${place.place_id}')">
-        <h5>${place.name}</h5>
-            
+        <h5>${place.name}</h5>            
                 <img src="${imageUri}">
                 <div class="er-review-rating" style="width:${starRating}px">
-                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">
-                           
+                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">                           
             </div>`
-        console.log(infoContent);
-        //   create infowwindow content
 
+        // attach the infowindow to a click on the marker
         google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
             return function () {
                 infowindow.close()
@@ -494,7 +487,7 @@ function createMarkers(places) { // plot markers to the map
                 map.setCenter(place.geometry.location);
             };
         })(marker, infoContent, infowindow));
-
+        // link the info window to a click on the corresponding list item
         $("#" + place.place_id).click(function () { // click-event for list-item
             $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
             $("#" + place.place_id).toggleClass("active"); // highlight list item
@@ -503,64 +496,59 @@ function createMarkers(places) { // plot markers to the map
             infowindow.open(map, marker);
             map.setCenter(place.geometry.location);
         })
-
-
-
-        bounds.extend(place.geometry.location);
+        bounds.extend(place.geometry.location); // add this place to the bounds
     };
-    map.fitBounds(bounds);
+    map.fitBounds(bounds); // fit markers on the map
 };
 
 
-var id;
+var userLocation;
 function initDirectionMap(placeId) {
-    showDirections();
-    navigator.geolocation.clearWatch(id);
+    showDirections(); // show direction map
+    navigator.geolocation.clearWatch(userLocation); // un-attach the geo watcher
     checkGeo(function (currentLat, currentLong) { // get current location
-
+        directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
         calcRoute(placeId, currentLat, currentLong); // on succes plot route
     });
 }
 
 
 
-function calcRoute(placeId, currentLat, currentLong) {
-    console.log('bey');
-    var directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions());
-
+function calcRoute(placeId, currentLat, currentLong) { // plot route on the map
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
-    var mapCenter = new google.maps.LatLng(currentLat, currentLong);
-    directionsRenderer.setMap(directionMap);
-    var start = `{ location: { lat: ${currentLat}, lng: ${currentLong}
-    }
-} `;
-    var end = `{ place_id: "${placeId}" } `;
+    var mapCenter = new google.maps.LatLng(currentLat, currentLong); // center map around user
+    directionsRenderer.setMap(directionMap); // plot to map
+    var start = `{ location: { lat: ${currentLat}, lng: ${currentLong} }} `; // start at your position
+    var end = `{ place_id: "${placeId}" } `; // Use place id for end point
     var request = {
         origin: { lat: currentLat, lng: currentLong },
         destination: { 'placeId': placeId },
-        travelMode: getVehicle()
+        travelMode: getVehicle() // get transportion method from settings panel
     };
-    function moveMarker(currentLat, currentLong) {
-        marker.setPosition(currentLat, currentLong);
-    }
+
     directionsService.route(request, function (result, status) {
         if (status !== 'OK') {
-            logErrors(status);
+            logErrors(status); // show error on screen
             return;
         }
-        console.log(result.routes[0].legs[0]); // direction instructions 
+        //       console.log(result.routes[0].legs[0]); // direction instructions for later implementation 
         directionsRenderer.setDirections(result);
     });
-    var marker = new google.maps.Marker({ // place blue marker on current position
+    blueMarker = new google.maps.Marker({ // place blue marker on current position
         map: directionMap,
         icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
         position: { lat: currentLat, lng: currentLong }
     });
+    moveMarker(currentLat, currentLong);
     // change blue marker everytime the users moves
-    //   navigator.geolocation.watchPosition((function (position) {
-    //       id = marker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
-    //   }));
+    //  navigator.geolocation.watchPosition((function (position) {
+    //      userLocation = blueMarker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
+    //  }));
+}
+
+function moveMarker(currentLat, currentLong) { // generate a marker based on users position
+    blueMarker.setPosition(currentLat, currentLong);
 }
 
 
