@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header class="row">
         <section class="er-header er-background">
             <div class="er-header-main">
@@ -52,12 +53,11 @@
                                 <span class="sr-only">Show the search results map</span>
                             </button>
                         </td>
-                        </td>
                     </tr>
 
                 </table>
             </div>
-
+            <!-- Header settings section -->
             <div class="er-header-expand">
                 <div class="er-header-text">
                     Find vegetarian / vegan restaurants
@@ -71,9 +71,7 @@
             <div class="er-header-settings er-background">
                 <p>Settings :</p>
                 <div>
-                    <label for="er-cuisine">
-                        <h4>Cuisine :</h4>
-                    </label>
+                    <h4>Cuisine :</h4><br>
                     <select id="er-cuisine">
                         <option value="">-</option>
                         <option value="indian">Indian</option>
@@ -107,7 +105,7 @@
                 </div>
 
                 <div>
-                    <h4>Directions :</h4>
+                    <h4>Directions :</h4><br>
                     <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
                     <label for="walking">
                         By foot
@@ -122,9 +120,7 @@
                     </label><br><br>
                 </div>
                 <div>
-                    <h4>Search around you :
-
-                    </h4>
+                    <h4>Search around you :</h4>
                     <input type="range" min="1" max="5000" value="500" class="er-radius-slider" id="er-radius">
                     <span class="er-menu-search" id="er-menu-location">
                         <button>
@@ -134,18 +130,15 @@
                     </span>
                     <p>Radius = <span id="er-radius-value">500</span> meters</p>
                     <br>
-
-
                 </div>
-
-
+            </div>
         </section>
     </header>
 
     <main class="container-fluid">
         <div class="row no-gutters">
-
-            <section class="col-12 order-sm-1 er-content" id="er-front-section">
+            <!-- frontpage section -->
+            <div class="col-12 order-sm-1 er-content" id="er-front-section">
                 <div class="er-content-inner">
                     <div class="er-front-text">Give a tap here . . .</div>
                     <div class="er-front-text">↓</div>
@@ -164,51 +157,43 @@
                     <div class="er-front-text">down here . . .</div>
                     <div class="er-front-text">↓</div>
                 </div>
-            </section>
-
-            <section class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-1 order-md-1 col-lg-4 er-content"
+            </div>
+            <!-- search results section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-1 order-md-1 col-lg-4 er-content"
                 id="er-list-section">
-
                 <div class="er-content-inner" id="er-search-results">
-
                 </div>
                 <div class="er-more">
                     <button id="more">More results</button>
                 </div>
-
-            </section>
-
-            <section class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-3 order-md-2 col-lg-8 er-content"
+            </div>
+            <!-- results-map section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-3 order-md-2 col-lg-8 er-content"
                 id="er-map-section">
                 <div id="map"></div>
-            </section>
-
-            <section class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-4 order-md-2 col-lg-8 er-content"
+            </div>
+            <!-- direction-map section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-4 order-md-2 col-lg-8 er-content"
                 id="er-direction-section">
                 <div id="direction-map"></div>
-            </section>
-
-
-            <section class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-2 order-md-1 col-lg-4 er-content"
+            </div>
+            <!-- restaurant details section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-2 order-md-1 col-lg-4 er-content"
                 id="er-details-section">
                 <div class="er-content-inner" id="er-details">
                 </div>
-
-            </section>
-
-            <section class="col-12 col-md-6 col-lg-6 col-xl-4 er-content" id="er-various-section">
+            </div>
+            <!-- various section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 er-content" id="er-various-section">
                 <div class="er-content-inner" id="er-various"></div>
-            </section>
-
-            <section class="col-12 er-content" id="er-error-section">
+            </div>
+            <!-- error section -->
+            <div class="col-12 er-content" id="er-error-section">
                 <div class="er-content-inner">
                     <div id="er-error">
-
                     </div>
                 </div>
-
-
-            </section>
+            </div>
         </div>
     </main>
     <!-- footer searchbar -->
@@ -219,27 +204,27 @@
                 <i aria-hidden="true" class="fab fa-sith"></i>
                 <span class="sr-only">Do a manual search</span>
             </button>
-
         </form>
-
-
     </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/js/api-access.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE&libraries=places"
+        async defer></script>
+
+    <script src="assets/js/events.js"></script>
+    <script src="assets/js/to-screen.js"></script>
 </body>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-<script src="assets/js/api-access.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE
-&libraries=places" async defer></script>
-
-<script src="assets/js/events.js"></script>
-<script src="assets/js/to-screen.js"></script>
 
 </html>

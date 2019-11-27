@@ -2,9 +2,9 @@ function showResults(restaurants) {
     if (restaurants == undefined) {
         logErrors('UNKNOWN_ERROR');
     }
-
+    console.log(restaurants);
     let listItems = restaurants.map(function (restaurant) {
-
+        console.log(restaurant);
 
         //let imageUri = "";
         if (restaurant.photos[0] != undefined) {
@@ -13,11 +13,16 @@ function showResults(restaurants) {
         // generate detail link
 
         // generate open icon
-        if (restaurant.opening_hours.open_now == true) {
-            var openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`
+        if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present
+            if (restaurant.opening_hours.open_now == true) { // set open now
+                var openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`
+            } else { // set closed now
+                var openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`
+            }
         } else {
-            var openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`
-        };
+            var openNow = ``;
+        }
+
         // generate extra detail click from the place_id
         let starRating = (restaurant.rating * 15).toFixed();
         if (restaurant.price_level != NaN) {

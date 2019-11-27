@@ -12,7 +12,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 530;
+    font-weight: 500;
 }
 
 body {
@@ -52,6 +52,8 @@ h4 {
     padding-left: 0.2em;
     font-size: 1.2em;
     font-weight: 500;
+    margin: 0;
+    padding: 0;
 }
 
 h5 {
@@ -71,6 +73,22 @@ label {
 input, select, textarea {
     font-family: inherit;
     font-size: 100%;
+}
+
+input[type=text] {
+    color: rgba(87, 93, 65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 2em;
+    border-radius: 0.6em;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(87, 93, 65, 0.4);
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
+button:focus {
+    outline: 0;
 }
 
 .container-fluid {
@@ -98,6 +116,7 @@ input, select, textarea {
     overflow: hidden;
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(87, 93, 65);
+    -webkit-box-shadow: 1px 1px .4em 3px rgba(255, 255, 255, 0.4);
     box-shadow: 1px 1px .4em 3px rgba(255, 255, 255, 0.4);
     border-radius: 5px;
 }
@@ -106,17 +125,17 @@ input, select, textarea {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-button:focus {
-    outline: 0;
-}
-
 .er-header button:hover, .er-footer button:hover, #er-front-section button:hover, #er-error-section button:hover {
     color: rgba(87, 93, 65, 0.4);
+    -webkit-transition: color 1s ease-in-out;
+    -o-transition: color 1s ease-in-out;
     transition: color 1s ease-in-out;
 }
 
 .er-header button:active, .er-footer button:active, #er-front-section button:active, #er-error-section button:active {
     color: rgba(163, 0, 0, 0.7);
+    -webkit-transition: color .4s;
+    -o-transition: color .4s;
     transition: color .4s;
     text-decoration: none;
 }
@@ -130,10 +149,9 @@ button:focus {
     position: fixed;
     width: 100%;
     top: 0vh;
+    -webkit-box-shadow: 0px 7px 15px -3px rgba(87, 93, 65, 0.9);
     box-shadow: 0px 7px 15px -3px rgba(87, 93, 65, 0.9);
 }
-
-.er-header-main {}
 
 .er-header-icon {
     font-size: 1.2em;
@@ -192,6 +210,7 @@ button:focus {
     padding: 2em 1em 1em 1em;
     font-size: 0.8em;
     border-bottom-left-radius: 1em;
+    -webkit-box-shadow: -10px 10px 15px -3px rgba(87, 93, 65, 0.9);
     box-shadow: -10px 10px 15px -3px rgba(87, 93, 65, 0.9);
 }
 
@@ -211,14 +230,13 @@ button:focus {
     width: 100%;
 }
 
-.er-radius-slider {}
-
 /* ----------------------------------------Footer Searchbar */
 
 .er-footer {
     z-index: 23;
     position: fixed;
     bottom: 0;
+    -webkit-box-shadow: 0px -7px 15px -3px rgba(87, 93, 65, 0.9);
     box-shadow: 0px -7px 15px -3px rgba(87, 93, 65, 0.9);
 }
 
@@ -234,125 +252,8 @@ button:focus {
     width: 80vw;
 }
 
-input[type=text] {
-    color: rgba(87, 93, 65);
-    box-sizing: border-box;
-    padding-left: 2em;
-    border-radius: 0.6em;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-color: rgba(87, 93, 65, 0.4);
-    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-}
-
-input[type=range] {
-    -webkit-appearance: none;
-    margin: 3.6px 0;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4.8px;
-    cursor: pointer;
-    box-shadow: 1.9px 1.9px 3.9px rgba(87, 93, 65, 0.68), 0px 0px 1.9px rgba(101, 108, 75, 0.68);
-    background: rgba(255, 255, 255, 0.82);
-    border-radius: 25px;
-    border: 0px solid rgba(87, 93, 65, 0.81);
-}
-
-input[type=range]::-webkit-slider-thumb {
-    box-shadow: 2.6px 2.6px 0.6px rgba(87, 93, 65, 0.4), 0px 0px 2.6px rgba(101, 108, 75, 0.4);
-    border: 1.1px solid rgba(255, 255, 255, 0.6);
-    height: 12px;
-    width: 16px;
-    border-radius: 9px;
-    background: #575d41;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -3.6px;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: rgba(255, 255, 255, 0.82);
-}
-
-input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 4.8px;
-    cursor: pointer;
-    box-shadow: 1.9px 1.9px 3.9px rgba(87, 93, 65, 0.68), 0px 0px 1.9px rgba(101, 108, 75, 0.68);
-    background: rgba(255, 255, 255, 0.82);
-    border-radius: 25px;
-    border: 0px solid rgba(87, 93, 65, 0.81);
-}
-
-input[type=range]::-moz-range-thumb {
-    box-shadow: 2.6px 2.6px 0.6px rgba(87, 93, 65, 0.4), 0px 0px 2.6px rgba(101, 108, 75, 0.4);
-    border: 1.1px solid rgba(255, 255, 255, 0.6);
-    height: 12px;
-    width: 16px;
-    border-radius: 9px;
-    background: #575d41;
-    cursor: pointer;
-}
-
-input[type=range]::-ms-track {
-    width: 100%;
-    height: 4.8px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
-
-input[type=range]::-ms-fill-lower {
-    background: rgba(242, 242, 242, 0.82);
-    border: 0px solid rgba(87, 93, 65, 0.81);
-    border-radius: 50px;
-    box-shadow: 1.9px 1.9px 3.9px rgba(87, 93, 65, 0.68), 0px 0px 1.9px rgba(101, 108, 75, 0.68);
-}
-
-input[type=range]::-ms-fill-upper {
-    background: rgba(255, 255, 255, 0.82);
-    border: 0px solid rgba(87, 93, 65, 0.81);
-    border-radius: 50px;
-    box-shadow: 1.9px 1.9px 3.9px rgba(87, 93, 65, 0.68), 0px 0px 1.9px rgba(101, 108, 75, 0.68);
-}
-
-input[type=range]::-ms-thumb {
-    box-shadow: 2.6px 2.6px 0.6px rgba(87, 93, 65, 0.4), 0px 0px 2.6px rgba(101, 108, 75, 0.4);
-    border: 1.1px solid rgba(255, 255, 255, 0.6);
-    height: 12px;
-    width: 16px;
-    border-radius: 9px;
-    background: #575d41;
-    cursor: pointer;
-    height: 4.8px;
-}
-
-input[type=range]:focus::-ms-fill-lower {
-    background: rgba(255, 255, 255, 0.82);
-}
-
-input[type=range]:focus::-ms-fill-upper {
-    background: rgba(255, 255, 255, 0.82);
-}
-
 .er-footer button {
     width: 10vw;
-}
-
-.er-location-search button {
-    font-size: 1em;
-    line-height: 1em;
-}
-
-.er-dropdown button {
-    font-size: 1em;
-    line-height: 1em;
 }
 
 .er-footer button {
@@ -366,6 +267,8 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: unset;
     border: none;
     color: rgba(87, 93, 65);
+    -webkit-transition: color .2s;
+    -o-transition: color .2s;
     transition: color .2s;
 }
 
@@ -377,7 +280,6 @@ input[type=range]:focus::-ms-fill-upper {
     padding-right: 0;
     font-size: 0.8em;
     overflow: hidden;
-    transition: max-height 0s;
     background-image: url('../images/background.jpg');
     background-size: 100%;
     background-repeat: repeat-y;
@@ -440,7 +342,7 @@ input[type=range]:focus::-ms-fill-upper {
     color: rgba(87, 93, 65);
 }
 
-/* ---------------------------------------- list Section */
+/* ---------------------------------------- Search results Section */
 
 #er-list-section {
     width: 100%;
@@ -473,7 +375,7 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 2.5em;
 }
 
-/* ----------------------------------------Item-list-cells */
+/* ---------------------------------------- Results list cells */
 
 .er-list-name {
     cursor: pointer!important;
@@ -540,7 +442,7 @@ input[type=range]:focus::-ms-fill-upper {
     width: 10%;
 }
 
-/* ----------------------------------------Item-list-collapse */
+/* ----------------------------------------Results list collapse */
 
 .er-list-collapse {
     padding-left: 1em;
@@ -620,7 +522,7 @@ input[type=range]:focus::-ms-fill-upper {
     letter-spacing: 0.1em;
     font-size: 1.5em;
     font-weight: 600;
-    font-family: indie flower;
+    font-family: 'indie flower';
 }
 
 .er-reviews-mainwrap {
@@ -644,6 +546,8 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 0.5em;
     text-align: justify;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     float: right;
     background-color: rgba(255, 255, 255, 0.9);
@@ -651,7 +555,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .er-read-more {
     text-align: right;
-    font-family: indie flower;
+    font-family: 'indie flower';
     font-size: 1.5em;
     font-weight: 600;
     cursor: pointer;
@@ -677,6 +581,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .er-cell-third {
     width: 35%;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 
@@ -716,6 +621,8 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
     position: absolute;
     top: 50vh;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -737,6 +644,8 @@ input[type=range]:focus::-ms-fill-upper {
         right: 0;
     }
 }
+
+/* --------------------------768 - lg (portrait-tablet) */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 992px) and (orientation: portrait) {
     body {
