@@ -20,10 +20,10 @@ function showResults(restaurants) { // push searchresults to the screen
             var openNow = ``;
         }
         // Generate rating width 
-        let starRating = (restaurant.rating * 15).toFixed();
+        let starRating = (restaurant.rating * 20).toFixed();
         // generate price level width
         if (restaurant.price_level != NaN) {
-            var priceLevel = (restaurant.price_level * 15).toFixed();
+            var priceLevel = (restaurant.price_level * 20).toFixed();
         } else {
             var priceLevel = '0';
         }
@@ -45,11 +45,13 @@ function showResults(restaurants) { // push searchresults to the screen
                                 </div>                    
                             </td>
                             <td class="er-cell-rating">
-                                <div class="er-rating-container" style="width:${starRating}%">
-                                    <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="rating = ${restaurant.rating} stars out of 5">
+                                <div class="er-rating-list">
+                                    <div class="er-rating-container" style="width:${starRating}%">                                        
+                                    </div>
                                 </div>
-                                <div class="er-rating-container" style="width:${priceLevel}%">
-                                    <img src="assets/images/price.png"  alt="price = ${restaurant.price_level} out of 5">
+                                <div class="er-price-list">    
+                                    <div class="er-price-container" style="width:${priceLevel}%">                                        
+                                    </div>
                                 </div>                    
                             </td>
                             <td class="er-cell-open">
@@ -140,10 +142,10 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                                     </div>
                                 </td>
                                 <td class="er-cell-third">
-                                    <div class="er-review-rating" style="width:${starRating}px">
-                                        <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="review-rating = ${review.rating} stars out of 5">
+                                    <div class="er-review-details">
+                                        <div class="er-reviewdetails-container" style="width:${starRating}px">                                            
+                                        </div>
                                     </div>
-
                                     <p>${review.relative_time_description}</p>   
                                 </td>
                             </tr>
@@ -166,9 +168,10 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                                 <table class="er-reviews-table">    
                                     <tr>                                        
                                         <td class="er-cell-third">
-                                            <div class="er-review-rating" style="width:${starRating}px">
-                                                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="review-rating = ${review.rating} stars out of 5">
+                                            <div class="er-review-details">
+                                                <div class="er-reviewdetails-container" style="width:${starRating}px">                                            
                                             </div>
+                                        </div>
                                             <p>${review.relative_time_description}</p>   
                                         </td>
                                         <td class="er-cell-2third">
@@ -194,10 +197,10 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                     <tr>
                         <td class="er-cell-third er-review-photo">
                             <img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">
-                            <div class="er-review-rating" style="width:${latestRating}px">
-                                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png" alt="review-rating = ${place.reviews[0].rating} stars out of 5">
+                            <div class="er-review-details">
+                                <div class="er-reviewdetails-container" style="width:${latestRating}px">
+                                </div>
                             </div>
- 
                         </td>
                         <td class="er-cell-2third">
                             <div class="er-review-text">
@@ -253,9 +256,6 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
     };
     showDetails(); // show the details page
 }
-
-
-
 
 
 function logErrors(status) {

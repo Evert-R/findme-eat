@@ -397,7 +397,7 @@ button:focus {
 }
 
 .er-cell-name {
-    width: 55%;
+    width: 50%;
 }
 
 .er-cell-open {
@@ -414,32 +414,64 @@ button:focus {
     color: rgba(183, 88, 88, 1)
 }
 
+.er-rating-list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    width: 60px;
+    height: 11px;
+    background-image: url('../images/rating-grey.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.er-price-list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+    height: 11px;
+    background-image: url('../images/price-grey.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .er-rating-container {
+    height: 100%;
     overflow: hidden;
-    padding: 0;
+    background-image: url('../images/rating-orange.png');
+    background-size: 60px, 11px;
+    background-repeat: no-repeat;
 }
 
-.er-rating-container img {
-    width: 50px;
-}
-
-.er-review-rating {
+.er-price-container {
+    height: 100%;
     overflow: hidden;
-    padding: 0;
+    background-image: url('../images/price-yellow.png');
+    background-size: 60px, 11px;
+    background-repeat: no-repeat;
 }
 
-.er-review-rating img {
+.er-review-details {
+    margin-bottom: 1em;
     width: 100px;
+    height: 18px;
+    background-image: url('../images/rating-grey.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.er-reviewdetails-container {
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../images/rating-orange.png');
+    background-size: 100px, 18px;
+    background-repeat: no-repeat;
 }
 
 .er-cell-rating {
-    width: 60px;
+    align-items: center;
+    width: 20%;
     background-color: rgba(165, 176, 118, 0.4);
-}
-
-.er-cell-price {
-    text-align: center;
-    width: 10%;
 }
 
 /* ----------------------------------------Results list collapse */
@@ -581,13 +613,11 @@ button:focus {
 
 .er-cell-third {
     width: 35%;
-    -ms-flex-line-pack: center;
-    align-content: center;
 }
 
 .er-review-photo img {
-    margin-left: 2em;
-    width: 50%;
+    margin-bottom: 2em;
+    width: 100px;
 }
 
 .er-cell-2third {
@@ -630,7 +660,30 @@ button:focus {
 
 /* --------------------------576 - SM */
 
-@media(min-width: 576px) {}
+@media(min-width: 576px) {
+    .er-round-image {
+        width: 90px;
+        border-radius: 90px;
+    }
+    .er-round-image img {
+        width: 90px;
+        height: 90px;
+    }
+    .er-rating-list {
+        width: 90px;
+        height: 16px;
+    }
+    .er-price-list {
+        width: 90px;
+        height: 16px;
+    }
+    .er-rating-container {
+        background-size: 90px, 16px;
+    }
+    .er-price-container {
+        background-size: 90px, 16px;
+    }
+}
 
 /* --------------------------768 - MD */
 
@@ -669,9 +722,6 @@ button:focus {
 /* --------------------------1200 - XL */
 
 @media(min-width: 1200px) {
-    body {
-        font-size: 1.2em;
-    }
     #er-list-section {
         position: absolute;
         top: 0;

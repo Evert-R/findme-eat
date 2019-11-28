@@ -387,6 +387,13 @@ function geoSearch(currentLat, currentLong) {
         });
 }
 
+function checkSearchInput(searchInput) {
+    if (searchInput == '') { // Nothing entered? error
+        logErrors('NOINPUT');
+    } else {
+        return searchInput;
+    };
+}
 
 
 function manualSearch() {
@@ -397,12 +404,9 @@ function manualSearch() {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
+    searchInput = checkSearchInput($("#er-search-input").val());
 
-    var searchInput = document.getElementById("er-search-input").value; //get search input
-    if (searchInput == '') { // Nothing entered? error
-        logErrors('NOINPUT');
-        return;
-    };
+
     initMap(); // create the map
     var service = new google.maps.places.PlacesService(map); // connect to the places api
     service.textSearch( // Perform the manual search
@@ -474,7 +478,7 @@ function createMarkers(places) { // plot markers to the map
         var infoContent = `<div class="er-infowindow-details" onclick="restaurantDetails('${place.place_id}')">
         <h5>${place.name}</h5>            
                 <img src="${imageUri}">
-                <div class="er-review-rating" style="width:${starRating}px">
+                <div class="er-reviewdetails-container" style="width:${starRating}px">
                 <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">                           
             </div>`
 
