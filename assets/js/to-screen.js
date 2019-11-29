@@ -14,9 +14,9 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
 
     let searchArgument; // will be displayed above the list
     if (searchType == 'geo') {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants<br>in a ${getRadius()} meter radius around you`
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants in a ${getRadius()} meter radius around you`
     } else {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine}<br>restaurants in ${searchType}`
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine}restaurants in ${searchType}`
     }
 
     let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant

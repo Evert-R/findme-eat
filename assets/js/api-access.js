@@ -322,17 +322,13 @@ function getOpen() { // get only open option from settings
     }
 }
 
-function checkGeo(callback, directions) { // get current location
+function checkGeo(callback) { // get current location
     navigator.geolocation.getCurrentPosition(function (position) {
         currentPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         callback(currentPosition);
     },
-        function (error) { // if location denied show error
-            if (error.code == error.PERMISSION_DENIED && directions == undefined) {
-                logErrors('NOGEO')
-            } else { // if we wanted directions do a browser search in new tab
-                console.log('directions via browser')
-            }
+        function (error) {
+            callback('NOGEO') // if location denied show error
         }
     )
 };
@@ -344,6 +340,11 @@ function initMap(currentPosition) {
 };
 
 function geoSearch(currentPosition) {
+
+    if (currentPosition == 'NOGEO') { // check if lcoation is known
+        return logErrors('NOGEO')
+    }
+
     // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
@@ -370,7 +371,7 @@ function geoSearch(currentPosition) {
             }
             // get the generated resultslist and push to screen
             $("#er-search-results").html(showResults(results, currentPosition, 'geo'));
-
+            console.log(results);
             createMarkers(results) // Plot the markers on the map
             if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
                 setTimeout(function () { // wait a bit to show the mapresults
@@ -421,16 +422,21 @@ function manualSearch() {
                 return;
             }
             // get the generated resultslist and push to screen
-            $("#er-search-results").html(showResults(results, 'NOGEO', searchInput)); // push details to screen
 
-            createMarkers(results) // Plot the markers on the map
-            if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
-                setTimeout(function () { // wait a bit to show the mapresults
-                    showList(slideList()); // then show list
-                }, 2000);
-            } else { // on other devices
-                showList(slideList()); // push directly
-            }
+            checkGeo(function (currentPosition) {
+                $("#er-search-results").html(showResults(results, currentPosition, searchInput)); // push details to screen
+
+
+                console.log(results);
+                createMarkers(results) // Plot the markers on the map
+                if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
+                    setTimeout(function () { // wait a bit to show the mapresults
+                        showList(slideList()); // then show list
+                    }, 2000);
+                } else { // on other devices
+                    showList(slideList()); // push directly
+                }
+            })
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
             getNextPage = pagination.hasNextPage && function () {
@@ -511,8 +517,12 @@ function initDirectionMap(placeId) {
     showDirections(); // show direction map
     navigator.geolocation.clearWatch(userLocation); // un-attach the geo watcher
     checkGeo(function (currentPosition) { // get current location
-        directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
-        calcRoute(placeId, currentPosition); // on succes plot route
+        if (currentPosition != 'NOGEO') {
+            directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
+            return calcRoute(placeId, currentPosition); // on succes plot route
+        } else {
+            return console.log('directions via browser');
+        }
     });
 }
 
@@ -521,7 +531,7 @@ function initDirectionMap(placeId) {
 function calcRoute(placeId, currentPosition) { // plot route on the map
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
-    var mapCenter = new google.maps.LatLng(currentPosition); // center map around user
+    var mapCenter = currentPosition; // center map around user
     directionsRenderer.setMap(directionMap); // plot to map
     var start = `{ location: ${currentPosition} }`; // start at your position
     var end = `{ place_id: "${placeId}" } `; // Use place id for end point
