@@ -366,7 +366,7 @@ function geoSearch(currentPosition) {
         function (results, status, pagination) {
             console.log(status);
             if (status !== 'OK') {
-                logErrors(status); // push error to page
+                logErrors(status, 'place'); // push error to page
                 return;
             }
             // get the generated resultslist and push to screen
@@ -418,7 +418,7 @@ function manualSearch() {
         },
         function (results, status, pagination) {
             if (status !== 'OK') {
-                logErrors(status);
+                logErrors(status, 'place');
                 return;
             }
             // get the generated resultslist and push to screen
@@ -469,10 +469,10 @@ function createMarkers(places) { // plot markers to the map
             position: place.geometry.location
 
         });
-
-        if (place.photos[0] != undefined) { // check if a photo is available
-            var imageUri = place.photos[0].getUrl({ "maxWidth": 100 }); // get url for infowindow photo
-        }
+        let imageUri;
+        if (place.hasOwnProperty('photos')) { // check if a photo is available
+            imageUri = place.photos[0].getUrl({ "maxWidth": 100 }); // get url for infowindow photo
+        } else imageUri = '';
 
         let starRating = (place.rating * 15).toFixed(); // generate starrating width
         if (place.price_level != NaN) { // check if there is a pricelevel available
@@ -543,7 +543,7 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
 
     directionsService.route(request, function (result, status) {
         if (status !== 'OK') {
-            logErrors(status); // show error on screen
+            logErrors(status, 'route'); // show error on screen
             return;
         }
         //       console.log(result.routes[0].legs[0]); // direction instructions for later implementation 
