@@ -324,8 +324,8 @@ function getOpen() { // get only open option from settings
 
 function checkGeo(callback, directions) { // get current location
     navigator.geolocation.getCurrentPosition(function (position) {
-        console.log(position.coords.latitude, position.coords.longitude)
-        callback(position.coords.latitude, position.coords.longitude);
+        currentPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        callback(currentPosition);
     },
         function (error) { // if location denied show error
             if (error.code == error.PERMISSION_DENIED && directions == undefined) {
@@ -337,13 +337,13 @@ function checkGeo(callback, directions) { // get current location
     )
 };
 
-function initMap(currentLat, currentLong) {
+function initMap(currentPosition) {
     $(".er-header-settings").slideUp(); // close settings panel
     showMap(); //show map so the markers can fit the bounds    
     map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
 };
 
-function geoSearch(currentLat, currentLong) {
+function geoSearch(currentPosition) {
     // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
@@ -356,7 +356,7 @@ function geoSearch(currentLat, currentLong) {
     var service = new google.maps.places.PlacesService(map); // Connect to the places api
     service.nearbySearch( // Perform a nearby search
         {
-            location: { lat: currentLat, lng: currentLong },
+            location: currentPosition,
             radius: getRadius(),
             type: ['restaurant'],
             keyword: ['vegetarian' + getVeg() + getCuisine()],
@@ -369,7 +369,7 @@ function geoSearch(currentLat, currentLong) {
                 return;
             }
             // get the generated resultslist and push to screen
-            $("#er-search-results").html(showResults(results));
+            $("#er-search-results").html(showResults(results, currentPosition, 'geo'));
 
             createMarkers(results) // Plot the markers on the map
             if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
@@ -421,7 +421,7 @@ function manualSearch() {
                 return;
             }
             // get the generated resultslist and push to screen
-            $("#er-search-results").html(showResults(results)); // push details to screen
+            $("#er-search-results").html(showResults(results, 'NOGEO', searchInput)); // push details to screen
 
             createMarkers(results) // Plot the markers on the map
             if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
@@ -510,23 +510,23 @@ var userLocation;
 function initDirectionMap(placeId) {
     showDirections(); // show direction map
     navigator.geolocation.clearWatch(userLocation); // un-attach the geo watcher
-    checkGeo(function (currentLat, currentLong) { // get current location
+    checkGeo(function (currentPosition) { // get current location
         directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
-        calcRoute(placeId, currentLat, currentLong); // on succes plot route
+        calcRoute(placeId, currentPosition); // on succes plot route
     });
 }
 
 
 
-function calcRoute(placeId, currentLat, currentLong) { // plot route on the map
+function calcRoute(placeId, currentPosition) { // plot route on the map
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
-    var mapCenter = new google.maps.LatLng(currentLat, currentLong); // center map around user
+    var mapCenter = new google.maps.LatLng(currentPosition); // center map around user
     directionsRenderer.setMap(directionMap); // plot to map
-    var start = `{ location: { lat: ${currentLat}, lng: ${currentLong} }} `; // start at your position
+    var start = `{ location: ${currentPosition} }`; // start at your position
     var end = `{ place_id: "${placeId}" } `; // Use place id for end point
     var request = {
-        origin: { lat: currentLat, lng: currentLong },
+        origin: currentPosition,
         destination: { 'placeId': placeId },
         travelMode: getVehicle() // get transportion method from settings panel
     };
@@ -542,17 +542,17 @@ function calcRoute(placeId, currentLat, currentLong) { // plot route on the map
     blueMarker = new google.maps.Marker({ // place blue marker on current position
         map: directionMap,
         icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
-        position: { lat: currentLat, lng: currentLong }
+        position: currentPosition
     });
-    moveMarker(currentLat, currentLong);
+    moveMarker(currentPosition);
     // change blue marker everytime the users moves
     //  navigator.geolocation.watchPosition((function (position) {
-    //      userLocation = blueMarker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
+    //      userLocation = blueMarker.setPosition(currentPosition);
     //  }));
 }
 
-function moveMarker(currentLat, currentLong) { // generate a marker based on users position
-    blueMarker.setPosition(currentLat, currentLong);
+function moveMarker(currentPosition) { // generate a marker based on users position
+    blueMarker.setPosition(currentPosition);
 }
 
 

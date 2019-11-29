@@ -1,11 +1,26 @@
-function showResults(restaurants) { // push searchresults to the screen
+function showResults(restaurants, currentPosition, searchType) { // push searchresults to the screen
+
     if (restaurants == undefined) {
         logErrors('UNKNOWN_ERROR');
     }
+    // prepare variables to display above the list
+    if ($("#vegan").is(":checked")) {
+        var veg = ` and vegan`;
+    } else {
+        var veg = '';
+    }
+
+    let cuisine = $("#er-cuisine").children("option:selected").val();
+
+    let searchArgument; // will be displayed above the list
+    if (searchType == 'geo') {
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants<br>in a ${getRadius()} meter radius around you`
+    } else {
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine}<br>restaurants in ${searchType}`
+    }
 
     let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant
-
-        // Prepare variables
+        // Prepare variables for display in the list items
         if (restaurant.photos[0] != undefined) { // if photo exists get url
             var imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
         }
@@ -27,7 +42,13 @@ function showResults(restaurants) { // push searchresults to the screen
         } else {
             var priceLevel = '0';
         }
-
+        // calculate the distance to the restaurant
+        let distance;
+        if (currentPosition != 'NOGEO') {
+            distance = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location).toFixed() + ` meters`;
+        } else {
+            distance = ''
+        };
 
         // generate html list items
         return `
@@ -42,14 +63,19 @@ function showResults(restaurants) { // push searchresults to the screen
                             <td class="er-cell-name">
                                 <div class="er-list-name">
                                     <h3>${restaurant.name}</h3>
+                                    <p class="er-distance">${distance}</p>
+                                    <p class="er-address">${restaurant.vicinity}</p>
                                 </div>                    
                             </td>
                             <td class="er-cell-rating">
+                                <p>Rating :</p>    
                                 <div class="er-rating-list">
                                     <div class="er-rating-container" style="width:${starRating}%">                                        
                                     </div>
                                 </div>
-                                <div class="er-price-list">    
+                                <p>price range :</p> 
+                                <div class="er-price-list">
+                                   
                                     <div class="er-price-container" style="width:${priceLevel}%">                                        
                                     </div>
                                 </div>                    
@@ -88,6 +114,9 @@ function showResults(restaurants) { // push searchresults to the screen
     // Put items together
     return `
             <div class="er-item-list">
+                <div class="er-search-argument">
+                    ${searchArgument}
+                </div>
                 ${listItems.join("\n")}           
             </div>
             `
