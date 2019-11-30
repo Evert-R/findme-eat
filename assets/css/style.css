@@ -295,20 +295,34 @@ button:focus {
 }
 
 .er-footer input {
-    vertical-align: text-bottom;
+    vertical-align: center;
     height: 3em;
-    width: 80vw;
+    width: 65vw;
 }
 
 .er-footer button {
+    box-sizing: border-box;
     width: 10vw;
 }
 
 .er-footer button {
-    margin-left: 1vw;
+    display: inline-block;
+    margin-left: auto;
     margin-right: auto;
     font-size: 3.5em;
     line-height: 1.2em;
+}
+
+.er-footer-button {
+    text-align: center;
+    float: right;
+    width: 30vw;
+}
+
+.er-search-bar {
+    padding-top: 1vh;
+    width: 60vw;
+    float: left;
 }
 
 /* ----------------------------------------Sections */
@@ -376,7 +390,7 @@ button:focus {
 /* ---------------------------------------- Front Section */
 
 .er-front-text {
-    height: 6vh;
+    height: 5vh;
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     text-align: center;
@@ -391,7 +405,7 @@ button:focus {
 }
 
 #er-location-front {
-    height: 30vh;
+    height: 25vh;
     text-align: center;
     font-size: 10em;
     color: rgba(87, 93, 65);

@@ -154,7 +154,7 @@
                     <div class="er-front-text">out there . . . </div>↑
 
                     <div class="er-front-text">or search in another city</div>
-                    <div class="er-front-text">down here . . .</div>
+                    <div class="er-front-text">down here . . .</div><br>
                     <div class="er-front-text">↓</div>
                 </div>
             </div>
@@ -202,11 +202,16 @@
     <!-- footer searchbar -->
     <footer class="row er-background er-footer er-geo-button">
         <form onsubmit="return false;" method="post" name="myForm">
-            <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
-            <button type="submit" name="GO" id="er-search-button" onclick="manualSearch()">
-                <i aria-hidden="true" class="fab fa-sith"></i>
-                <span class="sr-only">Do a manual search</span>
-            </button>
+            <div class="er-search-bar">
+                <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?"
+                    value="" />
+            </div>
+            <div class="er-footer-button">
+                <button type="submit" name="GO" id="er-search-button" onclick="manualSearch()">
+                    <i aria-hidden="true" class="fab fa-sith"></i>
+                    <span class="sr-only">Do a manual search</span>
+                </button>
+            </div>
         </form>
     </footer>
 
@@ -223,7 +228,7 @@
 
     <script src="assets/js/api-access.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?&libraries=places,geometry&key=AIzaSyCOAEDy6UoCrwa5ehMrhSjVaWksbGBsfbg
+    <script src="https://maps.googleapis.com/maps/api/js?&libraries=places,geometry&key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE
         " async defer></script>
 
     <script src="assets/js/events.js"></script>
