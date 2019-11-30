@@ -43,7 +43,7 @@ function switchSection(goTo) {
         dirSwitch.slideUp(0);
     } else if (goTo == 'results') {
         front.slideUp();
-        if ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight)) { // target single page devices
+        if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
             hideAll();
             searchSwitch.slideDown(0);
             results.removeClass('col-md-6').slideDown(0);
@@ -55,7 +55,7 @@ function switchSection(goTo) {
             showAll();
         }
     } else if (goTo == 'details') {
-        if ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight)) { // target single page devices
+        if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
             hideAll();
             detailSwitch.slideDown(0);
             details.removeClass('col-md-6').slideDown(0);
@@ -71,7 +71,7 @@ function switchSection(goTo) {
         $('#er-details-photos').slideUp(1000);
         $('#er-details-main').slideDown(1000);
     } else if (goTo == 'map') {
-        if ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight)) { // target single page devices
+        if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
             hideAll();
             mapSwitch.slideDown(0);
             resultsMap.removeClass('col-md-6').slideDown(0);
@@ -86,7 +86,7 @@ function switchSection(goTo) {
         }
     } else if (goTo == 'directions') {
         dirSwitch.slideDown(0);
-        if ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight)) { // target single page devices
+        if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
             hideAll();
             dirMap.slideDown(0);
             dirMap.removeClass('col-md-6');
