@@ -474,19 +474,21 @@ function createMarkers(places) { // plot markers to the map
             imageUri = place.photos[0].getUrl({ "maxWidth": 100 }); // get url for infowindow photo
         } else imageUri = '';
 
-        let starRating = (place.rating * 15).toFixed(); // generate starrating width
+        let starRating = (place.rating * 20).toFixed(); // generate starrating width
         if (place.price_level != NaN) { // check if there is a pricelevel available
             var priceLevel = (place.price_level * 15).toFixed(); // generate pricelevel width
         } else {
             var priceLevel = '0'; // if no price is available the food is free ;-)
         }
         // generate the content of the infowindow
-        var infoContent = `<div class="er-infowindow-details" onclick="restaurantDetails('${place.place_id}')">
-        <h5>${place.name}</h5>            
-                <img src="${imageUri}">
-                <div class="er-reviewdetails-container" style="width:${starRating}px">
-                <img src="assets/images/Rating-Star-PNG-Transparent-Image.png">                           
-            </div>`
+        var infoContent = `
+                        <div class="er-infowindow-details" onclick="restaurantDetails('${place.place_id}')">
+                            <h5>${place.name}</h5>            
+                            <img src="${imageUri}">
+                            <div class="er-review-details">
+                                <div class="er-reviewdetails-container" style="width:${starRating}px">
+                                </div>
+                            </div>`
 
         // attach the infowindow to a click on the marker
         google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
@@ -514,8 +516,9 @@ function createMarkers(places) { // plot markers to the map
 
 var userLocation;
 function initDirectionMap(placeId) {
+    console.log(userLocation);
+    directionMap = '';
     showDirections(); // show direction map
-    navigator.geolocation.clearWatch(userLocation); // un-attach the geo watcher
     checkGeo(function (currentPosition) { // get current location
         if (currentPosition != 'NOGEO') {
             directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
@@ -549,21 +552,20 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
         //       console.log(result.routes[0].legs[0]); // direction instructions for later implementation 
         directionsRenderer.setDirections(result);
     });
+
     blueMarker = new google.maps.Marker({ // place blue marker on current position
         map: directionMap,
         icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
         position: currentPosition
     });
-    moveMarker(currentPosition);
-    // change blue marker everytime the users moves
-    //  navigator.geolocation.watchPosition((function (position) {
-    //      userLocation = blueMarker.setPosition(currentPosition);
-    //  }));
+
+    $("#er-location-update").click(function () { // connect location update button
+        checkGeo(function (currentPosition) { // get location
+            blueMarker.setPosition(currentPosition) //  set blue marker to current position
+        })
+    })
 }
 
-function moveMarker(currentPosition) { // generate a marker based on users position
-    blueMarker.setPosition(currentPosition);
-}
 
 
 

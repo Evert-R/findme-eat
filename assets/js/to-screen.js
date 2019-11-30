@@ -50,7 +50,7 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
         // calculate the distance to the restaurant
         let distance;
         if (currentPosition != 'NOGEO') {
-            distance = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location).toFixed() + ` meters`;
+            distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km`;
         } else {
             distance = ''
         };
@@ -78,7 +78,7 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
                                     <div class="er-rating-container" style="width:${starRating}%">                                        
                                     </div>
                                 </div>
-                                <p>price range :</p> 
+                                <p>price :</p> 
                                 <div class="er-price-list">
                                    
                                     <div class="er-price-container" style="width:${priceLevel}%">                                        
@@ -159,7 +159,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                     <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
                             <tr>
-                                <td class="er-cell-2third">
+                                <td class="er-cell-2third-left">
                                     <p class="er-reviews-name">${review.author_name}</p>
                                 </td>
                                 <td class="er-cell-third er-review-photo">
@@ -170,7 +170,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                         </table>    
                         <table class="er-reviews-table">    
                             <tr>
-                                <td class="er-cell-2third">
+                                <td class="er-cell-2third-left">
                                     <div class="er-review-text">
                                         <div>${review.text}</div>
                                     </div>
@@ -190,16 +190,15 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                      <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
                                 <tr>
-                                    <td class="er-cell-2third">
+                                    <td class="er-cell-third er-review-photo">
+                                        <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
+                                    </td>
+                                    <td class="er-cell-2third-right">
                                        <p class="er-reviews-name">${review.author_name}</p>
                                     </td>
-                                    <td class="er-cell-third er-review-photo">
-                                            <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
-                                    </td>
-
                                 </tr>
                                 </table>    
-                                <table class="er-reviews-table">    
+                        <table class="er-reviews-table">    
                                     <tr>                                        
                                         <td class="er-cell-third">
                                             <div class="er-review-details">
@@ -208,7 +207,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                                         </div>
                                             <p>${review.relative_time_description}</p>   
                                         </td>
-                                        <td class="er-cell-2third">
+                                        <td class="er-cell-2third-right">
                                             <div class="er-review-text">
                                                 <div>${review.text}</div>
                                             </div>
@@ -236,7 +235,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                                 </div>
                             </div>
                         </td>
-                        <td class="er-cell-2third">
+                        <td class="er-cell-2third-right">
                             <div class="er-review-text">
                                 <div>${latestReview}</div>
                             </div>   
@@ -250,7 +249,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                         <td class="er-cell-third er-details-address">
                             ${fullAddress.join("<br>")}
                         </td>
-                        <td class="er-cell-2third er-details-icons">                               
+                        <td class="er-cell-2third-right er-details-icons">                               
                                 <button onclick="showPhotos()">
                                     <i aria-hidden="true" class="fas fa-camera-retro"></i>
                                     <span class="sr-only">Show restaurant photos</span>

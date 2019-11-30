@@ -110,9 +110,9 @@ button:focus {
     padding: 0px;
 }
 
-/* ----------------------------------------Header */
+/* ----------------------------------------Buttons */
 
-.er-header-main button, .er-more button {
+.er-green-button button {
     border: 1px;
     margin: 0;
     padding: 6px;
@@ -121,28 +121,69 @@ button:focus {
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(87, 93, 65);
     -webkit-box-shadow: 1px 1px .4em 3px rgba(255, 255, 255, 0.4);
-    box-shadow: 1px 1px .4em 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px .4em 3px rgba(255, 255, 255, 0.1);
     border-radius: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: al .4s;
 }
 
-.er-header-main button:hover, .er-more button:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+.er-green-button button:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(87, 93, 65, 0.4);
 }
 
-.er-header button:hover, .er-footer button:hover, #er-front-section button:hover, #er-error-section button:hover {
+.er-green-button button:active {
+    color: rgba(87, 93, 65, 0.9);
+    text-decoration: none;
+}
+
+.er-geo-button button {
+    background-color: unset;
+    border: none;
+    color: rgba(87, 93, 65);
+    -webkit-transition: color .2s;
+    -o-transition: color .2s;
+    transition: color .2s;
+}
+
+.er-geo-button button:hover {
+    cursor: pointer;
     color: rgba(87, 93, 65, 0.4);
     -webkit-transition: color 1s ease-in-out;
     -o-transition: color 1s ease-in-out;
     transition: color 1s ease-in-out;
 }
 
-.er-header button:active, .er-footer button:active, #er-front-section button:active, #er-error-section button:active {
+.er-geo-button button:active {
     color: rgba(163, 0, 0, 0.7);
     -webkit-transition: color .4s;
     -o-transition: color .4s;
     transition: color .4s;
     text-decoration: none;
 }
+
+.er-list-collapse button {
+    color: rgba(87, 93, 65);
+    width: 2.5em;
+    height: 2.5em;
+    margin: 1em;
+    padding: 6px;
+    line-height: 1em;
+    overflow: hidden;
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.er-details-icons button {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    color: rgba(87, 93, 65);
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ----------------------------------------Header */
 
 .er-background {
     background-color: rgba(165, 176, 118);
@@ -270,15 +311,6 @@ button:focus {
     line-height: 1.2em;
 }
 
-.er-header-settings button, .er-footer button, #er-front-section button, #er-error-section button {
-    background-color: unset;
-    border: none;
-    color: rgba(87, 93, 65);
-    -webkit-transition: color .2s;
-    -o-transition: color .2s;
-    transition: color .2s;
-}
-
 /* ----------------------------------------Sections */
 
 .er-content {
@@ -324,6 +356,21 @@ button:focus {
 
 .er-infowindow-details {
     cursor: pointer;
+}
+
+#direction-map button {}
+
+.er-direction-buttons {
+    font-size: 2.5em;
+    z-index: 1;
+    position: absolute;
+    right: 0.1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.er-direction-buttons img {
+    width: 1.2em;
 }
 
 /* ---------------------------------------- Front Section */
@@ -376,10 +423,10 @@ button:focus {
 }
 
 .er-distance {
-    font-size: 1.1em;
+    font-size: 1.0em;
     margin-left: 1em;
     letter-spacing: 0.1em;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .active {
@@ -481,6 +528,8 @@ button:focus {
 }
 
 .er-review-details {
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 1em;
     width: 100px;
     height: 18px;
@@ -514,19 +563,10 @@ button:focus {
     background-color: rgba(87, 93, 65, 0.5);
 }
 
-.er-list-collapse button {
-    color: rgba(87, 93, 65);
-    width: 2.5em;
-    height: 2.5em;
-    margin: 1em;
-    padding: 6px;
-    line-height: 1em;
-    overflow: hidden;
-    background-color: white;
-    border-color: rgba(0, 0, 0, 0.5);
-}
-
 .er-collapse-details {
+    padding-right: 1em;
+    font-size: 1.3em;
+    background-color: rgba(255, 255, 255, 0.65);
     text-align: center;
     width: 35%;
 }
@@ -554,7 +594,12 @@ button:focus {
 .er-details-table {
     table-layout: fixed;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.65);
     border: 0.02px solid rgba(87, 93, 65, 0.8);
+}
+
+.er-reviews-mainwrap button {
+    font-size: 2em;
 }
 
 .er-details-title:hover {
@@ -640,31 +685,37 @@ button:focus {
 
 .er-details-address {
     padding-left: 1.5em;
-    background-color: rgba(255, 255, 255, 0.65);
 }
 
 .er-cell-third {
+    text-align: center;
     width: 35%;
+}
+
+.er-cell-2third-left {
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 65%;
+}
+
+.er-cell-third-right {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 35%;
+}
+
+.er-cell-2third-right {
+    text-align: right;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 65%;
 }
 
 .er-review-photo img {
     margin-bottom: 2em;
     width: 65px;
-}
-
-.er-cell-2third {
-    width: 65%;
-}
-
-.er-details-icons {
-    text-align: right;
-    padding-right: 1em;
-    font-size: 2em;
-    background-color: rgba(255, 255, 255, 0.65);
-}
-
-.er-details-icons button {
-    color: rgba(87, 93, 65);
 }
 
 /* ----------------------------------------Error section */

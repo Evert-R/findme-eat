@@ -178,6 +178,7 @@ window.onload = function () {
         alert("Sorry, we don't find meat ;-)");
         $('#vegetarian').prop('checked', true);
     });
+
 }
 
 

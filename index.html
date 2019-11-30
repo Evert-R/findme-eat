@@ -23,7 +23,7 @@
     <!-- Header -->
     <header class="row">
         <section class="er-header er-background">
-            <div class="er-header-main">
+            <div class="er-header-main er-green-button">
                 <table id="er-header-table">
                     <tr>
                         <td id="er-search-switch" class="er-header-icon">
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="er-header-settings er-background">
+            <div class="er-header-settings er-background er-geo-button">
                 <p>Settings :</p>
                 <div>
                     <h4>Cuisine :</h4><br>
@@ -139,7 +139,7 @@
         <div class="row no-gutters">
             <!-- frontpage section -->
             <div class="col-12 order-sm-1 er-content" id="er-front-section">
-                <div class="er-content-inner">
+                <div class="er-content-inner er-geo-button">
                     <div class="er-front-text">Give a tap here . . .</div>
                     <div class="er-front-text">↓</div>
                     <div id="er-location-front">
@@ -161,7 +161,7 @@
             <!-- search results section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-1 order-md-1 col-lg-4 er-content"
                 id="er-list-section">
-                <div class="er-content-inner" id="er-search-results">
+                <div class="er-content-inner er-details-icons" id="er-search-results">
                 </div>
                 <div class="er-more">
                     <button id="more">More results</button>
@@ -173,12 +173,17 @@
             </div>
             <!-- direction-map section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-4 order-md-2 er-content" id="er-direction-section">
+                <div class="er-direction-buttons er-green-button">
+                    <button id="er-location-update">
+                        <img src="assets/images/my-location.png" alt="update my location">
+                    </button>
+                </div>
                 <div id="direction-map"></div>
             </div>
             <!-- restaurant details section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-4 order-xl-2 order-md-1 col-lg-4 er-content"
                 id="er-details-section">
-                <div class="er-content-inner" id="er-details">
+                <div class="er-content-inner er-details-icons" id="er-details">
                 </div>
             </div>
             <!-- various section -->
@@ -188,14 +193,14 @@
             <!-- error section -->
             <div class="col-12 er-content" id="er-error-section">
                 <div class="er-content-inner">
-                    <div id="er-error">
+                    <div class="er-geo-button" id="er-error">
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <!-- footer searchbar -->
-    <footer class="row er-background er-footer">
+    <footer class="row er-background er-footer er-geo-button">
         <form onsubmit="return false;" method="post" name="myForm">
             <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat?" value="" />
             <button type="submit" name="GO" id="er-search-button" onclick="manualSearch()">
