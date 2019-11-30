@@ -220,7 +220,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
 
         // push details to screen
         $("#er-details").html(`
-            <div class="er-details-title" onclick="showDetails()">
+            <div class="er-details-title" onclick="switchSection('details')">
                 <h2>${place.name}</h2>
             </div>
 
@@ -272,13 +272,13 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                 </div>
             </div>
             <div id="er-details-reviews">
-                <div class="er-details-title" onclick="showDetails()">
+                <div class="er-details-title" onclick="switchSection('details')">
                     <h2>↓</h2>
                 </div>
                     ${reviewList.join("\n")}
                 </div>
                 <div id="er-details-photos">
-                <div class="er-details-title" onclick="showDetails()">
+                <div class="er-details-title" onclick="switchSection('details')">
                     <h2>↓</h2>
                 </div>
                     ${photoItems.join("\n")} 
@@ -287,19 +287,18 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
     } else {
         showErrors(status); // if there was a api error goto error section
     };
-    showDetails(); // show the details page
+    switchSection('details'); // show the details page
 }
 
 
 function logErrors(status, source) {
-    showError();
+    switchSection('error');
     console.log(status, source);
-    if (source = 'route') { // errors specific to the directions api
+    if (source == 'route') { // errors specific to the directions api
         if ((status == 'MAX_ROUTE_LENGTH_EXCEEDED') || (status == 'ZERO_RESULTS') || (status == 'INVALID_REQUEST')) {
             return $("#er-error").html(`Sorry, but that's<br>way too far<br><br>to get something<br>to eat<br><br>Try something local`)
         }
-    }
-    if (source = 'place') { // errors specific to the places api
+    } else if (source == 'place') { // errors specific to the places api
         if (status == 'ZERO_RESULTS') {
             return $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.<br>Then Try again<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`)
         } else if (status == 'INVALID_REQUEST') {
@@ -311,7 +310,7 @@ function logErrors(status, source) {
     } else if (status == 'REQUEST_DENIED') {
         return $("#er-error").html(`Sorry, The server denied the request.<br><br>Please, come back a bit later.`)
     } else if (status == 'NOINPUT') {
-        return $("#er-error").html(`Where do you<br>want to eat ?<br>Or do a search<br>around you<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span>`)
+        return $("#er-error").html(`Sorry, we didn't get that<br>Where do you<br>want to eat ?<br><br>You can also<br>do a search around you<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`)
     } else if (status == 'NOGEO') {
         return $("#er-error").html(`We can't see<br>where you are<br>Please do a<br>manual search`)
     } else {

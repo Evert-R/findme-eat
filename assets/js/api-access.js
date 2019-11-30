@@ -334,8 +334,9 @@ function checkGeo(callback) { // get current location
 };
 
 function initMap(currentPosition) {
+    console.log('yo')
     $(".er-header-settings").slideUp(); // close settings panel
-    showMap(); //show map so the markers can fit the bounds    
+    switchSection('map'); //show map so the markers can fit the bounds    
     map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
 };
 
@@ -375,10 +376,12 @@ function geoSearch(currentPosition) {
             createMarkers(results) // Plot the markers on the map
             if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
                 setTimeout(function () { // wait a bit to show the mapresults
-                    showList(slideList()); // then show list
+                    switchSection('results');
+                    slideList(); // then show list
                 }, 2000);
             } else { // on other devices
-                showList(slideList()); // push directly
+                switchSection('results'); // show directly
+                slideList(); // then show list                
             }
             // next page assignment
             moreButton.disabled = !pagination.hasNextPage;
@@ -390,14 +393,14 @@ function geoSearch(currentPosition) {
 
 function checkSearchInput(searchInput) {
     if (searchInput == '') { // Nothing entered? error
-        logErrors('NOINPUT');
+        logErrors('NOINPUT', 'place');
     } else {
-        return searchInput;
+        manualSearch(searchInput);
     };
 }
 
 
-function manualSearch() {
+function manualSearch(searchInput) {
     // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
@@ -405,8 +408,6 @@ function manualSearch() {
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
-    searchInput = checkSearchInput($("#er-search-input").val());
-
 
     initMap(); // create the map
     var service = new google.maps.places.PlacesService(map); // connect to the places api
@@ -431,10 +432,12 @@ function manualSearch() {
                 createMarkers(results) // Plot the markers on the map
                 if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
                     setTimeout(function () { // wait a bit to show the mapresults
-                        showList(slideList()); // then show list
+                        switchSection('results');
+                        slideList(); // then show list
                     }, 2000);
                 } else { // on other devices
-                    showList(slideList()); // push directly
+                    switchSection('results');
+                    slideList(); // show directly
                 }
             })
             // next page assignment
@@ -458,6 +461,7 @@ function restaurantDetails(place_id) { // get restaurant details
 }
 
 function createMarkers(places) { // plot markers to the map
+    console.log('jaja')
     var bounds = new google.maps.LatLngBounds();
     infowindow = new google.maps.InfoWindow({ // create empty infowindow
         content: ''
@@ -518,7 +522,7 @@ var userLocation;
 function initDirectionMap(placeId) {
     console.log(userLocation);
     directionMap = '';
-    showDirections(); // show direction map
+    switchSection('directions'); // show direction map
     checkGeo(function (currentPosition) { // get current location
         if (currentPosition != 'NOGEO') {
             directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map

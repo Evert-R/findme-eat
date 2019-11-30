@@ -413,7 +413,7 @@ button:focus {
 
 /* ---------------------------------------- Search results Section */
 
-#er-list-section {
+#er-results-section {
     width: 100%;
     overflow: scroll;
 }
@@ -736,7 +736,7 @@ button:focus {
 
 #er-error-section {
     font-family: 'Indie Flower', cursive;
-    font-size: 2em;
+    font-size: 1.7em;
     text-align: center;
 }
 
@@ -819,7 +819,7 @@ button:focus {
 /* --------------------------1200 - XL */
 
 @media(min-width: 1200px) {
-    #er-list-section {
+    #er-results-section {
         position: absolute;
         top: 0;
         bottom: 0;
