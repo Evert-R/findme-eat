@@ -74,6 +74,11 @@ The main focus will be on mobile devices as its main purpose is to be used on th
     - Image editing 
 
 ## Testing
+
+### Known Issues
+- During development is was announced that the open_now key in the google maps place search results is deprecated from November 2019 and will be turned of in November 2020. This only affects the notification in the resultslist, not the 'open Now' option in the settings panel.
+As it will require a different and more expensive approach: a place detail search for every found restaurant, this will be handled in the next version (octobre 2020). For now a failsafe is implemented: if the key doesn't exist it will simply not show the open or closed sign. You can allways search for restaurants that are open now via the settings. 
+
 ### Tools
 - [w3c Markup Validation](https://validator.w3.org)
     - HTML validation: No errors

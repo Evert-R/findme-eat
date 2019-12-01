@@ -371,23 +371,27 @@ function geoSearch(currentPosition) {
                 return;
             }
             // get the generated resultslist and push to screen
-            $("#er-search-results").html(showResults(results, currentPosition, 'geo'));
-            console.log(results);
-            createMarkers(results) // Plot the markers on the map
-            if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
-                setTimeout(function () { // wait a bit to show the mapresults
-                    switchSection('results');
-                    slideList(); // then show list
-                }, 2000);
-            } else { // on other devices
-                switchSection('results'); // show directly
-                slideList(); // then show list                
+            if (results == undefined) {
+                return logErrors('UNKNOWN_ERROR');
+            } else {
+                $("#er-search-results").html(showResults(results, currentPosition, 'geo'));
+                console.log(results);
+                createMarkers(results) // Plot the markers on the map
+                if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
+                    setTimeout(function () { // wait a bit to show the mapresults
+                        switchSection('results');
+                        slideList(); // then show list
+                    }, 2000);
+                } else { // on other devices
+                    switchSection('results'); // show directly
+                    slideList(); // then show list                
+                }
+                // next page assignment
+                moreButton.disabled = !pagination.hasNextPage;
+                getNextPage = pagination.hasNextPage && function () {
+                    pagination.nextPage();
+                };
             }
-            // next page assignment
-            moreButton.disabled = !pagination.hasNextPage;
-            getNextPage = pagination.hasNextPage && function () {
-                pagination.nextPage();
-            };
         });
 }
 
@@ -422,29 +426,30 @@ function manualSearch(searchInput) {
                 logErrors(status, 'place');
                 return;
             }
-            // get the generated resultslist and push to screen
 
-            checkGeo(function (currentPosition) {
-                $("#er-search-results").html(showResults(results, currentPosition, searchInput)); // push details to screen
-
-
-                console.log(results);
-                createMarkers(results) // Plot the markers on the map
-                if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
-                    setTimeout(function () { // wait a bit to show the mapresults
+            if (results == undefined) { // make sure something exists
+                return logErrors('UNKNOWN_ERROR');
+            } else { // get the generated resultslist and push to screen
+                checkGeo(function (currentPosition) {
+                    $("#er-search-results").html(showResults(results, currentPosition, searchInput)); // push details to screen
+                    console.log(results);
+                    createMarkers(results) // Plot the markers on the map
+                    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
+                        setTimeout(function () { // wait a bit to show the mapresults
+                            switchSection('results');
+                            slideList(); // then show list
+                        }, 2000);
+                    } else { // on other devices
                         switchSection('results');
-                        slideList(); // then show list
-                    }, 2000);
-                } else { // on other devices
-                    switchSection('results');
-                    slideList(); // show directly
-                }
-            })
-            // next page assignment
-            moreButton.disabled = !pagination.hasNextPage;
-            getNextPage = pagination.hasNextPage && function () {
-                pagination.nextPage();
-            };
+                        slideList(); // show directly
+                    }
+                })
+                // next page assignment
+                moreButton.disabled = !pagination.hasNextPage;
+                getNextPage = pagination.hasNextPage && function () {
+                    pagination.nextPage();
+                };
+            }
         }
     );
 };

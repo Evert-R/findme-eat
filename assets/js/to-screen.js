@@ -29,8 +29,9 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
         } else {
             imageUri = '';
         }
-        // generate open icon
-        if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present
+
+        // generate open/closed icon
+        if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present (turned off november 2020)
             if (restaurant.opening_hours.open_now == true) { // set open now
                 var openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`
             } else { // set closed now
@@ -39,6 +40,8 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
         } else { // leave blank
             var openNow = ``;
         }
+
+
         // Generate rating width 
         let starRating = (restaurant.rating * 20).toFixed();
         // generate price level width
@@ -296,7 +299,7 @@ function logErrors(status, source) {
     console.log(status, source);
     if (source == 'route') { // errors specific to the directions api
         if ((status == 'MAX_ROUTE_LENGTH_EXCEEDED') || (status == 'ZERO_RESULTS') || (status == 'INVALID_REQUEST')) {
-            return $("#er-error").html(`Sorry, but that's<br>way too far<br><br>to get something<br>to eat<br><br>Try something local`)
+            return $("#er-error").html(`Sorry, but that's<br>way too far<br>to get something<br>to eat<br><br>Consider to try<br>something local ;-)<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button>`)
         }
     } else if (source == 'place') { // errors specific to the places api
         if (status == 'ZERO_RESULTS') {

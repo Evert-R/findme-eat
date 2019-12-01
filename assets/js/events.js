@@ -12,6 +12,7 @@ function switchSection(goTo) {
     const mapSwitch = $("#er-map-switch");
     const dirSwitch = $("#er-direction-switch");
     const various = $("#er-various-section");
+
     settings.slideUp(); // allways close settings when switching
 
     function hideAll() { // hide all sections
@@ -67,6 +68,7 @@ function switchSection(goTo) {
             showAll();
             details.slideDown(0);
         }
+
         $('#er-details-reviews').slideUp(1000);
         $('#er-details-photos').slideUp(1000);
         $('#er-details-main').slideDown(1000);
