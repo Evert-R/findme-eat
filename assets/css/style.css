@@ -274,6 +274,10 @@ button:focus {
     font-size: 3em;
 }
 
+.er-menu-screen {
+    font-size: 2em;
+}
+
 #er-cuisine {
     width: 100%;
 }

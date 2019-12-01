@@ -42,6 +42,7 @@ function switchSection(goTo) {
         mapSwitch.slideUp(0);
         detailSwitch.slideUp(0);
         dirSwitch.slideUp(0);
+        $('#er-exit-switch').slideUp(0);
     } else if (goTo == 'results') {
         front.slideUp();
         if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
@@ -177,6 +178,10 @@ window.onload = function () {
     $("#er-menu-location").click(function () {
         checkGeo(geoSearch);
     });
+
+    $("#er-fullscreen-switch").click(function () {
+        enterFullscreen();
+    })
 
     $("#er-radius").change(function () { // watch the radius slider and update value
         console.log(this.value);

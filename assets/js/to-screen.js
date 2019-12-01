@@ -1,8 +1,7 @@
 function showResults(restaurants, currentPosition, searchType) { // push searchresults to the screen
 
-    if (restaurants == undefined) {
-        logErrors('UNKNOWN_ERROR');
-    }
+
+
     console.log(restaurants);
     // prepare variables to display above the list
     if ($("#vegan").is(":checked")) {
@@ -293,6 +292,19 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
     switchSection('details'); // show the details page
 }
 
+function enterFullscreen() {
+    if (document.fullscreenEnabled = true) {
+        if (document.requestFullscreen) {
+            document.requestFullscreen();
+        } else if (document.mozRequestFullScreen) { /* Firefox */
+            document.mozRequestFullScreen();
+        } else if (document.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            document.webkitRequestFullscreen();
+        } else if (document.msRequestFullscreen) { /* IE/Edge */
+            document.msRequestFullscreen();
+        }
+    }
+}
 
 function logErrors(status, source) {
     switchSection('error');
