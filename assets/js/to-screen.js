@@ -293,17 +293,31 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
 }
 
 function enterFullscreen() {
-    if (document.fullscreenEnabled = true) {
-        if (document.requestFullscreen) {
-            document.requestFullscreen();
-        } else if (document.mozRequestFullScreen) { /* Firefox */
-            document.mozRequestFullScreen();
-        } else if (document.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            document.webkitRequestFullscreen();
-        } else if (document.msRequestFullscreen) { /* IE/Edge */
-            document.msRequestFullscreen();
+    if (document.documentElement.fullscreenEnabled = true) {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+            document.documentElement.msRequestFullscreen();
         }
     }
+}
+
+function exitFullscreen() {
+
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozExitFullScreen) { /* Firefox */
+        document.mozExitFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+        document.msExitFullscreen();
+    }
+
 }
 
 function logErrors(status, source) {

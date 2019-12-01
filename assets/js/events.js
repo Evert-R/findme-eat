@@ -180,7 +180,17 @@ window.onload = function () {
     });
 
     $("#er-fullscreen-switch").click(function () {
+        $(".er-header-settings").slideUp();
+        $("#er-exit-switch").slideDown(0);
+        $("#er-fullscreen-switch").slideUp(0);
         enterFullscreen();
+    })
+
+    $("#er-exit-switch").click(function () {
+        $(".er-header-settings").slideUp();
+        $("#er-exit-switch").slideUp(0);
+        $("#er-fullscreen-switch").slideDown(0);
+        exitFullscreen();
     })
 
     $("#er-radius").change(function () { // watch the radius slider and update value
