@@ -4,6 +4,7 @@ var infowindow; // create infowindow variable for the map
 var blueMarker;
 var userLocation;
 
+
 function mapOptions() { // style options for all maps
     return {
         disableDefaultUI: true,
@@ -286,7 +287,7 @@ function mapOptions() { // style options for all maps
 
 function getRadius() { // get sort method from options
     console.log($("#er-radius").val())
-    return $("#er-radius").val()
+    return $("#er-radius").val();
 }
 
 function getCuisine() { // get cuisine type from options
@@ -333,30 +334,27 @@ function checkGeo(callback) { // get current location
     )
 };
 
-function initMap(currentPosition) {
-    console.log('yo')
-    $(".er-header-settings").slideUp(); // close settings panel
-    switchSection('map'); //show map so the markers can fit the bounds    
+function initMap() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions()); // Create the map.
 };
 
-function geoSearch(currentPosition) {
+function geoSearch(currentPosition, location, searchInput) {
 
-    if (currentPosition == 'NOGEO') { // check if lcoation is known
-        return logErrors('NOGEO')
+    if (currentPosition != 'NOGEO') {
+        location = currentPosition;
     }
-    initMap(); // create the map 
+    switchSection('map');
     var service = new google.maps.places.PlacesService(map); // Connect to the places api
     service.nearbySearch( // Perform a nearby search
         {
-            location: currentPosition,
+            location: location,
             radius: getRadius(),
             type: ['restaurant'],
             keyword: ['vegetarian' + getVeg() + getCuisine()],
             openNow: getOpen(),
         },
         function (results, status, pagination) {
-            processResults(results, status, pagination, currentPosition);
+            processResults(results, status, pagination, currentPosition, searchInput);
         }
     );
 }
@@ -365,21 +363,28 @@ function checkSearchInput(searchInput) {
     if (searchInput == '') { // Nothing entered? error
         logErrors('NOINPUT', 'place');
     } else {
-        manualSearch(searchInput);
+        geoCode(searchInput);
     };
 }
 
+function geoCode(searchInput) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': searchInput }, function (results, status) {
+        if (status === 'OK') {
+            console.log(results[0].geometry.location);
+            geoSearch('NOGEO', results[0].geometry.location, searchInput);
+        } else {
+            logErrors('NOINPUT', 'place');
+        }
+    })
+}
+
+
+
 
 function manualSearch(searchInput) {
-    // assign the more button
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
+    switchSection('map');
 
-    initMap(); // create the map
     var service = new google.maps.places.PlacesService(map); // connect to the places api
     service.textSearch( // Perform the manual search
         {
@@ -391,7 +396,28 @@ function manualSearch(searchInput) {
             processResults(results, status, pagination, 'NOGEO', searchInput);
         }
     );
+
 }
+
+function manualGeoSearch(searchInput, location) {
+    switchSection('map');
+    var service = new google.maps.places.PlacesService(map); // connect to the places api
+    console.log(location);
+    console.log(getRadius());
+    service.textSearch( // Perform the manual search
+        {
+            query: ' AND vegetarian' + getCuisine() + getVeg(),
+            type: ['restaurant'],
+            openNow: getOpen(),
+            location: location,
+            radius: getRadius()
+        },
+        function (results, status, pagination) {
+            processResults(results, status, pagination, 'NOGEO', searchInput);
+        }
+    );
+}
+
 
 function restaurantDetails(place_id) { // get restaurant details
     // scoll to top of the page
@@ -513,7 +539,6 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
         })
     })
 }
-
 
 
 

@@ -74,23 +74,6 @@ label {
     padding: 0;
 }
 
-input, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-}
-
-input[type=text] {
-    color: rgba(87, 93, 65);
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-left: 2em;
-    border-radius: 0.6em;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-color: rgba(87, 93, 65, 0.4);
-    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-}
-
 button:focus {
     outline: 0;
 }
@@ -327,6 +310,49 @@ button:focus {
     padding-top: 1vh;
     width: 60vw;
     float: left;
+}
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input[type=text] {
+    color: rgba(87, 93, 65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 2em;
+    border-radius: 0.6em;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(87, 93, 65, 0.4);
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
+.pac-container {
+    margin-top: -23vh;
+    color: rgba(87, 93, 65);
+    background-color: rgba(165, 176, 118);
+    border-color: rgba(87, 93, 65, 0.4);
+    border-radius: 0.6em;
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
+.pac-item {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9em;
+    color: rgba(87, 93, 65);
+}
+
+.pac-item-query {
+    font-size: 0.8em;
+    color: rgba(87, 93, 65);
+}
+
+.pac-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    ;
 }
 
 /* ----------------------------------------Sections */

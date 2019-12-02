@@ -203,7 +203,25 @@ window.onload = function () {
         alert("Sorry, we don't find meat ;-)");
         $('#vegetarian').prop('checked', true);
     });
+
+    initMap();
+    google.maps.event.addDomListener(window, 'load', autoComplete);
+    autoComplete()
 }
+
+function autoComplete() {
+    initMap;
+    var sessionToken = new google.maps.places.AutocompleteSessionToken();
+    var options = {
+        types: ['cities'],
+        sessionToken: sessionToken
+    };
+    var input = document.getElementById('er-search-input');
+    new google.maps.places.Autocomplete(input);
+    var geocoder = new google.maps.Geocoder();
+}
+
+
 
 // to start screen
 switchSection('front');
