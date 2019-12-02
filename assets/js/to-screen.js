@@ -1,8 +1,6 @@
-function showResults(restaurants, currentPosition, searchType) { // push searchresults to the screen
-
-
-
+function showResults(restaurants, currentPosition, searchInput) { // push searchresults to the screen
     console.log(restaurants);
+
     // prepare variables to display above the list
     if ($("#vegan").is(":checked")) {
         var veg = ` and vegan`;
@@ -13,10 +11,10 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
     let cuisine = $("#er-cuisine").children("option:selected").val();
 
     let searchArgument; // will be displayed above the list
-    if (searchType == 'geo') {
+    if (currentPosition != 'NOGEO') {
         searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants in a ${getRadius()} meter radius around you`
     } else {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine}restaurants in ${searchType}`
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine}restaurants in ${searchInput}`
     }
 
     let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant
@@ -41,6 +39,14 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
         }
 
 
+        if (restaurant.hasOwnProperty('vicinity')) {
+            var address = restaurant.vicinity
+        } else if (restaurant.hasOwnProperty('formatted_address')) {
+            var address = restaurant.formatted_address
+        } else {
+            var address = ''
+        }
+
         // Generate rating width 
         let starRating = (restaurant.rating * 20).toFixed();
         // generate price level width
@@ -50,7 +56,7 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
             var priceLevel = '0';
         }
         // calculate the distance to the restaurant
-        let distance;
+        var distance;
         if (currentPosition != 'NOGEO') {
             distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km`;
         } else {
@@ -71,7 +77,7 @@ function showResults(restaurants, currentPosition, searchType) { // push searchr
                                 <div class="er-list-name">
                                     <h3>${restaurant.name}</h3>
                                     <p class="er-distance">${distance}</p>
-                                    <p class="er-address">${restaurant.vicinity}</p>
+                                    <p class="er-address">${address}</p>
                                 </div>                    
                             </td>
                             <td class="er-cell-rating">

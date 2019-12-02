@@ -345,15 +345,6 @@ function geoSearch(currentPosition) {
     if (currentPosition == 'NOGEO') { // check if lcoation is known
         return logErrors('NOGEO')
     }
-
-    // assign the more button
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        console.log()
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
     initMap(); // create the map 
     var service = new google.maps.places.PlacesService(map); // Connect to the places api
     service.nearbySearch( // Perform a nearby search
@@ -365,34 +356,9 @@ function geoSearch(currentPosition) {
             openNow: getOpen(),
         },
         function (results, status, pagination) {
-            console.log(status);
-            if (status !== 'OK') {
-                logErrors(status, 'place'); // push error to page
-                return;
-            }
-            // get the generated resultslist and push to screen
-            if (results == undefined) {
-                return logErrors('UNKNOWN_ERROR');
-            } else {
-                $("#er-search-results").html(showResults(results, currentPosition, 'geo'));
-                console.log(results);
-                createMarkers(results) // Plot the markers on the map
-                if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
-                    setTimeout(function () { // wait a bit to show the mapresults
-                        switchSection('results');
-                        slideList(); // then show list
-                    }, 2000);
-                } else { // on other devices
-                    switchSection('results'); // show directly
-                    slideList(); // then show list                
-                }
-                // next page assignment
-                moreButton.disabled = !pagination.hasNextPage;
-                getNextPage = pagination.hasNextPage && function () {
-                    pagination.nextPage();
-                };
-            }
-        });
+            processResults(results, status, pagination, currentPosition);
+        }
+    );
 }
 
 function checkSearchInput(searchInput) {
@@ -422,37 +388,10 @@ function manualSearch(searchInput) {
             openNow: getOpen()
         },
         function (results, status, pagination) {
-            if (status !== 'OK') {
-                logErrors(status, 'place');
-                return;
-            }
-
-            if (results == undefined) { // make sure something exists
-                return logErrors('UNKNOWN_ERROR');
-            } else { // get the generated resultslist and push to screen
-                checkGeo(function (currentPosition) {
-                    $("#er-search-results").html(showResults(results, currentPosition, searchInput)); // push details to screen
-                    console.log(results);
-                    createMarkers(results) // Plot the markers on the map
-                    if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
-                        setTimeout(function () { // wait a bit to show the mapresults
-                            switchSection('results');
-                            slideList(); // then show list
-                        }, 2000);
-                    } else { // on other devices
-                        switchSection('results');
-                        slideList(); // show directly
-                    }
-                })
-                // next page assignment
-                moreButton.disabled = !pagination.hasNextPage;
-                getNextPage = pagination.hasNextPage && function () {
-                    pagination.nextPage();
-                };
-            }
+            processResults(results, status, pagination, 'NOGEO', searchInput);
         }
     );
-};
+}
 
 function restaurantDetails(place_id) { // get restaurant details
     // scoll to top of the page
