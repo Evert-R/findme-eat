@@ -423,7 +423,7 @@ function restaurantDetails(place_id) { // get restaurant details
     $('#er-details-section').animate({ scrollTop: 0 }, 'slow');
     var requestDetails = { // generate search argument
         placeId: place_id,
-        fields: ['reviews', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
+        fields: ['reviews', 'opening_hours', 'website', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
     };
     service = new google.maps.places.PlacesService(map); // connect to the api
     service.getDetails(requestDetails, showRestaurantDetails); // get details an push to callback

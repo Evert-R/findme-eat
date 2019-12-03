@@ -40,9 +40,9 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
 
 
         if (restaurant.hasOwnProperty('vicinity')) {
-            var address = restaurant.vicinity
+            var address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.vicinity
         } else if (restaurant.hasOwnProperty('formatted_address')) {
-            var address = restaurant.formatted_address
+            var address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.formatted_address
         } else {
             var address = ''
         }
@@ -58,7 +58,7 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
         // calculate the distance to the restaurant
         var distance;
         if (currentPosition != 'NOGEO') {
-            distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km`;
+            distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
         } else {
             distance = ''
         };
@@ -76,8 +76,8 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
                             <td class="er-cell-name">
                                 <div class="er-list-name">
                                     <h3>${restaurant.name}</h3>
-                                    <p class="er-distance">${distance} <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i></p>
-                                    <p class="er-address"><i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i> ${address}</p>
+                                    <p class="er-distance">${distance}</p>
+                                    <p class="er-address">${address}</p>
                                 </div>                    
                             </td>
                             <td class="er-cell-rating">
@@ -150,8 +150,9 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
         $("#er-details-section").css("background-image", backGround);
 
         // create place type list
-        let placeTypes = place.types.map(function (placeType) {
-            return `<div>${placeType}</div>`
+        console.log(place.opening_hours.weekday_text);
+        let openingHours = place.opening_hours.weekday_text.map(function (hours) {
+            return `<p>${hours}</p>`
         });
 
         let fullAddress = place.adr_address.split(","); // create adress array
@@ -259,23 +260,32 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                         <td class="er-cell-third er-details-address">
                             ${fullAddress.join("<br>")}
                         </td>
-                        <td class="er-cell-2third-right er-details-icons">                               
-                                <button onclick="showPhotos()">
-                                    <i aria-hidden="true" class="fas fa-camera-retro"></i>
-                                    <span class="sr-only">Show restaurant photos</span>
+                        <td class="er-cell-2third-right er-details-icons">
+                            <a href="${place.website}" target="blank">
+                                <button>
+                                    <i aria-hidden="true" class="fas fa-globe"></i>                         
+                                    <span class="sr-only">Goto the website</span>
                                 </button>
-                                <button onclick="showReviews()">
-                                    <i aria-hidden="true" class="fas fa-comment"></i>
-                                    <span class="sr-only">Show restaurant reviews</span>
-                                </button> 
-                                <button onclick="initDirectionMap('${place.place_id}')">
-                                    <i aria-hidden="true" class="fas fa-directions"></i>
-                                    <span class="sr-only">Get directions</span>
-                                </button>                            
+                            </a>                                
+                            <button onclick="showPhotos()">
+                                <i aria-hidden="true" class="fas fa-camera-retro"></i>
+                                <span class="sr-only">Show restaurant photos</span>
+                            </button>
+                            <button onclick="showReviews()">
+                                <i aria-hidden="true" class="fas fa-comment"></i>
+                                <span class="sr-only">Show restaurant reviews</span>
+                            </button> 
+                            <button onclick="initDirectionMap('${place.place_id}')">
+                                <i aria-hidden="true" class="fas fa-directions"></i>
+                                <span class="sr-only">Get directions</span>
+                            </button>                            
                         </td>
                     </tr>
                 </table>
             </div>
+                <div class="er-details-opening">
+                    ${openingHours.join("\n")}
+               </div>
             <div class="er-reviews-mainwrap">
                 <div class="col-12 er-details-photo">
                     </div>

@@ -99,7 +99,7 @@ input:focus, button:focus {
     border-radius: 5px;
     -webkit-transition: all .4s;
     -o-transition: all .4s;
-    transition: al .4s;
+    transition: all .4s;
 }
 
 .er-green-button button:hover {
@@ -396,16 +396,30 @@ input[type=text] {
 #direction-map button {}
 
 .er-direction-buttons {
-    font-size: 2.5em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    font-size: 2em;
     z-index: 1;
     position: absolute;
     right: 0.1em;
     top: 50%;
     transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(87, 93, 65);
+    border-radius: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+    cursor: pointer;
 }
 
-.er-direction-buttons img {
-    width: 1.2em;
+.er-direction-buttons:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(87, 93, 65, 0.4);
+}
+
+.er-direction-buttons:active {
+    color: rgba(87, 93, 65, 0.9);
+    text-decoration: none;
 }
 
 /* ---------------------------------------- Front Section */
@@ -675,6 +689,12 @@ input[type=text] {
     font-family: 'indie flower';
 }
 
+.er-details-opening {
+    padding-top: 2em;
+    text-align: center;
+    font-size: 1em;
+}
+
 .er-reviews-mainwrap {
     padding-top: 1em;
 }
@@ -726,6 +746,12 @@ input[type=text] {
 
 .er-details-address {
     padding-left: 1.5em;
+}
+
+.er-cell-third-left {
+    text-align: left;
+    width: 35%;
+    padding-left: 1em;
 }
 
 .er-cell-third {
