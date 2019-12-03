@@ -1,6 +1,4 @@
 function processResults(results, status, pagination, currentPosition, searchInput) {
-
-
     // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
@@ -20,7 +18,7 @@ function processResults(results, status, pagination, currentPosition, searchInpu
     } else {
         $("#er-search-results").html(showResults(results, currentPosition, searchInput));
         console.log(results);
-        createMarkers(results) // Plot the markers on the map
+        createMarkers(results, currentPosition) // Plot the markers on the map
         if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
             setTimeout(function () { // wait a bit to show the mapresults
                 switchSection('results');

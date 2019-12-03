@@ -28,6 +28,7 @@ function switchSection(goTo) {
     function showAll() { // show all sections
         front.slideUp(0);
         results.slideDown(0);
+        details.slideDown(0);
         various.slideUp(0);
         resultsMap.slideDown(0);
         dirMap.slideUp(0);

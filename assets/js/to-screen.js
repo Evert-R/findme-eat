@@ -76,8 +76,8 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
                             <td class="er-cell-name">
                                 <div class="er-list-name">
                                     <h3>${restaurant.name}</h3>
-                                    <p class="er-distance">${distance}</p>
-                                    <p class="er-address">${address}</p>
+                                    <p class="er-distance">${distance} <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i></p>
+                                    <p class="er-address"><i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i> ${address}</p>
                                 </div>                    
                             </td>
                             <td class="er-cell-rating">
@@ -94,6 +94,8 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
                                 </div>                    
                             </td>
                             <td class="er-cell-open">
+                                <i aria-hidden="true" class="fa fa-clock er-clock er-list-icon"></i><br><br>
+                                <span class="sr-only">Open / closed</span>
                                 ${openNow}
                             </td>          
                         </tr>

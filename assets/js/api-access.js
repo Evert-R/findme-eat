@@ -429,7 +429,7 @@ function restaurantDetails(place_id) { // get restaurant details
     service.getDetails(requestDetails, showRestaurantDetails); // get details an push to callback
 }
 
-function createMarkers(places) { // plot markers to the map
+function createMarkers(places, currentPosition) { // plot markers to the map
     console.log('jaja')
     var bounds = new google.maps.LatLngBounds();
     infowindow = new google.maps.InfoWindow({ // create empty infowindow
@@ -484,6 +484,14 @@ function createMarkers(places) { // plot markers to the map
         bounds.extend(place.geometry.location); // add this place to the bounds
     };
     map.fitBounds(bounds); // fit markers on the map
+
+    if (currentPosition != 'NOGEO') {
+        var currentMarker = new google.maps.Marker({ // place blue marker on current position
+            map: map,
+            icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
+            position: currentPosition
+        });
+    }
 };
 
 
@@ -528,7 +536,7 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
 
     blueMarker = new google.maps.Marker({ // place blue marker on current position
         map: directionMap,
-        icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" },
+        icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
         position: currentPosition
     });
 
