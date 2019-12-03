@@ -1,16 +1,13 @@
 function showResults(restaurants, currentPosition, searchInput) { // push searchresults to the screen
-    console.log(restaurants);
-
     // prepare variables to display above the list
     if ($("#vegan").is(":checked")) {
         var veg = ` and vegan`;
     } else {
         var veg = '';
     }
-
     let cuisine = $("#er-cuisine").children("option:selected").val();
-
     let searchArgument; // will be displayed above the list
+    //  prepare search argument
     if (currentPosition != 'NOGEO') {
         searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants in a ${getRadius()} meter radius around you`
     } else {
@@ -18,13 +15,11 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
     }
 
     let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant
-        console.log(restaurant);
         // Prepare variables for display in the list items
-        let imageUri;
         if (restaurant.hasOwnProperty('photos')) { // if photo exists get url
-            imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+            var imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
         } else {
-            imageUri = '';
+            var imageUri = 'assets/images/Restaurant-icon.png';
         }
 
         // generate open/closed icon
@@ -37,8 +32,7 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
         } else { // leave blank
             var openNow = ``;
         }
-
-
+        // prepare adress 
         if (restaurant.hasOwnProperty('vicinity')) {
             var address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.vicinity
         } else if (restaurant.hasOwnProperty('formatted_address')) {
@@ -47,7 +41,7 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
             var address = ''
         }
 
-        // Generate rating width 
+        // Generate rating width for stars
         let starRating = (restaurant.rating * 20).toFixed();
         // generate price level width
         if (restaurant.price_level != NaN) {
@@ -55,8 +49,9 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
         } else {
             var priceLevel = '0';
         }
+
         // calculate the distance to the restaurant
-        var distance;
+        let distance;
         if (currentPosition != 'NOGEO') {
             distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
         } else {
@@ -140,33 +135,54 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
 function showRestaurantDetails(place, status) { // push restaurant details to the screen
 
     if (status == google.maps.places.PlacesServiceStatus.OK) { // check if error
-        // Prepare variables
-        let photoItems = place.photos.map(function (photo) { // create list of photos
-            imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-            return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`
-        });
-        // use first photo for the details page background
-        let backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
-        $("#er-details-section").css("background-image", backGround);
 
-        // create place type list
-        console.log(place.opening_hours.weekday_text);
-        let openingHours = place.opening_hours.weekday_text.map(function (hours) {
-            return `<p>${hours}</p>`
-        });
+        // Prepare variables for detail page
 
-        let fullAddress = place.adr_address.split(","); // create adress array
-        let latestRating = (place.reviews[0].rating * 20).toFixed(); // generate latest rating width
-        // prepare latest review excerpt
-        let latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
-        //  let mainPhoto = place.photos[1].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+        if (place.hasOwnProperty('photos')) {
+            let items = place.photos.map(function (photo) { // create list of photos
+                imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
+                return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`
+            });
+            var photoItems = items.join("\n");
+            // use first photo for the details page background
+            var backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
+            $("#er-details-section").css("background-image", backGround);
+        } else photoItems = '';
 
-        // create review section
-        let reviewList = place.reviews.map(function (review, index) { // cycle through reviews
-            let starRating = (review.rating * 20).toFixed(); // prepare star rating width
-            if (index % 2 == 0) { // mirror reviews based on even/uneven
-                // return the reviews
-                return `
+        // create list of opening hours
+        if (place.hasOwnProperty('opening_hours')) {
+            let hours = place.opening_hours.weekday_text.map(function (hours) {
+                return `<p>${hours}</p>`
+            });
+            var openingHours = hours.join("\n");
+        } else {
+            var openingHours = '';
+        }
+
+        if (place.hasOwnProperty('adr_address')) {
+            var fullAddress = place.adr_address.split(","); // create adress array
+        }
+        if (place.hasOwnProperty('website')) {
+            var webSite = `<a href="${place.website}" target="blank">
+                                <button>
+                                    <i aria-hidden="true" class="fas fa-globe"></i>                         
+                                    <span class="sr-only">Goto the website</span>
+                                </button>
+                            </a>`
+        } else {
+            var webSite = '';
+        }
+
+        if (place.hasOwnProperty('reviews')) {
+            var latestRating = (place.reviews[0].rating * 20).toFixed(); // generate latest rating width
+            // prepare latest review excerpt
+            var latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
+            // create review section
+            var reviews = place.reviews.map(function (review, index) { // cycle through reviews
+                let starRating = (review.rating * 20).toFixed(); // prepare star rating width
+                if (index % 2 == 0) { // mirror reviews based on even/uneven
+                    // return the reviews
+                    return `
                     <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
                             <tr>
@@ -197,7 +213,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                         </table>
                     </div>
                         `} else {
-                return `
+                    return `
                      <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
                                 <tr>
@@ -227,7 +243,11 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                                 </table>
                         </div>    
                                 `}
-        });
+            });
+            var reviewList = reviews.join("\n");
+        } else {
+            reviewList = '';
+        }
 
         // push details to screen
         $("#er-details").html(`
@@ -261,12 +281,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                             ${fullAddress.join("<br>")}
                         </td>
                         <td class="er-cell-2third-right er-details-icons">
-                            <a href="${place.website}" target="blank">
-                                <button>
-                                    <i aria-hidden="true" class="fas fa-globe"></i>                         
-                                    <span class="sr-only">Goto the website</span>
-                                </button>
-                            </a>                                
+                            ${webSite}                             
                             <button onclick="showPhotos()">
                                 <i aria-hidden="true" class="fas fa-camera-retro"></i>
                                 <span class="sr-only">Show restaurant photos</span>
@@ -284,7 +299,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                 </table>
             </div>
                 <div class="er-details-opening">
-                    ${openingHours.join("\n")}
+                    ${openingHours}
                </div>
             <div class="er-reviews-mainwrap">
                 <div class="col-12 er-details-photo">
@@ -295,13 +310,13 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                 <div class="er-details-title" onclick="switchSection('details')">
                     <h2>↓</h2>
                 </div>
-                    ${reviewList.join("\n")}
+                    ${reviewList}
                 </div>
                 <div id="er-details-photos">
                 <div class="er-details-title" onclick="switchSection('details')">
                     <h2>↓</h2>
                 </div>
-                    ${photoItems.join("\n")} 
+                    ${photoItems} 
                 </div>
             `);
     } else {
