@@ -339,7 +339,6 @@ function initMap() {
 };
 
 function geoSearch(currentPosition, location, searchInput) {
-
     if (currentPosition != 'NOGEO') {
         location = currentPosition;
     }
@@ -488,9 +487,9 @@ function createMarkers(places) { // plot markers to the map
 };
 
 
-var userLocation;
+
 function initDirectionMap(placeId) {
-    console.log(userLocation);
+
     directionMap = '';
     switchSection('directions'); // show direction map
     checkGeo(function (currentPosition) { // get current location
