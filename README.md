@@ -38,14 +38,14 @@ The main focus will be on mobile devices as its main purpose is to be used on th
  
 ### Basic features
 - Geographical search
-- Manual search
-- Select radius for geo-search
+- Manual search (other cities and regions)
+- Select radius for both searches
 - Select vehicle for directions
 - Select only open restaurants
 - View adress details
-- view revies
+- view the last five revies
 - view all available photos
-- Get directions from you location 
+- Get directions from your location 
 - Created for 360 x 640 most common mobile
 
 ### Optional Features to be implemented later
@@ -106,16 +106,29 @@ As it will require a different and more expensive approach: a place detail searc
 #### 768 - 992
 
 
-##### 992 - 1200
+#### 992 - 1200
 
 
-##### 1200 - 1920
+#### 1200 - 1920
 
 
 ### Known issues
 
 
-### Fixed issues
+### Found & fixed issues
+
+#### Issue: 
+While testing very remote regions I discovered that sometimes certain keys, like reviews / photos and addresses, were not present in the place object and then the api server would either produce an error or the page would show a broken image or undefined parameter on screen.
+##### Solution:
+- Build in failsafes to first test for availabilty and in that case produce an empty string or a standard image. 
+#### Issue:
+While testing with manual searches I discovered it did not allways point to the right region when using a query.
+##### Solution:
+- Added the geocoding library to convert city/region names into coordinates so a nearby search can be used. With this method the radius parameter in the settings panel now also works for this kind of searches 
+#### Issue:
+- While testing 'on location' in Amsterdam I found out it was impossible to see where you are on the results-map.
+##### Solution:
+- Added a blue pin so you can see where you are in the resultsmap.
 
 
 ## Deployment
@@ -136,7 +149,7 @@ The Github pages are now being built.
 
 ### Local
 To clone this website locally use the following command in your terminal:
-- ```git clone https://github.com/Evert-R/milestone-one.git```
+- ```git clone https://github.com/Evert-R/milestone-two.git```
 
 To cut ties with this repository:
 - ```git remote rm origin```
@@ -146,22 +159,23 @@ To cut ties with this repository:
 
 ## Credits
 - The methods for accessing the google maps api's are based on the api's documentation
-    - [Documentation](https://developers.google.com/maps/documentation/javascript/tutorial)
+    - [Tutorials](https://developers.google.com/maps/documentation/javascript/tutorial)
+    - [Documentation](https://developers.google.com/maps/documentation/javascript/places)
 
 ### Content
 - [Evert Rot](https://evertrot.nl)
     - Webdesign/coding
-    - Text in the about section
-- [Starrating image](http://www.pngmart.com/image/tag/star-rating)
+- [Star-rating image](http://www.pngmart.com/image/tag/star-rating)
 - [Pricing image](https://www.pngfly.com/png-1ukbp8/download.html)
 - [Inspiration for collapsible list-items](https://www.w3schools.com/howto/howto_js_collapsible.asp)
 
 ### Api
 - [Google Places library](https://developers.google.com/maps/documentation/javascript/places)
     - Search for places, plot them on a map and retrieve detailed information
--  [Google Directions](https://developers.google.com/maps/documentation/javascript/directions)
+- [Google Directions](https://developers.google.com/maps/documentation/javascript/directions)
     - Finding the route to a restaurant and plot this on a map
-
+- [Google Geocoding library](https://developers.google.com/maps/documentation/javascript/geocoding)
+    - Convert city/region name to coördinates
 
 
 
