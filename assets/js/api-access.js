@@ -1,7 +1,7 @@
 var map; // create map variable
 var directionMap; // create directions map variable
-var infowindow; // create infowindow variable for the map
-var blueMarker; // create updatable marker for direction map
+
+
 
 function mapOptions() { // style options for all maps
     return {
@@ -386,9 +386,8 @@ function restaurantDetails(place_id) { // get restaurant details
 }
 
 function createMarkers(places, currentPosition) { // plot markers to the map
-
     var bounds = new google.maps.LatLngBounds();
-    infowindow = new google.maps.InfoWindow({ // create empty infowindow
+    var infowindow = new google.maps.InfoWindow({ // create empty infowindow
         content: ''
     });
 
@@ -463,6 +462,7 @@ function initDirectionMap(placeId) {
 }
 
 function calcRoute(placeId, currentPosition) { // plot route on the map
+    var blueMarker; // create updatable marker for direction map
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
 
