@@ -140,8 +140,8 @@ function showReviews() { // show reviews on details page
 function slideList() { // slide all searchresults to startposition
     $(".er-list-collapse").each(function () { // loop through list
         $(this).slideUp(500); // slide to startposition 
-    })
-};
+    });
+}
 
 
 window.onload = function () {
@@ -152,7 +152,7 @@ window.onload = function () {
 
     $("#er-search-button").click(function () { // manual search input
         checkSearchInput($("#er-search-input").val());
-    })
+    });
 
 
     // add click events to header items
@@ -185,19 +185,19 @@ window.onload = function () {
         $("#er-exit-switch").slideDown(0);
         $("#er-fullscreen-switch").slideUp(0);
         enterFullscreen();
-    })
+    });
 
     $("#er-exit-switch").click(function () {
         $(".er-header-settings").slideUp();
         $("#er-exit-switch").slideUp(0);
         $("#er-fullscreen-switch").slideDown(0);
         exitFullscreen();
-    })
+    });
 
     $("#er-radius").change(function () { // watch the radius slider and update value
         console.log(this.value);
         $("#er-radius-value").html(this.value);
-    })
+    });
 
     // implement little joke
     $("#vegetarian").click(function () {
@@ -207,11 +207,10 @@ window.onload = function () {
 
     initMap();
     google.maps.event.addDomListener(window, 'load', autoComplete);
-    autoComplete()
-}
+    autoComplete();
+};
 
 function autoComplete() {
-    initMap;
     var sessionToken = new google.maps.places.AutocompleteSessionToken();
     var options = {
         types: ['cities'],

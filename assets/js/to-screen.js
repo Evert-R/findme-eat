@@ -1,53 +1,58 @@
 function showResults(restaurants, currentPosition, searchInput) { // push searchresults to the screen
     // prepare variables to display above the list
+    let veg;
     if ($("#vegan").is(":checked")) {
-        var veg = ` and vegan`;
+        veg = ` and vegan`;
     } else {
-        var veg = '';
+        veg = '';
     }
     let cuisine = $("#er-cuisine").children("option:selected").val();
     let searchArgument; // will be displayed above the list
     //  prepare search argument
     if (currentPosition != 'NOGEO') {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants in a ${getRadius()} meter radius around you`
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants in a ${getRadius()} meter radius around you`;
     } else {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine}restaurants in ${searchInput}`
+        searchArgument = `We searched for vegetarian ${veg} ${cuisine}restaurants in ${searchInput}`;
     }
 
     let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant
         // Prepare variables for display in the list items
+        let imageUri;
         if (restaurant.hasOwnProperty('photos')) { // if photo exists get url
-            var imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
+            imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
         } else {
-            var imageUri = 'assets/images/Restaurant-icon.png';
+            imageUri = 'assets/images/Restaurant-icon.png';
         }
 
         // generate open/closed icon
-        if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present (turned off november 2020)
+        let openNow;
+        if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present (turned off november 2020)        
             if (restaurant.opening_hours.open_now == true) { // set open now
-                var openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`
+                openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`;
             } else { // set closed now
-                var openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`
+                openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`;
             }
         } else { // leave blank
-            var openNow = ``;
+            openNow = ``;
         }
-        // prepare adress 
+        // prepare adress
+        let address;
         if (restaurant.hasOwnProperty('vicinity')) {
-            var address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.vicinity
+            address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.vicinity;
         } else if (restaurant.hasOwnProperty('formatted_address')) {
-            var address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.formatted_address
+            address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.formatted_address;
         } else {
-            var address = ''
+            address = '';
         }
 
         // Generate rating width for stars
         let starRating = (restaurant.rating * 20).toFixed();
         // generate price level width
-        if (restaurant.price_level != NaN) {
-            var priceLevel = (restaurant.price_level * 20).toFixed();
+        let priceLevel;
+        if (isNaN(restaurant.price_level) == false) {
+            priceLevel = (restaurant.price_level * 20).toFixed();
         } else {
-            var priceLevel = '0';
+            priceLevel = '0';
         }
 
         // calculate the distance to the restaurant
@@ -55,8 +60,8 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
         if (currentPosition != 'NOGEO') {
             distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
         } else {
-            distance = ''
-        };
+            distance = '';
+        }
 
         // generate html list items
         return `
@@ -120,7 +125,8 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
                     </table>                        
                 </div>
             </div>
-            `});
+            `;
+    });
     // Put items together
     return `
             <div class="er-item-list">
@@ -129,7 +135,7 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
                 </div>
                 ${listItems.join("\n")}           
             </div>
-            `
+            `;
 }
 
 function showRestaurantDetails(place, status) { // push restaurant details to the screen
@@ -138,47 +144,62 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
 
         // Prepare variables for detail page
 
+        // prepare fotolist
+        let photoItems;
+        let backGround; // use first photo for background
         if (place.hasOwnProperty('photos')) {
             let items = place.photos.map(function (photo) { // create list of photos
                 imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-                return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`
+                return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`;
             });
-            var photoItems = items.join("\n");
+            photoItems = items.join("\n");
             // use first photo for the details page background
-            var backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
+            backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
             $("#er-details-section").css("background-image", backGround);
-        } else photoItems = '';
+        } else {
+            photoItems = '';
+        }
 
-        // create list of opening hours
+        // prepare list of opening hours
+        let openingHours;
         if (place.hasOwnProperty('opening_hours')) {
             let hours = place.opening_hours.weekday_text.map(function (hours) {
-                return `<p>${hours}</p>`
+                return `<p>${hours}</p>`;
             });
-            var openingHours = hours.join("\n");
+            openingHours = hours.join("\n");
         } else {
-            var openingHours = '';
+            openingHours = '';
         }
 
+        // prepare adress
+        let fullAddress;
         if (place.hasOwnProperty('adr_address')) {
-            var fullAddress = place.adr_address.split(","); // create adress array
+            fullAddress = place.adr_address.split(","); // create adress array
         }
+
+        // Prepare Website icon/link
+        let webSite;
         if (place.hasOwnProperty('website')) {
-            var webSite = `<a href="${place.website}" target="blank">
+            webSite = `<a href="${place.website}" target="blank">
                                 <button>
                                     <i aria-hidden="true" class="fas fa-globe"></i>                         
                                     <span class="sr-only">Goto the website</span>
                                 </button>
-                            </a>`
+                            </a>`;
         } else {
-            var webSite = '';
+            webSite = '';
         }
-
+        // prepare reviews
+        let latestReview;
+        let latestRating;
+        let reviews;
+        let reviewList;
         if (place.hasOwnProperty('reviews')) {
-            var latestRating = (place.reviews[0].rating * 20).toFixed(); // generate latest rating width
+            latestRating = (place.reviews[0].rating * 20).toFixed(); // generate latest rating width
             // prepare latest review excerpt
-            var latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
+            latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
             // create review section
-            var reviews = place.reviews.map(function (review, index) { // cycle through reviews
+            reviews = place.reviews.map(function (review, index) { // cycle through reviews
                 let starRating = (review.rating * 20).toFixed(); // prepare star rating width
                 if (index % 2 == 0) { // mirror reviews based on even/uneven
                     // return the reviews
@@ -212,7 +233,8 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                             </tr>
                         </table>
                     </div>
-                        `} else {
+                        `;
+                } else {
                     return `
                      <div class="er-reviews-wrapper">
                         <table class="er-reviews-table">
@@ -242,9 +264,10 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
                                     </tr>
                                 </table>
                         </div>    
-                                `}
+                                `;
+                }
             });
-            var reviewList = reviews.join("\n");
+            reviewList = reviews.join("\n");
         } else {
             reviewList = '';
         }
@@ -321,7 +344,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
             `);
     } else {
         showErrors(status); // if there was a api error goto error section
-    };
+    }
     switchSection('details'); // show the details page
 }
 
@@ -358,24 +381,24 @@ function logErrors(status, source) {
     console.log(status, source);
     if (source == 'route') { // errors specific to the directions api
         if ((status == 'MAX_ROUTE_LENGTH_EXCEEDED') || (status == 'ZERO_RESULTS') || (status == 'INVALID_REQUEST')) {
-            return $("#er-error").html(`Sorry, but that's<br>way too far<br>to get something<br>to eat<br><br>Consider to try<br>something local ;-)<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button>`)
+            return $("#er-error").html(`Sorry, but that's<br>way too far<br>to get something<br>to eat<br><br>Consider to try<br>something local ;-)<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button>`);
         }
     } else if (source == 'place') { // errors specific to the places api
         if (status == 'ZERO_RESULTS') {
-            return $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.<br>Then Try again<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`)
+            return $("#er-error").html(`Sorry, Nothing found.<br><br>Try adjusting your settings.<br>Then Try again<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`);
         } else if (status == 'INVALID_REQUEST') {
-            return $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`)
+            return $("#er-error").html(`Sorry, we don't understand.<br><br>Try a different place.`);
         }
     }
     if (status == 'OVER_QUERY_LIMIT') { // general error codes
-        return $("#er-error").html(`Sorry, too many queries.<br><br>Please, come back a bit later.`)
+        return $("#er-error").html(`Sorry, too many queries.<br><br>Please, come back a bit later.`);
     } else if (status == 'REQUEST_DENIED') {
-        return $("#er-error").html(`Sorry, The server denied the request.<br><br>Please, come back a bit later.`)
+        return $("#er-error").html(`Sorry, The server denied the request.<br><br>Please, come back a bit later.`);
     } else if (status == 'NOINPUT') {
-        return $("#er-error").html(`Sorry, we didn't get that<br>Where do you<br>want to eat ?<br><br>You can also<br>do a search around you<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`)
+        return $("#er-error").html(`Sorry, we didn't get that<br>Where do you<br>want to eat ?<br><br>You can also<br>do a search around you<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button><br>or search in another city<br>↓`);
     } else if (status == 'NOGEO') {
-        return $("#er-error").html(`We can't see<br>where you are<br>Please do a<br>manual search`)
+        return $("#er-error").html(`We can't see<br>where you are<br>Please do a<br>manual search`);
     } else {
-        return $("#er-error").html(`Sorry, We don't know what happened here.<br><br>Please, come back a bit later.`)
+        return $("#er-error").html(`Sorry, We don't know what happened here.<br><br>Please, come back a bit later.`);
     }
-};
+}

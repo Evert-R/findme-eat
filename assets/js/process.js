@@ -3,7 +3,6 @@ function processResults(results, status, pagination, currentPosition, searchInpu
     var getNextPage = null;
     var moreButton = document.getElementById('more');
     moreButton.onclick = function () {
-        console.log()
         moreButton.disabled = true;
         if (getNextPage) getNextPage();
     };
@@ -18,7 +17,7 @@ function processResults(results, status, pagination, currentPosition, searchInpu
     } else {
         $("#er-search-results").html(showResults(results, currentPosition, searchInput));
         console.log(results);
-        createMarkers(results, currentPosition) // Plot the markers on the map
+        createMarkers(results, currentPosition); // Plot the markers on the map
         if ((window.innerWidth < 768) || ((window.innerWidth < 992) && (window.innerWidth < innerHeight))) { //on single page devices 
             setTimeout(function () { // wait a bit to show the mapresults
                 switchSection('results');
