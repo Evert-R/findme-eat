@@ -879,7 +879,7 @@ input[type=text] {
         left: 0;
         overflow-y: scroll;
     }
-    #er-details-section {
+    #er-details-section, #er-error-section {
         position: absolute;
         top: 0;
         bottom: 0;

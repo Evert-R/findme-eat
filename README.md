@@ -47,7 +47,10 @@ The main focus will be on mobile devices as its main purpose is to be used on th
 - view all available photos
 - Get directions from your location
 - Select vehicle for directions
-- Swicth to full screen mode 
+- Switch to full screen mode
+- Single column view for mobile decices
+- dual or triple column view for desktop devices
+- Auto adjust to one column for tablets in portrait mode
 
 ### Optional Features to be implemented later
 
@@ -88,6 +91,9 @@ As it will require a different and more expensive approach: a place detail searc
 
 - While testing 'on location' in Amsterdam I found out it was impossible to see where you are on the results-map.
     - Added a blue pin so you can see where you are in the resultsmap.
+
+- While testing error messages on wider screens I discovered the lay-out of the page broke when wanted to switch back to my resultslist anmd the map.
+    - I let the error section use the details-sections' position on the bigger screen modes.
 
 ### Tools
 - [w3c Markup Validation](https://validator.w3.org)

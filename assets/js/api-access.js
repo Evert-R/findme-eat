@@ -1,9 +1,7 @@
 var map; // create map variable
 var directionMap; // create directions map variable
 var infowindow; // create infowindow variable for the map
-var blueMarker;
-
-
+var blueMarker; // create updatable marker for direction map
 
 function mapOptions() { // style options for all maps
     return {
@@ -376,11 +374,6 @@ function geoCode(searchInput) { // convert region/ciry name to coordinates
     });
 }
 
-
-
-
-
-
 function restaurantDetails(place_id) { // get restaurant details
     // scoll to top of the page
     $('#er-details-section').animate({ scrollTop: 0 }, 'slow');
@@ -452,18 +445,13 @@ function createMarkers(places, currentPosition) { // plot markers to the map
     if (currentPosition != 'NOGEO') {
         let currentMarker = new google.maps.Marker({ // place blue marker on current position
             map: map,
-            icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
+            icon: { url: "https://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
             position: currentPosition
         });
     }
 }
 
-
-
 function initDirectionMap(placeId) {
-
-    directionMap = '';
-    switchSection('directions'); // show direction map
     checkGeo(function (currentPosition) { // get current location
         if (currentPosition != 'NOGEO') {
             directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
@@ -473,8 +461,6 @@ function initDirectionMap(placeId) {
         }
     });
 }
-
-
 
 function calcRoute(placeId, currentPosition) { // plot route on the map
     var directionsService = new google.maps.DirectionsService();
@@ -493,13 +479,13 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
             logErrors(status, 'route'); // show error on screen
             return;
         }
-        //       console.log(result.routes[0].legs[0]); // direction instructions for later implementation 
+        switchSection('directions'); // show direction map
         directionsRenderer.setDirections(result);
     });
 
     blueMarker = new google.maps.Marker({ // place blue marker on current position
         map: directionMap,
-        icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
+        icon: { url: "https://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
         position: currentPosition
     });
 

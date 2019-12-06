@@ -348,6 +348,17 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
     switchSection('details'); // show the details page
 }
 
+function autoComplete() {
+    var sessionToken = new google.maps.places.AutocompleteSessionToken();
+    var options = {
+        types: ['cities'],
+        sessionToken: sessionToken
+    };
+    var input = document.getElementById('er-search-input');
+    new google.maps.places.Autocomplete(input);
+    var geocoder = new google.maps.Geocoder();
+}
+
 function enterFullscreen() {
     if (document.documentElement.fullscreenEnabled = true) {
         if (document.documentElement.requestFullscreen) {
@@ -363,7 +374,6 @@ function enterFullscreen() {
 }
 
 function exitFullscreen() {
-
     if (document.exitFullscreen) {
         document.exitFullscreen();
     } else if (document.mozExitFullScreen) { /* Firefox */
@@ -373,7 +383,6 @@ function exitFullscreen() {
     } else if (document.msExitFullscreen) { /* IE/Edge */
         document.msExitFullscreen();
     }
-
 }
 
 function logErrors(status, source) {
