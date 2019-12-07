@@ -297,7 +297,10 @@ function initMap() {
 function geoSearch(currentPosition, location, searchInput) {
     switchSection('map');
     startWaitScreen(); // show preloader
-    if (currentPosition != 'NOGEO') {
+
+    if (currentPosition == 'NOGEO') {
+        return logErrors('NOGEO');
+    } else if (currentPosition != 'MANUAL') {
         location = currentPosition;
     }
 
@@ -394,7 +397,7 @@ function createMarkers(places, currentPosition) { // plot markers to the map
         bounds.extend(place.geometry.location); // add this place to the bounds
     }
     map.fitBounds(bounds); // fit markers on the map
-    if (currentPosition != 'NOGEO') {
+    if (currentPosition != 'MANUAL') {
         let currentMarker = new google.maps.Marker({ // place blue marker on current position
             map: map,
             icon: { url: "https://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
@@ -410,7 +413,7 @@ function initDirectionMap(placeId) {
             directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
             return calcRoute(placeId, currentPosition); // on succes plot route
         } else {
-            return console.log('directions via browser');
+            logErrors('NOGEO', 'route');
         }
     });
 }

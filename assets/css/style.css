@@ -150,8 +150,9 @@ input:focus, button:focus {
 }
 
 .er-details-icons button {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    display: block;
+    float: left;
+    margin: 0.5em;
     color: rgba(87, 93, 65);
     background-color: white;
     border-color: rgba(0, 0, 0, 0.5);
@@ -213,16 +214,14 @@ input:focus, button:focus {
     padding-right: 0.3em;
 }
 
-.er-title {
+#er-title {
     font-family: 'Indie Flower', cursive;
     font-size: 1.7em;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.er-title a, .er-title a:hover, .er-title a:active {
+#er-title:hover {
     cursor: pointer;
-    text-decoration: none;
-    color: inherit;
 }
 
 .er-header-settings {
@@ -635,10 +634,10 @@ input[type=text] {
 }
 
 .er-collapse-details {
-    padding-right: 1em;
+    padding-right: 0.5em;
+    padding-left: 1em;
     font-size: 1.3em;
     background-color: rgba(255, 255, 255, 0.65);
-    text-align: center;
     width: 35%;
 }
 

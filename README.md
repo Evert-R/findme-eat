@@ -83,6 +83,10 @@ As it will require a different and more expensive approach: a place detail searc
 
 ### Found & fixed issues
 
+
+- While getting directions with my location turned off I got the same error message as if I was trying to do a geographical search
+    - I made the error handling source dependent
+     
 -While testing very remote regions I discovered that sometimes certain keys, like reviews / photos and addresses, were not present in the place object and then the api server would either produce an error or the page would show a broken image or undefined parameter on screen.
     - Build in failsafes to first test for availabilty and in that case produce an empty string or a standard image. 
 

@@ -42,7 +42,7 @@ function geoCode(searchInput) { // convert region/ciry name to coordinates
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': searchInput }, function (results, status) {
         if (status === 'OK') { // do geo search from coordinastes without known current position          
-            geoSearch('NOGEO', results[0].geometry.location, searchInput);
+            geoSearch('MANUAL', results[0].geometry.location, searchInput);
         } else { // if nothing is found -> error page
             logErrors('NOINPUT', 'place');
         }
@@ -110,8 +110,8 @@ function getPriceLevel(restaurant) {
 }
 
 function getDistance(currentPosition, restaurant) {
-    if (currentPosition != 'NOGEO') {
-        return (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
+    if (currentPosition != 'MANUAL') {
+        return (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-walking er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
     } else {
         return '';
     }
@@ -130,9 +130,9 @@ function photoList(place) { // prepare photolist for details page
             let imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
             return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`;
         });
-
         return items.join("\n");
     } else {
+        $("#er-photo-list").slideUp(0); // hide photo button
         return '';
     }
 }
@@ -159,7 +159,6 @@ function fullAddress(place) { // prepare full address for details page
 
 function webSite(place) {
     // Prepare Website icon/link
-    let webSite;
     if (place.hasOwnProperty('website')) {
         return `<a href="${place.website}" target="blank">
                                     <button>
@@ -271,6 +270,7 @@ function reviewList(place) { // prepare review list for details page
         });
         return reviews.join("\n");
     } else {
+        $("#er-review-list").slideUp(0); // hide review button
         return '';
     }
 }

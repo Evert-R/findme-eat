@@ -107,9 +107,11 @@ function switchSection(goTo) {
             hideAll();
             error.removeClass('col-md-6'); // correction for portrait mode
         } else if (window.innerWidth > 768 && window.innerWidth < 1200) {
+            front.slideUp(0)
             results.slideUp(0);
             details.slideUp(0);
         } else if (window.innerWidth > 1200) {
+            front.slideUp(0);
             details.slideUp(0);
         }
         error.slideDown();
@@ -148,11 +150,9 @@ window.onload = function () {
         $(".er-header-settings").slideToggle();
     });
 
-
     $("#er-search-button").click(function () { // manual search input
         checkSearchInput($("#er-search-input").val());
     });
-
 
     // add click events to header items
     $("#er-search-switch").click(function () {
@@ -179,6 +179,7 @@ window.onload = function () {
         checkGeo(geoSearch);
     });
 
+    // attach fullscreen button
     $("#er-fullscreen-switch").click(function () {
         $(".er-header-settings").slideUp();
         $("#er-exit-switch").slideDown(0);
@@ -204,11 +205,14 @@ window.onload = function () {
         $('#vegetarian').prop('checked', true);
     });
 
+    $("#er-title").click(function () { // attach page title 
+        switchSection('front');
+    });
+
     initMap();
     google.maps.event.addDomListener(window, 'load', autoComplete);
     autoComplete();
-    // to start screen
-    switchSection('front');
+    switchSection('front'); // to start screen
 };
 
 
