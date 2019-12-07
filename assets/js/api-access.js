@@ -332,7 +332,13 @@ function restaurantDetails(place_id) { // get restaurant details
         fields: ['reviews', 'opening_hours', 'website', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
     };
     let service = new google.maps.places.PlacesService(map); // connect to the api
-    service.getDetails(requestDetails, showRestaurantDetails); // get details and push to callback
+    service.getDetails(requestDetails, function (place, status) {
+        if (status !== 'OK') {
+            logErrors(status); // if there was a api error goto error section
+        } else {
+            processDetails(place);
+        }
+    })
 }
 
 function createMarkers(places, currentPosition) { // plot markers to the map

@@ -75,214 +75,94 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
 }
 
 function showRestaurantDetails(place, status) { // push restaurant details to the screen
-
-    if (status == google.maps.places.PlacesServiceStatus.OK) { // check if error
-
-        // Prepare variables for detail page
-
-        // prepare fotolist
-        let photoItems;
-        let backGround; // use first photo for background
-        if (place.hasOwnProperty('photos')) {
-            let items = place.photos.map(function (photo) { // create list of photos
-                imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
-                return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`;
-            });
-            photoItems = items.join("\n");
-            // use first photo for the details page background
-            backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
-            $("#er-details-section").css("background-image", backGround);
-        } else {
-            photoItems = '';
-        }
-
-        // prepare list of opening hours
-        let openingHours;
-        if (place.hasOwnProperty('opening_hours')) {
-            let hours = place.opening_hours.weekday_text.map(function (hours) {
-                return `<p>${hours}</p>`;
-            });
-            openingHours = hours.join("\n");
-        } else {
-            openingHours = '';
-        }
-
-        // prepare adress
-        let fullAddress;
-        if (place.hasOwnProperty('adr_address')) {
-            fullAddress = place.adr_address.split(","); // create adress array
-        }
-
-        // Prepare Website icon/link
-        let webSite;
-        if (place.hasOwnProperty('website')) {
-            webSite = `<a href="${place.website}" target="blank">
-                                <button>
-                                    <i aria-hidden="true" class="fas fa-globe"></i>                         
-                                    <span class="sr-only">Goto the website</span>
-                                </button>
-                            </a>`;
-        } else {
-            webSite = '';
-        }
-        // prepare reviews
-        let latestReview;
-        let latestRating;
-        let reviews;
-        let reviewList;
-        if (place.hasOwnProperty('reviews')) {
-            latestRating = (place.reviews[0].rating * 20).toFixed(); // generate latest rating width
-            // prepare latest review excerpt
-            latestReview = place.reviews[0].text.slice(0, 160) + `.....<p class="er-read-more" onclick="showReviews()">read more</p>`;
-            // create review section
-            reviews = place.reviews.map(function (review, index) { // cycle through reviews
-                let starRating = (review.rating * 20).toFixed(); // prepare star rating width
-                if (index % 2 == 0) { // mirror reviews based on even/uneven
-                    // return the reviews
-                    return `
-                    <div class="er-reviews-wrapper">
-                        <table class="er-reviews-table">
-                            <tr>
-                                <td class="er-cell-2third-left">
-                                    <p class="er-reviews-name">${review.author_name}</p>
-                                </td>
-                                <td class="er-cell-third er-review-photo">
-                                    <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
-                                </td>
-
-                            </tr>
-                        </table>    
-                        <table class="er-reviews-table">    
-                            <tr>
-                                <td class="er-cell-2third-left">
-                                    <div class="er-review-text">
-                                        <div>${review.text}</div>
-                                    </div>
-                                </td>
-                                <td class="er-cell-third">
-                                    <div class="er-review-details">
-                                        <div class="er-reviewdetails-container" style="width:${starRating}px">                                            
-                                        </div>
-                                    </div>
-                                    <p>${review.relative_time_description}</p>   
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                        `;
-                } else {
-                    return `
-                     <div class="er-reviews-wrapper">
-                        <table class="er-reviews-table">
-                                <tr>
-                                    <td class="er-cell-third er-review-photo">
-                                        <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
-                                    </td>
-                                    <td class="er-cell-2third-right">
-                                       <p class="er-reviews-name">${review.author_name}</p>
-                                    </td>
-                                </tr>
-                                </table>    
-                        <table class="er-reviews-table">    
-                                    <tr>                                        
-                                        <td class="er-cell-third">
-                                            <div class="er-review-details">
-                                                <div class="er-reviewdetails-container" style="width:${starRating}px">                                            
-                                            </div>
-                                        </div>
-                                            <p>${review.relative_time_description}</p>   
-                                        </td>
-                                        <td class="er-cell-2third-right">
-                                            <div class="er-review-text">
-                                                <div>${review.text}</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                        </div>    
-                                `;
-                }
-            });
-            reviewList = reviews.join("\n");
-        } else {
-            reviewList = '';
-        }
-
-        // push details to screen
-        $("#er-details").html(`
+    $("#er-details").html(`
             <div class="er-details-title" onclick="switchSection('details')">
                 <h2>${place.name}</h2>
             </div>
 
             <div id="er-details-main">
                 <div class="er-reviews-mainwrap">
-                <table class="er-reviews-table">
-                    <tr>
-                        <td class="er-cell-third er-review-photo">
-                            <img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">
-                            <div class="er-review-details">
-                                <div class="er-reviewdetails-container" style="width:${latestRating}px">
+                    <table class="er-reviews-table">
+                        <tr>
+                            <td class="er-cell-third er-review-photo">
+                                ${latestReviewPhoto(place)}
+                                <div class="er-review-details">
+                                    ${latestRating(place)}
                                 </div>
-                            </div>
-                        </td>
-                        <td class="er-cell-2third-right">
-                            <div class="er-review-text">
-                                <div>${latestReview}</div>
-                            </div>   
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="er-reviews-mainwrap">
-                <table class="er-details-table">
-                    <tr>
-                        <td class="er-cell-third er-details-address">
-                            ${fullAddress.join("<br>")}
-                        </td>
-                        <td class="er-cell-2third-right er-details-icons">
-                            ${webSite}                             
-                            <button onclick="showPhotos()">
-                                <i aria-hidden="true" class="fas fa-camera-retro"></i>
-                                <span class="sr-only">Show restaurant photos</span>
-                            </button>
-                            <button onclick="showReviews()">
-                                <i aria-hidden="true" class="fas fa-comment"></i>
-                                <span class="sr-only">Show restaurant reviews</span>
-                            </button> 
-                            <button onclick="initDirectionMap('${place.place_id}')">
-                                <i aria-hidden="true" class="fas fa-directions"></i>
-                                <span class="sr-only">Get directions</span>
-                            </button>                            
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                            </td>
+                            <td class="er-cell-2third-right">
+                                <div class="er-review-text">
+                                    ${latestReview(place)}
+                                </div>   
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            
+                <div class="er-reviews-mainwrap">
+                    <table class="er-details-table">
+                        <tr>
+                            <td class="er-cell-third er-details-address">
+                                ${fullAddress(place)}
+                            </td>
+                            <td class="er-cell-2third-right er-details-icons">
+                                ${webSite(place)}                             
+                                <button onclick="showPhotos()">
+                                    <i aria-hidden="true" class="fas fa-camera-retro"></i>
+                                    <span class="sr-only">Show restaurant photos</span>
+                                </button>
+                                <button onclick="showReviews()">
+                                    <i aria-hidden="true" class="fas fa-comment"></i>
+                                    <span class="sr-only">Show restaurant reviews</span>
+                                </button> 
+                                <button onclick="initDirectionMap('${place.place_id}')">
+                                    <i aria-hidden="true" class="fas fa-directions"></i>
+                                    <span class="sr-only">Get directions</span>
+                                </button>                            
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
                 <div class="er-details-opening">
-                    ${openingHours}
-               </div>
-            <div class="er-reviews-mainwrap">
-                <div class="col-12 er-details-photo">
-                    </div>
+                        ${openingHours(place)}
+                </div>
+            
+                <div class="er-reviews-mainwrap">
                 </div>
             </div>
-            <div id="er-details-reviews">
-                <div class="er-details-title" onclick="switchSection('details')">
-                    <h2>↓</h2>
-                </div>
-                    ${reviewList}
-                </div>
-                <div id="er-details-photos">
-                <div class="er-details-title" onclick="switchSection('details')">
-                    <h2>↓</h2>
-                </div>
-                    ${photoItems} 
-                </div>
+        <div id="er-details-reviews">
+            <div class="er-details-title" onclick="switchSection('details')">
+                <h2>↓</h2>
+            </div>
+            ${reviewList(place)}
+        </div>
+        <div id="er-details-photos">
+            <div class="er-details-title" onclick="switchSection('details')">
+                <h2>↓</h2>
+            </div>
+            ${photoList(place)} 
+        </div>
             `);
-    } else {
-        showErrors(status); // if there was a api error goto error section
-    }
+
     switchSection('details'); // show the details page
+    setBackground(place);
     stopWaitScreen(); // hide preloader
+}
+
+function moreButton(pagination) {
+    // assign the more button
+    var getNextPage = null;
+    var moreButton = document.getElementById('more');
+    moreButton.onclick = function () {
+        moreButton.disabled = true;
+        if (getNextPage) getNextPage();
+    };
+    // next page assignment
+    moreButton.disabled = !pagination.hasNextPage;
+    getNextPage = pagination.hasNextPage && function () {
+        pagination.nextPage();
+    };
 }
 
 function autoComplete() {

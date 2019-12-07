@@ -16,23 +16,18 @@ function processResults(results, currentPosition, searchInput) {
             slideList(); // then show list
             stopWaitScreen(); // hide preloader
         }
-
     }
 }
 
-function moreButton(pagination) {
-    // assign the more button
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
-    // next page assignment
-    moreButton.disabled = !pagination.hasNextPage;
-    getNextPage = pagination.hasNextPage && function () {
-        pagination.nextPage();
-    };
+function processDetails(place) { // get detail result and push to screen
+    if (place == undefined) { // extra failsafe
+        return logErrors('UNKNOWN_ERROR');
+    } else {
+        $("#er-details").html(showRestaurantDetails(place)); // Push details to screen
+        switchSection('details'); // show the details page
+        setBackground(place); // set details page background
+        stopWaitScreen(); // hide preloader
+    }
 }
 
 function checkSearchInput(searchInput) {
@@ -121,3 +116,162 @@ function getDistance(currentPosition, restaurant) {
         return '';
     }
 }
+
+function setBackground(place) { // use first photo as background for details page
+    if (place.hasOwnProperty('photos')) {
+        let backGround = "url('" + place.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 }) + ")";
+        $("#er-details-section").css("background-image", backGround);
+    }
+}
+
+function photoList(place) { // prepare photolist for details page
+    if (place.hasOwnProperty('photos')) {
+        let items = place.photos.map(function (photo) { // create list of photos
+            let imageUri = photo.getUrl({ "maxWidth": 600, "maxHeight": 600 });
+            return `<div class="col-12 er-details-photo"><img src="${imageUri}" alt="Restaurant photo"></div>`;
+        });
+
+        return items.join("\n");
+    } else {
+        return '';
+    }
+}
+
+function openingHours(place) { // prepare opening hours for details page
+    if (place.hasOwnProperty('opening_hours')) {
+        let hours = place.opening_hours.weekday_text.map(function (hours) {
+            return `<p>${hours}</p>`;
+        });
+        return hours.join("\n");
+    } else {
+        return 'Opening hours : Unknown';
+    }
+}
+
+function fullAddress(place) { // prepare full address for details page    
+    if (place.hasOwnProperty('adr_address')) {
+        let address = place.adr_address.split(","); // create adress array
+        return address.join("<br>");
+    } else {
+        return '';
+    }
+}
+
+function webSite(place) {
+    // Prepare Website icon/link
+    let webSite;
+    if (place.hasOwnProperty('website')) {
+        return `<a href="${place.website}" target="blank">
+                                    <button>
+                                        <i aria-hidden="true" class="fas fa-globe"></i>                         
+                                        <span class="sr-only">Goto the website</span>
+                                    </button>
+                                </a>`;
+    } else {
+        return '';
+    }
+}
+
+function latestRating(place) { // generate latest review rating width
+    if (place.hasOwnProperty('reviews')) {
+        return `<div class="er-reviewdetails-container" style="width:${(place.reviews[0].rating * 20).toFixed()}px">
+        </div>`
+    } else {
+        return '';
+    }
+}
+
+function latestReviewPhoto(place) {
+    if (place.hasOwnProperty('reviews')) {
+        return `<img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">`
+    } else {
+        return '';
+    }
+}
+
+
+function latestReview(place) { // prepare latest review excerpt for details page
+    if (place.hasOwnProperty('reviews')) {
+
+        return `<div>${place.reviews[0].text.slice(0, 160)}.....<p class="er-read-more" onclick="showReviews()">read more</p></div>`;
+    } else {
+        return '';
+    }
+}
+
+function reviewList(place) { // prepare review list for details page
+    if (place.hasOwnProperty('reviews')) {
+        // create review section
+        let reviews = place.reviews.map(function (review, index) { // cycle through reviews
+            let starRating = (review.rating * 20).toFixed(); // prepare star rating width
+            if (index % 2 == 0) { // mirror reviews based on even/uneven index               
+                return `
+                   <div class="er-reviews-wrapper">
+                       <table class="er-reviews-table">
+                           <tr>
+                               <td class="er-cell-2third-left">
+                                   <p class="er-reviews-name">${review.author_name}</p>
+                               </td>
+                               <td class="er-cell-third er-review-photo">
+                                   <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
+                               </td>
+
+                           </tr>
+                       </table>    
+                       <table class="er-reviews-table">    
+                           <tr>
+                               <td class="er-cell-2third-left">
+                                   <div class="er-review-text">
+                                       <div>${review.text}</div>
+                                   </div>
+                               </td>
+                               <td class="er-cell-third">
+                                   <div class="er-review-details">
+                                       <div class="er-reviewdetails-container" style="width:${starRating}px">                                            
+                                       </div>
+                                   </div>
+                                   <p>${review.relative_time_description}</p>   
+                               </td>
+                           </tr>
+                       </table>
+                   </div>
+                       `;
+            } else {
+                return `
+                    <div class="er-reviews-wrapper">
+                       <table class="er-reviews-table">
+                               <tr>
+                                   <td class="er-cell-third er-review-photo">
+                                       <img src="${review.profile_photo_url}" alt="Reviewers profile picture">
+                                   </td>
+                                   <td class="er-cell-2third-right">
+                                      <p class="er-reviews-name">${review.author_name}</p>
+                                   </td>
+                               </tr>
+                               </table>    
+                       <table class="er-reviews-table">    
+                                   <tr>                                        
+                                       <td class="er-cell-third">
+                                           <div class="er-review-details">
+                                               <div class="er-reviewdetails-container" style="width:${starRating}px">                                            
+                                           </div>
+                                       </div>
+                                           <p>${review.relative_time_description}</p>   
+                                       </td>
+                                       <td class="er-cell-2third-right">
+                                           <div class="er-review-text">
+                                               <div>${review.text}</div>
+                                           </div>
+                                       </td>
+                                   </tr>
+                               </table>
+                       </div>    
+                               `;
+            }
+        });
+        return reviews.join("\n");
+    } else {
+        return '';
+    }
+}
+
