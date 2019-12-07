@@ -154,6 +154,7 @@
     </header>
 
     <main class="container-fluid">
+        <!-- Pre Loader -->
         <div class="row no-gutter d-none" id="er-wait-screen">
             <div class="col-12 er-wait">
                 <img src="assets/images/379.gif">
@@ -181,6 +182,7 @@
                     <div class="er-front-text">↓</div>
                 </div>
             </div>
+
             <!-- search results section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-3 order-xl-1 order-md-1 er-content" id="er-results-section">
                 <div class="er-content-inner er-details-icons" id="er-search-results">
@@ -189,10 +191,18 @@
                     <button id="more">More results</button>
                 </div>
             </div>
+
+            <!-- restaurant details section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3 order-xl-2 order-md-1 er-content" id="er-details-section">
+                <div class="er-content-inner er-details-icons" id="er-details">
+                </div>
+            </div>
+
             <!-- results-map section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-6 order-xl-3 order-md-2 er-content" id="er-map-section">
                 <div id="map"></div>
             </div>
+
             <!-- direction-map section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-6 order-xl-4 order-md-2 er-content" id="er-direction-section">
                 <div class="er-direction-buttons er-green-button">
@@ -202,11 +212,7 @@
                 </div>
                 <div id="direction-map"></div>
             </div>
-            <!-- restaurant details section -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-3 order-xl-2 order-md-1 er-content" id="er-details-section">
-                <div class="er-content-inner er-details-icons" id="er-details">
-                </div>
-            </div>
+
             <!-- various section -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-4 er-content" id="er-various-section">
                 <div class="er-content-inner" id="er-various"></div>
@@ -220,6 +226,7 @@
             </div>
         </div>
     </main>
+
     <!-- footer searchbar -->
     <footer class="row no-gutters er-background er-footer er-geo-button">
         <form onsubmit="return false;" method="post" name="myForm">
@@ -236,7 +243,6 @@
 
         </form>
     </footer>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
