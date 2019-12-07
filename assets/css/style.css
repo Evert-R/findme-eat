@@ -81,7 +81,6 @@ input:focus, button:focus {
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
-    max-width: 1920px;
 }
 
 /* ----------------------------------------Buttons */
@@ -370,8 +369,6 @@ input[type=text] {
     font-size: 0.8em;
     overflow: hidden;
     background-image: url('../images/background.jpg');
-    background-size: 100%;
-    background-repeat: repeat-y;
     background-attachment: scroll;
 }
 
@@ -382,8 +379,6 @@ input[type=text] {
     min-height: 100vh;
     background-color: rgba(255, 255, 255, 0.7);
 }
-
-/* ----------------------------------------Front Section */
 
 /* ----------------------------------------Map Section */
 
@@ -407,8 +402,6 @@ input[type=text] {
 .er-infowindow-details {
     cursor: pointer;
 }
-
-#direction-map button {}
 
 .er-direction-buttons {
     padding: 0.2em 0.5em 0.2em 0.5em;
@@ -905,6 +898,6 @@ input[type=text] {
         overflow-y: scroll;
     }
     .er-wait img {
-        width: 15%;
+        width: 10%;
     }
 }
