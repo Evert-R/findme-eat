@@ -48,7 +48,7 @@ The main focus will be on mobile devices as its main purpose is to be used on th
 - Get directions from your location
 - Select vehicle for directions
 - Switch to full screen mode
-- Single column view for mobile decices
+- Single column view for mobile devices
 - dual or triple column view for desktop devices
 - Auto adjust to one column for tablets in portrait mode
 
@@ -178,6 +178,7 @@ To cut ties with this repository:
 - [Star-rating image](http://www.pngmart.com/image/tag/star-rating)
 - [Pricing image](https://www.pngfly.com/png-1ukbp8/download.html)
 - [Standard image for restaurant](http://www.iconarchive.com/show/colorful-long-shadow-icons-by-graphicloads/restaurant-icon.html)
+- [pre-loader image](https://icons8.com/preloaders)
 - [Inspiration for collapsible list-items](https://www.w3schools.com/howto/howto_js_collapsible.asp)
 
 ### Api

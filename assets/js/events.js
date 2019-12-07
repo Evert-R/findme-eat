@@ -42,8 +42,8 @@ function switchSection(goTo) {
         mapSwitch.slideUp(0);
         detailSwitch.slideUp(0);
         dirSwitch.slideUp(0);
-        $('#er-exit-switch').slideUp(0);
-    } else if (goTo == 'results') { // show results section
+        $('#er-exit-switch').slideUp(0); // hide exit fullscreen button
+    } else if (goTo == 'results') { // show results section 
         front.slideUp(0);
         error.slideUp(0);
         if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
@@ -133,6 +133,15 @@ function slideList() { // slide all searchresults to startposition
         $(this).slideUp(500); // slide to startposition 
     });
 }
+
+function startWaitScreen() {
+    $("#er-wait-screen").removeClass("d-none");
+}
+
+function stopWaitScreen() {
+    $("#er-wait-screen").addClass("d-none");
+}
+
 
 window.onload = function () {
     $(".er-header-expand").click(function () { // make headersettings fold out with click        

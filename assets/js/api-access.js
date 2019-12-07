@@ -1,8 +1,6 @@
 var map; // create map variable
 var directionMap; // create directions map variable
 
-
-
 function mapOptions() { // style options for all maps
     return {
         disableDefaultUI: true,
@@ -281,45 +279,6 @@ function mapOptions() { // style options for all maps
     };
 }
 
-
-
-function getRadius() { // get sort method from options
-    return $("#er-radius").val();
-}
-
-function getCuisine() { // get cuisine type from options
-    var cuisine = $("#er-cuisine").children("option:selected").val();
-    if (cuisine != '') {
-        return ` AND (${cuisine})`;
-    } else {
-        return '';
-    }
-}
-
-function getVehicle() {
-    return $("input[name='er-travel']:checked").val();
-}
-
-function getVeg() { // get veg options from settings
-    var vegOptions = '';
-    var vegan = '';
-    var gluten = '';
-    if ($("#vegan").is(":checked")) {
-        vegan = ` AND (vegan)`;
-    }
-    if ($("#gluten").is(":checked")) {
-        gluten = ` AND (gluten-free)`;
-    }
-    vegOptions = vegan + gluten;
-    return vegOptions;
-}
-
-function getOpen() { // get only open option from settings
-    if ($("#open-now").is(":checked")) {
-        return true;
-    }
-}
-
 function checkGeo(callback) { // get current location
     navigator.geolocation.getCurrentPosition(function (position) {
         let currentPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -336,45 +295,36 @@ function initMap() {
 }
 
 function geoSearch(currentPosition, location, searchInput) {
+    switchSection('map');
+    startWaitScreen(); // show preloader
     if (currentPosition != 'NOGEO') {
         location = currentPosition;
     }
-    switchSection('map');
+
     var service = new google.maps.places.PlacesService(map); // Connect to the places api
-    service.nearbySearch( // Perform a nearby search
-        {
-            location: location,
-            radius: getRadius(),
-            type: ['restaurant'],
-            keyword: ['vegetarian' + getVeg() + getCuisine()],
-            openNow: getOpen(),
-        },
-        function (results, status, pagination) {
-            processResults(results, status, pagination, currentPosition, searchInput);
-        }
-    );
-}
-
-function checkSearchInput(searchInput) {
-    if (searchInput == '') { // Nothing entered? -> error screen
-        logErrors('NOINPUT', 'place');
-    } else {
-        geoCode(searchInput); // 
-    }
-}
-
-function geoCode(searchInput) { // convert region/ciry name to coordinates
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'address': searchInput }, function (results, status) {
-        if (status === 'OK') { // do geo search from coordinastes without known current position          
-            geoSearch('NOGEO', results[0].geometry.location, searchInput);
-        } else { // if nothing is found -> error page
-            logErrors('NOINPUT', 'place');
-        }
-    });
+    var keyWord = 'vegetarian' +
+        service.nearbySearch( // Perform a nearby search
+            {
+                location: location,
+                radius: getRadius(),
+                type: ['restaurant'],
+                keyword: ['vegetarian' + getKeyWord()],
+                openNow: getOpen(),
+            },
+            function (results, status, pagination) {
+                if (status !== 'OK') {
+                    logErrors(status, 'place'); // push error to page
+                    return;
+                } else {
+                    moreButton(pagination)
+                    processResults(results, currentPosition, searchInput);
+                }
+            }
+        );
 }
 
 function restaurantDetails(place_id) { // get restaurant details
+    startWaitScreen(); // show preloader
     // scoll to top of the page
     $('#er-details-section').animate({ scrollTop: 0 }, 'slow');
     var requestDetails = { // generate search argument
@@ -382,7 +332,7 @@ function restaurantDetails(place_id) { // get restaurant details
         fields: ['reviews', 'opening_hours', 'website', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
     };
     let service = new google.maps.places.PlacesService(map); // connect to the api
-    service.getDetails(requestDetails, showRestaurantDetails); // get details an push to callback
+    service.getDetails(requestDetails, showRestaurantDetails); // get details and push to callback
 }
 
 function createMarkers(places, currentPosition) { // plot markers to the map
@@ -390,12 +340,10 @@ function createMarkers(places, currentPosition) { // plot markers to the map
     var infowindow = new google.maps.InfoWindow({ // create empty infowindow
         content: ''
     });
-
     for (let index = 0, place; place = places[index]; index++) { // cycle through places
         let marker = new google.maps.Marker({ // create marker
             map: map,
             position: place.geometry.location
-
         });
         let imageUri;
         if (place.hasOwnProperty('photos')) { // check if a photo is available
@@ -440,7 +388,6 @@ function createMarkers(places, currentPosition) { // plot markers to the map
         bounds.extend(place.geometry.location); // add this place to the bounds
     }
     map.fitBounds(bounds); // fit markers on the map
-
     if (currentPosition != 'NOGEO') {
         let currentMarker = new google.maps.Marker({ // place blue marker on current position
             map: map,
@@ -453,6 +400,7 @@ function createMarkers(places, currentPosition) { // plot markers to the map
 function initDirectionMap(placeId) {
     checkGeo(function (currentPosition) { // get current location
         if (currentPosition != 'NOGEO') {
+            startWaitScreen(); // show preloader
             directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
             return calcRoute(placeId, currentPosition); // on succes plot route
         } else {
@@ -465,9 +413,7 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
     var blueMarker; // create updatable marker for direction map
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
-
     directionsRenderer.setMap(directionMap); // plot to map
-
     var request = {
         origin: currentPosition,
         destination: { 'placeId': placeId },
@@ -481,6 +427,7 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
         }
         switchSection('directions'); // show direction map
         directionsRenderer.setDirections(result);
+        stopWaitScreen(); // hide preloader
     });
 
     blueMarker = new google.maps.Marker({ // place blue marker on current position

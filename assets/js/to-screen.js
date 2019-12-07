@@ -1,102 +1,38 @@
 function showResults(restaurants, currentPosition, searchInput) { // push searchresults to the screen
-    // prepare variables to display above the list
-    let veg;
-    if ($("#vegan").is(":checked")) {
-        veg = ` and vegan`;
-    } else {
-        veg = '';
-    }
-    let cuisine = $("#er-cuisine").children("option:selected").val();
-    let searchArgument; // will be displayed above the list
-    //  prepare search argument
-    if (currentPosition != 'NOGEO') {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine} restaurants in a ${getRadius()} meter radius around you`;
-    } else {
-        searchArgument = `We searched for vegetarian ${veg} ${cuisine}restaurants in ${searchInput}`;
-    }
-
     let listItems = restaurants.map(function (restaurant) { // Create list-item per restaurant
-        // Prepare variables for display in the list items
-        let imageUri;
-        if (restaurant.hasOwnProperty('photos')) { // if photo exists get url
-            imageUri = restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
-        } else {
-            imageUri = 'assets/images/Restaurant-icon.png';
-        }
-
-        // generate open/closed icon
-        let openNow;
-        if (restaurant.hasOwnProperty('opening_hours')) { // check if opening hours are present (turned off november 2020)        
-            if (restaurant.opening_hours.open_now == true) { // set open now
-                openNow = `<i aria-hidden="true" class="fa fa-check er-list-icon er-open"></i><span class="sr-only">Open Now</span>`;
-            } else { // set closed now
-                openNow = `<i aria-hidden="true" class="fa fa-times-circle er-list-icon er-closed"></i><span class="sr-only">Closed Now</span>`;
-            }
-        } else { // leave blank
-            openNow = ``;
-        }
-        // prepare adress
-        let address;
-        if (restaurant.hasOwnProperty('vicinity')) {
-            address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.vicinity;
-        } else if (restaurant.hasOwnProperty('formatted_address')) {
-            address = '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.formatted_address;
-        } else {
-            address = '';
-        }
-
-        // Generate rating width for stars
-        let starRating = (restaurant.rating * 20).toFixed();
-        // generate price level width
-        let priceLevel;
-        if (isNaN(restaurant.price_level) == false) {
-            priceLevel = (restaurant.price_level * 20).toFixed();
-        } else {
-            priceLevel = '0';
-        }
-
-        // calculate the distance to the restaurant
-        let distance;
-        if (currentPosition != 'NOGEO') {
-            distance = (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-plane er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
-        } else {
-            distance = '';
-        }
-
-        // generate html list items
         return `
                 <div class="er-list"  id="${restaurant.place_id}"> 
                     <table class="er-list-table">
                         <tr>
                             <td class="er-cell-image">
                                 <div class="er-round-image">
-                                    <img src="${imageUri}" alt="Restaurant photo" class="er-list-image">
+                                    <img src="${getFirstPhoto(restaurant)}" alt="Restaurant photo" class="er-list-image">
                                 </div>    
                             </td>
                             <td class="er-cell-name">
                                 <div class="er-list-name">
                                     <h3>${restaurant.name}</h3>
-                                    <p class="er-distance">${distance}</p>
-                                    <p class="er-address">${address}</p>
+                                    <p class="er-distance">${getDistance(currentPosition, restaurant)}</p>
+                                    <p class="er-address">${getAddress(restaurant)}</p>
                                 </div>                    
                             </td>
                             <td class="er-cell-rating">
                                 <p>Rating :</p>    
                                 <div class="er-rating-list">
-                                    <div class="er-rating-container" style="width:${starRating}%">                                        
+                                    <div class="er-rating-container" style="width:${getStarRating(restaurant)}%">                                        
                                     </div>
                                 </div>
                                 <p>price :</p> 
                                 <div class="er-price-list">
                                    
-                                    <div class="er-price-container" style="width:${priceLevel}%">                                        
+                                    <div class="er-price-container" style="width:${getPriceLevel(restaurant)}%">                                        
                                     </div>
                                 </div>                    
                             </td>
                             <td class="er-cell-open">
                                 <i aria-hidden="true" class="fa fa-clock er-clock er-list-icon"></i><br><br>
                                 <span class="sr-only">Open / closed</span>
-                                ${openNow}
+                                ${getOpenNow(restaurant)}
                             </td>          
                         </tr>
                     </table>
@@ -119,7 +55,7 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
                             </div>
                                 </td>
                             <td class="er-collapse-image">
-                                <img src="${imageUri}" alt="Restaurant photo">
+                                <img src="${getFirstPhoto(restaurant)}" alt="Restaurant photo">
                             </td>
                         </tr>
                     </table>                        
@@ -131,7 +67,7 @@ function showResults(restaurants, currentPosition, searchInput) { // push search
     return `
             <div class="er-item-list">
                 <div class="er-search-argument">
-                    ${searchArgument}
+                    ${searchDescription(currentPosition, searchInput)}
                 </div>
                 ${listItems.join("\n")}           
             </div>
@@ -346,6 +282,7 @@ function showRestaurantDetails(place, status) { // push restaurant details to th
         showErrors(status); // if there was a api error goto error section
     }
     switchSection('details'); // show the details page
+    stopWaitScreen(); // hide preloader
 }
 
 function autoComplete() {
@@ -386,6 +323,7 @@ function exitFullscreen() {
 }
 
 function logErrors(status, source) {
+    stopWaitScreen(); // hide preloader
     switchSection('error');
     console.log(status, source);
     if (source == 'route') { // errors specific to the directions api

@@ -256,6 +256,22 @@ input:focus, button:focus {
     width: 100%;
 }
 
+/* ----------------------------------------Wait screen */
+
+.er-wait {
+    text-align: center;
+    width: 100vw;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 2020;
+}
+
+.er-wait img {
+    width: 20%;
+}
+
 /* ----------------------------------------Footer Searchbar */
 
 .er-footer {
