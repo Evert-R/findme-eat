@@ -63,7 +63,7 @@ function searchDescription(currentPosition, searchInput) {
     if (currentPosition != 'MANUAL') {
         return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in a ${(getRadius() / 1000).toFixed(1)} kilometer radius around you`;
     } else {
-        return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in ${searchInput} in a ${getRadius()} meter radius`;
+        return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in ${searchInput} in a ${(getRadius() / 1000).toFixed(1)} kilometer radius`;
     }
 }
 
