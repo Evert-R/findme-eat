@@ -5,25 +5,25 @@
 
 ## UX
 ### For who this website is created 
-- This website is created for the non-profit organisation 'Geen eieren voor je geld'. Wich in dutch literally means 'No eggs for your money', but is an old saying and means that you get good value for your money. This organisation wants to promote a vegetarian/vegan lifestyle by providing vegan-cooking workshops, and now via the development of this new web-app.
+- This website is created for the non-profit organisation 'Geen eieren voor je geld'. Wich in dutch literally means 'No eggs for your money', but actually is an old saying wich means that you get good value for your money. This organisation wants to promote a vegetarian/vegan lifestyle by providing vegan-cooking workshops, and now via the development of this new website/web-app.
 
 ### At who this website is targeted
 - Vegatarians, vegans and other interested people from all over the world.
 
 ### What does the organisation wants to achieve with this website
-- They want to make it easy to find vegetarian/vegan restaurants wherever you are in the world, with one push of a button. Although there already is a very good vegetarian/vegan restaurant search website/app, wich uses its own database, they still feel this project will contribute something important. It may not be as precise as a well maintained database, if someone mentions the word vegetarian in the reviews it will be found, but this web-based app will allways work everywhere in the world, because it's using the google places api as an engine.  
+- They want to make it easy to find vegetarian/vegan restaurants wherever you are in the world, with one push of a button. Although there already is a very good vegetarian/vegan restaurant search website/app, wich uses its own database, they still feel this project will contribute something important. This web-based app will allways work everywhere in the world, because it's using the google places api as an engine. 
 
 ### User stories
 1. As a user who is visiting a new region I want to be able to search for a vegetarian restaurant with one press of a button, using a mobile device
-2. As a user who is planning to eat in another city or region I want to be able to do a search in another regon or city, using a mobile or desktop device
+2. As a user who is planning to eat in another city or region I want to be able to do a search in another region or city, using a mobile or desktop device
 3. As a user who searches for a restaurant I want to be able to set the radius of the area to search in
 4. As a user who is vegan I want to be able to search for 'vegan only' places
 5. As a user who is deciding on a restaurant I want to be able to see the price-range, ratings and wether the place is open or not straight in the search results
-6. As a user who searches locally I also want to be able to see how far away restaurant is from me in the search results. I also want to be able to see where I am on the resultsmap 
+6. As a user who searches locally I also want to be able to see in the search results how far away a restaurant is. I also want to be able to see where I am on the resultsmap 
 7. As a user who found a place I want to be able to request some details, like the address and website of the restaurant. I also want to be able to read some reviews and see some more photos of the restaurant
 8. As a user who found a place to eat I want to be able to get directions to it on a seperate map
 9. As a user who is getting directions I want to be able to choose wich method of travelling I prefer before plotting the route
-10. As a user who is travelling to the restaurant I want to be able to see where I am on the directions map, and update my location every once ion a while
+10. As a user who is travelling to the restaurant I want to be able to see where I am on the directions map, and update my location every once in a while to see if I am getting close
 
 
 ### Mock-ups
@@ -67,7 +67,7 @@ The main focus will be on mobile devices as its main purpose is to be used on th
 - ```api-access.js```
     - Functions to access the google places api
 - ```events.js```
-    - DOM click-events and Navigation system
+    - DOM click-events and navigation system
 - ```to-screen.js```
     - Push search results and details to their respective pages
 - ```from-screen.js```
@@ -111,7 +111,7 @@ As it will require a different and more expensive approach: a place detail searc
     - Adjusted the html code to display the correct radius
     - Also changed the units to kilometers to be more consistent
 
-- While letting other people try the page on their mobile phone I found out that people were clkicking the map and resultslist before it was completely loaded
+- While letting other people try the page on their mobile phone I found out that people were clicking the map and results list before it was completely loaded
     - Implemented a pre-loader animation so users can see that the page is busy loading
 
 - While getting directions with my location turned off I got the same error message as if I was trying to do a geographical search
@@ -121,13 +121,13 @@ As it will require a different and more expensive approach: a place detail searc
     - Build in failsafes to first test for availabilty and in that case produce an empty string or a standard image. 
 
 - While testing with manual searches I discovered it did not allways point to the right region when using a query.
-    - Added the geocoding library to convert city/region names into coordinates so a nearby search can be used. With this method the radius parameter in the settings panel now also works for this kind of searches 
+    - Added the geocoding library to convert city/region names into coordinates so a nearby search can be used. With this method the radius parameter in the settings panel now also works for these kinds of searches 
 
 - While testing 'on location' in Amsterdam I found out it was impossible to see where you are on the results-map.
-    - Added a blue pin so you can see where you are in the resultsmap.
+    - Added a blue pin so you can see where you are in the results-map.
 
-- While testing error messages on wider screens I discovered the lay-out of the page broke when wanted to switch back to my resultslist anmd the map.
-    - Let the error section use the details-sections' position on the bigger screen modes.
+- While testing error messages on wider screens I discovered the lay-out of the page broke when I wanted to switch back to my results-list and the map.
+    - Let the error section use the details-sections position on the bigger screen modes.
 
 ### Tools
 - [w3c Markup Validation](https://validator.w3.org)
@@ -144,11 +144,10 @@ As it will require a different and more expensive approach: a place detail searc
 - iphone 7
 - iphone 11 pro
 - Samsung Galaxy tab Pro (SM-T325)
-
-### Users
+- Lenovo Ideapad 530s
 
 ### Test stories
-- Opened the page
+#### Opened the page
 - Pushed the ```geographical search button``` on the front screen
     - Found restaurants in a 4 kilometer radius around me
 - Pushed the ```settings icon``` in the header
@@ -167,12 +166,14 @@ As it will require a different and more expensive approach: a place detail searc
 - Clicked ```Find me-eat . . .``` in the header
     - Was taken back to the front page and my settings were reset
 
-- Turned off my location
+
+#### Turned off my location
 - Opened the page
 - Pushed the ```geographical search-button``` on the front screen
     - Got the message that my location is unknown and I have to make a manual search
 
-- Opened the page
+
+#### Opened the page
 - Started typing in the ```search bar```
     - An autocomplete window above the search bar showed
 - Selected ```Bandung City, west java```
@@ -190,7 +191,7 @@ As it will require a different and more expensive approach: a place detail searc
 - Pushed the ```search-button``` in the footer
     - Got the message that nothing was found and I had to adjust my settings
 
-- Opened the page
+#### Opened the page
 - Pushed the ```geographical search-button``` on the front screen
     - Found restaurants in a 4 kilometer radius around me
 - Clicked on a restaurant in the list
@@ -225,7 +226,7 @@ As it will require a different and more expensive approach: a place detail searc
 - Did another direction search
     - Got a message that my location is unknown and I can't get directions
 
-- Opened the page
+#### Opened the page
 - Started typing in the ```search bar```
     - An autocomplete window above the search bar showed
 - Selected ```Bandung City, west java```
@@ -238,13 +239,13 @@ As it will require a different and more expensive approach: a place detail searc
 - Clicked to get directions
     - Got a message that this is way too far to get something to eat
 
-- Opened the page
+#### Opened the page
 - Hit the ```search button``` in the footer
     - Got the message that I wasn't understood and had to make a new manual of geographical search
 - Entered some random numbers and characters in the ```search bar```
     - Got the message that I wasn't understood and had to make a new manual of geographical search
 
-- Opened the page
+#### Opened the page
 - Made a geographical search
     - The list icon and map icon appeared in the header 
 - Pushed the ```map button```
@@ -262,14 +263,14 @@ As it will require a different and more expensive approach: a place detail searc
 - Clicked ```Find me eat . . .```
     - Taken to the front page and all buttons in the header dissapeared
 
-- Clicked ```Question mark``` in the settings panel
+#### Clicked ```Question mark``` in the settings panel
     - Taken to about section
 - Filled out the form
 - pushed the ```Send message button```
     - Saw the pre loader
     - Got a message that my message was send
 
-- Disabled my email settings in my emailJS account    
+#### Disabled my email settings in my emailJS account    
 - Filled out the form
 - pushed the ```Send message button```
     - Saw the pre loader
@@ -279,24 +280,24 @@ As it will require a different and more expensive approach: a place detail searc
 - Mentor sessions
 - Friends family and their mobile devices
 
-### Form
-
 ### Responsive behaviour (Chrome devtools)
 #### 360 - 768 in landscape & portrait mode / 360 - 992 in portrait mode
--All section use the whole screen
--Whenever a section is populated the switch icon will appear in the header
+- All section use the whole screen
+- Whenever a section is populated the switch icon will appear in the header
 
 #### 768 - 1200 in landscape mode / 992 - 1200 in portrait mode
--The screen is divided into 2 columns
--Left column shows the resultslist or the detail page
--Right column shows the results-map or the direction-map
--Whenever a section is populated the switch icon will appear in the header
+- The screen is divided into 2 columns
+- Left column shows the resultslist or the detail section
+- Right column shows the results-map or the direction-map
+- Error section and about section share with details section
+- Whenever a section is populated the switch icon will appear in the header
 
 #### 1200 - 3840
--The screen is divide into 2 small columns and 1 big one on the right
--The resultslist and detailpage are always visible
--The results-map and direction-map are swichable
--Only the map switches are visible, once populated
+- The screen is divided into 2 small columns and 1 big one on the right
+- The resultslist and detail section are always visible
+- Error section and about section share with details section
+- The results-map and direction-map are swichable
+- Only the map switches are visible, once populated
 
 ## Deployment
 ### Github Pages
@@ -330,7 +331,7 @@ To cut ties with this repository:
     - [Documentation](https://developers.google.com/maps/documentation/javascript/places)
 
 ### Content
-- [Evert Rot](https://evertrot.nl)
+- [Evert Rot](https://www.linkedin.com/in/evert-rot-a33141186/)
     - Webdesign/coding
 - [Star-rating image](http://www.pngmart.com/image/tag/star-rating)
 - [Pricing image](https://www.pngfly.com/png-1ukbp8/download.html)
