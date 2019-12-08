@@ -22,8 +22,6 @@ function getOpen() { // get only open option from settings
     }
 }
 
-
-
 function getKeyWord() { // return search keyword
     let veg = '';
     let cuisine = '';

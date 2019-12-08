@@ -1,4 +1,4 @@
-function switchSection(goTo) {
+function switchSection(goTo) { // Navigation system
     // Get all screen elements
     const front = $("#er-front-section");
     const results = $("#er-results-section");
@@ -118,7 +118,44 @@ function switchSection(goTo) {
     }
 }
 
-function showPhotos() { // show photos on details section
+function autoComplete() {
+    var sessionToken = new google.maps.places.AutocompleteSessionToken();
+    var options = {
+        types: ['cities'],
+        sessionToken: sessionToken
+    };
+    var input = document.getElementById('er-search-input');
+    new google.maps.places.Autocomplete(input);
+    var geocoder = new google.maps.Geocoder();
+}
+
+function enterFullscreen() {
+    if (document.documentElement.fullscreenEnabled = true) {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+            document.documentElement.msRequestFullscreen();
+        }
+    }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozExitFullScreen) { /* Firefox */
+        document.mozExitFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+        document.msExitFullscreen();
+    }
+}
+
+function showPhotos() { // show photos on details page
     $('#er-details-main').slideUp(1000);
     $('#er-details-photos').slideDown(1000);
     $('#er-details-reviews').slideUp(1000);
@@ -136,16 +173,18 @@ function slideList() { // slide all searchresults to startposition
     });
 }
 
-function startWaitScreen() {
+function startWaitScreen() { // show the preloader animation
     $("#er-wait-screen").removeClass("d-none");
 }
 
-function stopWaitScreen() {
+function stopWaitScreen() { // hide the preloader animation
     $("#er-wait-screen").addClass("d-none");
 }
 
+startWaitScreen();
+window.onload = function () { // attach events to dom elements
+    this.stopWaitScreen();
 
-window.onload = function () {
     $(".er-header-expand").click(function () { // make headersettings fold out with click        
         $(".er-header-settings").slideToggle();
     });
@@ -171,7 +210,7 @@ window.onload = function () {
         switchSection('directions');
     });
 
-    // attach geo search buttons
+    // add click event to geo search buttons
     $("#er-location-front").click(function () {
         checkGeo(geoSearch);
     });
@@ -179,7 +218,7 @@ window.onload = function () {
         checkGeo(geoSearch);
     });
 
-    // attach fullscreen button
+    // add click event to fullscreen buttons
     $("#er-fullscreen-switch").click(function () {
         $(".er-header-settings").slideUp();
         $("#er-exit-switch").slideDown(0);
@@ -195,8 +234,7 @@ window.onload = function () {
     });
 
     $("#er-radius").change(function () { // watch the radius slider and update value
-        console.log(this.value);
-        $("#er-radius-value").html(this.value);
+        $("#er-radius-value").html((this.value / 1000).toFixed(2));
     });
 
     // implement little joke
@@ -209,10 +247,10 @@ window.onload = function () {
         switchSection('front');
     });
 
-    initMap();
-    google.maps.event.addDomListener(window, 'load', autoComplete);
-    autoComplete();
-    switchSection('front'); // to start screen
+    initMap(); // initialize the map
+    google.maps.event.addDomListener(window, 'load', autoComplete); // start autocomplete 
+    autoComplete(); // attach autocomplete to searchbar
+    switchSection('front'); // goto to start screen
 };
 
 
