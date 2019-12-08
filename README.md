@@ -243,7 +243,7 @@ As it will require a different and more expensive approach: a place detail searc
 - Hit the ```search button``` in the footer
     - Got the message that I wasn't understood and had to make a new manual of geographical search
 - Entered some random numbers and characters in the ```search bar```
-    - Got the message that I wasn't understood and had to make a new manual of geographical search
+    - Got the message that I wasn't understood and had to make a new manual or geographical search
 
 #### Opened the page
 - Made a geographical search
@@ -263,8 +263,9 @@ As it will require a different and more expensive approach: a place detail searc
 - Clicked ```Find me eat . . .```
     - Taken to the front page and all buttons in the header dissapeared
 
-#### Clicked ```Question mark``` in the settings panel
-    - Taken to about section
+#### Opened the page
+- Clicked ```Question mark``` in the settings panel
+- Taken to about section
 - Filled out the form
 - pushed the ```Send message button```
     - Saw the pre loader
