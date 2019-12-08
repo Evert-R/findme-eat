@@ -60,7 +60,7 @@ function searchDescription(currentPosition, searchInput) {
         open = ` wich are currently open `;
     }
     //  prepare search argument
-    if (currentPosition != 'NOGEO') {
+    if (currentPosition != 'MANUAL') {
         return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in a ${(getRadius() / 1000).toFixed(1)} kilometer radius around you`;
     } else {
         return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in ${searchInput} in a ${getRadius()} meter radius`;
