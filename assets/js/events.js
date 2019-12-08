@@ -120,7 +120,7 @@ function switchSection(goTo) { // Navigation system
             hideAll();
             error.removeClass('col-md-6'); // correction for portrait mode
         } else if (window.innerWidth > 768 && window.innerWidth < 1200) {
-            front.slideUp(0)
+            front.slideUp(0);
             results.slideUp(0);
             details.slideUp(0);
         } else if (window.innerWidth > 1200) {
@@ -131,11 +131,33 @@ function switchSection(goTo) { // Navigation system
     }
 }
 
+// attach the infowindow to a click on the marker
+function infoWindowClick(marker, infoContent, infowindow, place) {
+    google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
+        return function () {
+            infowindow.close();
+            infowindow.setContent(infoContent);
+            infowindow.open(map, marker);
+            map.setCenter(place.geometry.location);
+        };
+    })(marker, infoContent, infowindow));
+}
+
+// link the info window to a click on the corresponding list item
+function connectListInfoWindow(place, infowindow, marker) {
+    $("#" + place.place_id).click(function () { // click-event for list-item
+        $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
+        $("#" + place.place_id).toggleClass("active"); // highlight list item
+        infowindow.close();
+        infowindow.setContent(place.name);
+        infowindow.open(map, marker);
+        map.setCenter(place.geometry.location);
+    });
+}
+
 function autoComplete() {
-    var sessionToken = new google.maps.places.AutocompleteSessionToken();
     var options = {
-        types: ['cities'],
-        sessionToken: sessionToken
+        types: ['cities']
     };
     var input = document.getElementById('er-search-input');
     new google.maps.places.Autocomplete(input);
@@ -143,7 +165,7 @@ function autoComplete() {
 }
 
 function enterFullscreen() {
-    if (document.documentElement.fullscreenEnabled = true) {
+    if (document.documentElement.fullscreenEnabled == true) {
         if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
         } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */

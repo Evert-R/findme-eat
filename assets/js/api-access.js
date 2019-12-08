@@ -319,7 +319,7 @@ function geoSearch(currentPosition, location, searchInput) {
                     logErrors(status, 'place'); // push error to page
                     return;
                 } else {
-                    moreButton(pagination)
+                    moreButton(pagination);
                     processResults(results, currentPosition, searchInput);
                 }
             }
@@ -341,7 +341,7 @@ function restaurantDetails(place_id) { // get restaurant details
         } else {
             processDetails(place);
         }
-    })
+    });
 }
 
 function createMarkers(places, currentPosition) { // plot markers to the map
@@ -349,51 +349,26 @@ function createMarkers(places, currentPosition) { // plot markers to the map
     var infowindow = new google.maps.InfoWindow({ // create empty infowindow
         content: ''
     });
-    for (let index = 0, place; place = places[index]; index++) { // cycle through places
+    for (let index = 0, place; !!(place = places[index]); index++) { // cycle through places
         let marker = new google.maps.Marker({ // create marker
             map: map,
             position: place.geometry.location
         });
-        let imageUri;
-        if (place.hasOwnProperty('photos')) { // check if a photo is available
-            imageUri = place.photos[0].getUrl({ "maxWidth": 100 }); // get url for infowindow photo
-        } else imageUri = '';
-
-        let starRating = (place.rating * 20).toFixed(); // generate starrating width
-        let priceLevel;
-        if (isNaN(place.price_level) == false) { // check if there is a pricelevel available
-            priceLevel = (place.price_level * 15).toFixed(); // generate pricelevel width
-        } else {
-            priceLevel = '0'; // if no price is available the food is free ;-)
-        }
-        // generate the content of the infowindow
+        // set the content of the infowindow
         var infoContent = `
                         <div class="er-infowindow-details" onclick="restaurantDetails('${place.place_id}')">
                             <h5>${place.name}</h5>            
-                            <img src="${imageUri}">
+                            ${getInfoWindowPhoto(place)}
                             <div class="er-review-details">
-                                <div class="er-reviewdetails-container" style="width:${starRating}px">
+                                <div class="er-reviewdetails-container" style="width:${getStarRating(place)}px">
                                 </div>
-                            </div>`;
+                            </div>
+                        </div>
+                        `;
 
-        // attach the infowindow to a click on the marker
-        google.maps.event.addListener(marker, 'click', (function (marker, infoContent, infowindow) {
-            return function () {
-                infowindow.close();
-                infowindow.setContent(infoContent);
-                infowindow.open(map, marker);
-                map.setCenter(place.geometry.location);
-            };
-        })(marker, infoContent, infowindow));
+        infoWindowClick(marker, infoContent, infowindow, place);
         // link the info window to a click on the corresponding list item
-        $("#" + place.place_id).click(function () { // click-event for list-item
-            $("#" + place.place_id).next().slideToggle(); // make listitem collapsible
-            $("#" + place.place_id).toggleClass("active"); // highlight list item
-            infowindow.close();
-            infowindow.setContent(place.name);
-            infowindow.open(map, marker);
-            map.setCenter(place.geometry.location);
-        });
+        connectListInfoWindow(place, infowindow, marker);
         bounds.extend(place.geometry.location); // add this place to the bounds
     }
     map.fitBounds(bounds); // fit markers on the map

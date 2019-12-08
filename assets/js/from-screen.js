@@ -26,12 +26,12 @@ function getKeyWord() { // return search keyword
     let veg = '';
     let cuisine = '';
     if (getVeg() == true) {
-        veg = ` AND (vegan)`
+        veg = ` AND (vegan)`;
     }
     if (getCuisine() != '') {
-        cuisine = ` AND (${getCuisine()})`
+        cuisine = ` AND (${getCuisine()})`;
     }
-    return veg + cuisine
+    return veg + cuisine;
 }
 
 function sendMail(contactForm) {

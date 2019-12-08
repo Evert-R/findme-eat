@@ -68,6 +68,15 @@ function searchDescription(currentPosition, searchInput) {
     }
 }
 
+function getInfoWindowPhoto(place) {
+    if (place.hasOwnProperty('photos')) { // check if a photo is available
+        let imageUri = place.photos[0].getUrl({ "maxWidth": 100 }); // get url for infowindow photo
+        return `<img src="${imageUri}"></img>`;
+    } else {
+        return '';
+    }
+}
+
 function getFirstPhoto(restaurant) {
     if (restaurant.hasOwnProperty('photos')) { // if photo exists get url
         return restaurant.photos[0].getUrl({ "maxWidth": 600, "maxHeight": 600 });
@@ -174,7 +183,7 @@ function webSite(place) {
 function latestRating(place) { // generate latest review rating width
     if (place.hasOwnProperty('reviews')) {
         return `<div class="er-reviewdetails-container" style="width:${(place.reviews[0].rating * 20).toFixed()}px">
-        </div>`
+        </div>`;
     } else {
         return '';
     }
@@ -182,7 +191,7 @@ function latestRating(place) { // generate latest review rating width
 
 function latestReviewPhoto(place) {
     if (place.hasOwnProperty('reviews')) {
-        return `<img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">`
+        return `<img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">`;
     } else {
         return '';
     }

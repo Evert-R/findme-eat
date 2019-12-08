@@ -262,6 +262,19 @@ As it will require a different and more expensive approach: a place detail searc
 - Clicked ```Find me eat . . .```
     - Taken to the front page and all buttons in the header dissapeared
 
+- Clicked ```Question mark``` in the settings panel
+    - Taken to about section
+- Filled out the form
+- pushed the ```Send message button```
+    - Saw the pre loader
+    - Got a message that my message was send
+
+- Disabled my email settings in my emailJS account    
+- Filled out the form
+- pushed the ```Send message button```
+    - Saw the pre loader
+    - Got a message that my message couldn't ne send
+
 ### Network used for review
 - Mentor sessions
 - Friends family and their mobile devices
@@ -335,3 +348,5 @@ To cut ties with this repository:
     - Convert city/region name to coordinates
 - [Google geometry library](https://developers.google.com/maps/documentation/javascript/geometry)
     - Calculate distance between the user and the restaurant
+- [EmailJS](https://www.emailjs.com)
+    - Contact Form
