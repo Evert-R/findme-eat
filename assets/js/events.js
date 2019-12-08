@@ -11,7 +11,7 @@ function switchSection(goTo) { // Navigation system
     const detailSwitch = $("#er-details-switch");
     const mapSwitch = $("#er-map-switch");
     const dirSwitch = $("#er-direction-switch");
-    const various = $("#er-various-section");
+    const about = $("#er-about-section");
 
     settings.slideUp(); // allways close settings when switching
 
@@ -19,7 +19,7 @@ function switchSection(goTo) { // Navigation system
         front.slideUp(0);
         results.slideUp(0);
         details.slideUp(0);
-        various.slideUp(0);
+        about.slideUp(0);
         resultsMap.slideUp(0);
         dirMap.slideUp(0);
         error.slideUp(0);
@@ -30,7 +30,7 @@ function switchSection(goTo) { // Navigation system
         results.slideDown(0);
         dirMap.slideUp(0); // direction map shares position with resultsmap
         details.slideDown(0);
-        various.slideUp(0);
+        about.slideUp(0);
         resultsMap.slideDown(0);
     }
 
@@ -74,6 +74,19 @@ function switchSection(goTo) { // Navigation system
         $('#er-details-reviews').slideUp(1000);
         $('#er-details-photos').slideUp(1000);
         $('#er-details-main').slideDown(1000);
+    } else if (goTo == 'about') {
+        error.slideUp(0);
+        if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
+            hideAll();
+            about.removeClass('col-md-6').slideDown(0); // correction for portrait mode
+        } else if (window.innerWidth > 768 && window.innerWidth < 1200) {
+            results.slideUp(0);
+            about.slideDown(0);
+
+        } else if (window.innerWidth > 1200) {
+            showAll();
+            about.slideDown(0);
+        }
     } else if (goTo == 'map') {
         error.slideUp(0);
         mapSwitch.slideDown(0);  // show map section switch
@@ -208,6 +221,10 @@ window.onload = function () { // attach events to dom elements
 
     $("#er-direction-switch").click(function () {
         switchSection('directions');
+    });
+
+    $("#er-about-switch").click(function () {
+        switchSection('about');
     });
 
     // add click event to geo search buttons

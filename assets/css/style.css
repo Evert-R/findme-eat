@@ -78,6 +78,23 @@ input:focus, button:focus {
     outline: 0;
 }
 
+input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input[type=text], textarea {
+    color: rgba(87, 93, 65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 2em;
+    border-radius: 0.6em;
+    background-color: rgba(255, 255, 255, 0.6)!important;
+    border-color: rgba(87, 93, 65, 0.4);
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -238,6 +255,10 @@ input:focus, button:focus {
     margin-bottom: 1.5em;
 }
 
+#er-about-switch {
+    cursor: pointer;
+}
+
 .er-header-settings p {
     text-align: right;
 }
@@ -247,11 +268,56 @@ input:focus, button:focus {
 }
 
 .er-menu-screen {
-    font-size: 2em;
+    font-size: 1.4em;
 }
 
 #er-cuisine {
     width: 100%;
+}
+
+/* ----------------------------------------About section */
+
+.er-about-text {
+    padding: 1em;
+    overflow: hidden;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+    margin-top: 2em;
+    background-color: rgba(165, 176, 118, 0.7);
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
+.er-about-text a, a:hover, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.er-contact-form {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.er-contact-form input, .er-contact-form textarea, .er-contact-form button {
+    width: 100%;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+#er-contact-response {
+    margin-top: 1em;
+    text-align: center;
+    font-weight: 900;
 }
 
 /* ----------------------------------------Wait screen */
@@ -315,23 +381,6 @@ input:focus, button:focus {
     padding-top: 1vh;
     width: 60vw;
     float: left;
-}
-
-input, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-}
-
-input[type=text] {
-    color: rgba(87, 93, 65);
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-left: 2em;
-    border-radius: 0.6em;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-color: rgba(87, 93, 65, 0.4);
-    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
 }
 
 .pac-container {
@@ -891,6 +940,13 @@ input[type=text] {
         overflow-y: scroll;
     }
     #er-details-section, #er-error-section {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 25vw;
+        overflow-y: scroll;
+    }
+    #er-about-section, #er-error-section {
         position: absolute;
         top: 0;
         bottom: 0;

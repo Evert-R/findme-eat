@@ -64,18 +64,18 @@ The main focus will be on mobile devices as its main purpose is to be used on th
 - Route description
 
 ### Code description
-```api-access.js```
-Functions to access the google places api
-```events.js```
-DOM click-events and Navigation system
-```to-screen.js```
-Push search results and details to their respective pages
-```from-screen.js```
-Get DOM values from the screen
-```process.js```
-Process results for display on the screen
-```error.js```
-Process errors and push to screen
+- ```api-access.js```
+    - Functions to access the google places api
+- ```events.js```
+    - DOM click-events and Navigation system
+- ```to-screen.js```
+    - Push search results and details to their respective pages
+- ```from-screen.js```
+    - Get DOM values from the screen
+- ```process.js```
+    - Process results for display on the screen
+- ```error.js```
+    - Process errors and push to the screen
 
 
 
@@ -117,10 +117,10 @@ As it will require a different and more expensive approach: a place detail searc
 - While getting directions with my location turned off I got the same error message as if I was trying to do a geographical search
     - Made the error handling source dependent
      
--While testing very remote regions I discovered that sometimes certain keys, like reviews / photos and addresses, were not present in the place object and then the api server would either produce an error or the page would show a broken image or undefined parameter on screen.
+- While testing very remote regions I discovered that sometimes certain keys, like reviews / photos and addresses, were not present in the place object and then the api server would either produce an error or the page would show a broken image or undefined parameter on screen.
     - Build in failsafes to first test for availabilty and in that case produce an empty string or a standard image. 
 
--While testing with manual searches I discovered it did not allways point to the right region when using a query.
+- While testing with manual searches I discovered it did not allways point to the right region when using a query.
     - Added the geocoding library to convert city/region names into coordinates so a nearby search can be used. With this method the radius parameter in the settings panel now also works for this kind of searches 
 
 - While testing 'on location' in Amsterdam I found out it was impossible to see where you are on the results-map.

@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://kit.fontawesome.com/0a931c8290.js" crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_qkYTj68MRYQKG5Zx6E8Rs");
+        })();
+    </script>
+
 </head>
 
 <body>
@@ -69,7 +76,7 @@
             </div>
 
             <div class="er-header-settings er-background er-geo-button">
-                <p>Settings :</p>
+                <p id="er-about-switch">About</p>
                 <div id="er-fullscreen-switch">
                     <span class="er-menu-screen">
                         <button>
@@ -147,7 +154,6 @@
                         </button>
                     </span>
                     <p>Radius = <span id="er-radius-value">4</span> km</p>
-                    <br>
                 </div>
             </div>
         </section>
@@ -213,9 +219,34 @@
                 <div id="direction-map"></div>
             </div>
 
-            <!-- various section -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 er-content" id="er-various-section">
-                <div class="er-content-inner" id="er-various"></div>
+            <!-- about section -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3 order-xl-2 order-md-1 er-content" id="er-about-section">
+                <div class="er-content-inner" id="er-about">
+
+                    <div class="er-about-text">
+                        <p>'Find me-eat' is a free restaurant search-app for vegetarian and vegan restaurants.</p><br>
+                        <p>Please contact us wth any questions, suggestions or thank you's ;-)</p>
+
+                        <div class="er-contact-form">
+                            <form onsubmit="return sendMail(this);">
+                                <input type="text" name="name" class="form-control" id="fullname" placeholder="Name"
+                                    required />
+                                <input type="text" name="emailaddress" class="form-control" id="emailaddress"
+                                    placeholder="Email" required />
+                                <textarea rows="5" name="usermessage" class="form-control" id="usermessage"
+                                    placeholder="Please leave us a message" required></textarea>
+                                <button type="submit" class="er-green-button">Send Message</button>
+                            </form>
+                            <div id="er-contact-response"></div>
+                        </div>
+
+                        <p>Initiated by: <a href="https://www.facebook.com/geeneierenvoorjegeldkookworkshops"
+                                target="blank" name="Goto website Geen eieren voor je geld">'Geen
+                                eieren voor je geld'</a></p>
+                        <p>Developed by: <a href="https://www.evertrot.nl" target="blank"
+                                name="Goto developers website">Evert Rot</a></p>
+                    </div>
+                </div>
             </div>
             <!-- error section -->
             <div class="col-12 col-md-6 col-lg-6 order-md-1 col-xl-3 order-xl-2 er-content" id="er-error-section">
