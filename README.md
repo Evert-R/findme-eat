@@ -1,4 +1,6 @@
-# Milestone-two
+# Find me-eat . . .
+## Find vegetarian & vegan restaurants
+### Milestone project 2
 
 ### Deployed version 
 [https://evert-r.github.io/milestone-two](https://evert-r.github.io/milestone-two)
