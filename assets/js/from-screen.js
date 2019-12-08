@@ -22,7 +22,7 @@ function getOpen() { // get only open option from settings
     }
 }
 
-function getKeyWord() { // return search keyword
+function getKeyWord() { // return search keyword from settings panel
     let veg = '';
     let cuisine = '';
     if (getVeg() == true) {
@@ -34,7 +34,7 @@ function getKeyWord() { // return search keyword
     return veg + cuisine;
 }
 
-function sendMail(contactForm) {
+function sendMail(contactForm) { // contact form handling 
     startWaitScreen();
     emailjs.send("gmx", "evert", {
         "from_name": contactForm.name.value,
@@ -47,7 +47,6 @@ function sendMail(contactForm) {
                 $("#er-contact-response").html(`<p>Your message has been send<br>Thanks for contacting us!</p>`);
             },
             function (error) {
-                console.log(error);
                 stopWaitScreen();
                 $("#er-contact-response").html(`<p>We couldn't send your message<br>Please try again later.</p>`);
             }

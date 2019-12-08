@@ -1,6 +1,3 @@
-var map; // create map variable
-var directionMap; // create directions map variable
-
 function mapOptions() { // style options for all maps
     return {
         disableDefaultUI: true,
@@ -285,7 +282,7 @@ function checkGeo(callback) { // get current location
         callback(currentPosition);
     },
         function (error) {
-            callback('NOGEO'); // if location denied show error
+            callback('NOGEO'); // if location denied return error to callback
         }
     );
 }
@@ -300,37 +297,36 @@ function geoSearch(currentPosition, location, searchInput) {
 
     if (currentPosition == 'NOGEO') {
         return logErrors('NOGEO');
-    } else if (currentPosition != 'MANUAL') {
-        location = currentPosition;
+    } else if (currentPosition != 'MANUAL') { // This indicates a manual search
+        location = currentPosition; // set location on result of checkGeo
     }
 
     var service = new google.maps.places.PlacesService(map); // Connect to the places api
-    var keyWord = 'vegetarian' +
-        service.nearbySearch( // Perform a nearby search
-            {
-                location: location,
-                radius: getRadius(),
-                type: ['restaurant'],
-                keyword: ['vegetarian' + getKeyWord()],
-                openNow: getOpen(),
-            },
-            function (results, status, pagination) {
-                if (status !== 'OK') {
-                    logErrors(status, 'place'); // push error to page
-                    return;
-                } else {
-                    moreButton(pagination);
-                    processResults(results, currentPosition, searchInput);
-                }
+    service.nearbySearch( // Perform a nearby search
+        {
+            location: location,
+            radius: getRadius(),
+            type: ['restaurant'],
+            keyword: ['vegetarian' + getKeyWord()], // get the options from settings
+            openNow: getOpen(),
+        },
+        function (results, status, pagination) {
+            if (status !== 'OK') {
+                logErrors(status, 'place'); // push error to page
+                return;
+            } else {
+                moreButton(pagination); // set the more results button
+                processResults(results, currentPosition, searchInput);
             }
-        );
+        }
+    );
 }
 
 function restaurantDetails(place_id) { // get restaurant details
     startWaitScreen(); // show preloader
     // scoll to top of the page
-    $('#er-details-section').animate({ scrollTop: 0 }, 'slow');
-    var requestDetails = { // generate search argument
+    $('#er-details-section').animate({ scrollTop: 0 }, 'slow'); // for when the page was already loaded and scrolled down
+    var requestDetails = { // generate search query
         placeId: place_id,
         fields: ['reviews', 'opening_hours', 'website', 'adr_address', 'formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'type', 'url', 'utc_offset', 'vicinity']
     };
@@ -365,14 +361,14 @@ function createMarkers(places, currentPosition) { // plot markers to the map
                             </div>
                         </div>
                         `;
-
+        // attach event to click on the marker
         infoWindowClick(marker, infoContent, infowindow, place);
         // link the info window to a click on the corresponding list item
         connectListInfoWindow(place, infowindow, marker);
         bounds.extend(place.geometry.location); // add this place to the bounds
     }
     map.fitBounds(bounds); // fit markers on the map
-    if (currentPosition != 'MANUAL') {
+    if (currentPosition != 'MANUAL') { // if loaction is known
         let currentMarker = new google.maps.Marker({ // place blue marker on current position
             map: map,
             icon: { url: "https://maps.google.com/mapfiles/ms/icons/blue-pushpin.png" },
@@ -388,7 +384,7 @@ function initDirectionMap(placeId) {
             directionMap = new google.maps.Map(document.getElementById('direction-map'), mapOptions()); // create map
             return calcRoute(placeId, currentPosition); // on succes plot route
         } else {
-            logErrors('NOGEO', 'route');
+            logErrors('NOGEO', 'route'); // start point unknown
         }
     });
 }
@@ -403,7 +399,6 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
         destination: { 'placeId': placeId },
         travelMode: getVehicle() // get transportion method from settings panel
     };
-
     directionsService.route(request, function (result, status) {
         if (status !== 'OK') {
             logErrors(status, 'route'); // show error on screen
@@ -426,3 +421,6 @@ function calcRoute(placeId, currentPosition) { // plot route on the map
         });
     });
 }
+
+var map; // create map variable
+var directionMap; // create directions map variable

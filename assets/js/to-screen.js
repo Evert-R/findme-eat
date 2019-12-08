@@ -146,7 +146,7 @@ function showRestaurantDetails(place) { // push restaurant details to the screen
             `;
 }
 
-function moreButton(pagination) {
+function moreButton(pagination) { // more results button
     // assign the more button
     var getNextPage = null;
     var moreButton = document.getElementById('more');
@@ -160,6 +160,3 @@ function moreButton(pagination) {
         pagination.nextPage();
     };
 }
-
-
-

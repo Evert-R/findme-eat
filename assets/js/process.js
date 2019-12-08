@@ -34,7 +34,7 @@ function checkSearchInput(searchInput) {
     if (searchInput == '') { // Nothing entered? -> error screen
         logErrors('NOINPUT', 'place');
     } else {
-        geoCode(searchInput); // 
+        geoCode(searchInput); // convert input to coordinates
     }
 }
 
@@ -52,17 +52,16 @@ function geoCode(searchInput) { // convert region/ciry name to coordinates
 function searchDescription(currentPosition, searchInput) {
     // search description above the results list
     let veg = '';
-    let cuisine = '';
     let open = ' ';
     if (getVeg() == true) {
         veg = ` and vegan `;
     }
     if (getOpen() == true) {
-        open = ` wich are currently open `
+        open = ` wich are currently open `;
     }
     //  prepare search argument
     if (currentPosition != 'NOGEO') {
-        return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in a ${getRadius()} meter radius around you`;
+        return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in a ${(getRadius() / 1000).toFixed(1)} kilometer radius around you`;
     } else {
         return `We searched for vegetarian ${veg} ${getCuisine()} restaurants${open}in ${searchInput} in a ${getRadius()} meter radius`;
     }
@@ -96,6 +95,7 @@ function getOpenNow(restaurant) { // generate open/closed icon
         return ``;
     }
 }
+
 function getAddress(restaurant) { // generate address string 
     if (restaurant.hasOwnProperty('vicinity')) {
         return '<i aria-hidden="true" class="fa fa-globe er-clock er-list-icon"></i><span class="sr-only">Adress of restaurant</span> ' + restaurant.vicinity;
@@ -106,11 +106,11 @@ function getAddress(restaurant) { // generate address string
     }
 }
 
-function getStarRating(restaurant) {
+function getStarRating(restaurant) { // set width for star rating
     return (restaurant.rating * 20).toFixed();
 }
 
-function getPriceLevel(restaurant) {
+function getPriceLevel(restaurant) { // set width for picelevel
     if (isNaN(restaurant.price_level) == false) {
         return (restaurant.price_level * 20).toFixed();
     } else {
@@ -118,7 +118,7 @@ function getPriceLevel(restaurant) {
     }
 }
 
-function getDistance(currentPosition, restaurant) {
+function getDistance(currentPosition, restaurant) { // calculate distance to restaurant
     if (currentPosition != 'MANUAL') {
         return (google.maps.geometry.spherical.computeDistanceBetween(currentPosition, restaurant.geometry.location) / 1000).toFixed(2) + ` km  <i aria-hidden="true" class="fa fa-walking er-clock er-list-icon"></i><span class="sr-only">distance to restaurant</span>`;
     } else {
@@ -169,7 +169,7 @@ function fullAddress(place) { // prepare full address for details page
 function webSite(place) {
     // Prepare Website icon/link
     if (place.hasOwnProperty('website')) {
-        return `<a href="${place.website}" target="blank">
+        return `<a href="${place.website}" title="goto restaurant website" target="blank">
                                     <button>
                                         <i aria-hidden="true" class="fas fa-globe"></i>                         
                                         <span class="sr-only">Goto the website</span>
@@ -189,7 +189,7 @@ function latestRating(place) { // generate latest review rating width
     }
 }
 
-function latestReviewPhoto(place) {
+function latestReviewPhoto(place) { // generate latest review photo
     if (place.hasOwnProperty('reviews')) {
         return `<img src="${place.reviews[0].profile_photo_url}" alt="Reviewers profile picture">`;
     } else {
@@ -283,4 +283,3 @@ function reviewList(place) { // prepare review list for details page
         return '';
     }
 }
-

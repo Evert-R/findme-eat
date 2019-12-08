@@ -1,7 +1,6 @@
-function logErrors(status, source) {
+function logErrors(status, source) { // error handling based on source
     stopWaitScreen(); // hide preloader
     switchSection('error');
-    console.log(status, source);
     if (source == 'route') { // errors specific to the directions api
         if ((status == 'MAX_ROUTE_LENGTH_EXCEEDED') || (status == 'ZERO_RESULTS') || (status == 'INVALID_REQUEST')) {
             return $("#er-error").html(`Sorry, but that's<br>way too far<br>to get something<br>to eat<br><br>Consider to try<br>something local ;-)<br>↓<br><button onclick="checkGeo(geoSearch)"><i aria-hidden="true" class="fab fa-sith"></i><span class="sr-only">Do a new search around you</span></button>`);

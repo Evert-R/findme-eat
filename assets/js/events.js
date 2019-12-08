@@ -34,6 +34,7 @@ function switchSection(goTo) { // Navigation system
         resultsMap.slideDown(0);
     }
 
+    // switch sections based on screen width 
     if (goTo == 'front') { // Show front page
         hideAll();
         front.slideDown();
@@ -46,6 +47,7 @@ function switchSection(goTo) { // Navigation system
     } else if (goTo == 'results') { // show results section 
         front.slideUp(0);
         error.slideUp(0);
+        // single page devices / tablets in portrait mode > 992
         if ((window.innerWidth < 768) || ((window.innerWidth > 768) && (window.innerWidth < 992) && (window.innerWidth < innerHeight))) { // target mobile & tablet-portait
             hideAll();
             searchSwitch.slideDown(0); // show result section switch
@@ -156,12 +158,8 @@ function connectListInfoWindow(place, infowindow, marker) {
 }
 
 function autoComplete() {
-    var options = {
-        types: ['cities']
-    };
     var input = document.getElementById('er-search-input');
     new google.maps.places.Autocomplete(input);
-    var geocoder = new google.maps.Geocoder();
 }
 
 function enterFullscreen() {
@@ -216,8 +214,8 @@ function stopWaitScreen() { // hide the preloader animation
     $("#er-wait-screen").addClass("d-none");
 }
 
-startWaitScreen();
-window.onload = function () { // attach events to dom elements
+startWaitScreen(); // show preloader while page loads
+window.onload = function () { // then attach events to dom elements
     this.stopWaitScreen();
 
     $(".er-header-expand").click(function () { // make headersettings fold out with click        
@@ -291,8 +289,3 @@ window.onload = function () { // attach events to dom elements
     autoComplete(); // attach autocomplete to searchbar
     switchSection('front'); // goto to start screen
 };
-
-
-
-
-

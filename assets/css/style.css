@@ -176,10 +176,6 @@ input[type=text], textarea {
 
 /* ----------------------------------------Header */
 
-.er-background {
-    background-color: rgba(165, 176, 118);
-}
-
 .er-header {
     padding-top: 0.6em;
     z-index: 23;
@@ -275,80 +271,6 @@ input[type=text], textarea {
     width: 100%;
 }
 
-/* ----------------------------------------About section */
-
-.er-about-text {
-    padding: 1em;
-    overflow: hidden;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 3em;
-    margin-top: 2em;
-    background-color: rgba(165, 176, 118, 0.7);
-    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-}
-
-.er-about-text a, a:hover, a:active {
-    text-decoration: none;
-    color: black;
-}
-
-.er-creative {
-    margin-top: 1em;
-    font-size: 0.9em;
-    font-weight: 200;
-    letter-spacing: 0.1em;
-    font-style: italic;
-}
-
-.er-contact-form {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 1.5em auto 1.5em auto;
-    width: 80%;
-}
-
-.er-contact-form input, .er-contact-form textarea, .er-contact-form button {
-    width: 100%;
-    color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1em;
-}
-
-.er-contact-form button {
-    background-color: rgba(165, 176, 118);
-    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
-}
-
-#er-contact-response {
-    margin-top: 1em;
-    text-align: center;
-    font-weight: 900;
-}
-
-/* ----------------------------------------Wait screen */
-
-.er-wait {
-    text-align: center;
-    width: 100vw;
-    position: fixed;
-    top: 50%;
-    left: 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    z-index: 2020;
-}
-
-.er-wait img {
-    width: 33%;
-}
-
 /* ----------------------------------------Footer Searchbar */
 
 .er-footer {
@@ -372,17 +294,14 @@ input[type=text], textarea {
 }
 
 .er-footer button {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 10vw;
-}
-
-.er-footer button {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
     font-size: 3.5em;
     line-height: 1.2em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 10vw;
 }
 
 .er-footer-button {
@@ -420,10 +339,13 @@ input[type=text], textarea {
 
 .pac-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    ;
 }
 
 /* ----------------------------------------Sections */
+
+.er-background {
+    background-color: rgba(165, 176, 118);
+}
 
 .er-content {
     width: 100%;
@@ -503,7 +425,6 @@ input[type=text], textarea {
     font-size: 2em;
     text-align: center;
     color: rgba(0, 0, 0, 0.9);
-    ;
 }
 
 .er-more {
@@ -860,6 +781,80 @@ input[type=text], textarea {
     width: 65px;
 }
 
+/* ----------------------------------------About section */
+
+.er-about-text {
+    padding: 1em;
+    overflow: hidden;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+    margin-top: 2em;
+    background-color: rgba(165, 176, 118, 0.7);
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
+.er-about-text a, a:hover, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.er-creative {
+    margin-top: 1em;
+    font-size: 0.9em;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    font-style: italic;
+}
+
+.er-contact-form {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1.5em auto 1.5em auto;
+    width: 80%;
+}
+
+.er-contact-form input, .er-contact-form textarea, .er-contact-form button {
+    width: 100%;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+.er-contact-form button {
+    background-color: rgba(165, 176, 118);
+    -webkit-box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+    box-shadow: 7px 7px 2px -1px rgba(87, 93, 65, 0.3);
+}
+
+#er-contact-response {
+    margin-top: 1em;
+    text-align: center;
+    font-weight: 900;
+}
+
+/* ----------------------------------------Wait screen */
+
+.er-wait {
+    text-align: center;
+    width: 100vw;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 2020;
+}
+
+.er-wait img {
+    width: 33%;
+}
+
 /* ----------------------------------------Error section */
 
 #er-error-section {
@@ -923,7 +918,7 @@ input[type=text], textarea {
     }
 }
 
-/* --------------------------768 - lg (portrait-tablet) */
+/* --------------------------768 - md (portrait-tablet) */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 992px) and (orientation: portrait) {
     body {
