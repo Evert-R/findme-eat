@@ -1,8 +1,8 @@
 # Find me-eat . . .
 ## Find vegetarian & vegan restaurants
-### Milestone project 2
+### Milestone project 2 for Code Institute
 
-### Deployed version 
+#### Deployed version 
 [https://evert-r.github.io/milestone-two](https://evert-r.github.io/milestone-two)
 
 ## UX
