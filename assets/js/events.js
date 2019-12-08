@@ -162,32 +162,6 @@ function autoComplete() {
     new google.maps.places.Autocomplete(input);
 }
 
-function enterFullscreen() {
-    if (document.documentElement.fullscreenEnabled == true) {
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
-            document.documentElement.msRequestFullscreen();
-        }
-    }
-}
-
-function exitFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozExitFullScreen) { /* Firefox */
-        document.mozExitFullScreen();
-    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE/Edge */
-        document.msExitFullscreen();
-    }
-}
-
 function showPhotos() { // show photos on details page
     $('#er-details-main').slideUp(1000);
     $('#er-details-photos').slideDown(1000);
