@@ -82,7 +82,8 @@ The main focus will be on mobile devices as its main purpose is to be used on th
 As it will require a different and more expensive approach: a place detail search for every found restaurant, this will be handled in the next version (octobre 2020). For now a failsafe is implemented: if the key doesn't exist it will simply not show the open or closed sign. You can allways search for restaurants that are open now via the settings. 
 
 ### Found & fixed issues
-
+- While letting other people try the page on their mobile phone I found out that people were clkicking the map and resultslist before it was completely loaded
+    - I implemented a pre-loader animation so users can see that the page is busy loading
 
 - While getting directions with my location turned off I got the same error message as if I was trying to do a geographical search
     - I made the error handling source dependent
@@ -116,6 +117,28 @@ As it will require a different and more expensive approach: a place detail searc
 - Samsung Galaxy tab Pro (SM-T325)
 
 ### Users
+
+### Test stories
+- Opened the page
+- Pushed the geographical search button on the front screen
+    - Found restaurants in a 4000 meter radius around me
+- Pushed the settings icon in the header
+- Selected 10km on the radius slider
+- Pushed the geographical searchbutton next to it
+    - Found more restaurants in a wider area
+- Selected 'vegan' in the settings menu
+- Pushed the geographical searchbutton
+    - Found less restaurants that met the criteria    
+- Selected 'Greek cuisine' in the settings menu
+- Pushed the geographical searchbutton
+    - Found only 3 restaurants
+- Selected 'Now open' from the settings menu
+- Pushed the geographical searchbutton
+    - Got the message that nothing was found and I had to adjust my settings
+- Turned off my location
+- Opened the page
+- Pushed the geographical search button on the front screen
+    - Got the message that my location is unknown and I have to make a manual search
 
 ### Network used for review
 - Mentor sessions
