@@ -67,28 +67,21 @@
                     Find vegetarian / vegan restaurants
                 </div>
                 <div class="er-header-switch">
-                    <i aria-hidden="true" class="fa fa-cogs"></i>
+                    <span>Options</span>
+
+                    <i aria-hidden="true" class="fas fa-angle-down" id="er-drop-down"></i>
+
                     <span class="sr-only">Open settings panel</span>
                 </div>
             </div>
-            <div class="er-header-settings er-background er-geo-button">
-                <div id="er-fullscreen-switch">
-                    <span class="er-menu-screen">
-                        <button>
-                            <i aria-hidden="true" class="fa fa-expand-arrows-alt"></i>
-                            <span class="sr-only">Enter fullscreen mode</span>
-                        </button>
-                    </span>
-                    Fullscreen
+            <div class="er-header-settings er-background">
+                <div class="er-settings-button text-right" id="er-fullscreen-switch">
+                    <i aria-hidden="true" class="fa fa-expand-arrows-alt"></i>
+                    <span class="sr-only">Enter fullscreen mode</span>
                 </div>
-                <div id="er-exit-switch">
-                    <span class="er-menu-screen">
-                        <button>
-                            <i aria-hidden="true" class="fa fa-compress-arrows-alt"></i>
-                            <span class="sr-only">Exit fullscreen mode</span>
-                        </button>
-                    </span>
-                    Exit fullscreen
+                <div class="er-settings-button text-right" id="er-exit-switch">
+                    <i aria-hidden=true" class="fa fa-compress-arrows-alt"></i>
+                    <span class="sr-only">Exit fullscreen mode</span>
                 </div>
                 <div>
                     <h4>Cuisine :</h4><br>
@@ -108,6 +101,7 @@
                     </select>
                 </div>
                 <div>
+                    <h4>Options :</h4><br>
                     <input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian" checked>
                     <label for="vegetarian">
                         Vegetarian<br>
@@ -125,7 +119,7 @@
                 </div>
 
                 <div>
-                    <h4>Directions :</h4><br>
+                    <h4>Get directions :</h4><br>
                     <input type="radio" name="er-travel" id="walking" class="er-sort" value="WALKING" checked>
                     <label for="walking">
                         On foot
@@ -140,21 +134,21 @@
                     </label><br><br>
                 </div>
                 <div>
-                    <h4>Search around you :</h4>
+                    <h4>Search this area :</h4>
                     <input type="range" min="1000" max="10000" value="4000" class="er-radius-slider" id="er-radius">
-                    <span class="er-menu-search" id="er-menu-location">
-                        <button>
-                            <i aria-hidden="true" class="fab fa-sith"></i>
-                            <span class="sr-only">Do a search around you</span>
-                        </button>
+                    <span class="er-settings-button er-menu-search" id="er-menu-location">
+
+                        <i aria-hidden="true" class="fab fa-sith"></i>
+                        <span class="sr-only">Do a search around you</span>
+
                     </span>
                     <p>Radius = <span id="er-radius-value">4</span> km</p>
                 </div>
-                <span class="er-menu-screen" id="er-about-switch">
-                    <button>
-                        <i aria-hidden="true" class="fa fa-question-circle"></i>
-                        <span class="sr-only">About and contact</span>
-                    </button>
+                <span class="er-settings-button" id="er-about-switch">
+
+                    <i aria-hidden="true" class="fa fa-question-circle"></i>
+                    <span class="sr-only">About and contact</span>
+
                 </span>
             </div>
         </section>
@@ -171,21 +165,20 @@
 
             <!-- frontpage section -->
             <div class="col-12 order-sm-1 er-content" id="er-front-section">
-                <div class="er-content-inner er-geo-button">
-                    <br>
-                    <div class="er-front-text">Give a tap here . . .</div>
-                    <div class="er-front-text">↓</div>
-                    <div id="er-location-front">
-                        <button>
+                <div class="er-content-inner">
+                    <div class="er-front-wrap">
+                        <div class="er-front-text">Search your Area</div>
+                        <div class="er-front-text">↓</div>
+
+                        <div class="er-geo-button" id="er-location-front">
                             <i aria-hidden="true" class="fab fa-sith"></i>
                             <span class="sr-only">Do a search around you</span>
-                        </button>
+                        </div>
+
+
+                        <div class="er-front-text">Search Worldwide</div>
+                        <div class="er-front-text">↓</div>
                     </div>
-                    <div class="er-front-text">to search 4 a restaurant</div>
-                    <div class="er-front-text">out there . . . </div>
-                    <div class="er-front-text">or search in another city</div>
-                    <div class="er-front-text">down here . . .</div><br>
-                    <div class="er-front-text">↓</div>
                 </div>
             </div>
 
@@ -224,25 +217,22 @@
                 <div class="er-content-inner" id="er-about">
 
                     <div class="er-about-text">
-                        <p>'Find me-eat' is a free restaurant search-app for vegetarian and vegan restaurants.</p><br>
-                        <p>Please contact us wth any questions, suggestions or thank you's ;-)</p>
-                        <div class="er-contact-form">
-                            <form onsubmit="return sendMail(this);">
-                                <input type="text" name="name" class="form-control" id="fullname" placeholder="Name"
-                                    required />
-                                <input type="text" name="emailaddress" class="form-control" id="emailaddress"
-                                    placeholder="Email" required />
-                                <textarea rows="5" name="usermessage" class="form-control" id="usermessage"
-                                    placeholder="Please leave us a message" required></textarea>
-                                <button type="submit">Send Message</button>
-                            </form>
-                            <div id="er-contact-response"></div>
-                        </div>
-                        <p>Initiated by: <a href="https://www.facebook.com/geeneierenvoorjegeldkookworkshops"
-                                target="blank" title="Goto website Geen eieren voor je geld">'Geen
-                                eieren voor je geld'</a></p>
-                        <p>Developed by: <a href="https://www.linkedin.com/in/evert-rot-a33141186" target="blank"
-                                title="Goto developers Linkedin profile">Evert Rot</a></p>
+                        <h2>Find me-eat . . .</h2>
+                        <p class="text-left">A free to use restaurant search-app for vegetarian and vegan restaurants,
+                            to be used at any
+                            moment and at any location, as long it's on this earth.</p>
+                        <p class="text-left">This javascript based web-app uses the google map's places database to
+                            always contain the
+                            latest changes and additions.</p><br>
+                        <p>Coded by: <a href="https://www.evertrot.nl" target="blank"
+                                title="Goto developers website">Evert Rot</a></p><br>
+                        <p class="text-left">Please contact me with any questions you may have, or projects you would
+                            want me to work on.</p>
+                        <br>
+                        <p class="text-right"><a href="https://www.evertrot.nl" target="blank"
+                                title="Goto developers website">www.evertrot.nl</a></p>
+                        <p class="text-right"><a href="mailto:evert.rot@gmx.com" title="e-mail me">E-mail me</a></p>
+                        <br>
                         <p class="er-creative">Creative Commons BY-NC-SA</p>
                     </div>
                 </div>
@@ -250,7 +240,7 @@
             <!-- error section -->
             <div class="col-12 col-md-6 col-lg-6 order-md-1 col-xl-3 order-xl-2 er-content" id="er-error-section">
                 <div class="er-content-inner">
-                    <div class="er-geo-button" id="er-error">
+                    <div id="er-error">
                     </div>
                 </div>
             </div>
@@ -258,18 +248,26 @@
     </main>
 
     <!-- footer searchbar -->
-    <footer class="row no-gutters er-background er-footer er-geo-button">
+    <footer class="row no-gutters er-background er-footer">
         <form onsubmit="return false;" method="post" name="myForm">
-            <div class="er-search-bar">
-                <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat ?"
-                    value="" />
+            <div class="row">
+                <div class="col-9">
+                    <div class="er-search-bar">
+                        <input type="text" name="er-search-input" id="er-search-input" placeholder="Where do you eat ?"
+                            value="" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="er-settings-button er-footer-button" id="er-search-button">
+
+                        <i aria-hidden="true" class="fab fa-sith"></i>
+                        <span class="sr-only">Do a manual search</span>
+
+                    </div>
+                </div>
             </div>
-            <div class="er-footer-button">
-                <button type="submit" name="GO" id="er-search-button">
-                    <i aria-hidden="true" class="fab fa-sith"></i>
-                    <span class="sr-only">Do a manual search</span>
-                </button>
-            </div>
+
+
 
         </form>
     </footer>
@@ -285,7 +283,7 @@
         crossorigin="anonymous"></script>
 
     <script
-        src="https://maps.googleapis.com/maps/api/js?&libraries=places,geometry&key=AIzaSyBvX8IlqhZmWM6jK2aL0sDwuKgYPIHqpKE"
+        src="https://maps.googleapis.com/maps/api/js?&libraries=places,geometry&key=AIzaSyCOAEDy6UoCrwa5ehMrhSjVaWksbGBsfbg"
         async defer></script>
     <script src="assets/js/api-access.js"></script>
     <script src="assets/js/process.js"></script>

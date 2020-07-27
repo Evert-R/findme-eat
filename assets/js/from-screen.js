@@ -34,22 +34,3 @@ function getKeyWord() { // return search keyword from settings panel
     return veg + cuisine;
 }
 
-function sendMail(contactForm) { // contact form handling 
-    startWaitScreen();
-    emailjs.send("gmx", "evert", {
-        "from_name": contactForm.name.value,
-        "from_email": contactForm.emailaddress.value,
-        "user_message": contactForm.usermessage.value
-    })
-        .then(
-            function (response) {
-                stopWaitScreen();
-                $("#er-contact-response").html(`<p>Your message has been send<br>Thanks for contacting us!</p>`);
-            },
-            function (error) {
-                stopWaitScreen();
-                $("#er-contact-response").html(`<p>We couldn't send your message<br>Please try again later.</p>`);
-            }
-        );
-    return false;  // To block from loading a new page
-}

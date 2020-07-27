@@ -218,6 +218,7 @@ window.onload = function () { // then attach events to dom elements
     });
 
     $("#er-about-switch").click(function () {
+        $('#er-drop-down').removeClass('er-up');
         switchSection('about');
     });
 
@@ -226,12 +227,14 @@ window.onload = function () { // then attach events to dom elements
         checkGeo(geoSearch);
     });
     $("#er-menu-location").click(function () {
+        $('#er-drop-down').removeClass('er-up');
         checkGeo(geoSearch);
     });
 
     // add click event to fullscreen buttons
     $("#er-fullscreen-switch").click(function () {
         $(".er-header-settings").slideUp();
+        $('#er-drop-down').removeClass('er-up');
         $("#er-exit-switch").slideDown(0);
         $("#er-fullscreen-switch").slideUp(0);
         enterFullscreen();
@@ -239,6 +242,7 @@ window.onload = function () { // then attach events to dom elements
 
     $("#er-exit-switch").click(function () {
         $(".er-header-settings").slideUp();
+        $('#er-drop-down').removeClass('er-up');
         $("#er-exit-switch").slideUp(0);
         $("#er-fullscreen-switch").slideDown(0);
         exitFullscreen();
@@ -257,6 +261,24 @@ window.onload = function () { // then attach events to dom elements
     $("#er-title").click(function () { // attach page title 
         switchSection('front');
     });
+
+    // make dropdown arrow rotate
+    $('.er-header-switch').click(function () {
+        $('#er-drop-down').toggleClass('er-up');
+    })
+
+    // Slide up options panel when clicked outside menu
+
+    $('.er-content').click(function () {
+        $(".er-header-settings").slideUp();
+        $('#er-drop-down').removeClass('er-up');
+    })
+
+    $('footer').click(function () {
+        $(".er-header-settings").slideUp();
+        $('#er-drop-down').removeClass('er-up');
+    })
+
 
     initMap(); // initialize the map
     google.maps.event.addDomListener(window, 'load', autoComplete); // start autocomplete 
